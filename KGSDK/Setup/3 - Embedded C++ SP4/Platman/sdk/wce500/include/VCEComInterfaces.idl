@@ -1,0 +1,657 @@
+/*==================================================================
+	File:		VCEComInterfaces.idl
+	
+	Contains:	Definition of VirtualCE's COM interfaces.
+	
+				This file is compiled by the MIDL.exe tool
+				to create the C/C++ header files, code for
+				building the marshalling DLL, and the
+				type library (VCEComInterfaces.tlb)
+				
+	Written by:	Jake Hoelter
+	
+	Copyright:	2001 Connectix Corporation
+==================================================================*/
+
+import "oaidl.idl";		// Standard types
+import "ocidl.idl";
+
+cpp_quote( "const ULONG kVCETypeLibrary_MajorVersion = 1;" )
+cpp_quote( "const ULONG kVCETypeLibrary_MinorVersion = 0;" )
+
+
+/*------------------------------------------------------------------
+	IDMATransportCompletionSink interface.
+	
+------------------------------------------------------------------*/
+[
+	object,
+	uuid(AC6A6347-ECE0-46c1-B668-9DF3A17153C8),
+	helpstring("IDMATransportCompletionSink Interface"),
+	pointer_default(unique)
+]
+
+// {AC6A6347-ECE0-46c1-B668-9DF3A17153C8}
+//	DEFINE_GUID(<<name>>,0xac6a6347, 0xece0, 0x46c1, 0xb6, 0x68, 0x9d, 0xf3, 0xa1, 0x71, 0x53, 0xc8);
+
+interface IDMATransportCompletionSink : IUnknown
+{
+	HRESULT CompletionCallback( 
+		[in] DWORD	stage );
+};
+
+/*------------------------------------------------------------------
+	IEmulatorVirtualMachineManager interface.
+	
+	This interface allows the caller to manipulate virtual machines
+	within VirtualCE. It effectively replaces the standard
+	VirtualPC configuration dialog with a programmatic interface.
+	
+	It is used by Microsoft's CE Platform Builder tools to
+	control the virtual machines.
+------------------------------------------------------------------*/
+[
+	object,
+	uuid(71D756A3-B729-472b-9C90-12F393A9BFF8),
+	helpstring("IEmulatorVirtualMachineManager Interface"),
+	pointer_default(unique)
+]
+
+interface IEmulatorVirtualMachineManager : IUnknown
+{
+	[ helpstring("Gets count of all virtual machines available (running or not)") ]
+	HRESULT GetVirtualMachineCount(
+		[out, retval] ULONG* numberOfVMs );
+	
+	[ helpstring("Gets array of GUIDs of all virtual machines available (running or not)") ]
+	HRESULT EnumerateVirtualMachines(
+		[in, out] ULONG* numberOfVMs,
+		[out, size_is(*numberOfVMs)] GUID virtualMachineID[] );
+	
+	[ helpstring("Tests if a virtual machine is running or not, returns error if unknown machine ID") ]
+	HRESULT IsVirtualMachineRunning(
+		[in]  		  GUID*		virtualMachineID,
+		[out, retval] boolean*	isRunning );
+		
+	[ helpstring("Resets a virtual machine, either a hard or soft reset") ]
+	HRESULT ResetVirtualMachine(
+		[in] GUID*		virtualMachineID,
+		[in] boolean	hardReset );
+	
+	[ helpstring("Starts a new virtual machine using command line parameters") ]
+	HRESULT CreateVirtualMachine(
+		[in] LPOLESTR	commandLine );
+	
+	[ helpstring("Starts a new virtual machine using command line parameters and installs a callback for DMA transport completion routine") ]
+	HRESULT CreateVirtualMachineWithTransportCompletion(
+		[in] LPOLESTR						commandLine,
+		[in]IDMATransportCompletionSink*	completionSink,
+		[in] DWORD 							dmaTransportCompletionRoutineIdentifier ); // IRQ of desired DMA channel
+		
+	[ helpstring("Shuts down a virtual machine, optionally saving the state") ]
+	HRESULT ShutdownVirtualMachine(
+		[in] GUID*		virtualMachineID,
+		[in] boolean	saveMachine );
+	
+	[ helpstring("Restores a previously saved virtual machine") ]
+	HRESULT RestoreVirtualMachine(
+		[in] GUID*		virtualMachineID );
+		
+	[ helpstring("Restores a previously saved virtual machine and installs a callback for DMA transport completion routine") ]
+	HRESULT RestoreVirtualMachineWithTransportCompletion(
+		[in] GUID*							virtualMachineID,
+		[in]IDMATransportCompletionSink*	completionSink,
+		[in] DWORD 							dmaTransportCompletionRoutineIdentifier ); // IRQ of desired DMA channel
+	
+	[ helpstring("Deletes a previously saved virtual machine") ]
+	HRESULT DeleteVirtualMachine(
+		[in] GUID*		virtualMachineID );
+	
+	[ helpstring("Returns the name of a virtual machine") ]
+	HRESULT GetVirtualMachineName(
+		[in]  GUID*		virtualMachineID,
+		[out] LPOLESTR*	virtualMachineName );
+	
+	[ helpstring("Sets the name of a virtual machine") ]
+	HRESULT SetVirtualMachineName(
+		[in] GUID*		virtualMachineID,
+		[in] LPOLESTR	virtualMachineName );
+		
+	[ helpstring("Un-installs a callback for DMA transport completion routine.") ]
+	HRESULT UninstallVirtualMachineDMATransportCompletionRoutine (
+		[in] GUID*		inVirtualMachineID,
+		[in] DWORD 		inId ); // IRQ of desired DMA channel
+	
+	[ helpstring("Bring a VM Window to be frontmost") ]
+	HRESULT BringVirtualMachineToFront(
+		[in] GUID*		virtualMachineID );
+		
+	HRESULT VirtualMachineManagerVersion(
+	[out]DWORD* version );
+
+};
+
+
+/*------------------------------------------------------------------
+	IEmulatorVirtualTransportSink interface.
+	
+	This is used as a callback by the IEmulatorVirtualTransport
+	interface. The IEmulatorVirtualTransport object
+	will call this sink when data is available.
+------------------------------------------------------------------*/
+[
+	object,
+	uuid(6747A265-2720-4c36-B778-51CD2D10524A),
+	helpstring("IEmulatorVirtualTransportSink Interface"),
+	pointer_default(unique)
+]
+
+interface IEmulatorVirtualTransportSink : IUnknown
+{
+	HRESULT ReceiveData(
+		[in]					 ULONG	transportID,
+		[in, size_is(byteCount)] const BYTE* dataBuffer,
+		[in]					 USHORT	byteCount );
+};
+
+
+/*------------------------------------------------------------------
+	IEmulatorVirtualTransport interface.
+	
+	This interface provides the connection to the kernel
+	independent transport layer (KITL) to allow the Windows CE
+	kernel to talk to Microsoft's Windows CE Platform Builder
+	development tool. It will connect to a virtual transport
+	device in the emulator.
+	
+	If a CE kernel is built with the emulator's kitl (a part
+	of the HAL that knows how to talk to this virtual
+	transport device), then the CE kernel can be debugged
+	using Platform Builder.
+	
+	The bottom layer transport interface to Platform Builder
+	is exposed as a .DLL interface rather than a COM
+	interface, unfortunately. This interface mirrors the .dll
+	transport interface, and the .dll simply passes calls
+	through to this COM interface.
+------------------------------------------------------------------*/
+[
+	object,
+	uuid(F3D1162F-B815-4ae4-8C86-DC4A95FB3882),
+	helpstring("IEmulatorVirtualTransport Interface"),
+	pointer_default(unique)
+]
+
+interface IEmulatorVirtualTransport : IUnknown
+{
+	HRESULT Initialize();
+	
+	HRESULT TearDown();
+	
+	[ helpstring("Creates a new transport channel.") ]
+	HRESULT Create(
+		[in]  GUID*			virtualMachineID,
+		[in]  ULONG			dmaChannel,
+		[out] ULONG*		transportID );
+	
+	[ helpstring("Deletes a transport channel.") ]
+	HRESULT Delete(
+		[in] ULONG transportID );
+	
+	[ helpstring("Installs a callback for data receiving.") ]
+	HRESULT Advise(
+		[in]  IEmulatorVirtualTransportSink*	transportSink );
+	
+	[ helpstring("Sends data across the transport.") ]
+	HRESULT Send(
+		[in]					 ULONG	transportID,
+		[in, size_is(byteCount)] const BYTE* dataBuffer,
+		[in]					 USHORT	byteCount,
+		[in]					 ULONG	timeout );
+		
+	[ helpstring("Polls for data received from the transport, only works if datasink hasn't been installed.") ]
+	HRESULT Receive(
+		[in]					   ULONG    transportID,
+		[out, size_is(*byteCount), length_is(*byteCount)] BYTE*   dataBuffer,
+		[in, out]				   USHORT* byteCount,
+		[in]					   ULONG   timeout );
+	
+	[ helpstring("Indicates which virtual machine a transport should be talking to.") ]
+	HRESULT SetVirtualMachineIDForTransport(
+		[in] ULONG		transportID,
+		[in] GUID*		virtualMachineID );
+};
+
+#if 0
+
+/*------------------------------------------------------------------
+	IVirtualMachineManagerPB interface.
+	
+	This interface allows the caller to manipulate virtual machines
+	within VirtualCE. It effectively replaces the standard
+	VirtualPC configuration dialog with a programmatic interface.
+	
+	It is used by Microsoft's CE Platform Builder tools to
+	control the virtual machines.
+------------------------------------------------------------------*/
+[
+	object,
+	uuid(D057809F-CB63-4c28-A7E7-83A0E3E9F57C),
+	helpstring("IVirtualMachineManagerPB Interface"),
+	pointer_default(unique)
+]
+interface IVirtualMachineManagerPB : IUnknown
+{
+	[ helpstring("Gets count of all virtual machines available (running or not)") ]
+	HRESULT GetVirtualMachineCount(
+		[out, retval] ULONG* numberOfVMs );
+	
+	[ helpstring("Gets array of GUIDs of all virtual machines available (running or not)") ]
+	HRESULT EnumerateVirtualMachines(
+		[in, out] ULONG* numberOfVMs,
+		[out, size_is(*numberOfVMs)] GUID virtualMachineID[] );
+	
+	[ helpstring("Tests if a virtual machine is running or not, returns error if unknown machine ID") ]
+	HRESULT IsVirtualMachineRunning(
+		[in]  		  GUID*		virtualMachineID,
+		[out, retval] boolean*	isRunning );
+	
+	[ helpstring("Resets a virtual machine, either a hard or soft reset") ]
+	HRESULT ResetVirtualMachine(
+		[in] GUID*		virtualMachineID,
+		[in] boolean	hardReset );
+	
+	[ helpstring("Starts a new virtual machine using command line parameters") ]
+	HRESULT CreateVirtualMachine(
+		[in] LPOLESTR	commandLine );
+	
+	[ helpstring("Shuts down a virtual machine, optionally saving the state") ]
+	HRESULT ShutdownVirtualMachine(
+		[in] GUID*		virtualMachineID,
+		[in] boolean	saveMachine );
+	
+	[ helpstring("Restores a previously saved virtual machine") ]
+	HRESULT RestoreVirtualMachine(
+		[in] GUID*		virtualMachineID );
+	
+	[ helpstring("Deletes a previously saved virtual machine") ]
+	HRESULT DeleteVirtualMachine(
+		[in] GUID*		virtualMachineID );
+	
+	[ helpstring("Returns the name of a virtual machine") ]
+	HRESULT GetVirtualMachineName(
+		[in]  GUID*		virtualMachineID,
+		[out] LPOLESTR*	virtualMachineName );
+	
+	[ helpstring("Sets the name of a virtual machine") ]
+	HRESULT SetVirtualMachineName(
+		[in] GUID*		virtualMachineID,
+		[in] LPOLESTR	virtualMachineName );
+};
+
+
+/*------------------------------------------------------------------
+	IVirtualTransportSinkPB interface.
+	
+	This is used as a callback by the IVirtualTransport
+	interface. The IVirtualTransport object
+	will call this sink when data is available.
+------------------------------------------------------------------*/
+[
+	object,
+	uuid(80D16A14-1241-4539-B937-651821A4C9D7),
+	helpstring("IVirtualTransportSinkPB Interface"),
+	pointer_default(unique)
+]
+interface IVirtualTransportSinkPB : IUnknown
+{
+	HRESULT ReceiveData(
+		[in]					 ULONG	transportID,
+		[in, size_is(byteCount)] const BYTE* dataBuffer,
+		[in]					 USHORT	byteCount );
+};
+
+
+/*------------------------------------------------------------------
+	IVirtualTransportPB interface.
+	
+	This interface provides the connection to the kernel
+	independent transport layer (KITL) to allow the Windows CE
+	kernel to talk to Microsoft's Windows CE Platform Builder
+	development tool. It will connect to a virtual transport
+	device in the emulator.
+	
+	If a CE kernel is built with the emulator's kitl (a part
+	of the HAL that knows how to talk to this virtual
+	transport device), then the CE kernel can be debugged
+	using Platform Builder.
+	
+	The bottom layer transport interface to Platform Builder
+	is exposed as a .DLL interface rather than a COM
+	interface, unfortunately. This interface mirrors the .dll
+	transport interface, and the .dll simply passes calls
+	through to this COM interface.
+------------------------------------------------------------------*/
+[
+	object,
+	uuid(5428171D-2047-4877-BF99-7E267567F3A8),
+	helpstring("IVirtualTransportPB Interface"),
+	pointer_default(unique)
+]
+interface IVirtualTransportPB : IUnknown
+{
+	HRESULT Initialize();
+	
+	HRESULT TearDown();
+	
+	[ helpstring("Creates a new transport channel.") ]
+	HRESULT Create(
+		[in]  GUID*			virtualMachineID,
+		[in]  ULONG			dmaChannel,
+		[out] ULONG*		transportID );
+	
+	[ helpstring("Deletes a transport channel.") ]
+	HRESULT Delete(
+		[in] ULONG transportID );
+	
+	[ helpstring("Installs a callback for data receiving.") ]
+	HRESULT Advise(
+		[in]  IVirtualTransportSinkPB*	transportSink );
+	
+	[ helpstring("Sends data across the transport.") ]
+	HRESULT Send(
+		[in]					 ULONG	transportID,
+		[in, size_is(byteCount)] const BYTE* dataBuffer,
+		[in]					 USHORT	byteCount,
+		[in]					 ULONG	timeout );
+		
+	[ helpstring("Polls for data received from the transport, only works if datasink hasn't been installed.") ]
+	HRESULT Receive(
+		[in]					   ULONG    transportID,
+		[out, size_is(*byteCount), length_is(*byteCount)] BYTE*   dataBuffer,
+		[in, out]				   USHORT* byteCount,
+		[in]					   ULONG   timeout );
+	
+	[ helpstring("Indicates which virtual machine a transport should be talking to.") ]
+	HRESULT SetVirtualMachineIDForTransport(
+		[in] ULONG		transportID,
+		[in] GUID*		virtualMachineID );
+};
+
+
+/*------------------------------------------------------------------
+	IVirtualMachineManagerVS interface.
+	
+	This interface allows the caller to manipulate virtual machines
+	within VirtualCE. It effectively replaces the standard
+	VirtualPC configuration dialog with a programmatic interface.
+	
+	It is used by Microsoft's CE Platform Builder tools to
+	control the virtual machines.
+------------------------------------------------------------------*/
+[
+	object,
+	uuid(32C39948-D4BA-48d0-890A-CFA276F84ADC),
+	helpstring("IVirtualMachineManagerVS Interface"),
+	pointer_default(unique)
+]
+interface IVirtualMachineManagerVS : IUnknown
+{
+	[ helpstring("Gets count of all virtual machines available (running or not)") ]
+	HRESULT GetVirtualMachineCount(
+		[out, retval] ULONG* numberOfVMs );
+	
+	[ helpstring("Gets array of GUIDs of all virtual machines available (running or not)") ]
+	HRESULT EnumerateVirtualMachines(
+		[in, out] ULONG* numberOfVMs,
+		[out, size_is(*numberOfVMs)] GUID virtualMachineID[] );
+	
+	[ helpstring("Tests if a virtual machine is running or not, returns error if unknown machine ID") ]
+	HRESULT IsVirtualMachineRunning(
+		[in]  		  GUID*		virtualMachineID,
+		[out, retval] boolean*	isRunning );
+	
+	[ helpstring("Resets a virtual machine, either a hard or soft reset") ]
+	HRESULT ResetVirtualMachine(
+		[in] GUID*		virtualMachineID,
+		[in] boolean	hardReset );
+	
+	[ helpstring("Starts a new virtual machine using command line parameters") ]
+	HRESULT CreateVirtualMachine(
+		[in] LPOLESTR	commandLine );
+	
+	[ helpstring("Shuts down a virtual machine, optionally saving the state") ]
+	HRESULT ShutdownVirtualMachine(
+		[in] GUID*		virtualMachineID,
+		[in] boolean	saveMachine );
+	
+	[ helpstring("Restores a previously saved virtual machine") ]
+	HRESULT RestoreVirtualMachine(
+		[in] GUID*		virtualMachineID );
+	
+	[ helpstring("Deletes a previously saved virtual machine") ]
+	HRESULT DeleteVirtualMachine(
+		[in] GUID*		virtualMachineID );
+	
+	[ helpstring("Returns the name of a virtual machine") ]
+	HRESULT GetVirtualMachineName(
+		[in]  GUID*		virtualMachineID,
+		[out] LPOLESTR*	virtualMachineName );
+	
+	[ helpstring("Sets the name of a virtual machine") ]
+	HRESULT SetVirtualMachineName(
+		[in] GUID*		virtualMachineID,
+		[in] LPOLESTR	virtualMachineName );
+};
+
+
+/*------------------------------------------------------------------
+	IVirtualTransportSinkVS interface.
+	
+	This is used as a callback by the IVirtualTransport
+	interface. The IVirtualTransport object
+	will call this sink when data is available.
+------------------------------------------------------------------*/
+[
+	object,
+	uuid(8FC020EC-38C5-43fd-81E0-B9238B42303E),
+	helpstring("IVirtualTransportSinkVS Interface"),
+	pointer_default(unique)
+]
+interface IVirtualTransportSinkVS : IUnknown
+{
+	HRESULT ReceiveData(
+		[in]					 ULONG	transportID,
+		[in, size_is(byteCount)] const BYTE* dataBuffer,
+		[in]					 USHORT	byteCount );
+};
+
+
+/*------------------------------------------------------------------
+	IVirtualTransportVS interface.
+	
+	This interface provides the connection to the kernel
+	independent transport layer (KITL) to allow the Windows CE
+	kernel to talk to Microsoft's Windows CE Platform Builder
+	development tool. It will connect to a virtual transport
+	device in the emulator.
+	
+	If a CE kernel is built with the emulator's kitl (a part
+	of the HAL that knows how to talk to this virtual
+	transport device), then the CE kernel can be debugged
+	using Platform Builder.
+	
+	The bottom layer transport interface to Platform Builder
+	is exposed as a .DLL interface rather than a COM
+	interface, unfortunately. This interface mirrors the .dll
+	transport interface, and the .dll simply passes calls
+	through to this COM interface.
+------------------------------------------------------------------*/
+[
+	object,
+	uuid(553764E3-4E8B-445d-B116-9B90FDA76CC7),
+	helpstring("IVirtualTransportVS Interface"),
+	pointer_default(unique)
+]
+interface IVirtualTransportVS : IUnknown
+{
+	HRESULT Initialize();
+	
+	HRESULT TearDown();
+	
+	[ helpstring("Creates a new transport channel.") ]
+	HRESULT Create(
+		[in]  GUID*			virtualMachineID,
+		[in]  ULONG			dmaChannel,
+		[out] ULONG*		transportID );
+	
+	[ helpstring("Deletes a transport channel.") ]
+	HRESULT Delete(
+		[in] ULONG transportID );
+	
+	[ helpstring("Installs a callback for data receiving.") ]
+	HRESULT Advise(
+		[in]  IVirtualTransportSinkVS*	transportSink );
+	
+	[ helpstring("Sends data across the transport.") ]
+	HRESULT Send(
+		[in]					 ULONG	transportID,
+		[in, size_is(byteCount)] const BYTE* dataBuffer,
+		[in]					 USHORT	byteCount,
+		[in]					 ULONG	timeout );
+		
+	[ helpstring("Polls for data received from the transport, only works if datasink hasn't been installed.") ]
+	HRESULT Receive(
+		[in]					   ULONG    transportID,
+		[out, size_is(*byteCount), length_is(*byteCount)] BYTE*   dataBuffer,
+		[in, out]				   USHORT* byteCount,
+		[in]					   ULONG   timeout );
+	
+	[ helpstring("Indicates which virtual machine a transport should be talking to.") ]
+	HRESULT SetVirtualMachineIDForTransport(
+		[in] ULONG		transportID,
+		[in] GUID*		virtualMachineID );
+};
+
+#endif // 0
+
+/*------------------------------------------------------------------
+	Declaration of the classes within the VCEComInterfaces
+	library. This is used to create the COM '.tlb' type library.
+------------------------------------------------------------------*/
+[
+   uuid(0E61EFB0-48B2-4329-9778-F97976FF6DD6),
+	version(1.0),
+	helpstring("EmulatorComInterfaces 1.0 Type Library")
+]
+library VirtualCE
+{
+	importlib("stdole2.tlb");
+	
+	[
+		uuid(98BBBEB9-4A0C-43c1-8D83-A958EAD99778),
+		helpstring("EmulatorVirtualMachineManager Class")
+	]
+	coclass EmulatorVirtualMachineManager
+	{
+		[default] interface IEmulatorVirtualMachineManager;
+		[source]  interface IDMATransportCompletionSink;
+	};
+	
+	[
+		uuid(35A9592F-C618-4b79-8080-BC3FCCAC86F6),
+		helpstring("EmulatorVirtualTransport Class")
+	]
+	coclass EmulatorVirtualTransport
+	{
+		[default] interface IEmulatorVirtualTransport;
+		[source]  interface IEmulatorVirtualTransportSink;
+	};
+
+#if 0
+	// 4.1 & 4.2 PB classes...
+	[
+		uuid(902E2CF6-3DE6-4b96-80D2-6A08F6B1D320),
+		helpstring("VirtualMachineManagerPB Class")
+	]
+	coclass VirtualMachineManagerPB
+	{
+		[default] interface IVirtualMachineManagerPB;
+	};
+	
+	[
+		uuid(D5983373-D9D4-4a9e-AD21-A7ED8AAA897F),
+		helpstring("VirtualTransportPB Class")
+	]
+	coclass VirtualTransportPB
+	{
+		[default] interface IVirtualTransportPB;
+		[source]  interface IVirtualTransportSinkPB;
+	};
+	
+	
+	// 4.1 & 4.2 VS classes...
+	[
+		uuid(08CC2F95-FA84-46a2-8CDA-9BB47D4DDF97),
+		helpstring("VirtualMachineManagerVS Class")
+	]
+	coclass VirtualMachineManagerVS
+	{
+		[default] interface IVirtualMachineManagerVS;
+	};
+	
+	[
+		uuid(662CE5C7-7F41-493a-8F1B-9C96BDA7AC3F),
+		helpstring("VirtualTransportVS Class")
+	]
+	coclass VirtualTransportVS
+	{
+		[default] interface IVirtualTransportVS;
+		[source]  interface IVirtualTransportSinkVS;
+	};
+#endif
+};
+
+
+/*==================================================================
+	Change History (most recent first):
+	
+	$Log: VCEComInterfaces.idl,v $
+	Revision 1.10  2001/08/07 22:11:59  jhoelter
+	Removed GetInfo() method, modified Create().
+	
+	Revision 1.9  2001/07/28 00:31:14  jhoelter
+	Made many changes to the IVirtualTransport interface, added a data sink interface for callbacks.
+	
+	Revision 1.8  2001/06/20 20:42:13  jhoelter
+	Removed IService/IKitl interfaces, added IVirtualTransport.
+	
+	Revision 1.7  2001/06/13 18:03:18  jhoelter
+	Removed interface definitions that appear in kitlcom.idl and cemgr.idl.
+	
+	Revision 1.6  2001/06/08 00:54:09  jhoelter
+	Removed VirtualTransport coclass. Added KITLService coclass.
+	
+	Revision 1.5  2001/06/06 19:04:21  jhoelter
+	Added IService, IServiceConfig interfaces and updated IKITL interface.
+	
+	Revision 1.4  2001/06/01 19:06:18  jhoelter
+	Renamed StartupVirtualMachine to CreateVirtualMachine.
+	
+	Revision 1.3  2001/05/30 23:50:15  jhoelter
+	Corrected spelling error in EnumerateVirtualMachines.
+	
+	Revision 1.2  2001/05/29 02:28:48  jhoelter
+	Added methods to IVirtualMachineManager.
+	
+	Revision 1.1  2001/05/28 21:33:46  jhoelter
+	Moved to "IDL_Components" folder.
+	
+	Revision 1.3  2001/05/26 01:45:48  jhoelter
+	Moved IKITL interface from VirtualTransport to
+	VirtualMachineManager class.
+	
+	Revision 1.2  2001/05/25 01:00:38  jhoelter
+	Added new KITL interfaces.
+		
+==================================================================*/

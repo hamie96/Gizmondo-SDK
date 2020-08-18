@@ -1,0 +1,1 @@
+Very simple application show how to access the devices buttons

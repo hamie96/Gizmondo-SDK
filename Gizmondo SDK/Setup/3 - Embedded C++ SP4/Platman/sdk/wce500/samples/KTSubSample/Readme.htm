@@ -1,0 +1,87 @@
+<html>
+<body>
+
+<!---------------------------------------------------------->
+<!--TITLE-->
+<!---------------------------------------------------------->
+<center><h1>Celog Subscriber Sample</h1></center>
+<hr>
+
+<!---------------------------------------------------------->
+<!--INTRODUCTION-->
+<!---------------------------------------------------------->
+<p><h2>Introduction</h2>
+This sample demonstrates the basic requirements needed to develop a subscriber to receive Celog data events. In general, Celog data stream includes system events at real-time and are available to any applicatoin which subscribes to this data. One example of this is the Remote Kernel Tracker tool which tracks all Celog system events from a CE device.
+
+Celog generates data that is divided into collection zones. Remote Kernel Tracker, for example, displays data from all underlying Celog collection zones if the OS image on the target device includes a profiling kernel. If the OS image does not include a profiling kernel, the tool displays data from a subset of the group of Celog collection zones.
+
+<p>
+This sample demonstrates how to subscribe to Celog data and it tracks the following Virtual events:
+
+<ul>
+<li>Virtual Alloc</li>
+<li>Virtual Free</li>
+<li>Virtual Copy</li>
+</ul>
+
+<p>
+For more information, see Event Tracking in Platform Builder docs.
+  
+
+<!---------------------------------------------------------->
+<!--USAGE-->
+<!---------------------------------------------------------->
+<p>
+To use this sample follow these steps:
+
+<ul>
+
+<p>
+<li>
+<b>Build the application:</b>
+Open the file KTSubSample.dsp either in VC6.0 or Visual Studio.Net. Build the project to create the application: KTSubSample.exe. This application will be copied to ..\bin\KTSubSample.exe folder after the build process.
+</li>
+
+<p>
+<li>
+<b>Run the application KTSubSample.exe:</b>
+When you run this application, a dialog will be displayed with an option to Connect or Exit. To get Virtual Celog events, follow these steps:
+<ol>
+<li>Click on Connect option to connect to a device. <i> Note: This assumes that particular device is up and running either by downloading an image from Platform Builder or the device is a retail device such as Pocket PC.</i></li>
+<li>Once the connection is established, click on Collect Data to collect the Virtual Celog events. This will display any Celog Virtual events in the next 10000 Celog events. You can click on Collect Data any number of times to get the next 10000 events.</li>
+<li>Once done, click on Disconnect to stop subscription to Celog data.</li>
+<li>Click on Exit to shutdown the application</li>
+</ol>
+
+</ul>
+ 
+<hr>
+
+<!---------------------------------------------------------->
+<!--CODE DETAILS-->
+<!---------------------------------------------------------->
+<h2>Application Details</h2>
+This sample uses the standard Publisher/Subscriber infrastrucutre to subscribe to Celog data stream. Celog data stream is available to any applications remotely running from the desktop.
+
+<p>
+This sample has two source files:
+
+<ul>
+
+<p>
+<li>
+<b>KTSubSample.cpp</b>
+This file contains the main MFC classes to initialize the application and to bring up the application dialog. 
+</li>
+
+<p>
+<li>
+<b>KTSubSampleDlg.cpp</b>
+This file contains the main code to connect to the device, subscribe to celog data, and filter on celog data.
+</li>
+
+</ul>
+
+<hr>
+</body>
+</html>

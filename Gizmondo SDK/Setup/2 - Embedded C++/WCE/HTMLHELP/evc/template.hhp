@@ -1,0 +1,42 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=eVC4Help.chm
+Contents file=eVC4Help.hhc
+Default Window=Main
+Default topic=html/evoriEmbeddedVisualC.htm
+Display compile progress=No
+Error log file=eVC4Help.log
+Full text search stop list file=Scripts\DTUEStopList.csl
+Full-text search=Yes
+Index file=eVC4Help.hhk
+Language=0x409 English (United States)
+Title=Embedded Visual C++ Version 4.0
+
+[WINDOWS]
+Main="Embedded Visual C++ Version 4.0","eVC4Help.hhc","eVC4Help.hhk","html/evoriEmbeddedVisualC.htm","html/evoriEmbeddedVisualC.htm",,,,,0x33520,,0x70387e,[338,0,1025,623],,,,,,,0
+
+
+[FILES]
+Scripts\*.gif
+Scripts\dtuelink.js
+Scripts\DTUE.css
+Scripts\dtue_ie5.js
+Scripts\dtue_ie4.js
+Scripts\dtue_ie3.js
+Scripts\dtue.xml
+
+[ALIAS]
+#include evc4help.ali
+
+[MAP]
+#include evc4help.h
+
+[INFOTYPES]
+
+[MERGE FILES]
+vcce4.chm
+wcechp40.chm
+vccelng4.chm
+wceatl4.chm
+wcemfc4.chm
+wcecrt4.chm

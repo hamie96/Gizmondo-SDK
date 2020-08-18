@@ -1,0 +1,2 @@
+void initSplash();
+void cleanupSplash();

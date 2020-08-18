@@ -1,0 +1,323 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML DIR="ltr">
+	<HEAD>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<style>@import url(readme.htm); 
+	</style>
+		<base target="CONTENTS">
+	</HEAD>
+	<BODY>
+		<h1><a name="contents"></a>Microsoft
+			<span class="SpellE">eMbedded</span>
+			Visual C++ 4.0 SP4&nbsp;
+			<span class="SpellE">Readme</span><br style='mso-special-character:
+line-break'>
+			<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+			<![endif]></h1>
+		<h1><a name="gettingstarted"></a>1. Getting Started</h1>
+		<p>This document contains updated information about Microsoft ® eMbedded Visual C++ 
+			® version 4.0 Service Pack 4. Information in this document supersedes 
+			information contained in the Help system.</p>
+		<P>&nbsp;</P>
+		<h1><a name="systemrequirements"></a>1.1. System Requirements</h1>
+		<p>To use Microsoft
+			<span class="SpellE">eMbedded</span>
+			Visual C++ 4.0 SP4 you need the following:
+		</p>
+		<UL type="disc">
+			<li>
+			A desktop computer with a Pentium-II class processor, 450 MHz or faster
+			<li>
+			Microsoft Windows® 2000 Professional with Service Pack 4 or higher, 
+			or Microsoft Windows XP Professional with Service Pack 1 or higher.<li>
+			96 MB (128 MB recommended) memory for Windows 2000 Professional or Windows XP 
+			Professional. 192 MB (256 MB recommended) memory for Windows 2000 Server.
+			<li>
+			CD-ROM drive required
+			<li>
+			VGA or higher-resolution monitor. A Super VGA (800 x 600 or larger) monitor is 
+			recommended.
+			<li>
+			Mouse or compatible pointing device.
+			<li>
+			200 MB hard disk space.
+			<li>
+				Microsoft eMbedded Visual C++ 4.0 (SP1 or SP2 or SP3 optional)</li>
+		</UL>
+		<P></P>
+		<h1><a name="known"></a>Known Issues<BR>
+		</h1>
+		<h1><a name="installation"></a>2. Installation</h1>
+		<h1>2.1. Cannot Install
+			<span class="SpellE">eMbedded</span>
+			Visual C++ 4.0 SP4 on Win9x or Windows NT4</h1>
+		<p>Setup will not run on Windows 95/98 or Windows NT version 4.0. Running Setup.exe 
+			on Windows 95/98 or Windows NT 4.0 returns an error message that asks for the 
+			user to install this product on Windows 2000.</p>
+		<h1>2.2. Installing eMbedded Visual C++ 4.0 on Windows 2000 failed during 
+		Setup</h1>
+		<p>eMbedded Visual C++ 4.0 requires the latest service pack on Windows 2000 
+			operating systems. You can download the latest Windows 2000 Service Pack from <a href="http://www.microsoft.com">
+				www.microsoft.com</a>.</p>
+		<h1>2.3. Disconnect from network temporarily while installing SP4</h1>
+		<p>When installing
+			<span class="SpellE">eVC</span>++ 4.0 SP4, the target computer may lose network 
+			connectivity briefly during the installation. This connection will be regained 
+			immediately.</p>
+		<h1>2.4. Error at end of installation on Windows XP.</h1>
+		<p>At the end of the
+			<span class="SpellE">eVC</span>++ 4.0 SP4 installation, you may encounter the 
+			following error: “The
+			<span class="SpellE">eMbedded</span>
+			Visual C++ 4.0 setup failed.
+			<span class="GramE">Try running the installation
+wizard again.”</span>
+			If your computer meets the minimum hardware requirements for
+			<span class="SpellE">eVC</span>++ 4.0, try closing all running programs and run 
+			the installation again.</p>
+		<h1>2.5 Uninstalling
+			<span class="SpellE">eVC</span>
+			4.0 SP4 leaves new Tools menu</h1>
+		<p>After uninstalling eVC 4.0 SP4, the Tool menu continues to show the 
+		new behavior .This is expected behavior and <span class="SpellE">eVC</span>
+			<span class="GramE">4.0 </span>should continue to work correctly.</p>
+		<H1>2.6 Uninstalling PlatMan before eVC 4.0 SP4 caused eVC 4.0 SP4 Uninstall to fail</H1>
+		<P>If you Uninstall PlatMan from the Add / Remove Programs, SP4 will not 
+			Uninstall successfully. It is recommended not to uninstall Platman let it be 
+			uninstalled as a part of the eVC 4.0 Sp4 Uninstall to do proper reference counting 
+			of the files.</P>
+		<h1>2.7 Can't open the Windows CE Emulator from VS 2003 after 
+		uninstalling MS Windows CE Platform Manager 4.0</h1>
+		<P>Installed Visual Studio .NET 2003 and then install eVC 4.0. Launch 
+		the Emulator from Visual Studio .NET 2003 and then uninstall Microsoft 
+		Platform Manager you will receive an error when launching the emulator 
+		from Visual Studio .NET 2003.</P>
+		<P>The Error is &quot;One or more files from the Emulator for Windows CE 
+		installation is missing. Please reinstall Emulator for Windows CE and 
+		try again.&quot;</P>
+		<P>Workaround: Use add/remove programs to remove &quot;Emulator Driver for 
+		Visual Studio .NET 2003&quot; and the emulator driver will be reinstalled by 
+		Visual CE .NET 2003 the next time you launch the emulator.</P>
+		<h1>2.8 Platform Builder release notes (for eMbedded Visual C++ 4.0 SP4 
+		that ships with Platform Builder 5.0)</h1>
+		<P>The latest Release Notes for Platform Builder 5.0 is located on Disk 
+		1 as &quot;release notes.htm&quot;</P>
+		<h1>2.9 Emulator for Windows CE could not open its emulated Ethernet 
+		switch Driver</h1>
+		<P>This error message indicates that the Virtual Networking Switch 
+		driver could 
+		not be installed by eVC 4.0 SP4 setup. This can also be verified by 
+		checking the Properties of the default Network connection and in the 
+		list of 'This connection uses the following items', you will notice that 
+		'Virtual Machine Network Services' is missing from the list.</P>
+		<P>Workaround: Install the Virtual Machine Network Service manually. </P>
+		<P>1. From the General Tab of the network connection Properties dialog 
+		select 'Install...'</P>
+		<P>2. Select Service and click 'Add...'</P>
+		<P>3. Select 'Have Disk...' and select 'Browse...' button</P>
+		<P>4. Point to Install directory of Microsoft eMbedded C++ 4.0 usually 
+		under C:\Program Files\Microsoft eMbedded C++ 4.0\ and then browse to 
+		\Common\EVC\Bin</P>
+		<P>5. Select the file VMNETSRV.inf and click OK.</P>
+		<P>6. You should notice 'Virtual Machine Network Services' listed in the 
+		Select Network Service dialog.</P>
+		<P>7. Select OK to complete the installation.</P>
+		<h1>2.10 Smartphone 2003 Development with eVC4 SP4</h1>
+		<P>After installing eVC4 SP4 running the Smartphone 2003 SDK tool 
+		spdps.exe results in some or all remote tools no longer functioning 
+		properly. Effected tools will start properly on the desktop, copy needed 
+		files onto the device but fail to connect to the device side components. 
+		Resulting in the tool hanging while displaying a dialog with &quot;Connecting 
+		to &lt;tool name&gt; Client&quot;. </P>
+		<P>Workaround: An updated version of spdps.exe is required to fix this 
+		issue. To obtain the update for the Smartphone 2003 SDK's spdps.exe tool 
+		visit http://msdn.microsoft.com/mobility/prodtechinfo/platforms/windowsmobile/downloads/default.aspx</P>
+		<h1>&nbsp;</h1>
+		<h1><a name="ide"></a>3 Integrated Development Environment (IDE)</h1>
+		<h1>3.1 eVC4 will not correctly identify all of the CPU's when porting 
+		from an eVC3 Project</h1>
+		<p>When an eVC3 project is opened in eVC4 the only names that are shown 
+		are the ones that have not changed since eVC3. If you are trying to port 
+		a project that supports the Arm, MIPS, MIPSFP, or Thumb a new project 
+		file will need to be created and then recompiled.<br>
+&nbsp;</p>
+		<h1>3.2 Opening a project from a long path Crashes eVC 4.0</h1>
+		<p>This is a known issue. Opening a project from file / path greater 
+		than 260 causes this issue.</p>
+		<h1>3.3 Errors in Windows CE Remote Tools connecting to Windows CE 
+		4.2 based devices</h1>
+		<p>On some installations, certain Windows CE Remote Tools will 
+		display errors when connecting to Windows CE 4.2 based devices. </p>
+		<p>Error: &quot;Remote Kernel tracker is unable to connect to this device 
+		because it is not CELOG enabled&quot;</p>
+		<p>Error: &quot;No Profile data was collected. Please verify that profile 
+		enabled components are on the device&quot;</p>
+		<p>Workaround: This is a known issue at the time of releasing SP4. A 
+		Knowledge Base article will be made available on the Microsoft Support 
+		site <a href="http://support.microsoft.com/">
+		http://support.microsoft.com/</a> describing the fix for this issue.</p>
+		<p>&nbsp;</p>
+		<h1><a name="debugging"></a>4 Debugging</h1>
+		<h1>4.1 Inconsistent behavior in debugger</h1>
+		<p>When debugging code in a DLL, the debugger will sometimes prompt you for the 
+			location of the file
+			<span class="SpellE">pegdmain.c</span>. When this happens, press Cancel and 
+			your debug session will proceed normally.</p>
+		<h1>4.2 The Data Breakpoint doesn't work in eVC Debugger:</h1>
+		<p>The set conditional Breakpoint expression (C/C++ variable name or its 
+		address) will get evaluated correctly and the BP is detected on variable 
+		initialization, but when the value on this address get changed into the 
+		code after that, the Debugger doesn't stop the application execution on 
+		this Breakpoint. This is incorrectly mentioned in the help that is 
+		works.</p>
+		<h1>4.3 Can't step into function exported from DLL on emulator</h1>
+		<p>The debugger's Step Into (F11) feature does not work when attempting 
+		to step into a function exported from a DLL. This problem only occurs 
+		when targeting the PocketPC or Smartphone emulators, not on actual 
+		devices. </p>
+		<p>Workaround: Set the Breakpoint on the on the line of code that is to 
+		be debugged&nbsp;&nbsp;&nbsp; .<br>
+&nbsp;</p>
+		<h1>4.4 Debugging on Emulator and Device fails on Windows XP SP2</h1>
+		<p>On Windows XP SP2 start debugging an eVC application on an Emulator 
+		or Device.&nbsp; A Windows Security alert is displayed. </p>
+		<p>Workaround: It is recommended to select Unblock for the CEMGR Module 
+		to enable this scenario.</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<h1><a name="miscissues"></a>5 Miscellaneous Issues</h1>
+		<h1>5.1 The MFC HTTP retail sample displays an assertion failed message when an 
+			invalid port is specified in the URL.</h1>
+		<p>The MFC HTTP sample will raise assertions (in debug mode) while accessing well 
+			known ports such as 21, 25, 110, 119, and 143. In release mode the sample will 
+			not be able to connect to the server. The workaround is not to open an http 
+			connection to a site at these well-known ports. The reason for this failure is 
+			that
+			<span class="SpellE">
+				<span class="GramE">InternetConnect</span>
+			</span><span class="GramE">(</span>) API now returns NULL when opening a 
+			connection on these ports. This NULL return value is not gracefully handled by 
+			MFC.</p>
+		<h1></A>5.2. Linker warning LNK1166: cannot adjust code at offset
+		</h1>
+		<p>Texas Instruments has identified a defect in the ES1, ES2 and ES3 silicon
+			<span class="SpellE">steppings</span>
+			of the OMAP710. It’s also believed (but not yet confirmed) that the same issue 
+			will impact all ARM925-based offerings from TI, including the OMAP1510 and 
+			OMAP310. This defect can lead to incorrect instruction execution, resulting in 
+			an operating system crash. The problem results when a data abort occurs for an 
+			instruction at address 0xXXXX:XFF4 of any instruction page and the following 
+			page of instructions is not present in the instruction TLB. A data abort, 
+			instruction fetch and instruction TLB miss must occur simultaneously for the 
+			error to occur. The linker included with
+			<span class="SpellE">eVC</span>
+			compensates for this potential problem by padding the resulting executable to 
+			move the hazardous instruction from the specific address. However, in some 
+			cases the linker can not handle this automatically and will issue “warning 
+			LNK1166: cannot adjust code at offset. To fix those cases, do the following:
+		</p>
+		<ol>
+			<li>
+			Recompile adding the /Gy option to separate functions for the linker and then 
+			relink. If any warnings still exists, then
+			<li>
+				Rewrite the source code for the large function that generates code larger than 
+				a page into several that generate less than one page each.
+			</li>
+		</ol>
+		<p class="MsoNormal">The automatic padding can be turned off via the /ARMPADCODE<span class="GramE">:NO</span>
+			linker switch. However the
+			<span class="SpellE">perf</span>/size impact of the padding is
+			<span class="GramE">minimal,</span>
+			and we do not recommend turning this off unless you are absolutely sure your 
+			application will never run on a chipset with this problem. For most developers, 
+			this should be left enabled.<br style='mso-special-character:line-break'>
+			</p>
+		<h1>5.3. Feedback link in
+			<span class="SpellE">eVC</span>
+			help is
+			<span class="GramE">broken/incorrect</span>.</h1>
+		<p>On all Help pages, the “Send feedback to Microsoft” link is broken. Send 
+			feedback to http://msdn.microsoft.com/vstudio/device/embedded/default.asp<span class="GramE">..</span></p>
+		<h1>5.4. “Provisioning the device… failed” error.</h1>
+		<p>When deploying to the
+			<span class="SpellE">Smartphone</span>
+			emulator with no physical device attached, you will see a “Provisioning the 
+			device… failed” error. This message can be ignored, and deployment will 
+			succeed. Attaching a device eliminates the error.</p>
+		<h1>5.5. Crash when setting the font property on an ATL Control inside a container.</h1>
+		<p>eVC++ 4.0 crashes if you attempt to set the font property on an ATL control 
+			inside a container, using the All tab. The crash occurs only if the font 
+			property field is empty. To work around this, set the property on the Font tab 
+			first. Then you can also set the font property from the
+			<span class="GramE">All</span>
+			tab.</p>
+		<h1>5.6. PPC 2003 MFC AppWizard doesn't support SBCS Katakana character.</h1>
+		<p>You cannot use Katakana characters in a project name when creating a new MFC 
+			application using the Pocket PC MFC Application Wizard.</p>
+		<h1>5.7. Build fails when project name contains DBCS characters.</h1>
+		<p>If the project name contains double-byte characters, you may not be able to 
+			build it successfully. Rename the project so it does not contain double-byte 
+			characters.</p>
+		<h1>5.8. Emulator: Can't run 4.1 and 4.2 emulators side by side.</h1>
+		<p>You cannot run Emulator version 4.1 and Emulator version 4.2 at the same time.</p>
+		<H1>5.9 Running on Windows XP SP2 </H1>
+		<P>Connecting or Debugging to a device using TCP / IP 
+			fails with a Windows Security Alert dialog which shows CEMGR Module 
+		as the name. It is recommended to select the Unblock button to enable 
+		connectivity.</P>
+		<H1>5.10 After running 8 times, an error is displayed</H1>
+		<P>After eight times running an&nbsp; application via embedded Visual 
+		C++, an error dialog is displayed. 
+			Platform Manager cannot create the communication streams needed by the 
+			debugger. Refer to the online help for information about configuring Platform 
+			Manager. This is a known issue at the time of shipping and information regarding this will 
+			be made available as a Knowledge base article in future.</P>
+		<h1>5.11 Launching the 4.x CE Emulators on 32-bit machine running in 
+		Physical Address Extensions (PAE) mode causes the machine to reboot</h1>
+		<P>Physical Address Extensions (PAE) Mode is not supported by Version 
+		4.0, 4.1 and 4.2 of the Emulator and causes the machine running in PAE 
+		mode to reboot when the Emulator is launched. Because of this problem 
+		the Emulator Driver is disabled on Windows XP SP2 when running in the 
+		PAE Mode.</P>
+		<h1>5.12 When deploy COM component on SP, the component registration 
+		fails.</h1>
+		<P>When deploy COM component on SP, the component registration fails: 
+		with an error &quot;Failed to register \Windows\...dll to the device&quot;<br>
+		This error reproduces only with ATL COM projects created with previous 
+		versions of eVC. Newly created COM server application projects will 
+		register the component successfully on the device.<br>
+		<br>
+		Workaround: Manually signing the regsvrce.exe, copy it on the device and 
+		register the component works correctly.</P>
+		<h1>5.13 Server Busy error when connecting to saved PPC03 emulator image</h1>
+		<P>Can't connect to a Pocket PC 2003 emulator image that was previously 
+		saved. This does not appear to repro for WCE410 or WCE420 images. No 
+		known workaround at this time.</P>
+		<h1>5.14 Warning LNK4209: debugging information corrupt; recompile 
+		module; linking object as if no debug info&quot; when build project for 
+		Windows CE 5.0</h1>
+		<P>Install the Windows CE 5.0 Universal SDK and create a Windows CE 
+		Applications using eVC 4.0 SP4.&nbsp; The following warning is displayed</P>
+		<P>&quot;warning LNK4209: debugging information corrupt; recompile module; 
+		linking object as if no debug info&quot;</P>
+		<P>This is a known issue and no workaround is available at the time of 
+		releasing SP4.</P>
+		<h1>5.15 Targeting SH3 Platform from eVC 4.0 SP4 is not supported</h1>
+		<P>Service Pack 4 of eVC 4.0 does not support targeting SH3 Platform. 
+		For developers targeting this platform, Service Pack 3 of eVC 4.0 
+		provides this functionality.</P>
+		<P>&nbsp;</P>
+		<P>&nbsp;</P>
+		<P>&nbsp;</P>
+		<P>&nbsp;</P>
+		<P>&nbsp;</P>
+		<P><br>
+&nbsp;</P>
+		<P>&nbsp;</P>
+		<P>&nbsp;</P>
+		<P>&nbsp;</P>
+		<P>&nbsp;</P>
+		<DIV></DIV>
+	</BODY>
+</HTML>

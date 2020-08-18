@@ -1,0 +1,87 @@
+// cemgrui.idl : IDL source for cemgrui.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (cemgrui.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "cemgr.idl";
+
+	
+	[
+		object,
+		uuid(E835B19F-3DDF-11D2-BBB2-00A0C9C9CCEE),
+		helpstring("IPlatformManagerUI Interface"),
+		pointer_default(unique)
+	]
+	interface IPlatformManagerUI : IUnknown
+	{
+		[helpstring("method Configure")] HRESULT Configure([in] HWND hWnd);
+		[helpstring("method GetDevice")] HRESULT GetDevice([in] HWND hWnd,  [in] IPlatformManager *piMgr, [out] IPlatformCE**ppiPlatform, [out] IRemoteDevice **ppiDevice);
+		[helpstring("method Connect")] HRESULT Connect([in] HWND hWnd, [in] IRemoteDevice *piDevice, [out] IConnection **ppiConnection);
+	};
+
+
+	[
+		object,
+		uuid(85D50476-8861-41E4-B15D-52908B78C9BE),
+		helpstring("IPlatformManagerUI2 Interface: providing device filtering capability"),
+		pointer_default(unique)
+	]
+	interface IPlatformManagerUI2 : IUnknown
+	{
+		/* New implementation */		
+		[helpstring("method Configure")]
+		HRESULT Configure
+		(
+			[in] HWND hWnd,
+			[in] WORD wMajorVersion,
+			[in, defaultvalue(0)] WORD wMinorVersion
+		);
+
+		/* New implementation */
+		[helpstring("method GetDevice")]
+		HRESULT GetDevice
+		(
+			[in] HWND hWnd,  
+			[in] IPlatformManager *piMgr, 
+			[in] WORD wMajorVersion,
+			[in] WORD wMinorVersion,
+			[out] IPlatformCE**ppiPlatform, 
+			[out] IRemoteDevice **ppiDevice
+		);
+
+		/* delegated to the IPlatformManagerUI::Connect method */
+		[helpstring("method Connect")]
+		HRESULT Connect
+		(
+			[in] HWND hWnd, 
+			[in] IRemoteDevice *piDevice, 
+			[out] IConnection **ppiConnection
+		);
+	};
+
+
+[
+	uuid(E835B192-3DDF-11D2-BBB2-00A0C9C9CCEE),
+	version(1.0),
+	helpstring("cemgrui 1.0 Type Library")
+]
+library CEMGRUILib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	
+	[
+		uuid(E835B190-3DDF-11D2-BBB2-00A0C9C9CCEE),
+		helpstring("PlatformManagerUI Class")
+	]
+	coclass PlatformManagerUI
+	{
+		[default] interface IPlatformManagerUI;
+		interface IPlatformManagerUI2;
+	};
+
+};

@@ -1,0 +1,26 @@
+<Transport>
+	<Name>
+		KITL Transport
+	</Name>
+	<Caption>
+		Ethernet
+	</Caption>
+	<Properties>
+		<Property>
+			<Name>
+				DeviceName
+			</Name>
+			<Caption>
+				Device Name
+			</Caption>
+			<Type>
+				list
+			</Type>
+			<Requery>
+				1000
+			</Requery>
+			<Data Edit="True">
+			</Data>
+		</Property>
+	</Properties>
+</Transport>

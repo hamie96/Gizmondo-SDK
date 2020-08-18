@@ -1,0 +1,96 @@
+////////////////////////////////////////////////////////////
+// download.idl
+////////////////////////////////////////////////////////////
+
+/*
+The Download service provides a means to download an OS image to a device.
+The default download service assumes a windows CE bootrom. It provides
+interfaces to download an image. One of the parameters is the bootflags.
+Bootflags can be:
+    KITL_FL_DBGMSG    0x01  // Debug messages
+    KITL_FL_PPSH      0x02  // Text shell
+    KITL_FL_KDBG      0x04  // Kernel debugger
+    KITL_FL_CLEANBOOT 0x08  // Force a clean boot
+The first three flags select if the corresponding KITL service should be
+started up when the OS boots (see kitl.idl for more details on these services).
+
+The download object also supports an _IDownloadProgress connection point
+so allow one to monitor progress of the download.
+*/
+
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+///////////////////////////////////////////////
+// IDownload
+[
+   object,
+   uuid(A5E1F5B8-5FF6-4f72-98B3-5FCC553652EC),
+   helpstring("IDownload Interface"),
+   pointer_default(unique)
+]
+interface IDownload : IUnknown
+{
+   HRESULT DownloadImage
+   (
+      [in] LPCOLESTR pszImagePath,
+      [in] DWORD dwRebootTimeout
+   );
+
+   HRESULT StopDownloadImage
+   (
+   );
+
+   HRESULT JumpToImage
+   (
+      [in] DWORD dwJumpFlags
+   );
+
+   HRESULT StopJumpToImage
+   (
+   );
+}
+
+///////////////////////////////////////////////
+// _IDownloadProgress
+[
+   object,
+   uuid(E3C0BD4B-8339-4712-8F9C-95983577C435),
+   helpstring("_IDownloadProgress Interface"),
+   pointer_default(unique)
+]
+interface _IDownloadProgress : IUnknown
+{
+   HRESULT OnProgressNotify
+   (
+      [in] DWORD dwCurrentSize,
+      [in] DWORD dwTotalSize
+   );
+}
+
+///////////////////////////////////////////////
+// _IDeviceReset
+// autodownload interface.
+
+[
+   object,
+   uuid(ab47c2be-8b63-46bc-89c4-730872760f18),
+   helpstring("_IDeviceReset Interface"),
+   pointer_default(unique)
+]
+interface _IDeviceReset : IUnknown
+{
+   HRESULT OnResetNotify
+   (
+   );
+}
+
+// GUID for the stored device name, must be the same for download and transport
+// {A1371A36-1DBD-4177-A80D-4E6906748EEE}
+cpp_quote("#ifndef  _PROPINFONAME_DEVICENAME_DEFINED")
+cpp_quote("#define  _PROPINFONAME_DEVICENAME_DEFINED")
+cpp_quote("DEFINE_GUID(PROPID_DEVICENAME, 0xa1371a36, 0x1dbd, 0x4177, 0xa8, 0xd, 0x4e, 0x69, 0x6, 0x74, 0x8e, 0xee);")
+cpp_quote("static const wchar_t PROPINFONAME_DEVICENAME[] = L\"DeviceName\";")
+cpp_quote("#endif   //_PROPINFONAME_DEVICENAME_DEFINED")
+

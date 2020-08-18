@@ -1,0 +1,152 @@
+<html>
+<body>
+
+<!---------------------------------------------------------->
+<!--TITLE-->
+<!---------------------------------------------------------->
+<center><h1>CEPerfmon Sample</h1></center>
+<hr>
+
+<!---------------------------------------------------------->
+<!--INTRODUCTION-->
+<!---------------------------------------------------------->
+<p><h2>Introduction</h2>
+This sample demonstrates the basic requirements needed to develop a CEPerfmon extension using the Platform Manager APIs. This is a very simple extension that displays the Windows CE device's tick
+count. This sample consists of 2 executables. CETickPerf.dll is the desktop component that intiates the communication to the device component and is the CEPerfmon extension. TickStatsCE.exe is the device component that responds to commands sent by CETickPerf.dll.
+
+<!---------------------------------------------------------->
+<!--USAGE-->
+<!---------------------------------------------------------->
+<p>
+To use this sample follow these steps:
+
+<ul>
+
+<p>
+<li>
+<b>Build the desktop DLL:</b>
+Open the file desktop\cetickperf.dsp either in VC6.0 or Visual Studio.Net. Build the project to create the DLL: CETickPerf.dll. This dll will be copied to ..\bin\cetickperf.dll folder after the build process.
+</li>
+
+<p>
+<li>
+<b>Build the device component:</b>
+The eMbedded Visual C++ 4.0 project file for device component is in Device folder. From that folder open TickStatsCE.vcp in eVC 4.0. Select the appropriate platform: Build | Select Active Platform. Select the appropriate processor type: Build | Set Active Configuration. Perform Rebuild All to create the executable. Repeat these steps for each platform & processor.
+<i>
+NOTE: The .vcp file supports ARM, Mips, SH3, SH4, and x86 processors. If you add other configurations, update the Additional include directories setting.
+</i>
+</li>
+
+<p>
+<li>
+<b>Register the extension DLL:</b>
+Open a command window and change to the ..\bin directory. Use regsvr32 to register the DLL as follows:
+<i>
+        regsvr32 CETickPerf.dll
+</i>
+</li>
+
+<p>
+<li>
+<b>Register the counter:</b>
+Open a command window and change to the ..\bin directory.  Use lodctr to register the counter as follows:
+<i>
+        lodctr perfgen.ini
+</i>
+</li>
+
+<p>
+<li>
+<b>Register this extension package:</b>
+This needs to be performed once to register the device component of the application. This registration allows the desktop component to identify where TickStatsCE.exe is located for different CE platforms. Package registration also allows for CPU specific versions to be installed. For this sample, TickStatsCE is registered only as a top level package so that it may be run on all platforms.
+	<ol>
+	<li>Open a command window and change to the ..\bin directory.</li>
+	<li>Execute the registration script: "SamplesReg.vbs 'fullpath'" where "fullpath" is the fully-qualified pathname to the ..\bin directory.  For example:
+	SamplesReg.vbs "C:\Program Files\Common Files\Microsoft Shared\Windows CE Tools\Platman\sdk\wce420\samples\bin"
+	</li>
+	</ol>
+
+</li>
+
+<p>
+<li>
+<b>Test the perfmon extension:</b>
+Now you are ready to launch Remote Performance Monitor and test this extension. To test this extension, follow these steps:
+	<ol>
+	<li>Start Remote Performance Monitor from eVC or Platform Builder tools menu.</li>
+	<li>Connect to a device</li>
+	<li>Select Add to Chart" menu option and the CE Tick Counter should be installed as one of the available counters</li>
+	</ol>
+
+</li>
+
+</ul>
+</ul>
+<hr>
+
+<!---------------------------------------------------------->
+<!--CODE DETAILS-->
+<!---------------------------------------------------------->
+<h2>Desktop Component Details</h2>
+CEPerfmon uses the same extension model as NT4.0 Perfmon. The files listed below contain changes to the creation of a CEPerfmon extension DLL. Each file contains areas identified with markers that
+look like this: "TODO".  Simply search for the string "TODO:" to find these markers.  Each marker has a brief instruction on what is required to customize.
+
+<p>
+There are 3 areas that are specific to CEPerfmon:
+
+<ul>
+
+<p>
+<li>
+<b>CETickStats.cpp</b>
+This contains the DllMain, DllRegisterServer, and DllUnregisterServer functions. The primary difference between Perfmon and CEPerfmon is in the registry location that is used.  
+</li>
+
+<p>
+<li>
+<b>PerfGen.cpp</b>
+CEPerfmon requires the addition of a standard function that obtains the IConnection interface pointer. In this sample the function is called SetITLConnectionCETickStats. It is not necessary to make any changes to this function.
+</li>
+
+<p>
+<li>
+<b>GetTickData.cpp, GetTickData.h</b>
+GetTickData.cpp contains the CEPerfmon specific code that interacts with the device component.
+</li>
+
+<p>
+<li>
+Other files that are modified but are not specific to CEPerfmon are: CEStructs.h, DataGen.h, datagen.cpp, genctrnm.h, perfmsg.h
+</li>
+
+</ul>
+
+<!---------------------------------------------------------->
+<!--CODE DETAILS-->
+<!---------------------------------------------------------->
+<h2>Device Component Details</h2>
+The device component, TickStatsCE.cpp is very simple and is composed of
+3 parts.
+
+<ul>
+
+<p>
+<li>
+Load the Platform Manager DLL and create a stream (InitializeITL).
+</li>
+
+<p>
+<li>
+A loop that reads bytes from the desktop and either sends back the tick count or causes itself to exit.
+</li>
+
+<p>
+<li>
+A function that closes the connection stream (Cleanup).
+</li>
+
+</ul>
+<hr>
+
+</body>
+</html>

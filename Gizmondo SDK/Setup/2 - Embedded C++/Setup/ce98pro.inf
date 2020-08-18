@@ -1,0 +1,540 @@
+;*** BEGIN **********************************************************
+;**                                                                **
+;** Automatically generated on: Tue Dec 18 16:21:59 2001           **
+;**                                                                **
+;** Diamond Version: (32) 1.00.0602 (07/14/97)                     **
+;**                                                                **
+;*** BEGIN **********************************************************
+[Source Media Descriptions]
+; <disk number>, <disk label>, <file>, <path>
+ "1","eMbedded Visual C++ 4.0 Setup Disk 1","cd1.inf","."
+
+[Default File Settings]
+"STF_BACKUP" = ""
+"STF_COPY" = "YES"
+"STF_DATE" = "2001-12-18"
+"STF_DECOMPRESS" = ""
+"STF_OVERWRITE" = "OLDER"
+"STF_READONLY" = ""
+"STF_ROOT" = "YES"
+"STF_SETTIME" = "YES"
+"STF_TIME" = "0"
+"STF_VITAL" = ""
+
+;************* INF File list *****************
+
+[Setup]
+"eula_txt_4" = 1,eula.txt,,,,2001-10-05,!DECOMPRESS,,OLDER,,,,,,,22417,,,,,
+
+[Remove ACME Help Files]
+"acmsetup_gid"= 1,acmsetup.gid,,,!COPY,,,,,,REMOVE,,,,,0,,,,,
+"acmsetup_fts"= 1,acmsetup.fts,,,!COPY,,,,,,REMOVE,,,,,0,,,,,
+"acmsetup_ftg"= 1,acmsetup.ftg,,,!COPY,,,,,,REMOVE,,,,,0,,,,,
+
+[Common Setup]
+"acmsetup_exe" = 1,SETUP\acmsetup.exe,,,,2001-12-18,,1033,OLDER,,,setup.exe,!ROOT,,,344064,SYSTEM,,,3.1.0.8043,
+"acmsetup_hlp" = 1,SETUP\acmsetup.hlp,,,,2001-06-26,,,OLDER,,,,,,,14490,,,,,
+"mssetup_dll" = 1,SETUP\mssetup.dll,,,,2001-12-18,,1033,OLDER,,,,,,,278528,SYSTEM,,,3.1.0.1918,
+"hhsetup_dll" = 1,SETUP\hhsetup.dll,,,,2001-06-26,,1033,OLDER,,,,,,,72704,SYSTEM,,,4.72.8156.0,
+"htmlsetup_dll" = 1,SETUP\htmlse~1.dll<htmlsetup.dll>,,,,2001-12-14,,,OLDER,,,,,,,32824,SYSTEM,,,,
+"ce98pro_inf" = 1,Setup\ce98pro.inf,,,,2001-12-18,,,OLDER,,,,,,,13,,,,,
+"common98_dll" = 1,Setup\common98.dll,,,,2001-12-18,,1033,OLDER,,,,,,,176128,SYSTEM,,,3.0.0.0,
+"pholder_dll" = 1,Setup\pholder.dll,,,,2001-12-18,,1033,OLDER,,,,,,,32768,SYSTEM,,,3.0.0.0,
+"bboard_dll" = 1,Setup\bboard.dll,,,,2001-12-18,,1033,OLDER,,,,,,,3833856,SYSTEM,,,3.0.0.0,
+
+[SetupProdCah]
+"ce98pro_dll" = 1,Setup\ce98pro.dll,,,,2001-12-18,,1033,OLDER,,,,,,,155648,SYSTEM,,,3.0.0.0,
+
+[win32sdk general build tools]
+"guidgen_exe" = 1,COMMON\TOOLS\guidgen.exe,,,,1998-06-17,,1033,OLDER,,,,,,,24649,,,,6.0.0.8063,
+"uuidgen_exe" = 1,COMMON\TOOLS\uuidgen.exe,,,,1998-04-24,,1033,OLDER,,,,,,,39184,,,,5.0.1659.1,
+"nmake_exe" = 1,COMMON\TOOLS\nmake.exe,,,,1998-06-17,,1033,OLDER,,,,,,,77882,,,,6.0.8168.0,
+"gutils_dll" = 1,COMMON\TOOLS\gutils.dll,,,,1998-04-24,,1033,OLDER,,,,,,,42256,,,,5.0.1644.1,
+"windiff_exe" = 1,COMMON\TOOLS\windiff.exe,,,,1998-04-24,,1033,OLDER,,,,,,,89360,,,,5.0.1644.1,
+"windiff_hlp" = 1,COMMON\TOOLS\windiff.hlp,,,,1998-04-24,,,OLDER,,,,,,,17357,,,,,
+"errlook_exe" = 1,COMMON\TOOLS\errlook.exe,,,,1998-06-17,,1033,OLDER,,,,,,,36864,,,,6.0.0.8063,
+"errlook_hlp" = 1,COMMON\TOOLS\errlook.hlp,,,,1998-06-15,,,OLDER,,,,,,,7467,,,,,
+"depends_exe" = 1,COMMON\TOOLS\depends.exe,,,,1999-12-03,,1033,OLDER,,,,,,,684032,,,,2.0.0.0,
+"depends_hlp" = 1,COMMON\TOOLS\depends.hlp,,,,1999-12-03,,,OLDER,,,,,,,114730,,,,,
+"depends_cnt" = 1,COMMON\TOOLS\depends.cnt,,,,1999-12-03,,,OLDER,,,,,,,1236,,,,,
+
+[Release Notes]
+"relnoteenu_htm" = 1,releas~1.htm<release notes.htm>,,,,2001-12-17,,,OLDER,,,,,,,355418,,,,,
+
+[EVC extras]
+"extras_cecustmwz_awx" = 1,EVC\EXTRAS\cecust~1.awx<cecustmwz.awx>,,,,2001-12-14,,1033,OLDER,,,,,,,221252,,,,4.0.714.0,
+"extras_customaw_h" = 1,EVC\EXTRAS\customaw.h,,,,2001-08-02,,,OLDER,,,,,,,4031,,,,,
+"extras_mfcapwz_lib" = 1,EVC\EXTRAS\mfcapwz.lib,,,,2001-12-14,,,OLDER,,,,,,,16984,,,,,
+
+[EVC - Addins - Readme]
+"addins_readme_txt_enu" = 1,COMMON\EVC\ADDINS\readme.txt,,,,1999-12-03,,,OLDER,,,,,,,205,,,,,
+
+[EVC - ObjMod Header]
+"addauto_h" = 1,EVC\INCLUDE\OBJMODEL\addauto.h,,,,1996-11-01,,,OLDER,,,,,,,1133,,,,,
+"addguid_h" = 1,EVC\INCLUDE\OBJMODEL\addguid.h,,,,1998-01-08,,,OLDER,,,,,,,1042,,,,,
+"appauto_h" = 1,EVC\INCLUDE\OBJMODEL\appauto.h,,,,1997-12-09,,,OLDER,,,,,,,20157,,,,,
+"appdefs_h" = 1,EVC\INCLUDE\OBJMODEL\appdefs.h,,,,1998-01-27,,,OLDER,,,,,,,4517,,,,,
+"appguid_h" = 1,EVC\INCLUDE\OBJMODEL\appguid.h,,,,2001-02-05,,,OLDER,,,,,,,4344,,,,,
+"bldauto_h" = 1,EVC\INCLUDE\OBJMODEL\bldauto.h,,,,1997-10-24,,,OLDER,,,,,,,6641,,,,,
+"blddefs_h" = 1,EVC\INCLUDE\OBJMODEL\blddefs.h,,,,1997-10-24,,,OLDER,,,,,,,2166,,,,,
+"bldguid_h" = 1,EVC\INCLUDE\OBJMODEL\bldguid.h,,,,1998-01-08,,,OLDER,,,,,,,1891,,,,,
+"dbgauto_h" = 1,EVC\INCLUDE\OBJMODEL\dbgauto.h,,,,1996-11-22,,,OLDER,,,,,,,8063,,,,,
+"dbgdefs_h" = 1,EVC\INCLUDE\OBJMODEL\dbgdefs.h,,,,1996-11-01,,,OLDER,,,,,,,1356,,,,,
+"dbgguid_h" = 1,EVC\INCLUDE\OBJMODEL\dbgguid.h,,,,1998-01-08,,,OLDER,,,,,,,2090,,,,,
+"textauto_h" = 1,EVC\INCLUDE\OBJMODEL\textauto.h,,,,1996-11-01,,,OLDER,,,,,,,12853,,,,,
+"textdefs_h" = 1,EVC\INCLUDE\OBJMODEL\textdefs.h,,,,1996-11-01,,,OLDER,,,,,,,2151,,,,,
+"textguid_h" = 1,EVC\INCLUDE\OBJMODEL\textguid.h,,,,2001-02-05,,,OLDER,,,,,,,2458,,,,,
+
+[CE Tools Environment batch files]
+
+[CEMON files]
+"cemon_exe_mips16400" = 1,WCE\wce400\target\mips16\cemon.exe,,,,2001-12-14,,1033,OLDER,,,,,,,122368,,,,4.0.714.0,
+"cemon_exe_armv4400" = 1,WCE\wce400\target\armv4\cemon.exe,,,,2001-12-14,,1033,OLDER,,,,,,,185344,,,,4.0.714.0,
+"cemon_exe_armv4i400" = 1,WCE\wce400\target\armv4i\cemon.exe,,,,2001-12-14,,1033,OLDER,,,,,,,187904,,,,4.0.714.0,
+"cemon_exe_armv4t400" = 1,WCE\wce400\target\armv4t\cemon.exe,,,,2001-12-14,,1033,OLDER,,,,,,,130048,,,,4.0.714.0,
+"cemon_exe_sh3400" = 1,WCE\wce400\target\sh3\cemon.exe,,,,2001-12-14,,1033,OLDER,,,,,,,132608,,,,4.0.714.0,
+"cemon_exe_sh4400" = 1,WCE\wce400\target\sh4\cemon.exe,,,,2001-12-14,,1033,OLDER,,,,,,,132608,,,,4.0.714.0,
+"cemon_exe_mipsii400" = 1,WCE\wce400\target\mipsii\cemon.exe,,,,2001-12-14,,1033,OLDER,,,,,,,196096,,,,4.0.714.0,
+"cemon_exe_mipsiifp400" = 1,WCE\wce400\target\mipsii~1\cemon.exe,,,,2001-12-14,,1033,OLDER,,,,,,,196096,,,,4.0.714.0,
+"cemon_exe_mips4400" = 1,WCE\wce400\target\mipsiv\cemon.exe,,,,2001-12-14,,1033,OLDER,,,,,,,205824,,,,4.0.714.0,
+"cemon_exe_mips4fp400" = 1,WCE\wce400\target\mipsiv~1\cemon.exe,,,,2001-12-14,,1033,OLDER,,,,,,,205824,,,,4.0.714.0,
+"cemon_exe_wcex86400" = 1,WCE\wce400\target\x86\cemon.exe,,,,2001-12-14,,1033,OLDER,,,,,,,162816,,,,4.0.714.0,
+
+[JITDEBUGGER files]
+"jitdebugger_exe_mips16400" = 1,WCE\wce400\target\mips16\JitDeb~1.exe<JitDebugger.exe>,,,,2001-12-14,,1033,OLDER,,,,,,,17408,,,,4.0.714.0,
+"jitdebugger_exe_armv4400" = 1,WCE\wce400\target\armv4\JitDeb~1.exe<JitDebugger.exe>,,,,2001-12-14,,1033,OLDER,,,,,,,18944,,,,4.0.714.0,
+"jitdebugger_exe_armv4i400" = 1,WCE\wce400\target\armv4i\JitDeb~1.exe<JitDebugger.exe>,,,,2001-12-14,,1033,OLDER,,,,,,,19456,,,,4.0.714.0,
+"jitdebugger_exe_armv4t400" = 1,WCE\wce400\target\armv4t\JitDeb~1.exe<JitDebugger.exe>,,,,2001-12-14,,1033,OLDER,,,,,,,18432,,,,4.0.714.0,
+"jitdebugger_exe_sh3400" = 1,WCE\wce400\target\sh3\JitDeb~1.exe<JitDebugger.exe>,,,,2001-12-14,,1033,OLDER,,,,,,,17920,,,,4.0.714.0,
+"jitdebugger_exe_sh4400" = 1,WCE\wce400\target\sh4\JitDeb~1.exe<JitDebugger.exe>,,,,2001-12-14,,1033,OLDER,,,,,,,17920,,,,4.0.714.0,
+"jitdebugger_exe_mipsii400" = 1,WCE\wce400\target\mipsii\JitDeb~1.exe<JitDebugger.exe>,,,,2001-12-14,,1033,OLDER,,,,,,,18944,,,,4.0.714.0,
+"jitdebugger_exe_mipsiifp400" = 1,WCE\wce400\target\mipsii~1\JitDeb~1.exe<JitDebugger.exe>,,,,2001-12-14,,1033,OLDER,,,,,,,18944,,,,4.0.714.0,
+"jitdebugger_exe_mips4400" = 1,WCE\wce400\target\mipsiv\JitDeb~1.exe<JitDebugger.exe>,,,,2001-12-14,,1033,OLDER,,,,,,,19456,,,,4.0.714.0,
+"jitdebugger_exe_mips4fp400" = 1,WCE\wce400\target\mipsiv~1\JitDeb~1.exe<JitDebugger.exe>,,,,2001-12-14,,1033,OLDER,,,,,,,19456,,,,4.0.714.0,
+"jitdebugger_exe_wcex86400" = 1,WCE\wce400\target\x86\JitDeb~1.exe<JitDebugger.exe>,,,,2001-12-14,,1033,OLDER,,,,,,,16896,,,,4.0.714.0,
+
+[REGSVRCE files]
+"regsvrce_exe_mips16400" = 1,WCE\wce400\target\mips16\regsvrce.exe,,,,2001-12-05,,,OLDER,,,,,,,5120,,,,,
+"regsvrce_exe_armv4400" = 1,WCE\wce400\target\armv4\regsvrce.exe,,,,2001-12-05,,,OLDER,,,,,,,5120,,,,,
+"regsvrce_exe_armv4i400" = 1,WCE\wce400\target\armv4i\regsvrce.exe,,,,2001-12-05,,,OLDER,,,,,,,5120,,,,,
+"regsvrce_exe_armv4t400" = 1,WCE\wce400\target\armv4t\regsvrce.exe,,,,2001-12-05,,,OLDER,,,,,,,5120,,,,,
+"regsvrce_exe_sh3400" = 1,WCE\wce400\target\sh3\regsvrce.exe,,,,2001-12-05,,,OLDER,,,,,,,5120,,,,,
+"regsvrce_exe_sh4400" = 1,WCE\wce400\target\sh4\regsvrce.exe,,,,2001-12-05,,,OLDER,,,,,,,5120,,,,,
+"regsvrce_exe_mipsii400" = 1,WCE\wce400\target\mipsii\regsvrce.exe,,,,2001-12-05,,,OLDER,,,,,,,5632,,,,,
+"regsvrce_exe_mipsiifp400" = 1,WCE\wce400\target\mipsii~1\regsvrce.exe,,,,2001-12-05,,,OLDER,,,,,,,5632,,,,,
+"regsvrce_exe_mips4400" = 1,WCE\wce400\target\mipsiv\regsvrce.exe,,,,2001-12-05,,,OLDER,,,,,,,5632,,,,,
+"regsvrce_exe_mips4fp400" = 1,WCE\wce400\target\mipsiv~1\regsvrce.exe,,,,2001-12-05,,,OLDER,,,,,,,5632,,,,,
+"regsvrce_exe_wcex86400" = 1,WCE\wce400\target\x86\regsvrce.exe,,,,2001-12-05,,,OLDER,,,,,,,4096,,,,,
+
+[WCE Build Tools files]
+"lib400_exe" = 1,WCE\WCE400\BIN\lib.exe,,,,2001-09-22,,1033,OLDER,,,,,,,16427,,,,6.24.1243.0,
+"link400_exe" = 1,WCE\WCE400\BIN\link.exe,,,,2001-09-22,,1033,OLDER,,,,,,,540716,,,,6.24.1243.0,
+"midl400_exe" = 1,WCE\WCE400\BIN\midl.exe,,,,2001-07-13,,1033,OLDER,,,,,,,98304,,,,5.3.286.1,
+"midlc400_exe" = 1,WCE\WCE400\BIN\midlc.exe,,,,2001-07-13,,1033,OLDER,,,,,,,618496,,,,5.3.286.1,
+"dumpbin400_exe" = 1,WCE\WCE400\BIN\dumpbin.exe,,,,2001-09-22,,1033,OLDER,,,,,,,16431,,,,6.24.1243.0,
+"editbin400_exe" = 1,WCE\WCE400\BIN\editbin.exe,,,,2001-09-22,,1033,OLDER,,,,,,,16431,,,,6.24.1243.0,
+"cvtres400_exe" = 1,WCE\WCE400\BIN\cvtres.exe,,,,2001-06-13,,1033,OLDER,,,,,,,16384,,,,5.1.2409.1,
+"mspdb60400_dll" = 1,WCE\WCE400\BIN\mspdb60.dll,,,,2001-06-13,,1033,OLDER,,,,,,,180276,,,,6.0.8168.0,
+"cvpack400_exe" = 1,WCE\WCE400\BIN\cvpack.exe,,,,2001-06-13,,1033,OLDER,,,,,,,81979,,,,6.0.8168.0,
+
+[MSVCP50 DLL SYS]
+"msvcp50_dll" = 1,OS\SYSTEM\msvcp50.dll,,,,1997-01-22,,1033,OLDER,,,,,,,565760,,,,5.0.0.7022,
+
+[MSVCP60 DLL SYS]
+"msvcp60_dll" = 1,OS\SYSTEM\msvcp60.dll,,,,1998-06-17,,1033,OLDER,,,,,,,401462,,,,6.0.8168.0,
+
+[evc IDE Templates]
+"addpage_rct" = 1,COMMON\EVC\TEMPLATE\addpage.rct,,,,2001-08-02,,,OLDER,,,,,,,2024,,,,,
+
+[VC - ATLCE WizTemplates]
+"aatldll_cpp" = 1,COMMON\EVC\TEMPLATE\ATLCE\aatldll.cpp,,,,2001-06-19,,,OLDER,,,,,,,2945,,,,,
+"aatlproj_cpp" = 1,COMMON\EVC\TEMPLATE\ATLCE\aatlproj.cpp,,,,2001-06-19,,,OLDER,,,,,,,3291,,,,,
+"aatlsdt_cpp" = 1,COMMON\EVC\TEMPLATE\ATLCE\aatlsdt.cpp,,,,2001-06-19,,,OLDER,,,,,,,85,,,,,
+"aatlsdt_h" = 1,COMMON\EVC\TEMPLATE\ATLCE\aatlsdt.h,,,,2001-06-19,,,OLDER,,,,,,,529,,,,,
+"addatl_ctl" = 1,COMMON\EVC\TEMPLATE\ATLCE\addatl.ctl,,,,2001-06-19,,,OLDER,,,,,,,9320,,,,,
+"addatl_idl" = 1,COMMON\EVC\TEMPLATE\ATLCE\addatl.idl,,,,2001-06-19,,,OLDER,,,,,,,426,,,,,
+"addatl_rgs" = 1,COMMON\EVC\TEMPLATE\ATLCE\addatl.rgs,,,,2001-06-19,,,OLDER,,,,,,,143,,,,,
+"addin_cpp" = 1,COMMON\EVC\TEMPLATE\ATLCE\addin.cpp,,,,2001-06-19,,,OLDER,,,,,,,4689,,,,,
+"addin_h" = 1,COMMON\EVC\TEMPLATE\ATLCE\addin.h,,,,2001-06-19,,,OLDER,,,,,,,3254,,,,,
+"addin_ico" = 1,COMMON\EVC\TEMPLATE\ATLCE\addin.ico,,,,2001-06-19,,,OLDER,,,,,,,766,,,,,
+"addin_rgs" = 1,COMMON\EVC\TEMPLATE\ATLCE\addin.rgs,,,,2001-06-19,,,OLDER,,,,,,,729,,,,,
+"addinco_idl" = 1,COMMON\EVC\TEMPLATE\ATLCE\addinco.idl,,,,2001-06-19,,,OLDER,,,,,,,539,,,,,
+"addinint_idl" = 1,COMMON\EVC\TEMPLATE\ATLCE\addinint.idl,,,,2001-06-19,,,OLDER,,,,,,,327,,,,,
+"asp_cpp" = 1,COMMON\EVC\TEMPLATE\ATLCE\asp.cpp,,,,2001-06-19,,,OLDER,,,,,,,3092,,,,,
+"asp_ctl" = 1,COMMON\EVC\TEMPLATE\ATLCE\asp.ctl,,,,2001-06-19,,,OLDER,,,,,,,1502,,,,,
+"asp_h" = 1,COMMON\EVC\TEMPLATE\ATLCE\asp.h,,,,2001-06-19,,,OLDER,,,,,,,3778,,,,,
+"asp_ico" = 1,COMMON\EVC\TEMPLATE\ATLCE\asp.ico,,,,2001-06-19,,,OLDER,,,,,,,766,,,,,
+"asp_rgs" = 1,COMMON\EVC\TEMPLATE\ATLCE\asp.rgs,,,,2001-06-19,,,OLDER,,,,,,,729,,,,,
+"atl_bmp" = 1,COMMON\EVC\TEMPLATE\ATLCE\atl.bmp,,,,2001-06-19,,,OLDER,,,,,,,246,,,,,
+"cmposite_rc" = 1,COMMON\EVC\TEMPLATE\ATLCE\cmposite.rc,,,,2001-06-19,,,OLDER,,,,,,,81,,,,,
+"cmprgco_idl" = 1,COMMON\EVC\TEMPLATE\ATLCE\cmprgco.idl,,,,2001-06-19,,,OLDER,,,,,,,745,,,,,
+"compreg_cpp" = 1,COMMON\EVC\TEMPLATE\ATLCE\compreg.cpp,,,,2001-06-19,,,OLDER,,,,,,,478,,,,,
+"compreg_ctl" = 1,COMMON\EVC\TEMPLATE\ATLCE\compreg.ctl,,,,2001-06-20,,,OLDER,,,,,,,863,,,,,
+"compreg_h" = 1,COMMON\EVC\TEMPLATE\ATLCE\compreg.h,,,,2001-06-19,,,OLDER,,,,,,,2507,,,,,
+"compreg_ico" = 1,COMMON\EVC\TEMPLATE\ATLCE\compreg.ico,,,,2001-06-19,,,OLDER,,,,,,,766,,,,,
+"compsite_ico" = 1,COMMON\EVC\TEMPLATE\ATLCE\compsite.ico,,,,2001-06-19,,,OLDER,,,,,,,766,,,,,
+"control_cpp" = 1,COMMON\EVC\TEMPLATE\ATLCE\control.cpp,,,,2001-06-19,,,OLDER,,,,,,,487,,,,,
+"control_ctl" = 1,COMMON\EVC\TEMPLATE\ATLCE\control.ctl,,,,2001-06-20,,,OLDER,,,,,,,3813,,,,,
+"control_h" = 1,COMMON\EVC\TEMPLATE\ATLCE\control.h,,,,2001-06-19,,,OLDER,,,,,,,16786,,,,,
+"control_ico" = 1,COMMON\EVC\TEMPLATE\ATLCE\control.ico,,,,2001-06-19,,,OLDER,,,,,,,766,,,,,
+"control_rgs" = 1,COMMON\EVC\TEMPLATE\ATLCE\control.rgs,,,,2001-06-19,,,OLDER,,,,,,,1036,,,,,
+"ctlco_idl" = 1,COMMON\EVC\TEMPLATE\ATLCE\ctlco.idl,,,,2001-06-19,,,OLDER,,,,,,,543,,,,,
+"ctlint_idl" = 1,COMMON\EVC\TEMPLATE\ATLCE\ctlint.idl,,,,2001-06-19,,,OLDER,,,,,,,5861,,,,,
+"default_htm" = 1,COMMON\EVC\TEMPLATE\ATLCE\default.htm,,,,2001-06-19,,,OLDER,,,,,,,182,,,,,
+"dialog_cpp" = 1,COMMON\EVC\TEMPLATE\ATLCE\dialog.cpp,,,,2001-06-19,,,OLDER,,,,,,,334,,,,,
+"dialog_ctl" = 1,COMMON\EVC\TEMPLATE\ATLCE\dialog.ctl,,,,2001-06-20,,,OLDER,,,,,,,880,,,,,
+"dialog_h" = 1,COMMON\EVC\TEMPLATE\ATLCE\dialog.h,,,,2001-06-19,,,OLDER,,,,,,,1549,,,,,
+"dialog_ico" = 1,COMMON\EVC\TEMPLATE\ATLCE\dialog.ico,,,,2001-06-19,,,OLDER,,,,,,,766,,,,,
+"dialog_rc" = 1,COMMON\EVC\TEMPLATE\ATLCE\dialog.rc,,,,2001-06-19,,,OLDER,,,,,,,236,,,,,
+"dlgs_h" = 1,COMMON\EVC\TEMPLATE\ATLCE\dlgs.h,,,,2001-06-19,,,OLDER,,,,,,,5735,,,,,
+"html_ico" = 1,COMMON\EVC\TEMPLATE\ATLCE\html.ico,,,,2001-06-19,,,OLDER,,,,,,,766,,,,,
+"htmlctl_htm" = 1,COMMON\EVC\TEMPLATE\ATLCE\htmlctl.htm,,,,2001-06-19,,,OLDER,,,,,,,294,,,,,
+"ieuiless_ctl" = 1,COMMON\EVC\TEMPLATE\ATLCE\ieuiless.ctl,,,,2001-06-20,,,OLDER,,,,,,,1656,,,,,
+"iexplore_ico" = 1,COMMON\EVC\TEMPLATE\ATLCE\iexplore.ico,,,,2001-06-19,,,OLDER,,,,,,,10134,,,,,
+"msdtx_cpp" = 1,COMMON\EVC\TEMPLATE\ATLCE\msdtx.cpp,,,,2001-06-19,,,OLDER,,,,,,,885,,,,,
+"msdtx_ctl" = 1,COMMON\EVC\TEMPLATE\ATLCE\msdtx.ctl,,,,2001-06-19,,,OLDER,,,,,,,1378,,,,,
+"msdtx_h" = 1,COMMON\EVC\TEMPLATE\ATLCE\msdtx.h,,,,2001-06-19,,,OLDER,,,,,,,1585,,,,,
+"msdtx_ico" = 1,COMMON\EVC\TEMPLATE\ATLCE\msdtx.ico,,,,2001-06-19,,,OLDER,,,,,,,766,,,,,
+"msdtx_rgs" = 1,COMMON\EVC\TEMPLATE\ATLCE\msdtx.rgs,,,,2001-06-19,,,OLDER,,,,,,,663,,,,,
+"objco_idl" = 1,COMMON\EVC\TEMPLATE\ATLCE\objco.idl,,,,2001-06-19,,,OLDER,,,,,,,471,,,,,
+"object_cpp" = 1,COMMON\EVC\TEMPLATE\ATLCE\object.cpp,,,,2001-06-19,,,OLDER,,,,,,,799,,,,,
+"object_ctl" = 1,COMMON\EVC\TEMPLATE\ATLCE\object.ctl,,,,2001-06-20,,,OLDER,,,,,,,1414,,,,,
+"object_h" = 1,COMMON\EVC\TEMPLATE\ATLCE\object.h,,,,2001-06-19,,,OLDER,,,,,,,4631,,,,,
+"object_ico" = 1,COMMON\EVC\TEMPLATE\ATLCE\object.ico,,,,2001-06-19,,,OLDER,,,,,,,766,,,,,
+"object_rgs" = 1,COMMON\EVC\TEMPLATE\ATLCE\object.rgs,,,,2001-06-19,,,OLDER,,,,,,,729,,,,,
+"objint_idl" = 1,COMMON\EVC\TEMPLATE\ATLCE\objint.idl,,,,2001-06-19,,,OLDER,,,,,,,402,,,,,
+"pdatasrc_h" = 1,COMMON\EVC\TEMPLATE\ATLCE\pdatasrc.h,,,,2001-06-19,,,OLDER,,,,,,,2572,,,,,
+"pgmguids_cpp" = 1,COMMON\EVC\TEMPLATE\ATLCE\pgmguids.cpp,,,,2001-06-19,,,OLDER,,,,,,,221,,,,,
+"propdlg_rc" = 1,COMMON\EVC\TEMPLATE\ATLCE\propdlg.rc,,,,2001-06-19,,,OLDER,,,,,,,176,,,,,
+"proppage_cpp" = 1,COMMON\EVC\TEMPLATE\ATLCE\proppage.cpp,,,,2001-06-19,,,OLDER,,,,,,,478,,,,,
+"proppage_ctl" = 1,COMMON\EVC\TEMPLATE\ATLCE\proppage.ctl,,,,2001-06-20,,,OLDER,,,,,,,2142,,,,,
+"proppage_h" = 1,COMMON\EVC\TEMPLATE\ATLCE\proppage.h,,,,2001-06-19,,,OLDER,,,,,,,3051,,,,,
+"proppage_ico" = 1,COMMON\EVC\TEMPLATE\ATLCE\proppage.ico,,,,2001-06-19,,,OLDER,,,,,,,766,,,,,
+"proppage_idl" = 1,COMMON\EVC\TEMPLATE\ATLCE\proppage.idl,,,,2001-06-19,,,OLDER,,,,,,,462,,,,,
+"proppage_rgs" = 1,COMMON\EVC\TEMPLATE\ATLCE\proppage.rgs,,,,2001-06-19,,,OLDER,,,,,,,606,,,,,
+"provco_idl" = 1,COMMON\EVC\TEMPLATE\ATLCE\provco.idl,,,,2001-06-19,,,OLDER,,,,,,,118,,,,,
+"prowset_cpp" = 1,COMMON\EVC\TEMPLATE\ATLCE\prowset.cpp,,,,2001-06-19,,,OLDER,,,,,,,703,,,,,
+"prowset_h" = 1,COMMON\EVC\TEMPLATE\ATLCE\prowset.h,,,,2001-06-19,,,OLDER,,,,,,,3834,,,,,
+"psession_h" = 1,COMMON\EVC\TEMPLATE\ATLCE\psession.h,,,,2001-06-19,,,OLDER,,,,,,,4200,,,,,
+"snapin_cpp" = 1,COMMON\EVC\TEMPLATE\ATLCE\snapin.cpp,,,,2001-06-19,,,OLDER,,,,,,,7668,,,,,
+"snapin_ctl" = 1,COMMON\EVC\TEMPLATE\ATLCE\snapin.ctl,,,,2001-06-19,,,OLDER,,,,,,,3985,,,,,
+"snapin_h" = 1,COMMON\EVC\TEMPLATE\ATLCE\snapin.h,,,,2001-06-19,,,OLDER,,,,,,,15151,,,,,
+"snapin_ico" = 1,COMMON\EVC\TEMPLATE\ATLCE\snapin.ico,,,,2001-06-19,,,OLDER,,,,,,,1078,,,,,
+"snapin_idl" = 1,COMMON\EVC\TEMPLATE\ATLCE\snapin.idl,,,,2001-06-19,,,OLDER,,,,,,,310,,,,,
+"snapin_rc" = 1,COMMON\EVC\TEMPLATE\ATLCE\snapin.rc,,,,2001-06-19,,,OLDER,,,,,,,139,,,,,
+"snapin_rgs" = 1,COMMON\EVC\TEMPLATE\ATLCE\snapin.rgs,,,,2001-06-19,,,OLDER,,,,,,,2080,,,,,
+"snapin16_bmp" = 1,COMMON\EVC\TEMPLATE\ATLCE\snapin16.bmp,,,,2001-06-19,,,OLDER,,,,,,,246,,,,,
+"snapin32_bmp" = 1,COMMON\EVC\TEMPLATE\ATLCE\snapin32.bmp,,,,2001-06-19,,,OLDER,,,,,,,630,,,,,
+"tbarlrge_bmp" = 1,COMMON\EVC\TEMPLATE\ATLCE\tbarlrge.bmp,,,,2001-06-19,,,OLDER,,,,,,,1142,,,,,
+"tbarmedm_bmp" = 1,COMMON\EVC\TEMPLATE\ATLCE\tbarmedm.bmp,,,,2001-06-19,,,OLDER,,,,,,,374,,,,,
+"template_txt" = 1,COMMON\EVC\TEMPLATE\ATLCE\template.txt,,,,2001-06-19,,,OLDER,,,,,,,49735,,,,,
+"toolbar_bmp" = 1,COMMON\EVC\TEMPLATE\ATLCE\toolbar.bmp,,,,2001-06-19,,,OLDER,,,,,,,246,,,,,
+"winres_h" = 1,COMMON\EVC\TEMPLATE\ATLCE\winres.h,,,,2001-06-19,,,OLDER,,,,,,,1151,,,,,
+"winresrc_h" = 1,COMMON\EVC\TEMPLATE\ATLCE\winresrc.h,,,,2001-06-19,,,OLDER,,,,,,,459,,,,,
+"winver_h" = 1,COMMON\EVC\TEMPLATE\ATLCE\winver.h,,,,2001-06-19,,,OLDER,,,,,,,9575,,,,,
+
+[VC - CE Debugger]
+"tln0pt_dll" = 1,COMMON\EVC\BIN\tln0pt.dll,,,,2001-12-14,,1033,OLDER,,,,,,,28744,,,,4.0.714.0,
+"emce_dll" = 1,COMMON\EVC\BIN\emce.dll,,,,2001-12-14,,1033,OLDER,,,,,,,118841,,,,4.0.714.0,
+"eecxxce_dll" = 1,COMMON\EVC\BIN\eecxxce.dll,,,,2001-12-14,,1033,OLDER,,,,,,,192572,,,,4.0.714.0,
+"shcvce_dll" = 1,COMMON\EVC\BIN\shcvce.dll,,,,2001-12-14,,1033,OLDER,,,,,,,69701,,,,4.0.714.0,
+"tlloc_dll" = 1,COMMON\EVC\BIN\tlloc.dll,,,,2001-12-14,,1033,OLDER,,,,,,,20544,,,,4.0.714.0,
+"tln0t_dll" = 1,COMMON\EVC\BIN\tln0t.dll,,,,2001-12-14,,1033,OLDER,,,,,,,28736,,,,4.0.714.0,
+
+[VC - CE Debugger System]
+"psapi_dll" = 1,os\system\psapi.dll,,,,1998-04-24,,1033,OLDER,,,,ROOT,,,18192,SYSTEM,,,4.0.1371.1,
+
+[VC - CE Debugger ARM]
+"emarm_dll" = 1,COMMON\EVC\BIN\emarm.dll,,,,2001-12-18,,1033,OLDER,,,,,,,73784,,,,4.0.714.0,
+"eearm_dll" = 1,COMMON\EVC\BIN\eearm.dll,,,,2001-12-14,,1033,OLDER,,,,,,,192572,,,,4.0.714.0,
+"sharm_dll" = 1,COMMON\EVC\BIN\sharm.dll,,,,2001-12-14,,1033,OLDER,,,,,,,69701,,,,4.0.714.0,
+"tlarm_dll" = 1,COMMON\EVC\BIN\tlarm.dll,,,,2001-12-14,,1033,OLDER,,,,,,,28744,,,,4.0.714.0,
+
+[VC - CE Debugger THUMB]
+
+[VC - CE Debugger MIPS]
+"emmips_dll" = 1,COMMON\EVC\BIN\emmips.dll,,,,2001-12-18,,1033,OLDER,,,,,,,73785,,,,4.0.714.0,
+"eemips_dll" = 1,COMMON\EVC\BIN\eemips.dll,,,,2001-12-14,,1033,OLDER,,,,,,,192572,,,,4.0.714.0,
+"shmips_dll" = 1,COMMON\EVC\BIN\shmips.dll,,,,2001-12-14,,1033,OLDER,,,,,,,69701,,,,4.0.714.0,
+"tlmips_dll" = 1,COMMON\EVC\BIN\tlmips.dll,,,,2001-12-14,,1033,OLDER,,,,,,,28744,,,,4.0.714.0,
+"odmips_dll" = 1,COMMON\EVC\BIN\odmips.dll,,,,2001-12-14,,1033,OLDER,,,,,,,651333,,,,4.0.714.0,
+
+[VC - CE Debugger MIPS16]
+"odmips16_dll" = 1,COMMON\EVC\BIN\odmips16.dll,,,,2001-12-14,,1033,OLDER,,,,,,,651337,,,,4.0.714.0,
+
+[VC - CE Debugger MIPSFP]
+"odmipsfp_dll" = 1,COMMON\EVC\BIN\odmipsfp.dll,,,,2001-12-14,,1033,OLDER,,,,,,,651337,,,,4.0.714.0,
+
+[VC - CE Debugger MIPSIVFP]
+"emmips4_dll" = 1,COMMON\EVC\BIN\emmips4.dll,,,,2001-12-18,,1033,OLDER,,,,,,,69690,,,,4.0.714.0,
+"eemips4_dll" = 1,COMMON\EVC\BIN\eemips4.dll,,,,2001-12-14,,1033,OLDER,,,,,,,192572,,,,4.0.714.0,
+"shmips4_dll" = 1,COMMON\EVC\BIN\shmips4.dll,,,,2001-12-14,,1033,OLDER,,,,,,,69701,,,,4.0.714.0,
+"tlmips4_dll" = 1,COMMON\EVC\BIN\tlmips4.dll,,,,2001-12-14,,1033,OLDER,,,,,,,28744,,,,4.0.714.0,
+"odmips4_dll" = 1,COMMON\EVC\BIN\odmips4.dll,,,,2001-12-14,,1033,OLDER,,,,,,,651335,,,,4.0.714.0,
+"odmp4fp_dll" = 1,COMMON\EVC\BIN\odmp4fp.dll,,,,2001-12-14,,1033,OLDER,,,,,,,651335,,,,4.0.714.0,
+
+[VC - CE Debugger NEWCPUS]
+"odAr4_dll" = 1,COMMON\EVC\BIN\odAr4.dll,,,,2001-12-14,,1033,OLDER,,,,,,,651331,,,,4.0.714.0,
+"odArm4i_dll" = 1,COMMON\EVC\BIN\odArm4i.dll,,,,2001-12-14,,1033,OLDER,,,,,,,651335,,,,4.0.714.0,
+"odArm4t_dll" = 1,COMMON\EVC\BIN\odArm4t.dll,,,,2001-12-14,,1033,OLDER,,,,,,,651335,,,,4.0.714.0,
+"odmip2_dll" = 1,COMMON\EVC\BIN\odmip2.dll,,,,2001-12-14,,1033,OLDER,,,,,,,651333,,,,4.0.714.0,
+"odmip2fp_dll" = 1,COMMON\EVC\BIN\odmip2fp.dll,,,,2001-12-14,,1033,OLDER,,,,,,,651337,,,,4.0.714.0,
+
+[VC - CE Debugger SH3]
+"emsh3_dll" = 1,COMMON\EVC\BIN\emsh3.dll,,,,2001-12-18,,1033,OLDER,,,,,,,69688,,,,4.0.714.0,
+"eesh3_dll" = 1,COMMON\EVC\BIN\eesh3.dll,,,,2001-12-14,,1033,OLDER,,,,,,,192572,,,,4.0.714.0,
+"shsh3_dll" = 1,COMMON\EVC\BIN\shsh3.dll,,,,2001-12-14,,1033,OLDER,,,,,,,69701,,,,4.0.714.0,
+"tlsh3_dll" = 1,COMMON\EVC\BIN\tlsh3.dll,,,,2001-12-14,,1033,OLDER,,,,,,,28744,,,,4.0.714.0,
+"odsh3_dll" = 1,COMMON\EVC\BIN\odsh3.dll,,,,2001-12-14,,1033,OLDER,,,,,,,651331,,,,4.0.714.0,
+
+[VC - CE Debugger SH4]
+"emsh4_dll" = 1,COMMON\EVC\BIN\emsh4.dll,,,,2001-12-18,,1033,OLDER,,,,,,,69688,,,,4.0.714.0,
+"eesh4_dll" = 1,COMMON\EVC\BIN\eesh4.dll,,,,2001-12-14,,1033,OLDER,,,,,,,192572,,,,4.0.714.0,
+"shsh4_dll" = 1,COMMON\EVC\BIN\shsh4.dll,,,,2001-12-14,,1033,OLDER,,,,,,,69701,,,,4.0.714.0,
+"tlsh4_dll" = 1,COMMON\EVC\BIN\tlsh4.dll,,,,2001-12-14,,1033,OLDER,,,,,,,28744,,,,4.0.714.0,
+"odsh4_dll" = 1,COMMON\EVC\BIN\odsh4.dll,,,,2001-12-14,,1033,OLDER,,,,,,,651331,,,,4.0.714.0,
+
+[VC - CE Debugger X86]
+"emx86_dll" = 1,COMMON\EVC\BIN\emx86.dll,,,,2001-12-18,,1033,OLDER,,,,,,,73784,,,,4.0.714.0,
+"eex86_dll" = 1,COMMON\EVC\BIN\eex86.dll,,,,2001-12-14,,1033,OLDER,,,,,,,192572,,,,4.0.714.0,
+"shx86_dll" = 1,COMMON\EVC\BIN\shx86.dll,,,,2001-12-14,,1033,OLDER,,,,,,,69701,,,,4.0.714.0,
+"tlx86_dll" = 1,COMMON\EVC\BIN\tlx86.dll,,,,2001-12-14,,1033,OLDER,,,,,,,28744,,,,4.0.714.0,
+"odx86_dll" = 1,COMMON\EVC\BIN\odx86.dll,,,,2001-12-14,,1033,OLDER,,,,,,,651331,,,,4.0.714.0,
+
+[VC - CE Debugger X86EM]
+"shemul_dll" = 1,COMMON\EVC\BIN\shemul.dll,,,,2001-12-14,,1033,OLDER,,,,,,,69701,,,,4.0.714.0,
+"eeemul_dll" = 1,COMMON\EVC\BIN\eeemul.dll,,,,2001-12-14,,1033,OLDER,,,,,,,192572,,,,4.0.714.0,
+"odemul_dll" = 1,COMMON\EVC\BIN\odemul.dll,,,,2001-12-14,,1033,OLDER,,,,,,,651333,,,,4.0.714.0,
+"odeml_dll" = 1,COMMON\EVC\BIN\odeml.dll,,,,2001-12-14,,1033,OLDER,,,,,,,651331,,,,4.0.714.0,
+
+[VC - CE Debugger CEF]
+"odcef_dll" = 1,COMMON\EVC\BIN\odcef.dll,,,,2001-12-14,,,OLDER,,,,,,,36931,,,,,
+"odcefmips_dll" = 1,COMMON\EVC\BIN\odcefm~1.dll<odcefmips.dll>,,,,2001-12-14,,1033,OLDER,,,,,,,651339,,,,4.0.714.0,
+"odcefsh3_dll" = 1,COMMON\EVC\BIN\odcefsh3.dll,,,,2001-12-14,,1033,OLDER,,,,,,,651337,,,,4.0.714.0,
+"odcefarm_dll" = 1,COMMON\EVC\BIN\odcefarm.dll,,,,2001-12-14,,1033,OLDER,,,,,,,651337,,,,4.0.714.0,
+"odcefemul_dll" = 1,COMMON\EVC\BIN\odcefe~1.dll<odcefemul.dll>,,,,2001-12-14,,1033,OLDER,,,,,,,651339,,,,4.0.714.0,
+"odcefppc_dll" = 1,COMMON\EVC\BIN\odcefppc.dll,,,,2001-12-14,,1033,OLDER,,,,,,,651337,,,,4.0.714.0,
+"odcefsh4_dll" = 1,COMMON\EVC\BIN\odcefsh4.dll,,,,2001-12-14,,1033,OLDER,,,,,,,651337,,,,4.0.714.0,
+"odcefx86_dll" = 1,COMMON\EVC\BIN\odcefx86.dll,,,,2001-12-14,,1033,OLDER,,,,,,,651337,,,,4.0.714.0,
+"odnull_dll" = 1,COMMON\EVC\BIN\odnull.dll,,,,2001-12-14,,1033,OLDER,,,,,,,651333,,,,4.0.714.0,
+
+[Desktop Header Files]
+"commctrl_h" = 1,COMMON\EVC\INCLUDE\WIN32\commctrl.h,,,,1998-04-24,,,OLDER,,,,,,,189522,,,,,
+"commctrl_rh" = 1,COMMON\EVC\INCLUDE\WIN32\commctrl.rh,,,,1998-04-24,,,OLDER,,,,,,,7329,,,,,
+"dde_rh" = 1,COMMON\EVC\INCLUDE\WIN32\dde.rh,,,,1998-04-24,,,OLDER,,,,,,,790,,,,,
+"winnt_rh" = 1,COMMON\EVC\INCLUDE\WIN32\winnt.rh,,,,1998-04-24,,,OLDER,,,,,,,10335,,,,,
+"winuser_rh" = 1,COMMON\EVC\INCLUDE\WIN32\winuser.rh,,,,1998-04-24,,,OLDER,,,,,,,41894,,,,,
+
+[Base IDE bin ide files]
+"wceatl_awx" = 1,COMMON\EVC\BIN\IDE\wceatl.awx,,,,2001-12-14,,1033,OLDER,,,,,,,127038,,,,4.0.714.0,
+"wcectl_awx" = 1,COMMON\EVC\BIN\IDE\wcectl.awx,,,,2001-12-14,,1033,OLDER,,,,,,,147518,,,,4.0.714.0,
+"ceexewz_awx" = 1,COMMON\EVC\BIN\IDE\ceexewz.awx,,,,2001-12-14,,1033,OLDER,,,,,,,73792,,,,4.0.714.0,
+"cedllwz_awx" = 1,COMMON\EVC\BIN\IDE\cedllwz.awx,,,,2001-12-14,,1033,OLDER,,,,,,,57408,,,,4.0.714.0,
+"celibwz_awx" = 1,COMMON\EVC\BIN\IDE\celibwz.awx,,,,2001-12-14,,1033,OLDER,,,,,,,57408,,,,4.0.714.0,
+"wcedlwz_awx" = 1,COMMON\EVC\BIN\IDE\wcedlwz.awx,,,,2001-12-14,,1033,OLDER,,,,,,,98369,,,,4.0.714.0,
+"wceapwz_awx" = 1,COMMON\EVC\BIN\IDE\wceapwz.awx,,,,2001-12-14,,1033,OLDER,,,,,,,323647,,,,4.0.714.0,
+"devclvw_pkg" = 1,COMMON\EVC\BIN\IDE\devclvw.pkg,,,,2001-12-14,,1033,OLDER,,,,,,,315453,,,,4.0.714.0,
+"devcpp_pkg" = 1,COMMON\EVC\BIN\IDE\devcpp.pkg,,,,2001-12-14,,1033,OLDER,,,,,,,589880,,,,4.0.714.0,
+"devdbg_pkg" = 1,COMMON\EVC\BIN\IDE\devdbg.pkg,,,,2001-12-14,,1033,OLDER,,,,,,,106552,,,,4.0.714.0,
+"devgal_pkg" = 1,COMMON\EVC\BIN\IDE\devgal.pkg,,,,2001-12-14,,1033,OLDER,,,,,,,319548,,,,4.0.714.0,
+"devncb_pkg" = 1,COMMON\EVC\BIN\IDE\devncb.pkg,,,,2001-12-14,,1033,OLDER,,,,,,,102456,,,,4.0.714.0,
+"devres_pkg" = 1,COMMON\EVC\BIN\IDE\devres.pkg,,,,2001-12-14,,1033,OLDER,,,,,,,1540152,,,,4.0.714.0,
+"devbld_pkg" = 1,COMMON\EVC\BIN\IDE\devbld.pkg,,,,2001-12-14,,1033,OLDER,,,,,,,1314876,,,,4.0.714.0,
+"devaut1_pkg" = 1,COMMON\EVC\BIN\IDE\devaut1.pkg,,,,2001-12-14,,1033,OLDER,,,,,,,163898,,,,4.0.714.0,
+"devodl_pkg" = 1,COMMON\EVC\BIN\IDE\devodl.pkg,,,,2001-12-14,,1033,OLDER,,,,,,,217144,,,,4.0.714.0,
+"devdtg_pkg" = 1,COMMON\EVC\BIN\IDE\devdtg.pkg,,,,2001-12-14,,1033,OLDER,,,,,,,413756,,,,4.0.714.0,
+"devhelp_pkg" = 1,COMMON\EVC\BIN\IDE\devhelp.pkg,,,,2001-12-14,,1033,OLDER,,,,,,,28738,,,,4.0.714.0,
+"devbied_pkg" = 1,COMMON\EVC\BIN\IDE\devbied.pkg,,,,2001-12-14,,1033,OLDER,,,,,,,69691,,,,4.0.714.0,
+"devent_pkg" = 1,COMMON\EVC\BIN\IDE\devent.pkg,,,,2001-12-14,,1033,OLDER,,,,,,,90168,,,,4.0.714.0,
+"devhtmx_pkg" = 1,COMMON\EVC\BIN\IDE\devhtmx.pkg,,,,2001-12-14,,1033,OLDER,,,,,,,49210,,,,4.0.714.0,
+"atlobjce_dll" = 1,COMMON\EVC\BIN\IDE\atlobjce.dll,,,,2001-12-14,,1033,OLDER,,,,,,,647233,,,,4.0.714.0,
+"appwzenu_dll" = 1,COMMON\EVC\BIN\IDE\CEAPPW~2.DLL<ceappwzenu.dll>,,,,2001-12-14,,1033,OLDER,,,,,,,36864,,,,4.0.714.0,
+"appwzdeu_dll" = 1,COMMON\EVC\BIN\IDE\CEAPPW~1.DLL<ceappwzdeu.dll>,,,,2001-12-14,,1031,OLDER,,,,,,,36864,,,,4.0.714.0,
+"appwzesp_dll" = 1,COMMON\EVC\BIN\IDE\CEAPPW~3.DLL<ceappwzesp.dll>,,,,2001-12-14,,3082,OLDER,,,,,,,36864,,,,4.0.714.0,
+"appwzfra_dll" = 1,COMMON\EVC\BIN\IDE\CEAPPW~4.DLL<ceappwzfra.dll>,,,,2001-12-14,,1036,OLDER,,,,,,,36864,,,,4.0.714.0,
+"appwzita_dll" = 1,COMMON\EVC\BIN\IDE\CE75CB~1.DLL<ceappwzita.dll>,,,,2001-12-14,,1040,OLDER,,,,,,,36864,,,,4.0.714.0,
+"appwzjpn_dll" = 1,COMMON\EVC\BIN\IDE\CEA5B1~1.DLL<ceappwzjpn.dll>,,,,2001-12-14,,1041,OLDER,,,,,,,36864,,,,4.0.714.0,
+"appwzptb_dll" = 1,COMMON\EVC\BIN\IDE\CE85C5~1.DLL<ceappwzptb.dll>,,,,2001-12-14,,1046,OLDER,,,,,,,36864,,,,4.0.714.0,
+"mfcapwz_dll" = 1,COMMON\EVC\BIN\IDE\mfcapwz.dll,,,,2001-12-14,,1033,OLDER,,,,,,,1015879,,,,4.0.714.0,
+"devxpgl_dll" = 1,COMMON\EVC\BIN\IDE\devxpgl.dll,,,,2001-12-14,,1033,OLDER,,,,,,,65601,,,,4.0.714.0,
+"devcpu_pkg" = 1,COMMON\EVC\BIN\IDE\devcpu.pkg,,,,2001-12-14,,1033,OLDER,,,,,,,102471,,,,4.0.714.0,
+
+[wce400 x86 Compiler]
+"wce400_c1_x86_dll" = 1,WCE\WCE400\BIN\c1.dll,,,,2001-09-05,,1033,OLDER,,,,,,,682545,,,,12.0.8867.0,
+"wce400_c1xx_x86_dll" = 1,WCE\WCE400\BIN\c1xx.dll,,,,2001-09-05,,1033,OLDER,,,,,,,1206323,,,,12.0.8867.0,
+"wce400_c2_x86_dll" = 1,WCE\WCE400\BIN\c2.dll,,,,2001-09-05,,1033,OLDER,,,,,,,737329,,,,12.0.8799.0,
+"wce400_cl_exe" = 1,WCE\WCE400\BIN\cl.exe,,,,2001-09-05,,1033,OLDER,,,,,,,51200,,,,12.0.8804.0,
+
+[wce400 SHx Compiler]
+"wce400_c1_sh_dll" = 1,WCE\WCE400\BIN\c1_sh.dll,,,,2001-10-17,,1033,OLDER,,,,,,,581632,,,,12.20.9372.0,
+"wce400_c1xx_sh_dll" = 1,WCE\WCE400\BIN\c1xx_sh.dll,,,,2001-10-17,,1033,OLDER,,,,,,,1073152,,,,12.20.9372.0,
+"wce400_c2_sh_dll" = 1,WCE\WCE400\BIN\c2_sh.dll,,,,2001-10-17,,1033,OLDER,,,,,,,897024,,,,12.20.9372.0,
+"wce400_clsh_exe" = 1,WCE\WCE400\BIN\clsh.exe,,,,2001-10-17,,1033,OLDER,,,,,,,61440,,,,12.20.9372.0,
+"wce400_shasm_exe" = 1,WCE\WCE400\BIN\shasm.exe,,,,2001-10-17,,1033,OLDER,,,,,,,245760,,,,12.20.9372.0,
+
+[wce400 MIPS Compiler]
+"wce400_a1_mp_exe" = 1,WCE\WCE400\BIN\a1_mp.exe,,,,2001-11-27,,1033,OLDER,,,,,,,368640,,,,12.20.9419.0,
+"wce400_c1_mp_dll" = 1,WCE\WCE400\BIN\c1_mp.dll,,,,2001-11-27,,1033,OLDER,,,,,,,581632,,,,12.20.9419.0,
+"wce400_a2_mp_exe" = 1,WCE\WCE400\BIN\a2_mp.exe,,,,2001-11-27,,1033,OLDER,,,,,,,458752,,,,12.20.9419.0,
+"wce400_c1xx_mp_dll" = 1,WCE\WCE400\BIN\c1xx_mp.dll,,,,2001-11-27,,1033,OLDER,,,,,,,1073152,,,,12.20.9419.0,
+"wce400_mipsasm_exe" = 1,WCE\WCE400\BIN\mipsasm.exe,,,,2001-11-27,,1033,OLDER,,,,,,,57344,,,,12.20.9419.0,
+"wce400_c2_mp_dll" = 1,WCE\WCE400\BIN\c2_mp.dll,,,,2001-11-27,,1033,OLDER,,,,,,,1056768,,,,12.20.9419.0,
+"wce400_clmips_exe" = 1,WCE\WCE400\BIN\clmips.exe,,,,2001-11-27,,1033,OLDER,,,,,,,69632,,,,12.20.9419.0,
+
+[wce400 ARM THUMB Compiler]
+"wce400_armasm_exe" = 1,WCE\WCE400\BIN\armasm.exe,,,,2001-11-20,,1033,OLDER,,,,,,,217088,,,,12.20.9409.0,
+"wce400_c1_arm_dll" = 1,WCE\WCE400\BIN\c1_arm.dll,,,,2001-11-20,,1033,OLDER,,,,,,,569344,,,,12.20.9409.0,
+"wce400_c1xx_arm_dll" = 1,WCE\WCE400\BIN\c1xx_arm.dll,,,,2001-11-20,,1033,OLDER,,,,,,,1064960,,,,12.20.9409.0,
+"wce400_c2_arm_dll" = 1,WCE\WCE400\BIN\c2_arm.dll,,,,2001-11-20,,1033,OLDER,,,,,,,876544,,,,12.20.9409.0,
+"wce400_clarm_exe" = 1,WCE\WCE400\BIN\clarm.exe,,,,2001-11-20,,1033,OLDER,,,,,,,61440,,,,12.20.9409.0,
+"wce400_clthumb_exe" = 1,WCE\WCE400\BIN\clthumb.exe,,,,2001-11-21,,1033,OLDER,,,,,,,50176,,,,12.20.9409.0,
+
+[vc IDE Macros]
+"sample_dsm_enu" = 1,COMMON\EVC\MACROS\sample.vcm,,,,2000-02-29,,,OLDER,,,,,,,25066,,,,,
+
+[vc Core IDE]
+"win32_ncb" = 1,COMMON\EVC\BIN\win32.vcb,,,,2000-01-31,,,OLDER,,,,,,,6398976,,,,,
+"wcemfcatl_ncb" = 1,COMMON\EVC\BIN\wcemfc~1.vcb<wcemfcatl.vcb>,,,,2000-01-31,,,OLDER,,,,,,,2057216,,,,,
+"mspdb60_dll" = 1,COMMON\EVC\BIN\mspdb60.dll,,,,1998-06-17,,1033,OLDER,,,,,,,180276,,,,6.0.8168.0,
+"rsdkmon_exe" = 1,COMMON\EVC\BIN\rsdkmon.exe,,,,1997-03-19,,,OLDER,,,,,,,54272,,,,,
+"stripcv_exe" = 1,COMMON\EVC\BIN\stripcv.exe,,,,1997-01-10,,1033,OLDER,,,,,,,20608,,,,3.50.761.1,
+"platname_dll" = 1,COMMON\EVC\BIN\platname.dll,,,,1997-03-19,,,OLDER,,,,,,,4096,,,,,
+"evc_exe" = 1,COMMON\EVC\BIN\evc.exe,,,,2001-12-14,,1033,OLDER,,,,,,,278585,,,,4.0.714.2,
+"evc_hlp_enu" = 1,COMMON\EVC\BIN\evc.hlp,,,,2001-11-29,,,OLDER,,,,,,,362199,,,,,
+"autolayt_dll" = 1,COMMON\EVC\BIN\autolayt.dll,,,,2001-12-14,,1033,OLDER,,,,,,,28735,,,,4.0.714.0,
+"devedit_pkg" = 1,COMMON\EVC\BIN\devedit.pkg,,,,2001-12-14,,1033,OLDER,,,,,,,725050,,,,4.0.714.0,
+"devprj_pkg" = 1,COMMON\EVC\BIN\devprj.pkg,,,,2001-12-14,,1033,OLDER,,,,,,,376888,,,,4.0.714.0,
+"devshl_dll" = 1,COMMON\EVC\BIN\devshl.dll,,,,2001-12-14,,1033,OLDER,,,,,,,1343541,,,,4.0.714.0,
+"macrocpp_dat" = 1,COMMON\EVC\BIN\macrocpp.dat,,,,1998-05-04,,,OLDER,,,,,,,4510,,,,,
+"mfcclwz_dll" = 1,COMMON\EVC\BIN\mfcclwz.dll,,,,2001-12-14,,1033,OLDER,,,,,,,475199,,,,4.0.714.0,
+"vcspawn_exe" = 1,COMMON\EVC\BIN\vcspawn.exe,,,,2001-12-14,,1033,OLDER,,,,,,,20543,,,,4.0.714.0,
+"rc_exe" = 1,COMMON\EVC\BIN\rc.exe,,,,1998-06-24,,1033,OLDER,,,,,,,7440,,,,5.0.1641.1,
+"cvtres_exe" = 1,COMMON\EVC\BIN\cvtres.exe,,,,1998-04-30,,1033,OLDER,,,,,,,15632,,,,5.0.1720.1,
+"mktyplib_exe" = 1,COMMON\EVC\BIN\mktyplib.exe,,,,1998-04-24,,1033,OLDER,,,,,,,91136,,,,2.30.4230.1,
+"clwz_dll" = 1,COMMON\EVC\BIN\clwz.dll,,,,2001-12-14,,1033,OLDER,,,,,,,335872,,,,4.0.714.0,
+"clwzwc_dll" = 1,COMMON\EVC\BIN\clwzwc.dll,,,,2001-12-14,,1033,OLDER,,,,,,,286720,,,,4.0.714.0,
+"autoexp_dat" = 1,COMMON\EVC\BIN\autoexp.dat,,,,2001-08-02,,,OLDER,,,,,,,4822,,,,,
+"rcxdti_dll" = 1,COMMON\EVC\BIN\rcxdti.dll,,,,2001-12-14,,1033,OLDER,,,,,,,28730,,,,4.0.714.0,
+"cedb_dll" = 1,COMMON\EVC\BIN\cedb.dll,,,,2001-12-14,,,OLDER,,,,,,,65581,,,,,
+"rcdll_dll" = 1,COMMON\EVC\BIN\rcdll.dll,,,,1998-06-24,,1033,OLDER,,,,,,,107792,,,,5.0.1641.1,
+"em_dll" = 1,COMMON\EVC\BIN\em.dll,,,,1998-06-17,,1033,OLDER,,,,,,,73772,,,,6.0.8168.0,
+"hh_exe" = 1,COMMON\EVC\BIN\hh.exe,,,,1998-06-20,,1033,OLDER,,,,,,,30992,,,,4.72.8171.0,
+"dm_dll" = 1,COMMON\EVC\BIN\dm.dll,,,,1998-06-17,,1033,OLDER,,,,,,,147500,,,,6.0.8168.0,
+"msdis110_dll" = 1,COMMON\EVC\BIN\msdis110.dll,,,,2001-06-15,,1033,OLDER,,,,,,,344064,,,,1.13.1131.0,
+"bscmake_exe" = 1,COMMON\EVC\BIN\bscmake.exe,,,,1998-06-17,,1033,OLDER,,,,,,,77886,,,,6.0.8168.0,
+"sysincl_dat" = 1,COMMON\EVC\BIN\sysincl.dat,,,,1998-04-24,,,OLDER,,,,,,,15684,,,,,
+"devtldc_dll" = 1,COMMON\EVC\BIN\devtldc.dll,,,,2001-12-14,,1033,OLDER,,,,,,,24639,,,,4.0.714.0,
+"feacp_dll" = 1,COMMON\EVC\BIN\feacp.dll,,,,1998-06-17,,1033,OLDER,,,,,,,864322,,,,12.0.8168.0,
+"evc_com" = 1,COMMON\EVC\BIN\evc.com,,,,2001-12-14,,1033,OLDER,,,,,,,32824,,,,4.0.714.0,
+
+[Common SQL Scripts]
+"types_sql" = 1,COMMON\EVC\BIN\types.sql,,,,2001-02-13,,,OLDER,,,,,,,4083,,,,,
+"sh3_sql" = 1,COMMON\EVC\BIN\sh3.sql,,,,2001-07-10,,,OLDER,,,,,,,86220,,,,,
+"sh4_sql" = 1,COMMON\EVC\BIN\sh4.sql,,,,2001-07-10,,,OLDER,,,,,,,87329,,,,,
+"x86_sql" = 1,COMMON\EVC\BIN\x86.sql,,,,2001-07-10,,,OLDER,,,,,,,97748,,,,,
+"emulator_sql" = 1,COMMON\EVC\BIN\emulator.sql,,,,2001-09-18,,,OLDER,,,,,,,98349,,,,,
+"armv4_sql" = 1,COMMON\EVC\BIN\armv4.sql,,,,2001-09-18,,,OLDER,,,,,,,91542,,,,,
+"armv4i_sql" = 1,COMMON\EVC\BIN\armv4i.sql,,,,2001-09-18,,,OLDER,,,,,,,93755,,,,,
+"armv4t_sql" = 1,COMMON\EVC\BIN\armv4t.sql,,,,2001-09-18,,,OLDER,,,,,,,93787,,,,,
+"mips16_sql" = 1,COMMON\EVC\BIN\mips16.sql,,,,2001-11-13,,,OLDER,,,,,,,100396,,,,,
+"mips4_sql" = 1,COMMON\EVC\BIN\mips4.sql,,,,2001-11-02,,,OLDER,,,,,,,85957,,,,,
+"mips4_fp_sql" = 1,COMMON\EVC\BIN\mips4_fp.sql,,,,2001-11-02,,,OLDER,,,,,,,86562,,,,,
+"mipsii_sql" = 1,COMMON\EVC\BIN\mipsii.sql,,,,2001-11-13,,,OLDER,,,,,,,90470,,,,,
+"mipsii_fp_sql" = 1,COMMON\EVC\BIN\mipsii~1.sql<mipsii_fp.sql>,,,,2001-11-13,,,OLDER,,,,,,,88692,,,,,
+"cef_sql" = 1,COMMON\EVC\BIN\cef.sql,,,,2001-07-10,,,OLDER,,,,,,,76467,,,,,
+
+[EVC Database]
+"vccedb_mdb" = 1,COMMON\EVC\BIN\vccedb.mdb,,,,2000-02-14,,,OLDER,,,,,,,651264,,,,,
+
+[AddIn Designer]
+"msaddndr_dll" = 1,OS\SYSTEM\msaddndr.dll,,,,1998-06-18,,1033,OLDER,,,,,,,86016,,,,6.0.81.69,
+"msaddndr_dep" = 1,OS\SYSTEM\msaddndr.dep,,,,1998-06-18,,,OLDER,,,,,,,2488,,,,,
+"msaddndr_tlb" = 1,OS\SYSTEM\msaddndr.tlb,,,,1998-06-18,,,OLDER,,,,,,,3488,,,,,
+
+[Index Help File]
+"itcc_dll" = 1,WCE\HTMLHELP\evc\itcc.dll,,,,2001-07-14,,1033,OLDER,,,,,,,154352,,,,4.72.7277.0,
+
+[eMbedded Tools Help files]
+"wcechp40_chm_enu" = 1,WCE\HTMLHELP\evc\wcechp40.chm,,,,2001-12-17,,,OLDER,,,,,,,972024,,,,,
+"evc4Help_chm_enu" = 1,WCE\HTMLHELP\evc\evc4Help.chm,,,,2001-11-29,,,OLDER,,,,,,,29286,,,,,
+"vcce4_chm_enu" = 1,WCE\HTMLHELP\evc\vcce4.chm,,,,2001-11-29,,,OLDER,,,,,,,2057950,,,,,
+"evc4help_ali_enu" = 1,WCE\HTMLHELP\evc\evc4help.ali,,,,2001-10-17,,,OLDER,,,,,,,50,,,,,
+"evc4help_h_enu" = 1,WCE\HTMLHELP\evc\evc4help.h,,,,2001-10-17,,,OLDER,,,,,,,35,,,,,
+"vccelng4_chm_enu" = 1,WCE\HTMLHELP\evc\vccelng4.chm,,,,2001-11-29,,,OLDER,,,,,,,1293162,,,,,
+"wcemfc4_chm_enu" = 1,WCE\HTMLHELP\evc\wcemfc4.chm,,,,2001-11-29,,,OLDER,,,,,,,2552096,,,,,
+"wcecrt4_chm_enu" = 1,WCE\HTMLHELP\evc\wcecrt4.chm,,,,2001-11-29,,,OLDER,,,,,,,272417,,,,,
+"wceatl4_chm_enu" = 1,WCE\HTMLHELP\evc\wceatl4.chm,,,,2001-11-29,,,OLDER,,,,,,,712828,,,,,
+"template_hhc_enu" = 1,WCE\HTMLHELP\evc\template.hhc,,,,2001-11-20,,,OLDER,,,,,,,993,,,,,
+"template_hhp_enu" = 1,WCE\HTMLHELP\evc\template.hhp,,,,2001-11-05,,,OLDER,,,,,,,919,,,,,
+"evc4help_hhc_enu" = 1,WCE\HTMLHELP\evc\evc4help.hhc,,,,2001-11-20,,,OLDER,,,,,,,1022,,,,,
+"evc4help_hhk_enu" = 1,WCE\HTMLHELP\evc\evc4help.hhk,,,,2001-11-05,,,OLDER,,,,,,,1020,,,,,
+"evc4help_hhp_enu" = 1,WCE\HTMLHELP\evc\evc4help.hhp,,,,2001-11-05,,,OLDER,,,,,,,921,,,,,
+"hhc_exe" = 1,WCE\HTMLHELP\evc\hhc.exe,,,,2001-07-11,,1033,OLDER,,,,,,,51472,,,,4.74.8702.0,
+"hha_dll" = 1,WCE\HTMLHELP\evc\hha.dll,,,,2001-07-14,,1033,OLDER,,,,,,,837904,,,,4.74.8702.0,
+
+[eMbedded Tools Help Html files]
+"_chm_topic_not_found_htm_enu" = 1,WCE\HTMLHELP\evc\html\_chm_t~1.htm<_chm_topic_not_found.htm>,,,,2001-11-07,,,OLDER,,,,,,,1594,,,,,
+"evoriembeddedvisualc_htm_enu" = 1,WCE\HTMLHELP\evc\html\evorie~1.htm<evoriembeddedvisualc.htm>,,,,2001-11-07,,,OLDER,,,,,,,4842,,,,,
+
+[eMbedded Tools Help Script files]
+"dtue_xml_enu" = 1,WCE\HTMLHELP\evc\scripts\dtue.xml,,,,2001-10-17,,,OLDER,,,,,,,812,,,,,
+"animbutton1_gif_enu" = 1,WCE\HTMLHELP\evc\scripts\animbu~1.gif<animbutton1.gif>,,,,2001-07-17,,,OLDER,,,,,,,151,,,,,
+"animbutton2_gif_enu" = 1,WCE\HTMLHELP\evc\scripts\animbu~2.gif<animbutton2.gif>,,,,2001-07-17,,,OLDER,,,,,,,153,,,,,
+"coc_gif_enu" = 1,WCE\HTMLHELP\evc\scripts\coc.gif,,,,2001-07-17,,,OLDER,,,,,,,64,,,,,
+"coe_gif_enu" = 1,WCE\HTMLHELP\evc\scripts\coe.gif,,,,2001-07-17,,,OLDER,,,,,,,90,,,,,
+"dtue_css_enu" = 1,WCE\HTMLHELP\evc\scripts\dtue.css,,,,2001-10-17,,,OLDER,,,,,,,13765,,,,,
+"dtuelink_js_enu" = 1,WCE\HTMLHELP\evc\scripts\dtuelink.js,,,,2001-10-17,,,OLDER,,,,,,,2295,,,,,
+"dtuestoplist_csl_enu" = 1,WCE\HTMLHELP\evc\scripts\dtuest~1.csl<dtuestoplist.csl>,,,,2001-07-10,,,OLDER,,,,,,,499,,,,,
+"dtue_ie3_js_enu" = 1,WCE\HTMLHELP\evc\scripts\dtue_ie3.js,,,,2001-07-10,,,OLDER,,,,,,,2481,,,,,
+"dtue_ie4_js_enu" = 1,WCE\HTMLHELP\evc\scripts\dtue_ie4.js,,,,2001-07-10,,,OLDER,,,,,,,5746,,,,,
+"dtue_ie5_js_enu" = 1,WCE\HTMLHELP\evc\scripts\dtue_ie5.js,,,,2001-10-17,,,OLDER,,,,,,,37130,,,,,
+"filter1a_gif_enu" = 1,WCE\HTMLHELP\evc\scripts\filter1a.gif,,,,2001-07-17,,,OLDER,,,,,,,137,,,,,
+"filter1b_gif_enu" = 1,WCE\HTMLHELP\evc\scripts\filter1b.gif,,,,2001-07-17,,,OLDER,,,,,,,137,,,,,
+"filter1c_gif_enu" = 1,WCE\HTMLHELP\evc\scripts\filter1c.gif,,,,2001-07-17,,,OLDER,,,,,,,137,,,,,
+"requirements1a_gif_enu" = 1,WCE\HTMLHELP\evc\scripts\requir~1.gif<requirements1a.gif>,,,,2001-07-17,,,OLDER,,,,,,,139,,,,,
+"requirements1b_gif_enu" = 1,WCE\HTMLHELP\evc\scripts\requir~2.gif<requirements1b.gif>,,,,2001-07-17,,,OLDER,,,,,,,138,,,,,
+"requirements1c_gif_enu" = 1,WCE\HTMLHELP\evc\scripts\requir~3.gif<requirements1c.gif>,,,,2001-07-17,,,OLDER,,,,,,,139,,,,,
+"seealso1a_gif_enu" = 1,WCE\HTMLHELP\evc\scripts\seeals~1.gif<seealso1a.gif>,,,,2001-07-17,,,OLDER,,,,,,,138,,,,,
+"seealso1b_gif_enu" = 1,WCE\HTMLHELP\evc\scripts\seeals~2.gif<seealso1b.gif>,,,,2001-07-17,,,OLDER,,,,,,,138,,,,,
+"seealso1c_gif_enu" = 1,WCE\HTMLHELP\evc\scripts\seeals~3.gif<seealso1c.gif>,,,,2001-07-17,,,OLDER,,,,,,,138,,,,,
+
+[Shell Help]
+"vshelp_dll" = 1,COMMON\EVC\BIN\vshelp.dll,,,,1998-05-25,,1033,OLDER,,,,,,,116938,,,,6.0.0.8146,
+
+[Loc Shell Help]
+"vshelpui_dll_enu" = 1,os\system\resource\1033\vshelpui.dll,,,,1998-06-06,,1033,OLDER,,,,,,,18432,,,,6.0.0.8159,
+
+[NTSP]
+"w2kspx_exe" = 1,WIN2KSP2\w2ksp2.exe,,,,2001-05-16,,1033,OLDER,,,,,,,106278016,,,,1.13.113.0,
+
+[Font Files]
+"tahoma_ttf" = 1,OS\Fonts\tahoma.ttf,,,,1998-04-24,,,OLDER,,,,ROOT,,,198864,SYSTEM,,,2.25.0.0,
+
+[VBScript files]
+"reg_vbs" = 1,COMMON\EVC\BIN\reg.vbs,,,,2001-10-13,,,OLDER,,,,,,,2663,,,,,
+
+[vc MFC Os Retail]
+"mfc42_dll" = 1,os\system\mfc42.dll,,,,1998-06-17,,1033,OLDER,,,,,,,995383,SYSTEM,,,6.0.8168.0,
+
+[Sys Files - Regsrv32]
+"regsvr32_exe_3" = 1,os\system\regsvr32.exe,,,,1998-04-24,,1033,OLDER,,,,,,,37136,SYSTEM,,,5.0.1641.1,
+
+[vc MSVCRT40 DLL]
+"msvcrt40_dll" = 1,os\system\msvcrt40.dll,,,,1998-05-31,,1033,OLDER,,,,,,,326656,SYSTEM,,,4.21.0.0,
+
+[ATL]
+"atl_dll_unicode" = 1,os\system\atl.dll,,,,1998-06-17,,1033,OLDER,,,,,,,69632,SYSTEM,,,3.0.8168.0,
+"atl_dll_ansi" = 1,os\system\ansi\atl.dll,,,,1998-06-17,,1033,OLDER,,,,,,,69632,SYSTEM,,,3.0.8168.0,
+
+[Sys Files - CRT Dlls]
+"msvcrt_dll" = 1,COMMON\EVC\BIN\msvcrt.dll,,,,1998-06-17,,1033,OLDER,,,,ROOT,,,254005,SYSTEM,,,6.0.8168.0,
+
+[ReadMe]
+"readmeenu_txt" = 1,readme.htm,,,,2001-12-11,,,OLDER,,,,,,,3241,,,,,
+"tocenu_txt" = 1,toc.htm,,,,2001-12-13,,,OLDER,,,,,,,1712,,,,,
+"contentsenu_txt" = 1,contents.htm,,,,2001-12-17,,,OLDER,,,,,,,24976,,,,,
+;*** END ************************************************************
+;**                                                                **
+;** Automatically generated on: Tue Dec 18 16:21:59 2001           **
+;**                                                                **
+;*** END ************************************************************

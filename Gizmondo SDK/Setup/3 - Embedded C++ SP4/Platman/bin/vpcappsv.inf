@@ -1,0 +1,77 @@
+;----------------------------------------------------------------------------------
+;	File:		VPCAppSv.inf
+;	
+;	Contains:	INF file for installing Virtual PC's loader driver.
+;	
+;	Copyright:	2000-2001 Connectix Corporation
+;----------------------------------------------------------------------------------
+
+[Version]
+Signature			= "$Chicago$"
+Class				= System
+ClassGUID			= {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider			= %Connectix%
+DriverVer			= 05/24/2001,1.0.1.3
+
+[DestinationDirs]
+VPCAppSvCopyFilesNT		= 12
+VPCAppSvCopyFiles		= 10,system32\drivers ; %SystemRoot%\system32\drivers
+
+[Manufacturer]
+%Connectix%			= VPCAppSv
+
+[VPCAppSv]
+%VPCAppSv%			= VPCAppSvInstall, VPCsystem
+
+
+;--------------------------------
+; Windows NT/2000 Installation
+;--------------------------------
+
+[VPCAppSvInstall.ntx86]
+; (Done by MSI)		CopyFiles = VPCAppSvCopyFilesNT
+
+[VPCAppSvCopyFilesNT]
+VPCAppSv.sys,,,0x00000002
+VPCPower.sys,,,0x00000002
+
+[VPCAppSvInstall.ntx86.Services]
+AddService			= VPCAppSv, 0x00000002, VPCAppSvServiceNTx86
+
+[VPCAppSvServiceNTx86]
+DisplayName			= %VPCAppSv%
+ServiceType			= 1						; kernel driver
+StartType			= 2						; demand start
+ErrorControl			= 1						; error normal
+ServiceBinary			= %12%\VPCAppSv.sys
+Description			= %VPCAppSvServiceHelp%
+
+[VPCAppSvInstall.ntx86.Remove.Services]
+DelService = VPCAppSv
+
+
+;--------------------------------
+; Windows 9x Installation
+;--------------------------------
+
+[VPCAppSvInstall]
+CopyFiles			= VPCAppSvCopyFiles
+AddReg				= VPCAppSvAddReg
+
+[VPCAppSvCopyFiles]
+VPCAppSv.sys,,,0x00000002
+VPCPower.sys,,,0x00000002
+
+[VPCAppSvAddReg]
+HKR,,DevLoader,,*NTKERN
+HKR,,NTMPDriver,,VPCAppSv.sys
+
+
+;--------------------------------
+; Strings
+;--------------------------------
+
+[Strings]
+Connectix			= "Connectix Corporation"
+VPCAppSv			= "Virtual PC Application Services"
+VPCAppSvServiceHelp		= "Provides application services for Virtual PC."

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<skin>
+	<view
+		titleBar ="Windows CE.NET Web Pad"
+		
+		displayPosX="100"
+		displayPosY="62"
+		
+		displayWidth="584"
+		displayHeight="435"
+
+		displayDepth="16"
+
+		mappingImage="WebPad_map.bmp"
+		normalImage="WebPad_up.bmp"
+		downImage= "WebPad_down.bmp"
+
+	>
+
+		<button
+			
+			toolTip="X"
+			onClick="Key_X"
+			mappingColor="0x6495ED"
+		/>	
+		<button
+			
+			toolTip="Y"
+			onClick="Key_Y"
+			mappingColor="0x0000FF"
+		/>	
+
+
+		<button
+			
+			toolTip="Up"
+			onClick="Key_Up"
+			mappingColor="0x7FFF00"
+		/>	
+		<button
+			
+			toolTip="Left"
+			onClick="Key_Left"
+			mappingColor="0xFFF8DC"
+		/>	
+	
+		<button
+			
+			toolTip="Right"
+			onClick="Key_Right"
+			mappingColor="0xA52A2A"
+		/>	
+	
+		<button
+			
+			toolTip="Down"
+			onClick="Key_Down"
+			mappingColor="0xFF8C00"
+		/>	
+				
+		<button
+			
+			toolTip="Keyboard"
+			onClick="DOWN: Key_LeftCtrl KeyPad_Multiply UP: Key_LeftCtrl"
+			mappingColor="0xFF7F50"
+		/>
+
+		<button
+			
+			toolTip="Power Off"
+			onClick="SHUTDOWN"
+			mappingColor="0x8A2BE2"
+		/>
+				
+	</view>
+</skin>

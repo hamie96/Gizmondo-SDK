@@ -1,0 +1,101 @@
+; CLW file contains information for the MFC ClassWizard
+
+[General Info]
+Version=1
+LastClass=
+LastTemplate=CDialog
+NewFileInclude1=#include "stdafx.h"
+NewFileInclude2=#include "tetris.h"
+LastPage=0
+
+ClassCount=0
+
+ResourceCount=7
+Resource1=IDD_ABOUT (English (U.S.))
+Resource2=IDD_OPTIONS_GAME (English (U.S.))
+Resource3=IDM_MENU (English (U.S.))
+Resource4=IDD_OPTIONS_KEYMAP (English (U.S.))
+Resource5=IDD_HIGHSCORES (English (U.S.))
+Resource6=IDB_TOOLBAR (English (U.S.))
+Resource7=IDR_ACCELERATOR2
+
+[MNU:IDM_MENU (English (U.S.))]
+Type=1
+Class=?
+Command1=IDC_NEWGAME
+Command2=IDC_OPTIONS
+Command3=IDC_HIGHSCORES
+Command4=IDC_ABOUT
+Command5=IDC_EXIT
+CommandCount=5
+
+[TB:IDB_TOOLBAR (English (U.S.))]
+Type=1
+Class=?
+Command1=IDC_NEWGAME
+Command2=ID_BUTTON1042
+Command3=IDC_OPTIONS
+Command4=IDC_HIGHSCORES
+Command5=IDC_ABOUT
+CommandCount=5
+
+[DLG:IDD_OPTIONS_KEYMAP (English (U.S.))]
+Type=1
+Class=?
+ControlCount=19
+Control1=IDC_GRP_KEYMAPPING,static,1342308352
+Control2=IDC_STATIC,static,1342308352
+Control3=IDC_MOVE_LEFT,combobox,1344339971
+Control4=IDC_STATIC,static,1342308352
+Control5=IDC_MOVE_RIGHT,combobox,1344339971
+Control6=IDC_STATIC,static,1342308352
+Control7=IDC_ROTATE_LEFT,combobox,1344339971
+Control8=IDC_STATIC,static,1342308352
+Control9=IDC_ROTATE_RIGHT,combobox,1344339971
+Control10=IDC_STATIC,static,1342308352
+Control11=IDC_SOFT_DROP,combobox,1344339971
+Control12=IDC_STATIC,static,1342308352
+Control13=IDC_HARD_DROP,combobox,1344339971
+Control14=IDC_STATIC,static,1342308352
+Control15=IDC_PAUSE_RESUME,combobox,1344339971
+Control16=IDC_GRP_KEYREPEAT,static,1342308352
+Control17=IDC_REPEAT_RATE,msctls_trackbar32,1342242840
+Control18=IDC_STATIC,static,1342308482
+Control19=IDC_STATIC,static,1342308352
+
+[DLG:IDD_HIGHSCORES (English (U.S.))]
+Type=1
+Class=?
+ControlCount=7
+Control1=IDC_GRP_HALLOFFAME,static,1342308481
+Control2=IDC_SCORELIST,SysListView32,1350787585
+Control3=IDC_SCORE_TAB,SysTabControl32,1409482762
+Control4=IDC_SCORE,static,1342308481
+Control5=IDC_CLEAR_SCORES,button,1342242816
+Control6=IDC_SEND,button,1476460544
+Control7=IDC_RECEIVE,button,1476460544
+
+[DLG:IDD_ABOUT (English (U.S.))]
+Type=1
+Class=?
+ControlCount=1
+Control1=IDC_STATIC,static,1342177294
+
+[DLG:IDD_OPTIONS_GAME (English (U.S.))]
+Type=1
+Class=?
+ControlCount=6
+Control1=IDC_GRP_LEVEL,static,1342308492
+Control2=IDC_LEVEL_EASY,button,1342373897
+Control3=IDC_LEVEL_MODERATE,button,1342177289
+Control4=IDC_LEVEL_HARD,button,1342177289
+Control5=IDC_GRP_OPTIONS,static,1342308352
+Control6=IDC_SOUND,button,1342242819
+
+[ACL:IDR_ACCELERATOR2]
+Type=1
+Class=?
+Command1=IDS_KEY_EXIT
+Command2=IDC_EXIT
+CommandCount=2
+

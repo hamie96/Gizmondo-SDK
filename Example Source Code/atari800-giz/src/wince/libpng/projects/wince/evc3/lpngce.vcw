@@ -1,0 +1,44 @@
+Microsoft eMbedded Visual Tools Workspace File, Format Version 3.00
+# 警告 : このワークスペース ファイル を編集または削除しないでください!
+
+###############################################################################
+
+Project: "lpngce"=.\lpngce.vcp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name zlibce
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "zlibce"=.\zlibce.vcp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

@@ -1,0 +1,408 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML DIR="LTR"><HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<style>@import url(readme.htm);</style>
+<base target="CONTENTS"></HEAD>
+<BODY>
+
+<H1><A NAME="contents"></A>Microsoft eMbedded Visual C++ 4.0 Readme</H1>
+
+<H1><A NAME="gettingstarted"></A>1 Getting Started</H1>
+
+<P>This document contains updated information about Microsoft ® eMbedded Visual C++ ® version 4.0. Information in this document supersedes information contained in the Help system.</P>
+
+<H1><A NAME="relatedreadmes"></A>1.1 Related Files</H1>
+
+<P>The release notes for Platform Builder version 4.0 for Windows CE .NET have been included with eMbedded Visual C++. These are contained in the file "Release Notes.htm" in the "Program Files\Microsoft eMbedded C++ 4.0\" folder. Check this file for information about issues with SDKs, emulation, Remote Tools, and Platform Manager that may affect how you use eMbedded Visual C++.</P>
+
+<H1><A NAME="systemrequirements"></A>1.2 System Requirements</H1>
+
+<P>To use Microsoft eMbedded Visual C++ 4.0 you need the following:
+
+<UL type="disc"><li>A desktop computer with a Pentium-II class processor, 450 MHz or faster </li>
+<li>Microsoft Windows® 2000 Professional SP2, Microsoft Window 2000 Server SP2, or Microsoft Windows XP Professional.</li>
+<li>96 MB (128 MB recommended) memory for Windows 2000 Professional or Windows XP Professional. 192 MB (256 MB recommended) memory for Windows 2000 Server.</li>
+<li>CD-ROM drive required</li>
+<li>VGA or higher-resolution monitor. A Super VGA (800 x 600 or larger) monitor is recommended.</li>
+<li>Mouse or compatible pointing device.</li>
+<li>200 MB hard disk space.</li>
+</UL>
+
+<H1>1.3 New Processor Names</H1>
+
+<P>Microprocessor types represent microprocessor architectures and different chips use different environment variables. The following table shows the previous microprocessor names and the new names for Wince.bat.</P>
+<div><table border=1 cellspacing="0" cols=2 frame=box rules=all>
+
+<TR VALIGN="top">
+<TD width=50%>Previous microprocessor type and name</TD>
+<TD width=50%>New microprocessor name</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>MIPS/R4100</TD>
+<TD width=50%>MIPSII</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>MIPS/IDT32364</TD>
+<TD width=50%>MIPSII</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>MIPS/R4300</TD>
+<TD width=50%>MIPSII_FP</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>MIPS/MIPSIV</TD>
+<TD width=50%>MIPSIV</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>MIPS/MIPSIV_FP</TD>
+<TD width=50%>MIPSIV_FP</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>MIPS/R4111</TD>
+<TD width=50%>MIPS16</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>ARM/SA1100</TD>
+<TD width=50%>ARMV4</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>ARM/ARM720, ARM/ARM920, and other ARM variants</TD>
+<TD width=50%>ARMV4I</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>THUMB/ARM720, THUMB/ARM920 and other THUMB variants</TD>
+<TD width=50%>ARMV4T</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>SHx/SH3</TD>
+<TD width=50%>SH3</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>SHx/SH4</TD>
+<TD width=50%>SH4</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>x86/i486</TD>
+<TD width=50%>x86</TD>
+</TR>
+</table></div>
+
+<H1><A NAME="installation"></A>2 Installation</H1>
+
+<H1><A NAME="installissues"></A>2.1 Known Installation Issues</H1>
+
+<H1>2.1.1 Cannot Install eMbedded Visual C++ 4.0 on Win9x or Windows NT4</H1>
+
+<P>Setup will not run on Windows 95/98 or Windows NT version 4.0. Running Setup.exe on Windows 95/98 or Windows NT 4.0 returns an error message that asks for the user to install this product on Windows 2000.</P>
+
+<H1>2.1.2 Install of Windows 2000 SP2 failed during eMbedded Visual C++ 4.0 Setup</H1>
+
+<P>eMbedded Visual C++ 4.0 requires the latest service pack on Windows 2000 operating systems. You can download the latest Windows 2000 Service Pack from <a href="http://www.microsoft.com">www.microsoft.com</A>.</P>
+
+<H1>2.1.3 User needs write access to certain registry keys.</H1>
+
+<P>If a user does not have write access to certain registry keys, the eMbedded Visual C++ 4.0 installation will fail. To install the eMbedded Visual C++ 4.0, make sure that the following registry keys are accessible to users with non-administrator privileges: </P>
+
+<BLOCKQUOTE>
+HKEY_LOCAL_MACHINE\Software\Microsoft\Windows CE Tools </BLOCKQUOTE>
+
+<BLOCKQUOTE>
+HKEY_LOCAL_MACHINE\Software\Microsoft\Windows CE Developer Tools </BLOCKQUOTE>
+
+<H1>2.1.4 eMbedded Visual C++ 4.0 may not work if you upgrade your operating system.</H1>
+
+<P>If you upgrade your operating system after installing Visual C++ 4.0, Visual C++ 4.0 may fail to operate correctly.</P>
+
+<P>To avoid this situation, upgrade your operating system before installing Visual C++ 4.0.</P>
+
+<H1>2.1.5 Incorrect disk space costing when installing to non-system partition</H1>
+
+<P>If you choose to install the Common files or the eMbedded Visual Tools 4.0 to a partition other than the system partition, the figure representing the amount of space required reflects only the amount of space for files being installed to that non-system partition. It does not reflect the total amount of space required to install the entire product. This is because some files must be installed on the system partition, regardless of where the other files are installed.</P>
+
+<H1>2.1.6 Setup error message after reboots during installation.</H1>
+
+<P>When you are installing the eMbedded Visual C++ from the CD, you should leave the CD in the drive when you restart the computer. If you have to remove it (if your computer supports CD-ROM boot), you will have to run Setup.exe from the CD again to resume installation.&nbsp;</P>
+
+<H1>2.1.7 Installation files are corrupted and "Add/Remove" option of the Installation wizard doesn't work.</H1>
+
+<P>Should your installation files become corrupted and the Add/Remove option of the Installation wizard does not work, delete the following registry key:</P>
+
+<P>HKEY_LOCAL_MACHINE\software\microsoft\cestudio\4.0 </P>
+
+<P>This will allow you to install the product as a new installation. <BR>
+</P>
+
+<H1>2.1.8 Uninstall wizard fails if the installation path contains German characters.</H1>
+
+<P>Using German installed folder names causes the uninstall wizard to fail. Do not install eMbedded Visual Tools on a path with German characters.</P>
+
+<H1>2.1.9 Installation wizard fails if the installation path contains DBCS characters.</H1>
+
+<P>If you have DBCS characters in the product installation path, the installation wizard will fail. Do not use DBCS characters in the install path of eMbedded Visual C++ 4.0.</P>
+
+<H1>2.1.10 Removing HTMLHelp 1.3 causes eMbedded Visual C++ indexing in Help to fail.</H1>
+
+<P>eMbedded Visual C++ 4.0 has certain components in common with Microsoft HTMLHelp 1.3. Removing HTMLHelp removes these components and causes indexing to fail. Do not remove HTMLHelp before removing eMbedded Visual C++. Removing eMbedded Visual C++ before removing HTMLHelp does not cause HTMLHelp to fail in any way.</P>
+
+<H1>2.1.11 Platform Manager must be removed after eMbedded Visual C++ and SDKs.</H1>
+
+<P>Removing Platform Manager or Platform Builder before removing eMbedded Visual C++ or any compatible SDK causes Platform Manager to remain installed. To remove Platform Manager completely, remove eMbedded Visual C++ and all installed SDKs before uninstalling Platform Builder or Platform Manager.</P>
+
+<H1>2.1.12 .NET Standard SDK requires about 520Mb on your system drive.</H1>
+
+<P>The installer for the .NET Standard SDK request more space than it needs. </P>
+
+<P><B>To reduce the amount of space the installer requests, do one or both of the following:</B>
+
+<UL type="disc"><li>Reduce the virtual memory page size.</li>
+<li>Change the TMP environment variable to point to a location on a non-system drive.</li>
+</UL>
+
+<P>Be sure to undo these changes when they are no longer needed after the installation is complete.</P>
+
+<H1><A NAME="resolvedinstallissues"></A>2.2 Resolved Installation Issues</H1>
+
+<H1>2.2.1 Installation of eMbedded Visual C++ does not cause Internet Explorer 5.5 to generate errors.</H1>
+
+<P>Installing Visual Studio 6.0 Professional Edition after installing Internet Explorer 5.5 has been known to cause Explorer to generate errors and close. Installing eMbedded Visual C++ 4.0 does not cause this behavior.</P>
+
+<H1><A NAME="compilerissues"></A>3 Compiler</H1>
+
+<H1>3.1 Specifying "ATL" for the project name is not supported.</H1>
+
+<P>Specifying "ATL" for the project name in the ATL COM AppWizard results in compiler errors. Please choose another name for your ATL project.</P>
+
+<H1>3.2 pragma pack(4) is misunderstood by the argument passing mechanism in debug builds.</H1>
+
+<P>The compiler directive <B>#pragma pack(4)</B> is misunderstood by the argument passing mechanism in debug builds on MIPSII platforms. This directive causes incorrect values to be passed to functions that take structures as arguments. This directive is set when linking with MFC DLLs on MIPSII platforms. There is no workaround for this issue. Release builds do not experience this behavior.</P>
+
+<H1>3.3 ARM SDKS created with Platform Builder do not properly set compiler switches.</H1>
+
+<P>SDKs created with Platform Builder 4.0 for the Arch5 ARM platforms do not have correct compiler switches. The CLARM compiler contains DSP and MAC coprocessor extensions that will not be available if these switches are not set correctly. You must manually add the correct switches to the project settings.  </P>
+
+<P>To change the compiler setting for an XScale-enabled platform:
+
+<OL type="1"><li>On the <B>Project</B> menu, click <B>Settings</B>.</li>
+<li>Click the <B>C++</B> tab.</li>
+<li>In the <B>Project Options</B> text area, change "/QRarch4t" to "/QRarch5T /QRxscale".</li>
+</OL>
+
+<H1><A NAME="ide"></A>4 Integrated Development Environment (IDE)</H1>
+
+<H1>4.1 Single-Byte Katakana characters are erroneously accepted when creating new custom resources</H1>
+
+<P>The <B>Create New Resource</B> dialog box allows you to enter single-byte katakana characters in the <B>Resource Type</B> text box. Clicking <B>OK</B> results in an error being displayed. Clicking <B>OK</B> in the error message causes the IDE to accept the single-byte katakana characters. However, the resource is not properly created. Do not use either single- or double-byte katakana characters to name a resource type.</P>
+
+<H1>4.2 Some platform names are truncated in list of platforms</H1>
+
+<P>The <B>WCE Configuration</B> toolbar truncates the names of certain platforms in the <B>Select Active WCE Configuration</B> drop-down list.</P>
+
+<P><B>To view the full name of a platform:</B>
+
+<UL type="disc"><li>On the <B>Build</B> menu, click <B>Set Active Platform</B>.</li>
+</UL>
+
+<P>You can see more of the platform name in the wider <B>Set Active Platform</B> dialog box.</P>
+
+<H1>4.3 eMbedded Visual C++ 4.0 does not support platforms with versions of Platform Builder earlier than 4.0.</H1>
+
+<P>Platforms used with versions of Platform Builder earlier than 4.0 are not supported. For example, the Pocket PC and Pocket PC 2002 SDKs, used with Platform Builder 3.0, will not be recognized.</P>
+
+<P>You can, however, install versions 3.0 and 4.0 of Platform Builder together on the same computer. (See 6.8 for information about the behavior of ActiveSync when versions 3.0 and 4.0 are installed together.)</P>
+
+<H1>4.4 Projects that contain no supported CPUs open without generating a warning message.</H1>
+
+<P>If you open a project targeted to a CPU that is not supported by the SDKs installed on your system, no warning messages appear. Instead, the project opens with support for no processors. To work with the project, you must either install an SDK that supports the CPU, or add a new configuration.</P>
+
+<H1>4.5 Apartment threading model is incorrectly set by the IDE.</H1>
+
+<P>For non-DCOM OS images the apartment threading model is not supported. When a new ATL control is inserted into an ATL project and the single threading model with aggregation is specified in the <B>ATL Object Wizard</B>, the IDE sets the threading model to <B>Apartment</B>. You must navigate to the project's *.rgs file and change the following entry:</P>
+<pre>InprocServer32 = s '%MODULE%'
+{
+   val ThreadingModel = s 'Apartment'
+}</pre>
+
+<P>to:</P>
+<pre>InprocServer32 = s '%MODULE%'
+{
+   val ThreadingModel = s 'Both'
+}</pre>
+
+<P>for controls that will be used on non-DCOM OS images.</P>
+
+<P>See the MSDN article titled "Differences Between ATL for Windows CE and Standard ATL" for more information on threading models in Windows CE.</P>
+
+<H1>4.6 Help topic "Building in the Development Environment"</H1>
+
+<P>In the first table in the <B>Preparing to Build</B> section of the <B>Building in the Development Environment</B>, the entry in the <B>Description</B> column that reads:</P>
+
+<BLOCKQUOTE>
+The release or debug operating system for the build (ARMV4, ARMV4I, ARMV4T, MIPSII, MIPSIV, MIPSIV_FP, MIPS16, <B>PSII_FP</B>, SH3, SH4, x86, WCE emulator)</BLOCKQUOTE>
+
+<P>should read:</P>
+
+<BLOCKQUOTE>
+The release or debug operating system for the build (ARMV4, ARMV4I, ARMV4T, MIPSII, MIPSIV, MIPSIV_FP, MIPS16, <B>MIPSII_FP</B>, SH3, SH4, x86, WCE emulator)</BLOCKQUOTE>
+
+<H1>4.7 eMbedded Visual C++ IDE can be started from command line</H1>
+
+<P>You can start the eMbedded Visual C++ IDE by clicking <B>Run</B> on the <B>Start</B> menu and typing <B>evc4</B>.</P>
+
+<H1>4.8 Users must belong to the Administrators Group to use eMbedded Visual C++</H1>
+
+<P>Users need administrative privileges to use or install eMbedded Visual C++. Attempting to use eMbedded Visual C++ without administrative privileges results in errors.</P>
+
+<H1><A NAME="debugging"></A>5 Debugging</H1>
+
+<H1>5.1 Platform Manager connections may fail if used over a shared Ethernet connection.</H1>
+
+<P>Due to a hardware issue with ARMV4 devices, sharing a port between the Ethernet connection used to download the OS image and the one used for the Platform Manager component of eMbedded Visual C++ 4.0 causes Platform Manager to stop responding on these devices.</P>
+
+<P><B>To resolve Platform Manager connection issues on an ARMV4 (Assabet) device:</B>
+
+<UL type="disc"><li>Use Platform Builder to create a new OS image with the environment variable BSP_NOSHAREETH set equal to 1.</li>
+</UL>
+
+<P>Now, when you connect to the device via a PCMCIA Socket Ethernet connection, the port will not be shared and Platform Manager will perform normally.</P>
+
+<H1>5.2 Registering ActiveX components on debug MIPSII on EAGLE boards may fail.</H1>
+
+<P>Registering a debug ActiveX component through eMbedded Visual C++ may fail on the MIPS II platform on an EAGLE development board, though the output window still reports that the component was registered successfully. If your control fails to register and run on the target device, manually register the control using REGSVRCE on the target device.</P>
+
+<H1>5.3 Conditional breakpoint related to array values cannot be hit on certain ARM devices.</H1>
+
+<P>Testing an array value against a literal within a conditional breakpoint (for example, <code>array[i]==0</code>) fails on the ARMINTEGRATOR and XScale platforms on ARMV4T devices. When the breakpoint is reached and the condition occurs, the breakpoint will not stop execution and the debugger stops responding. Other devices handle this breakpoint correctly.</P>
+
+<H1>5.4 __try blocks cause applications to stop responding while stepping through debug code.</H1>
+
+<P>Structured exception-handling blocks, __try/__except and __try/__finally, work normally in release builds, but fail when you step through code in a debugging session.</P>
+
+<P><B>To debug code that contains structured exception-handling blocks, do one of the following:</B>
+
+<UL type="disc"><li>Put a break point at the first statement inside the __try block. Step until you reach the start of the __try block. Press <B>F10</B> to continue execution to the break point. Continue stepping through source code.</li>
+</UL>
+
+<BLOCKQUOTE>
+-- or --</BLOCKQUOTE>
+
+<UL type="disc"><li>Step through disassembly code until you are inside the try block. Then step through source code from there.</li>
+</UL>
+
+<H1>5.5 Standalone emulator images require TCP/IP transport.</H1>
+
+<P>The KITL transport is not supported in stand-alone emulator images started from eMbedded Visual C++. Emulator images started in this way with the KITL transport will not be able to connect. You can either start a KITL-enabled emulator from Platform Builder or use the TCP/IP transport to download the image to the target device from eMbedded Visual C++.</P>
+
+<H1>5.6 X86 debugger does not step into functions through function pointers.</H1>
+
+<P>On the CEPC and Emulator devices, the debugger steps over functions accessed via function pointers. To get the debugger to step into your function via a function pointer, place a breakpoint in the body of the function. The debugger will then step into the function normally.</P>
+
+<H1>5.7 MFC and ATL Projects may stop responding while debugging on the emulator.</H1>
+
+<P>SDKs that include support for the emulator may stop responding when you debug them on the emulator included with the SDK. To avoid this, use the emulator in the Standard SDK for Windows CE .NET. You can run this emulator from within the Standard SDK or from Platform Builder.</P>
+
+<P><B>To run an application on an emulator launched from Platform Builder:</B>
+
+<OL type="1"><li>Start the emulator from either Platform Builder or the Standard SDK.</li>
+<li>On the <B>Tools</B> menu, click <B>Configure Platform Manager</B>.</li>
+<li>In the <B>Configure Platform Manager</B> dialog box, select the emulator for the current platform and click <B>Properties</B>.</li>
+<li>In the <B>Properties</B> dialog box, click <B>Configure</B> next to the <B>Startup Server</B> drop-down list.</li>
+<li>Select the <B>Connect to last emulator launched from Platform Builder</B> check box.</li>
+</OL>
+
+<H1>5.8 Applications will occasionally fail to deploy the emulator.</H1>
+
+<P>Projects built for the emulator will compile normally but occasionally fail to deploy the emulator at the end of the compilation process. However, running the emulator by clicking <B>Execute projectname.exe</B> on the <B>Build</B> menu succeeds.</P>
+
+<H1>5.9 User must wait for emulator to restart when using JIT debugging on the emulator.</H1>
+
+<P>When using JIT debugging on the emulator, the emulator takes 60 seconds to restart. During this time a <B>Server Busy</B> message box will appear. You may either click <B>Retry</B> repeatedly or wait for the dialog box to disappear when the emulator restarts.</P>
+
+<H1><A NAME="knownissues"></A>6 Miscellaneous Issues</H1>
+
+<H1>6.1 GUIDs for custom transports not registered properly.</H1>
+
+<P>Custom transports added using the <B>Platform Export SDK Wizard</B> are not registered correctly. The setup program for the exported SDK does not add the GUID under <code>HKLM\Software\Microsoft\Windows CE Tools\Platform Manager\Platforms\&lt;SDK name&gt;\</code>. A key is created for the transport under the SDK's Packages key, but the transport does not show up in the <B>Properties</B> tab in the <B>Configure Platform Manager</B> dialog box in the <B>Tools</B> menu in eMbedded Visual C++. </P>
+
+<P>The custom transport will not work until you manually register it.</P>
+
+<H1>6.2 Porting projects from previous versions.</H1>
+
+<P>To port projects from previous versions of eMbedded Visual C++, open a blank project and manually add the files from the old project to the new one. Support for ARM, MIPS, MIPSFP, or THUMB processors must also be added this way.</P>
+
+<H1>6.3 Windows CE .NET does not support the overlapped dialog-box style.</H1>
+
+<P>The overlapped dialog-box style is not supported in Windows CE .NET. Choosing the overlapped style in the resource editor results in a grayed out dialog box when the application is run.</P>
+
+<H1>6.4 BANNER sample displays spurious printing messages.</H1>
+
+<P>After printing to a network printer, the BANNER sample will display a <B>Print Job Status</B> dialog box with a job size of 0 (zero) each time the function CBannerView::ComputeSizes is called. CBannerView::ComputeSizes is called, for example, when the user changes the magnification in the sample. The message is displayed because CBannerView::ComputeSizes calls CPrintDialog::GetDefaults(), which ultimately calls ::PrintDlg.</P>
+
+<H1>6.5 List boxes do not send the WM_VKEYTOITEM message</H1>
+
+<P>The WM_VKEYTOITEM message is not supported in Windows CE .NET.</P>
+
+<H1>6.6 The PCL printer driver must be included to enable printing.</H1>
+
+<P>For size and performance reasons, printing from a device is not enabled by default. Only platforms built with the <B>PCL Printer Driver</B> will print successfully. For information on how to add this feature to an SDK, see the Windows CE .NET Help topic, <B>Adding a Feature from the Catalog</B>.</P>
+
+<H1>6.7 Clicking About on the Help menu item in the SMILEY sample application disables the Alt+S key combination</H1>
+
+<P>Pressing Alt+S ordinarily chooses the <B>Sad</B> option in the SMILEY sample application. If you click <B>About</B> on the <B>Help</B> menu, this key combination will be temporarily disabled. To enable it again, either choose the <B>Sad</B> option with the mouse or click anywhere within the SMILEY control box.</P>
+
+<H1>6.8 ActiveSync in eMbedded Visual Tools 3.0 may fail if you install eMbedded Visual C++ 4.0.</H1>
+
+<P>Installing eMbedded Visual C++ 4.0 on a computer with eMbedded Visual Tools 3.0 installed sometimes causes serial connections made using ActiveSync to fail.</P>
+
+<P>You can either use ActiveSync's Ethernet option or reinstall the affected SDKs. Reinstalling the SDK may also fix other problems that may arise from installing eMbedded Visual C++ on a computer that has eMbedded Visual Tools 3.0 already installed.</P>
+
+<H1>6.9 CoInitialize method is not supported on non-DCOM platforms.</H1>
+
+<P>The <B>CoInitialize</B> method is not supported for COM OSs. On COM OSs, replace calls to <B>CoInitialize</B> with calls to <B>CoInitializeEx</B> and pass the necessary parameters.</P>
+
+<P>See the reference documentation for <B>CoInitializeEx</B> for more information about this method and its parameters.</P>
+
+<H1>6.10 Only ActiveSync versions 3.5 and higher are supported.</H1>
+
+<P>Only ActiveSync 3.5 and above are supported with Microsoft eMbedded Visual C++ 4.0. Prior versions may not properly connect to the device. In this directory, see the Platform Builder release notes, <B>Release Notes.htm</B>, for more information.</P>
+
+<H1>6.11 Remote instantiation of DCOM servers.</H1>
+
+<P>Remotely instantiating a DCOM server successfully requires you to configure both the client and the server.</P>
+
+<P><B>To set up DCOM remote instantiation:</B>
+
+<OL type="1"><li>Create, build, and run an executable com server to run either on the desktop or on a device.</li>
+<li>Register the proxy/stub DLL on the desktop computer or device on which the server is running.</li>
+<li>Set the default domain in the registry of the computer or device on which the server is running. For example, where &lt;MyDomain&gt; is a valid domain name:<pre>[HKEY_LOCAL_MACHINE\COMM\Redir]
+"defaultdomain"="&lt;MyDomain&gt;"</pre>
+</li>
+<li>Give the device a network identification and set the network domain name, the user name, and the password for the user.</li>
+<li>Verify that you can see the device on the network. If the name is not visible, you will have to use the IP address specified in the device registry key <code>"DhcpIPAddress"</code> under<code> [HKEY_LOCAL_MACHINE\COMM\VMINI1\Parms\TCPIP]</code>.</li>
+<li>Register the proxy/stub DLL on the client device.</li>
+<li>Import Dlldtat.c and the  &lt;projectname&gt;ps.def, &lt;projectname&gt;_i.c, and &lt;projectname&gt;_p.c files created for the platform. The readmePS.txt file created for your project contains more information about these files.</li>
+<li>Use CoCreateInstanceEx to remotely instantiate the DCOM server. The following sample code illustrates this procedure:<pre>COSERVERINFO ServerInfo = {0,L"10.0.6.86",0,0};  
+// 10.0.6.86 is a sample server IP address. You can also use the device
+//name specified when setting the credentials.
+
+MULTI_QI qi = {&amp;IID_IDlgServer, NULL, 0};
+
+HRESULT hr = CoCreateInstanceEx(CLSID_DlgServer,
+NULL,CLSCTX_LOCAL_SERVER|CLSCTX_REMOTE_SERVER, &amp;ServerInfo, 1, &amp;qi);
+</pre>
+</li>
+</OL>
+
+</BODY>
+</HTML>

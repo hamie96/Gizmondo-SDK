@@ -1,0 +1,664 @@
+# Microsoft eMbedded Visual Tools Project File - Name="Tetris" - Package Owner=<4>
+# Microsoft eMbedded Visual Tools Generated Build File, Format Version 6.02
+# ** DO NOT EDIT **
+
+# TARGTYPE "Win32 (WCE x86) Application" 0x8301
+# TARGTYPE "Win32 (WCE ARM) Application" 0x8501
+
+CFG=Tetris - Win32 (WCE ARM) Debug
+!MESSAGE This is not a valid makefile. To build this project using NMAKE,
+!MESSAGE use the Export Makefile command and run
+!MESSAGE 
+!MESSAGE NMAKE /f "Tetris.vcn".
+!MESSAGE 
+!MESSAGE You can specify a configuration when running NMAKE
+!MESSAGE by defining the macro CFG on the command line. For example:
+!MESSAGE 
+!MESSAGE NMAKE /f "Tetris.vcn" CFG="Tetris - Win32 (WCE ARM) Debug"
+!MESSAGE 
+!MESSAGE Possible choices for configuration are:
+!MESSAGE 
+!MESSAGE "Tetris - Win32 (WCE ARM) Release" (based on "Win32 (WCE ARM) Application")
+!MESSAGE "Tetris - Win32 (WCE ARM) Debug" (based on "Win32 (WCE ARM) Application")
+!MESSAGE "Tetris - Win32 (WCE x86) Release" (based on "Win32 (WCE x86) Application")
+!MESSAGE "Tetris - Win32 (WCE x86) Debug" (based on "Win32 (WCE x86) Application")
+!MESSAGE 
+
+# Begin Project
+# PROP AllowPerConfigDependencies 0
+# PROP Scc_ProjName ""
+# PROP Scc_LocalPath ""
+# PROP ATL_Project 2
+
+!IF  "$(CFG)" == "Tetris - Win32 (WCE ARM) Release"
+
+# PROP BASE Use_MFC 0
+# PROP BASE Use_Debug_Libraries 0
+# PROP BASE Output_Dir "ARMRel"
+# PROP BASE Intermediate_Dir "ARMRel"
+# PROP BASE CPU_ID "{D6518FFC-710F-11D3-99F2-00105A0DF099}"
+# PROP BASE Platform_ID "{8A9A2F80-6887-11D3-842E-005004848CBA}"
+# PROP BASE Target_Dir ""
+# PROP Use_MFC 0
+# PROP Use_Debug_Libraries 0
+# PROP Output_Dir ".\_Output\ARM\Release"
+# PROP Intermediate_Dir ".\_Intermediate\ARM\Release"
+# PROP CPU_ID "{D6518FFC-710F-11D3-99F2-00105A0DF099}"
+# PROP Platform_ID "{8A9A2F80-6887-11D3-842E-005004848CBA}"
+# PROP Ignore_Export_Lib 0
+# PROP Target_Dir ""
+RSC=rc.exe
+# ADD BASE RSC /l 0x409 /d UNDER_CE=$(CEVersion) /d _WIN32_WCE=$(CEVersion) /d "UNICODE" /d "_UNICODE" /d "NDEBUG" /d "$(CePlatform)" /d "ARM" /d "_ARM_" /r
+# ADD RSC /l 0x409 /d UNDER_CE=$(CEVersion) /d _WIN32_WCE=$(CEVersion) /d "UNICODE" /d "_UNICODE" /d "NDEBUG" /d "$(CePlatform)" /d "ARM" /d "_ARM_" /r
+CPP=clarm.exe
+# ADD BASE CPP /nologo /W3 /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "ARM" /D "_ARM_" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D "NDEBUG" /Yu"stdafx.h" /Oxs /M$(CECrtMT) /c
+# ADD CPP /nologo /W3 /Zi /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "ARM" /D "_ARM_" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D "NDEBUG" /Yu"stdafx.h" /Oxs /M$(CECrtMT) /c
+MTL=midl.exe
+# ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
+# ADD MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
+BSC32=bscmake.exe
+# ADD BASE BSC32 /nologo
+# ADD BSC32 /nologo
+LINK32=link.exe
+# ADD BASE LINK32 commctrl.lib coredll.lib aygshell.lib /nologo /base:"0x00010000" /stack:0x10000,0x1000 /entry:"WinMainCRTStartup" /nodefaultlib:"$(CENoDefaultLib)" /subsystem:$(CESubsystem) /align:"4096" /MACHINE:ARM
+# ADD LINK32 commctrl.lib coredll.lib aygshell.lib /nologo /base:"0x00010000" /stack:0x10000,0x1000 /entry:"WinMainCRTStartup" /map /debug /nodefaultlib:"$(CENoDefaultLib)" /subsystem:$(CESubsystem) /align:"4096" /MACHINE:ARM
+
+!ELSEIF  "$(CFG)" == "Tetris - Win32 (WCE ARM) Debug"
+
+# PROP BASE Use_MFC 0
+# PROP BASE Use_Debug_Libraries 1
+# PROP BASE Output_Dir "ARMDbg"
+# PROP BASE Intermediate_Dir "ARMDbg"
+# PROP BASE CPU_ID "{D6518FFC-710F-11D3-99F2-00105A0DF099}"
+# PROP BASE Platform_ID "{8A9A2F80-6887-11D3-842E-005004848CBA}"
+# PROP BASE Target_Dir ""
+# PROP Use_MFC 0
+# PROP Use_Debug_Libraries 1
+# PROP Output_Dir ".\_Output\ARM\Debug"
+# PROP Intermediate_Dir ".\_Intermediate\ARM\Debug"
+# PROP CPU_ID "{D6518FFC-710F-11D3-99F2-00105A0DF099}"
+# PROP Platform_ID "{8A9A2F80-6887-11D3-842E-005004848CBA}"
+# PROP Target_Dir ""
+RSC=rc.exe
+# ADD BASE RSC /l 0x409 /d UNDER_CE=$(CEVersion) /d _WIN32_WCE=$(CEVersion) /d "UNICODE" /d "_UNICODE" /d "DEBUG" /d "$(CePlatform)" /d "ARM" /d "_ARM_" /r
+# ADD RSC /l 0x409 /d UNDER_CE=$(CEVersion) /d _WIN32_WCE=$(CEVersion) /d "UNICODE" /d "_UNICODE" /d "DEBUG" /d "$(CePlatform)" /d "ARM" /d "_ARM_" /r
+CPP=clarm.exe
+# ADD BASE CPP /nologo /W3 /Zi /Od /D "DEBUG" /D "ARM" /D "_ARM_" /D UNDER_CE=$(CEVersion) /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "UNICODE" /D "_UNICODE" /Yu"stdafx.h" /M$(CECrtMTDebug) /c
+# ADD CPP /nologo /W3 /Zi /Od /D "DEBUG" /D "ARM" /D "_ARM_" /D UNDER_CE=$(CEVersion) /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "UNICODE" /D "_UNICODE" /Yu"stdafx.h" /M$(CECrtMTDebug) /c
+MTL=midl.exe
+# ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /o "NUL" /win32
+# ADD MTL /nologo /D "_DEBUG" /mktyplib203 /o "NUL" /win32
+BSC32=bscmake.exe
+# ADD BASE BSC32 /nologo
+# ADD BSC32 /nologo
+LINK32=link.exe
+# ADD BASE LINK32 commctrl.lib coredll.lib aygshell.lib /nologo /base:"0x00010000" /stack:0x10000,0x1000 /entry:"WinMainCRTStartup" /debug /nodefaultlib:"$(CENoDefaultLib)" /subsystem:$(CESubsystem) /align:"4096" /MACHINE:ARM
+# ADD LINK32 commctrl.lib coredll.lib aygshell.lib /nologo /base:"0x00010000" /stack:0x10000,0x1000 /entry:"WinMainCRTStartup" /debug /nodefaultlib:"$(CENoDefaultLib)" /subsystem:$(CESubsystem) /align:"4096" /MACHINE:ARM
+
+!ELSEIF  "$(CFG)" == "Tetris - Win32 (WCE x86) Release"
+
+# PROP BASE Use_MFC 0
+# PROP BASE Use_Debug_Libraries 0
+# PROP BASE Output_Dir "X86Rel"
+# PROP BASE Intermediate_Dir "X86Rel"
+# PROP BASE CPU_ID "{D6518FF3-710F-11D3-99F2-00105A0DF099}"
+# PROP BASE Platform_ID "{8A9A2F80-6887-11D3-842E-005004848CBA}"
+# PROP BASE Target_Dir ""
+# PROP Use_MFC 0
+# PROP Use_Debug_Libraries 0
+# PROP Output_Dir ".\_Output\X86\Release"
+# PROP Intermediate_Dir ".\_Intermediate\X86\Release"
+# PROP CPU_ID "{D6518FF3-710F-11D3-99F2-00105A0DF099}"
+# PROP Platform_ID "{8A9A2F80-6887-11D3-842E-005004848CBA}"
+# PROP Ignore_Export_Lib 0
+# PROP Target_Dir ""
+RSC=rc.exe
+# ADD BASE RSC /l 0x409 /d UNDER_CE=$(CEVersion) /d _WIN32_WCE=$(CEVersion) /d "UNICODE" /d "_UNICODE" /d "NDEBUG" /d "$(CePlatform)" /d "_X86_" /d "x86" /d "_i386_" /r
+# ADD RSC /l 0x409 /d UNDER_CE=$(CEVersion) /d _WIN32_WCE=$(CEVersion) /d "UNICODE" /d "_UNICODE" /d "NDEBUG" /d "$(CePlatform)" /d "_X86_" /d "x86" /d "_i386_" /r
+CPP=cl.exe
+# ADD BASE CPP /nologo /W3 /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "_i386_" /D UNDER_CE=$(CEVersion) /D "i_386_" /D "UNICODE" /D "_UNICODE" /D "_X86_" /D "x86" /D "NDEBUG" /Yu"stdafx.h" /Gs8192 /GF /Oxs /c
+# ADD CPP /nologo /W3 /Zi /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "_i386_" /D UNDER_CE=$(CEVersion) /D "i_386_" /D "UNICODE" /D "_UNICODE" /D "_X86_" /D "x86" /D "NDEBUG" /Yu"stdafx.h" /Gs8192 /GF /Oxs /c
+MTL=midl.exe
+# ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
+# ADD MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
+BSC32=bscmake.exe
+# ADD BASE BSC32 /nologo
+# ADD BSC32 /nologo
+LINK32=link.exe
+# ADD BASE LINK32 commctrl.lib coredll.lib $(CEx86Corelibc) aygshell.lib /nologo /base:"0x00010000" /stack:0x10000,0x1000 /entry:"WinMainCRTStartup" /nodefaultlib:"OLDNAMES.lib" /nodefaultlib:$(CENoDefaultLib) /subsystem:$(CESubsystem) /MACHINE:IX86
+# ADD LINK32 commctrl.lib coredll.lib $(CEx86Corelibc) aygshell.lib /nologo /base:"0x00010000" /stack:0x10000,0x1000 /entry:"WinMainCRTStartup" /map /debug /nodefaultlib:"OLDNAMES.lib" /nodefaultlib:$(CENoDefaultLib) /subsystem:$(CESubsystem) /MACHINE:IX86
+
+!ELSEIF  "$(CFG)" == "Tetris - Win32 (WCE x86) Debug"
+
+# PROP BASE Use_MFC 0
+# PROP BASE Use_Debug_Libraries 1
+# PROP BASE Output_Dir "X86Dbg"
+# PROP BASE Intermediate_Dir "X86Dbg"
+# PROP BASE CPU_ID "{D6518FF3-710F-11D3-99F2-00105A0DF099}"
+# PROP BASE Platform_ID "{8A9A2F80-6887-11D3-842E-005004848CBA}"
+# PROP BASE Target_Dir ""
+# PROP Use_MFC 0
+# PROP Use_Debug_Libraries 1
+# PROP Output_Dir ".\_Output\X86\Debug"
+# PROP Intermediate_Dir ".\_Intermediate\X86\Debug"
+# PROP CPU_ID "{D6518FF3-710F-11D3-99F2-00105A0DF099}"
+# PROP Platform_ID "{8A9A2F80-6887-11D3-842E-005004848CBA}"
+# PROP Target_Dir ""
+RSC=rc.exe
+# ADD BASE RSC /l 0x409 /d UNDER_CE=$(CEVersion) /d _WIN32_WCE=$(CEVersion) /d "UNICODE" /d "_UNICODE" /d "DEBUG" /d "$(CePlatform)" /d "_X86_" /d "x86" /d "_i386_" /r
+# ADD RSC /l 0x409 /d UNDER_CE=$(CEVersion) /d _WIN32_WCE=$(CEVersion) /d "UNICODE" /d "_UNICODE" /d "DEBUG" /d "$(CePlatform)" /d "_X86_" /d "x86" /d "_i386_" /r
+CPP=cl.exe
+# ADD BASE CPP /nologo /W3 /Zi /Od /D "DEBUG" /D "_i386_" /D UNDER_CE=$(CEVersion) /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "i_386_" /D "UNICODE" /D "_UNICODE" /D "_X86_" /D "x86" /Yu"stdafx.h" /Gs8192 /GF /c
+# ADD CPP /nologo /W3 /Zi /Od /D "DEBUG" /D "_i386_" /D UNDER_CE=$(CEVersion) /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "i_386_" /D "UNICODE" /D "_UNICODE" /D "_X86_" /D "x86" /Yu"stdafx.h" /Gs8192 /GF /c
+MTL=midl.exe
+# ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /o "NUL" /win32
+# ADD MTL /nologo /D "_DEBUG" /mktyplib203 /o "NUL" /win32
+BSC32=bscmake.exe
+# ADD BASE BSC32 /nologo
+# ADD BSC32 /nologo
+LINK32=link.exe
+# ADD BASE LINK32 commctrl.lib coredll.lib $(CEx86Corelibc) aygshell.lib /nologo /base:"0x00010000" /stack:0x10000,0x1000 /entry:"WinMainCRTStartup" /debug /nodefaultlib:"OLDNAMES.lib" /nodefaultlib:$(CENoDefaultLib) /subsystem:$(CESubsystem) /MACHINE:IX86
+# ADD LINK32 commctrl.lib coredll.lib $(CEx86Corelibc) aygshell.lib /nologo /base:"0x00010000" /stack:0x10000,0x1000 /entry:"WinMainCRTStartup" /debug /nodefaultlib:"OLDNAMES.lib" /nodefaultlib:$(CENoDefaultLib) /subsystem:$(CESubsystem) /MACHINE:IX86
+
+!ENDIF 
+
+# Begin Target
+
+# Name "Tetris - Win32 (WCE ARM) Release"
+# Name "Tetris - Win32 (WCE ARM) Debug"
+# Name "Tetris - Win32 (WCE x86) Release"
+# Name "Tetris - Win32 (WCE x86) Debug"
+# Begin Group "Game internals"
+
+# PROP Default_Filter ""
+# Begin Source File
+
+SOURCE=.\TetrisMatrix.cpp
+
+!IF  "$(CFG)" == "Tetris - Win32 (WCE ARM) Release"
+
+DEP_CPP_TETRI=\
+	".\StdAfx.h"\
+	".\TetrisMatrix.h"\
+	{$(INCLUDE)}"af_irda.h"\
+	
+
+!ELSEIF  "$(CFG)" == "Tetris - Win32 (WCE ARM) Debug"
+
+DEP_CPP_TETRI=\
+	".\StdAfx.h"\
+	".\TetrisMatrix.h"\
+	
+
+!ELSEIF  "$(CFG)" == "Tetris - Win32 (WCE x86) Release"
+
+DEP_CPP_TETRI=\
+	".\StdAfx.h"\
+	".\TetrisMatrix.h"\
+	
+NODEP_CPP_TETRI=\
+	".\f_irda.h"\
+	
+
+!ELSEIF  "$(CFG)" == "Tetris - Win32 (WCE x86) Debug"
+
+DEP_CPP_TETRI=\
+	".\StdAfx.h"\
+	".\TetrisMatrix.h"\
+	
+NODEP_CPP_TETRI=\
+	".\f_irda.h"\
+	
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=.\TetrisMatrix.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\TetrisOptions.cpp
+
+!IF  "$(CFG)" == "Tetris - Win32 (WCE ARM) Release"
+
+DEP_CPP_TETRIS=\
+	".\Registry.h"\
+	".\StdAfx.h"\
+	".\Tetris.h"\
+	".\TetrisMatrix.h"\
+	".\TetrisOptions.h"\
+	{$(INCLUDE)}"af_irda.h"\
+	
+
+!ELSEIF  "$(CFG)" == "Tetris - Win32 (WCE ARM) Debug"
+
+DEP_CPP_TETRIS=\
+	".\Registry.h"\
+	".\StdAfx.h"\
+	".\Tetris.h"\
+	".\TetrisMatrix.h"\
+	".\TetrisOptions.h"\
+	
+
+!ELSEIF  "$(CFG)" == "Tetris - Win32 (WCE x86) Release"
+
+DEP_CPP_TETRIS=\
+	".\Registry.h"\
+	".\StdAfx.h"\
+	".\Tetris.h"\
+	".\TetrisMatrix.h"\
+	".\TetrisOptions.h"\
+	
+NODEP_CPP_TETRIS=\
+	".\f_irda.h"\
+	
+
+!ELSEIF  "$(CFG)" == "Tetris - Win32 (WCE x86) Debug"
+
+DEP_CPP_TETRIS=\
+	".\Registry.h"\
+	".\StdAfx.h"\
+	".\Tetris.h"\
+	".\TetrisMatrix.h"\
+	".\TetrisOptions.h"\
+	
+NODEP_CPP_TETRIS=\
+	".\f_irda.h"\
+	
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=.\TetrisOptions.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\TetrisScore.cpp
+
+!IF  "$(CFG)" == "Tetris - Win32 (WCE ARM) Release"
+
+DEP_CPP_TETRISS=\
+	".\Registry.h"\
+	".\StdAfx.h"\
+	".\Tetris.h"\
+	".\TetrisMatrix.h"\
+	".\TetrisOptions.h"\
+	".\TetrisScore.h"\
+	{$(INCLUDE)}"af_irda.h"\
+	
+
+!ELSEIF  "$(CFG)" == "Tetris - Win32 (WCE ARM) Debug"
+
+DEP_CPP_TETRISS=\
+	".\Registry.h"\
+	".\StdAfx.h"\
+	".\Tetris.h"\
+	".\TetrisMatrix.h"\
+	".\TetrisOptions.h"\
+	".\TetrisScore.h"\
+	
+
+!ELSEIF  "$(CFG)" == "Tetris - Win32 (WCE x86) Release"
+
+DEP_CPP_TETRISS=\
+	".\Registry.h"\
+	".\StdAfx.h"\
+	".\Tetris.h"\
+	".\TetrisMatrix.h"\
+	".\TetrisOptions.h"\
+	".\TetrisScore.h"\
+	
+NODEP_CPP_TETRISS=\
+	".\f_irda.h"\
+	
+
+!ELSEIF  "$(CFG)" == "Tetris - Win32 (WCE x86) Debug"
+
+DEP_CPP_TETRISS=\
+	".\Registry.h"\
+	".\StdAfx.h"\
+	".\Tetris.h"\
+	".\TetrisMatrix.h"\
+	".\TetrisOptions.h"\
+	".\TetrisScore.h"\
+	
+NODEP_CPP_TETRISS=\
+	".\f_irda.h"\
+	
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=.\TetrisScore.h
+# End Source File
+# End Group
+# Begin Group "Framework"
+
+# PROP Default_Filter "\"
+# Begin Source File
+
+SOURCE=.\StdAfx.cpp
+
+!IF  "$(CFG)" == "Tetris - Win32 (WCE ARM) Release"
+
+DEP_CPP_STDAF=\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"af_irda.h"\
+	
+# ADD CPP /Yc"stdafx.h"
+
+!ELSEIF  "$(CFG)" == "Tetris - Win32 (WCE ARM) Debug"
+
+DEP_CPP_STDAF=\
+	".\StdAfx.h"\
+	
+# ADD CPP /Yc"stdafx.h"
+
+!ELSEIF  "$(CFG)" == "Tetris - Win32 (WCE x86) Release"
+
+DEP_CPP_STDAF=\
+	".\StdAfx.h"\
+	
+NODEP_CPP_STDAF=\
+	".\f_irda.h"\
+	
+# ADD CPP /Yc"stdafx.h"
+
+!ELSEIF  "$(CFG)" == "Tetris - Win32 (WCE x86) Debug"
+
+DEP_CPP_STDAF=\
+	".\StdAfx.h"\
+	
+NODEP_CPP_STDAF=\
+	".\f_irda.h"\
+	
+# ADD CPP /Yc"stdafx.h"
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=.\StdAfx.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Tetris.cpp
+
+!IF  "$(CFG)" == "Tetris - Win32 (WCE ARM) Release"
+
+DEP_CPP_TETRIS_=\
+	".\IrDASocket.h"\
+	".\KeyControl.h"\
+	".\PropSheet.h"\
+	".\Registry.h"\
+	".\StdAfx.h"\
+	".\Tetris.h"\
+	".\TetrisAboutDlg.h"\
+	".\TetrisGameOptionsPage.h"\
+	".\TetrisHighscoresDlg.h"\
+	".\TetrisKeyMapPage.h"\
+	".\TetrisMatrix.h"\
+	".\TetrisOptions.h"\
+	".\TetrisOptionsDlg.h"\
+	".\TetrisScore.h"\
+	".\TetrisWindow.h"\
+	{$(INCLUDE)}"af_irda.h"\
+	
+
+!ELSEIF  "$(CFG)" == "Tetris - Win32 (WCE ARM) Debug"
+
+DEP_CPP_TETRIS_=\
+	".\IrDASocket.h"\
+	".\KeyControl.h"\
+	".\PropSheet.h"\
+	".\Registry.h"\
+	".\StdAfx.h"\
+	".\Tetris.h"\
+	".\TetrisAboutDlg.h"\
+	".\TetrisGameOptionsPage.h"\
+	".\TetrisHighscoresDlg.h"\
+	".\TetrisKeyMapPage.h"\
+	".\TetrisMatrix.h"\
+	".\TetrisOptions.h"\
+	".\TetrisOptionsDlg.h"\
+	".\TetrisScore.h"\
+	".\TetrisWindow.h"\
+	".\WaitCursor.h"\
+	
+
+!ELSEIF  "$(CFG)" == "Tetris - Win32 (WCE x86) Release"
+
+DEP_CPP_TETRIS_=\
+	".\IrDASocket.h"\
+	".\KeyControl.h"\
+	".\PropSheet.h"\
+	".\Registry.h"\
+	".\StdAfx.h"\
+	".\Tetris.h"\
+	".\TetrisAboutDlg.h"\
+	".\TetrisGameOptionsPage.h"\
+	".\TetrisHighscoresDlg.h"\
+	".\TetrisKeyMapPage.h"\
+	".\TetrisMatrix.h"\
+	".\TetrisOptions.h"\
+	".\TetrisOptionsDlg.h"\
+	".\TetrisScore.h"\
+	".\TetrisWindow.h"\
+	".\WaitCursor.h"\
+	
+NODEP_CPP_TETRIS_=\
+	".\f_irda.h"\
+	
+
+!ELSEIF  "$(CFG)" == "Tetris - Win32 (WCE x86) Debug"
+
+DEP_CPP_TETRIS_=\
+	".\IrDASocket.h"\
+	".\KeyControl.h"\
+	".\PropSheet.h"\
+	".\Registry.h"\
+	".\StdAfx.h"\
+	".\Tetris.h"\
+	".\TetrisAboutDlg.h"\
+	".\TetrisGameOptionsPage.h"\
+	".\TetrisHighscoresDlg.h"\
+	".\TetrisKeyMapPage.h"\
+	".\TetrisMatrix.h"\
+	".\TetrisOptions.h"\
+	".\TetrisOptionsDlg.h"\
+	".\TetrisScore.h"\
+	".\TetrisWindow.h"\
+	".\WaitCursor.h"\
+	
+NODEP_CPP_TETRIS_=\
+	".\f_irda.h"\
+	
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=.\Tetris.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\TetrisWindow.h
+# End Source File
+# End Group
+# Begin Group "Resources"
+
+# PROP Default_Filter ""
+# Begin Source File
+
+SOURCE=.\Res\About.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Res\Background.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Res\HitBottom.wav
+# End Source File
+# Begin Source File
+
+SOURCE=.\Res\NewRes.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Resource.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Res\Rotate.wav
+# End Source File
+# Begin Source File
+
+SOURCE=.\Res\Tetris.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Res\Tetris.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\Tetris.rc
+
+!IF  "$(CFG)" == "Tetris - Win32 (WCE ARM) Release"
+
+!ELSEIF  "$(CFG)" == "Tetris - Win32 (WCE ARM) Debug"
+
+!ELSEIF  "$(CFG)" == "Tetris - Win32 (WCE x86) Release"
+
+!ELSEIF  "$(CFG)" == "Tetris - Win32 (WCE x86) Debug"
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=.\Res\Toolbar.bmp
+# End Source File
+# End Group
+# Begin Group "Support"
+
+# PROP Default_Filter "*.h;*.cpp"
+# Begin Source File
+
+SOURCE=.\IrDASocket.cpp
+
+!IF  "$(CFG)" == "Tetris - Win32 (WCE ARM) Release"
+
+DEP_CPP_IRDAS=\
+	".\IrDASocket.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"af_irda.h"\
+	
+
+!ELSEIF  "$(CFG)" == "Tetris - Win32 (WCE ARM) Debug"
+
+DEP_CPP_IRDAS=\
+	".\IrDASocket.h"\
+	".\StdAfx.h"\
+	
+
+!ELSEIF  "$(CFG)" == "Tetris - Win32 (WCE x86) Release"
+
+DEP_CPP_IRDAS=\
+	".\IrDASocket.h"\
+	".\StdAfx.h"\
+	
+NODEP_CPP_IRDAS=\
+	".\f_irda.h"\
+	
+
+!ELSEIF  "$(CFG)" == "Tetris - Win32 (WCE x86) Debug"
+
+DEP_CPP_IRDAS=\
+	".\IrDASocket.h"\
+	".\StdAfx.h"\
+	
+NODEP_CPP_IRDAS=\
+	".\f_irda.h"\
+	
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=.\IrDASocket.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\KeyControl.cpp
+
+!IF  "$(CFG)" == "Tetris - Win32 (WCE ARM) Release"
+
+DEP_CPP_KEYCO=\
+	".\KeyControl.h"\
+	".\StdAfx.h"\
+	".\Tetris.h"\
+	{$(INCLUDE)}"af_irda.h"\
+	
+
+!ELSEIF  "$(CFG)" == "Tetris - Win32 (WCE ARM) Debug"
+
+DEP_CPP_KEYCO=\
+	".\KeyControl.h"\
+	".\StdAfx.h"\
+	".\Tetris.h"\
+	
+
+!ELSEIF  "$(CFG)" == "Tetris - Win32 (WCE x86) Release"
+
+DEP_CPP_KEYCO=\
+	".\KeyControl.h"\
+	".\StdAfx.h"\
+	".\Tetris.h"\
+	
+NODEP_CPP_KEYCO=\
+	".\f_irda.h"\
+	
+
+!ELSEIF  "$(CFG)" == "Tetris - Win32 (WCE x86) Debug"
+
+DEP_CPP_KEYCO=\
+	".\KeyControl.h"\
+	".\StdAfx.h"\
+	".\Tetris.h"\
+	
+NODEP_CPP_KEYCO=\
+	".\f_irda.h"\
+	
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=.\KeyControl.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\PropSheet.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Registry.h
+# End Source File
+# End Group
+# Begin Source File
+
+SOURCE=.\License.txt
+# End Source File
+# End Target
+# End Project

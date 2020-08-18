@@ -1,0 +1,114 @@
+; ----------------------------------------------------------------------
+; File:			VMNetSrv.INF
+;
+; Contains:		Virtual PC Network Services INF file
+;
+; Copyright:	(c) 2001-2003, Microsoft Corporation. All rights reserved.
+; ----------------------------------------------------------------------
+
+[Version]
+Signature  = "$Windows NT$"
+Class      = NetService
+ClassGUID  = {4D36E974-E325-11CE-BFC1-08002BE10318}
+Provider   = %Microsoft%
+CatalogFile= VMNetSrv.cat
+DriverVer  = 09/19/2003,2.4.0.24
+
+[SourceDisksNames]
+1=%DiskDescription%,"",,
+
+[SourceDisksFiles]
+VMNetSrv.dll=1
+VMNetSrv.sys=1
+
+[Manufacturer]
+%Microsoft% = MSFT
+
+[ControlFlags]
+
+[MSFT]
+%VMNetSrv_Desc% = VMNetSrv.ndi, Cntx_VPCNetS2
+
+[DestinationDirs]
+DefaultDestDir			 = 12
+VMNetSrv.CopyFiles.Init	 = 11	; %windir%\System32
+VMNetSrv.CopyFiles.Sys	 = 12   ; %windir%\System32\drivers
+
+; ----------------------------------------------------------------------
+; Windows 2000/XP Installation
+; ----------------------------------------------------------------------
+
+[VMNetSrv.ndi]
+AddReg			 = VMNetSrv.ndi.AddReg, VMNetSrv.AddReg
+Characteristics	 = 0x4490 ; NCF_NDIS_PROTOCOL | NCF_HAS_UI | NCF_FILTER | NCF_NO_SERVICE
+CopyFiles		 = VMNetSrv.CopyFiles.Init, VMNetSrv.CopyFiles.Sys
+
+[VMNetSrv.CopyFiles.Init]
+VMNetSrv.dll,,,2
+
+[VMNetSrv.CopyFiles.Sys]
+VMNetSrv.sys,,,2
+
+[InfSourcePathInfo]
+OriginalInfSourcePath = %1%
+
+[VMNetSrv.ndi.AddReg]
+HKR, Ndi,				HelpText,			, %VMNetSrv_HELP%
+HKR, Ndi,				ClsID,				, {b7481e0b-75b7-4b60-a068-cc11092be345}
+HKR, Ndi,				ComponentDll,		, VMNetSrv.dll
+HKR, Ndi,				FilterClass,		, failover
+HKR, Ndi,				FilterDeviceInfId,	, Cntx_VPCNetS2_MP
+HKR, Ndi,				Service,			, VPCNetS2
+HKR, Ndi\Interfaces,	UpperRange,			, noupper
+HKR, Ndi\Interfaces,	LowerRange,			, nolower
+HKR, Ndi\Interfaces,	FilterMediaTypes,	, "ethernet, nolower"
+
+[VMNetSrv.AddReg]
+;None
+
+[VMNetSrv.ndi.Services]
+AddService	 = VPCNetS2, 0, VMNetSrv.AddService, VMNetSrv.AddEventLog
+
+[VMNetSrv.AddService]
+DisplayName		 = %VMNetSrv_Desc%
+ServiceType		 = 1 ;SERVICE_KERNEL_DRIVER
+StartType		 = 3 ;SERVICE_DEMAND_START
+ErrorControl	 = 1 ;SERVICE_ERROR_NORMAL
+ServiceBinary	 = %12%\VMNetSrv.sys
+LoadOrderGroup	 = PNP_TDI
+AddReg			 = VMNetSrv.AddService.AddReg
+
+[VMNetSrv.AddService.AddReg]
+;None
+
+[VMNetSrv.AddEventLog]
+AddReg			 = VMNetSrv.AddEventLog.AddReg
+
+[VMNetSrv.AddEventLog.AddReg]
+HKR, ,EventMessageFile,	0x00020000,	"%%SystemRoot%%\System32\netevent.dll;%%SystemRoot%%\System32\drivers\VMNetSrv.sys"
+HKR, ,TypesSupported,	0x00010001,	7 
+
+
+; ----------------------------------------------------------------------
+; Windows 2000/XP Removal
+; ----------------------------------------------------------------------
+
+[VMNetSrv.ndi.Remove]
+DelFiles = VMNetSrv.CopyFiles.Init, VMNetSrv.CopyFiles.Sys
+
+[VMNetSrv.ndi.Remove.Services]
+DelService = VPCNetS2, 0x00000204
+
+; ----------------------------------------------------------------------
+; Strings
+; ----------------------------------------------------------------------
+
+[Strings]
+Microsoft		 = "Microsoft"
+DiskDescription	 = "Virtual Machine Network Services Disk"
+
+VMNetSrv_Desc	 = "Virtual Machine Network Services"
+VMNetSrv_HELP	 = "Provides networking support support for Microsoft Virtual Machines."
+
+
+

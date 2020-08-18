@@ -1,0 +1,125 @@
+<Transport>
+  <Name>Emulator Download</Name> 
+  <Caption>Download Configuration Properties</Caption>
+<Properties>
+<Property>
+  <Name>Video</Name> 
+  <Caption>Video (WxHxD)</Caption>
+  <Type>string</Type>
+  <Data>
+	<defaultvalue>800x600x16</defaultvalue>
+  </Data>
+</Property>
+<Property>
+  <Name>MemorySize</Name> 
+  <Caption> Memory (MB) </Caption>
+  <Type>number</Type> 
+  <Data>
+	<defaultvalue>48</defaultvalue>
+  </Data> 
+</Property>
+<Property>
+  <Name>Skin</Name> 
+  <Caption> Skin File </Caption>
+  <Type>string</Type> 
+  <Data/> 
+</Property>
+<Property>
+  <Name>SerialPort1</Name> 
+  <Caption> Serial Port 1 </Caption>
+  <Type>combo</Type> 
+<Data Edit="True">
+  <defaultvalue>None</defaultvalue>
+  <option>None</option> 
+  <option>COM1</option> 
+  <option>COM2</option> 
+  <option>COM3</option> 
+  <option>COM4</option> 
+  <option>File:</option> 
+</Data>
+</Property>
+<Property>
+  <Name>SerialPort2</Name> 
+  <Caption> Serial Port 2 </Caption>
+  <Type>combo</Type> 
+<Data Edit="True">
+  <defaultvalue>None</defaultvalue>
+  <option>None</option> 
+  <option>COM1</option> 
+  <option>COM2</option> 
+  <option>COM3</option> 
+  <option>COM4</option> 
+  <option>File:</option>
+</Data>
+</Property>
+<Property>
+  <Name>Ethernet</Name> 
+  <Caption> Ethernet </Caption>
+  <Type>combo</Type> 
+<Data>
+  <defaultvalue>True</defaultvalue>
+  <option>True</option> 
+  <option>False</option> 
+</Data>
+</Property>
+<Property>
+  <Name>ParallelPort</Name> 
+ <Caption> Parallel Port </Caption>
+  <Type>combo</Type> 
+<Data>
+  <defaultvalue>None</defaultvalue>
+  <option>None</option> 
+  <option>LPT1</option> 
+  <option>LPT2</option> 
+</Data>
+</Property>
+<Property>
+  <Name>HostKey</Name> 
+ <Caption> Host Key </Caption>
+  <Type>combo</Type> 
+<Data>
+  <defaultvalue>Right ALT</defaultvalue>
+  <option>Right ALT</option> 
+  <option>Left ALT</option> 
+  <option>Right SHIFT</option> 
+  <option>Left SHIFT</option> 
+  <option>Right WINDOW</option> 
+  <option>Left WINDOW</option> 
+</Data>
+</Property>
+<Property>
+  <Name>Fastbackground</Name> 
+  <Caption> Fast Background </Caption>
+  <Type>combo</Type> 
+<Data>
+  <defaultvalue>[[ parameterless switch: on ]]</defaultvalue>
+  <option>True</option> 
+  <option>False</option> 
+</Data>
+</Property>
+<Property>
+  <Name>_Skin</Name> 
+  <Caption> Skin File </Caption>
+  <Type>string</Type> 
+<Data>
+  <defaultvalue>(default)</defaultvalue>
+</Data>
+</Property>
+<Property>
+  <Name>_SerialPort1FileName</Name> 
+  <Caption> Serial Port 1 File Name </Caption>
+  <Type>string</Type> 
+<Data>
+  <defaultvalue>(default)</defaultvalue>
+</Data>
+</Property>
+<Property>
+  <Name>_SerialPort2FileName</Name> 
+  <Caption> Serial Port 2 File Name </Caption>
+  <Type>string</Type> 
+<Data>
+  <defaultvalue>(default)</defaultvalue>
+</Data>
+</Property>
+</Properties>
+</Transport>

@@ -1,0 +1,46 @@
+// cemgr.idl : IDL source for cemgr.dll
+//
+// Copyright 2001 Microsoft, All Rights Reserved
+
+#include "platman_idl.inc"
+
+[
+	uuid(2C99AFCB-F99D-11D1-BB9D-00A0C9C9CCEE),
+	version(1.0),
+	helpstring("cemgr 1.0 Type Library")
+]
+library CEMGRLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(F384D883-F9AA-11D1-BB9E-00A0C9C9CCEE),
+		helpstring("PlatformManager Class")
+	]
+	coclass PlatformManager
+	{
+		[default] interface IPlatformManager;
+		interface IPMPlatformManager;
+		interface IPMService;
+		interface IPMServiceInfo;
+		interface IPMRemoteDevice;
+		interface IPMPlatform;
+		interface IPMBootableDevice;
+		interface IPMServiceCategory;
+		interface IPMConnectionStream;
+		interface IPMConnection;
+		interface IPMPackage;
+		interface IPMProperty;
+		interface IPMCPU;
+		interface IPMOS;
+		interface IPMStartupServerInfo;
+		interface IPMTransportInfo;
+		interface IPMPropInfo;
+		interface IPMPackageFile;
+		interface IEnumVariant;
+		interface IClientInfo;
+	};
+};
+
+

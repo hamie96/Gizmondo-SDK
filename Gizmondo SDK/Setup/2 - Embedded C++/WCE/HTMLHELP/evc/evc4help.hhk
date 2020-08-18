@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<!-- Sitemap 1.0 -->
+</HEAD><BODY>
+<UL>
+	<LI>	<OBJECT type="text/sitemap">
+		<param name="Name" value="Microsoft eMbedded Visual C++ Guide">
+		<param name="Local" value="html/evoriEmbeddedVisualC.htm">
+		</OBJECT>
+	
+			<OBJECT type="text/sitemap">
+			<param name="Merge" value="vcce4.chm::\vcce4.hhk">
+			</OBJECT>
+			<OBJECT type="text/sitemap">
+			<param name="Merge" value="vccelng4.chm::\vccelng4.hhk">
+			</OBJECT>
+			<OBJECT type="text/sitemap">
+			<param name="Merge" value="wceatl4.chm::\wceatl4.hhk">
+			</OBJECT>
+			<OBJECT type="text/sitemap">
+			<param name="Merge" value="wcecrt4.chm::\wcecrt4.hhk">
+			</OBJECT>
+			<OBJECT type="text/sitemap">
+			<param name="Merge" value="wcemfc4.chm::\wcemfc4.hhk">
+			</OBJECT>
+			<OBJECT type="text/sitemap">
+			<param name="Merge" value="wcechp40.chm::\wcechp40.hhk">
+			</OBJECT>
+</UL>
+</BODY></HTML>

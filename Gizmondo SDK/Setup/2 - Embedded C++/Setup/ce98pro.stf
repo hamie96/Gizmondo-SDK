@@ -1,0 +1,1010 @@
+			
+                                                                                                  
+													
+App Name	Microsoft eMbedded Visual C++ 4.0
+App Version	1.0.0.0.1218 (1033)
+Frame Caption	eMbedded Visual C++ 4.0 Setup
+Dialog Caption Base	eMbedded Visual C++ 4.0
+About Box String	Microsoft eMbedded Visual C++ 4.0 Setup\n\nCopyright (C) 2000 Microsoft Corporation.													
+Check Modules	wndclass_desked_gsk_ce,eMbedded VB 4.0,MSEVCED30,eMbedded VC 4.0,ThunderRT6Main,Solution Manager,ThunderRT6FormDC,Solution Manager
+MSAPPS Mode	local
+Inf File Name	ce98pro.INF
+Maximum Object ID	1070
+Floppy Mode Root Object ID	14 : 11 12											
+Maintenance Mode Root Object ID	13 : 11 12											
+Batch Mode Root Object ID	14 : 11 12	
+Setup Version	3.0.0.1210
+ObjID	Install During Batch Mode	Title	Descr	Type	Data	BMP Id	Vital	Shared	Dir Chang	Dest Dir	Check Dir	Installed By Us
+													
+11				CustomAction	"""COMMON98.DLL"", ""SetDefaultDir"", "";HKEY_LOCAL_MACHINE,Software\Microsoft\CEStudio\4.0\Setup\CEStudio,ProductDir"" "					%d				
+12		Microsoft eMbedded Visual C++ 4.0		AppSearch	"%11,,,128,yes,no"									
+													
+ 														
+	=== CE Install Modes (cemain.etf) ===													
+													
+	=== VisualStudio Install Modes (mainstf.etf) ===													
+													
+13	yes	Maintenance	Options to add/remove components	CustomDlg	 72 27 : 1051 1011 1001 991 951 931 621 641 26 15 31 	ce98pro.dll,103								
+14	yes	C&ustom	Setup will allow you to customize which components to install	CustomDlg	 71 27 : 1001 991 26 951 941 931 901 621 641 981 961 1051 31 15 	ce98pro.dll,103								
+													
+15				Group	22  37 21 16 20 18 19 17 42									
+16				CustomAction	"""COMMON98.DLL"", ""GetPathFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\CEStudio\4.0\Setup,CECommonDir"" "					%d\Common				
+17				CustomAction	"""COMMON98.DLL"", ""GetPathFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\CEStudio\4.0\Setup,ProductDir"" "					%d				
+18				CustomAction	"""COMMON98.DLL"", ""GetPathFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\CEStudio\4.0\Setup,Windows CE Tools Dir"" "					%P\Windows CE Tools				
+19				CustomAction	"""COMMON98.DLL"", ""GetPathFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Windows CE Tools\Platform Manager\Setup,Platman Install Dir"" "					%P\Windows CE Tools				
+20				CustomAction	"""COMMON98.DLL"", ""GetPathFromReg"", ""HKEY_LOCAL_MACHINE,SOFTWARE\Microsoft\Windows\CurrentVersion,CommonFilesDir"" "					%p\Common<%p\Common Files>				
+													
+21				CustomAction	"""ce98pro.dll"",""DetectOS"",winnt50"									
+													
+22			Detect VsCommonDir	Depend	"16 ?  : 23" 									
+23				CustomAction	"ce98pro.dll,ExitInFinalize,35"									
+													
+24				DetectOlderFile	"setup.stf"					%16\Setup\1033				
+													
+25	yes			Group	401									
+													
+26	yes			Group	971									
+													
+27	yes	Common Components	Installs the common components, vital to each product	Group	 911 921 631 51 1011 		Vital		Yes	%17				
+ 														
+													
+	 													
+														
+  														
+														
+	=== Main CAH/Detection (MainCah.etf) ===													
+													
+31				Group	32 33									
+32				CustomAction	"COMMON98.DLL,DetectWzRegKey,CE Studio"									
+													
+33				Group	42 36 37 38 39 35  34									
+													
+34				CustomAction	"PHOLDER.DLL,SPPlaceHolderCAH"									
+													
+	=== IE4 Check (MainCah.etf) ===													
+35				CustomAction	"COMMON98.DLL,CheckRegKey,""LOCAL,Software\Microsoft\Internet Explorer,Version"""									
+	=== Set DestDir to Program Items (MainCah.etf) ===													
+36				CustomAction	"COMMON98.DLL,GetWindowsPathFromReg,""Programs, True"""									
+													
+	=== Check Operating System (MainCah.etf) ===													
+37		IsWin95		CustomAction	"COMMON98.DLL,DetectOS,Win95 "									
+38		IsWinnt3x		CustomAction	"COMMON98.DLL, DetectOS, winnt3x"									
+39		IsWinNT40		CustomAction	"COMMON98.DLL, DetectOS, winnt40"									
+40		Is40Shell		CustomAction	"COMMON98.DLL, DetectOS, 40shell"									
+41		IsWinNT50		CustomAction	"COMMON98.DLL, DetectOS, winnt50"									
+													
+	=== Check Admin Privileges (MainCah.etf) ===													
+42		Check Adminstrator		CustomAction	"COMMON98.DLL,DetectAdminPrivileges"									
+													
+ 
+ 
+==== Win32 SDK General Build Tools component (sdkbldg.etf) ======
+ 
+51				Group	52 53 54 55 56 57 60 61 62 58 59					%d
+52				CopyFile	"win32sdk general build tools,guidgen_exe"					%d\Common\Tools				
+53				CopyFile	"win32sdk general build tools,uuidgen_exe"					%d\Common\Tools				
+54				CopyFile	"win32sdk general build tools,nmake_exe"					%d\Common\EVC\Bin				
+55				CopyFile	"win32sdk general build tools, gutils_dll"					%d\Common\Tools				
+56				CopyFile	"win32sdk general build tools, windiff_exe"					%d\Common\Tools				
+57				CopyFile	"win32sdk general build tools, windiff_hlp"					%d\Common\Tools				
+58				CopyFile	"win32sdk general build tools, errlook_exe"					%d\Common\Tools				
+59				CopyFile	"win32sdk general build tools, errlook_hlp"					%d\Common\Tools				
+60				CopyFile	"win32sdk general build tools, depends_exe"					%d\Common\Tools				
+61				CopyFile	"win32sdk general build tools, depends_hlp"					%d\Common\Tools				
+62				CopyFile	"win32sdk general build tools, depends_cnt"					%d\Common\Tools				
+ 
+	=== VC Component ===													
+													
+	 === Target of Setup Installation modes (i.e., choice of Typical, Minimal, or Custom buttons, etc.) (vc.etf)===													
+	STFWIZ	5												
+71	yes	eMbedded Visual C++ 4.0	Installs Microsoft eMbedded Visual C++ version 4.0 and all required components	CustomDlg	76 77 78 79 80 81 82 83 84 85 87 86 : 73 88 89 111 101  	ce98pro.dll,103			Yes	%17	
+72	yes	eMbedded Visual C++ 4.0	Installs Microsoft eMbedded Visual C++ version 4.0 and all required components	CustomDlg	76 77 78 79 80 81 82 83 84 85 87 86 : 73 88 89 111 101  	ce98pro.dll,103			Yes	%17	
+													
+	 === VC AlwaysDo Components ===													
+													
+73	Yes			Group	74 90 91 92 1051 75 211 171 651  					%D				
+													
+74				CustomAction	"""COMMON98.DLL"", ""RT_GetPathFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\CEStudio\4.0\Setup,ProductDir"" "					%d				
+													
+ ====== Carrying over previous custom settings ====														
+75				CustomAction	"COMMON98.DLL,CarryOver"	
+												
+	=== VC DevStudio Components (IDE) ===													
+	STFWIZ	6												
+76	Yes	ARMV4	Installs files to support ARMV4 within Microsoft eMbedded Visual C++ version 4.0	Group	601 361					%74				
+77	Yes	ARMV4I	Installs files to support ARMV4I within Microsoft eMbedded Visual C++ version 4.0	Group	591 361					%74				
+78	Yes	ARMV4T	Installs files to support ARMV4T within Microsoft eMbedded Visual C++ version 4.0	Group	581 361					%74				
+79	Yes	MIPSII	Installs files to support MIPSII within Microsoft eMbedded Visual C++ version 4.0	Group	571 351					%74				
+80	Yes	MIPSIIFP	Installs files to support MIPSIIFP within Microsoft eMbedded Visual C++ version 4.0	Group	561 351					%74				
+81	Yes	MIPS16	Installs files to support MIPS16 within Microsoft eMbedded Visual C++ version 4.0	Group	551 351					%74				
+82	Yes	MIPSIV	Installs files to support MIPSIV within Microsoft eMbedded Visual C++ version 4.0	Group	541 351					%74				
+83	Yes	MIPSIVFP	Installs files to support MIPSIVFP within Microsoft eMbedded Visual C++ version 4.0	Group	531 351					%74				
+84	Yes	SH3	Installs files to support SH3 within Microsoft eMbedded Visual C++ version 4.0	Group	511 341					%74				
+85	Yes	SH4	Installs files to support SH4 within Microsoft eMbedded Visual C++ version 4.0	Group	501 341					%74				
+86	Yes	X86	Installs files to support X86 within Microsoft eMbedded Visual C++ version 4.0	Group	481 331					%74				
+87	Yes	WCE emulator	Installs files to support WCE emulator within Microsoft eMbedded Visual C++ version 4.0	Group	521 331					%74				
+													
+	====VC Universal Reg keys===													
+													
+88	Yes			Group	131 401 251 281 241 231 391 					%d\Common			
+89	Yes			Group	94 121 271 471					%d			
+90	Yes			AddRegData	"HKEY_LOCAL_MACHINE,Software\Microsoft\CEStudio\4.0\Setup\eMbedded Visual C++,ProductDir,%s"									
+91				AddRegData	"""HKEY_LOCAL_MACHINE"",""Software\Microsoft\Windows CE Developer Tools\eMbedded Visual C++ 4.0"",""ProductDir"",""%18\"","
+92				Depend	35 ? 93									
+93				AddRegData	"LOCAL,""Software\Microsoft\IE4\DependentComponents"",""eVC4.0"",""eMbedded Visual C++ 4.0"""									
+94				Group	95					%D
+95				CopyFile	"Release Notes,relnoteenu_htm"					%D				
+		
+	=== VC Readme file (vcreadme.etf) ===													
+													
+101				Group	102 					%d\Common\EVC				
+													
+102				CopyFile	"EVC - Addins - Readme, addins_readme_txt_enu"					%D\AddIns				
+													
+	=== VC MSDEV Object Model Headers Component (vcdvobjh.etf)===													
+													
+111				Group	112					%d\EVC			 	
+													
+112				CopySection	"EVC - ObjMod Header"					%d\Include\ObjModel				
+													
+ 
+ 
+==== CE Tools Environment batch files (vcenvbat.etf) ======
+ 
+121				Group	122					%d				
+122				CustomAction	"ce98pro.dll,makebatchfiles,""%s"""					%121				
+ 
+													
+	==File Associations (vcfileas.etf) ===													
+131				Group	132 154 147									
+													
+132				Group	133 134 135 136 137 138 139 140 141 142 143 144 145					%D\EVC\Bin				
+													
+133				CustomAction	"COMMON98.DLL,FileAssociateCAH,"".odl;odlfile;NO;ALWAYS;&Open with EVC4;-20213;EVC;system;Object Definition Language file;""""%s\evc.exe,<"""";%s\evc.exe;&Open with EVC4"""					%D				
+134				CustomAction	"COMMON98.DLL,FileAssociateCAH,"".idl;idlfile;NO;ALWAYS;&Open with EVC4;-20213;EVC;system;IDL file;""""%s\evc.exe"""";%s\evc.exe;&Open with EVC4"""					%D				
+135				CustomAction	"COMMON98.DLL,FileAssociateCAH,"".mdp;mdpfile;NO;ALWAYS;&Open with EVC4;-20213;EVC;system;MDP file;""""%s\evc.exe"""";%s\evc.exe;&Open with EVC4"""					%D				
+136				CustomAction	"COMMON98.DLL,FileAssociateCAH,"".vcw;vcwfile;NO;ALWAYS;open EVC4;-20214;EVC;system;Project Workspace;""""%s\evc.exe"""";%s\evc.exe;&Open with EVC4"""					%D				
+137				CustomAction	"COMMON98.DLL,FileAssociateCAH,"".vcp;vcpfile;NO;ALWAYS;open EVC4;-20214;EVC;system;Project File;""""%s\evc.exe"""";%s\evc.exe;&Open with EVC4"""					%D				
+138				CustomAction	"COMMON98.DLL,FileAssociateCAH,"".rc;rcfile;NO;ALWAYS;&Open with EVC4;-20212;EVC;system;Resource Template;""""%s\evc.exe"""";%s\evc.exe;&Open with EVC4"""					%D				
+139				CustomAction	"COMMON98.DLL,FileAssociateCAH,"".rct;rctfile;NO;ALWAYS;&Open with EVC4;-20212;EVC;system;Resource Template;""""%s\evc.exe"""";%s\evc.exe;&Open with EVC4"""					%D				
+140				CustomAction	"COMMON98.DLL,FileAssociateCAH,"".bsc;bscfile;NO;ALWAYS;&Open with EVC4;-20212;EVC;system;BSC File;""""%s\evc.exe"""";%s\evc.exe;&Open with EVC4"""					%D				
+141				CustomAction	"COMMON98.DLL,FileAssociateCAH,"".dsm;dsmfile;NO;ALWAYS;&Open with EVC4;-20212;EVC;system;DSM File;""""%s\evc.exe"""";%s\evc.exe;&Open with EVC4"""					%D				
+142				CustomAction	"COMMON98.DLL,FileAssociateCAH,"".res;resfile;NO;ALWAYS;&Open with EVC4;-20215;EVC;system;RES File;""""%s\evc.exe"""";%s\evc.exe;&Open with EVC4"""					%D				
+143				CustomAction	"COMMON98.DLL,FileAssociateCAH,"".tlh;tlhfile;NO;ALWAYS;&Open with EVC4;-20215;EVC;system;TLH file;""""%s\evc.exe"""";%s\evc.exe;&Open with EVC4"""					%D				
+144				CustomAction	"COMMON98.DLL,FileAssociateCAH,"".tli;tlifile;NO;ALWAYS;&Open with EVC4;-20215;EVC;system;TLI file;""""%s\evc.exe"""";%s\evc.exe;&Open with EVC4"""					%D				
+145				Group	146 									
+146				CustomAction	"COMMON98.DLL,AddVCLRegDataCAH,""htmlfile;text/html"""					%D				
+													
+147				Group	148 149 150 151 152 153					%D\EVC\Bin				
+													
+148				CustomAction	"COMMON98.DLL,FileAssociateCAH,"".h;hfile;NO;CONDITIONAL;&Open with EVC4;-20211;EVC;system;C Header file;""""%s\evc.exe"""";%s\evc.exe;&Open with EVC4"""					%D				
+149				CustomAction	"COMMON98.DLL,FileAssociateCAH,"".hxx;hxxfile;NO;CONDITIONAL;&Open with EVC4;-20211;EVC;system;HXX file;""""%s\evc.exe"""";%s\evc.exe;&Open with EVC4"""					%D				
+150				CustomAction	"COMMON98.DLL,FileAssociateCAH,"".hpp;hppfile;NO;CONDITIONAL;&Open with EVC4;-20208;EVC;system;HPP file;""""%s\evc.exe"""";%s\evc.exe;&Open with EVC4"""					%D				
+151				CustomAction	"COMMON98.DLL,FileAssociateCAH,"".c;cfile;NO;CONDITIONAL;&Open with EVC4;-20210;EVC;system;C Source file;""""%s\evc.exe"""";%s\evc.exe;&Open with EVC4"""					%D				
+152				CustomAction	"COMMON98.DLL,FileAssociateCAH,"".cxx;cxxfile;NO;CONDITIONAL;&Open with EVC4;-20210;EVC;system;CXX File;""""%s\evc.exe"""";%s\evc.exe;&Open with EVC4"""					%D				
+153				CustomAction	"COMMON98.DLL,FileAssociateCAH,"".cpp;cppfile;NO;CONDITIONAL;&Open with EVC4;-20209;EVC;system;C++ Source file;""""%s\evc.exe"""";%s\evc.exe;&Open with EVC4"""					%D			
+													
+154				Group	 155 156  157 158 159 160 161					%D\EVC\Bin				
+155				CustomAction	"COMMON98.DLL,FileAssociateCAH,"".pdb;pdbfile;NO;NOL;&Open with EVC4;-20215;EVC;system;Intermediate file;""""%s\evc.exe"""";%s\evc.exe;NOTHING"""					%D				
+156				CustomAction	"COMMON98.DLL,FileAssociateCAH,"".idb;idbfile;NO;NOL;&Open with EVC4;-20215;EVC;system;Intermediate file;""""%s\evc.exe"""";%s\evc.exe;NOTHING"""					%D				
+157				CustomAction	"COMMON98.DLL,FileAssociateCAH,"".sbr;sbrfile;NO;NOL;&Open with EVC4;-20215;EVC;system;Intermediate file;""""%s\evc.exe"""";%s\evc.exe;NOTHING"""					%D				
+158				CustomAction	"COMMON98.DLL,FileAssociateCAH,"".obj;objfile;NO;NOL;&Open with EVC4;-20215;EVC;system;Intermediate file;""""%s\evc.exe"""";%s\evc.exe;NOTHING"""					%D				
+159				CustomAction	"COMMON98.DLL,FileAssociateCAH,"".pch;pchfile;NO;NOL;&Open with EVC4;-20215;EVC;system;Intermediate file;""""%s\evc.exe"""";%s\evc.exe;NOTHING"""					%D				
+160				CustomAction	"COMMON98.DLL,FileAssociateCAH,"".ilk;ilkfile;NO;NOL;&Open with EVC4;-20215;EVC;system;Intermediate file;""""%s\evc.exe"""";%s\evc.exe;NOTHING"""					%D				
+161				CustomAction	"COMMON98.DLL,FileAssociateCAH,"".tlb;tlbfile;NO;NOL;&Open with EVC4;-20215;EVC;system;Type Library;""""%s\evc.exe"""";%s\evc.exe;NOTHING"""					%D				
+ 														
+													
+ 														
+==== CEMON files (remtools.etf) ======														
+ 														
+171				Group	172  184  196	   				%d\EVC				
+													
+172				Group	173  174  175  177  178  179  181  182  176  180  183					%d				
+													
+173				CopyFile	"CEMON files,cemon_exe_mips16400"					%172\WCE400\TARGET\MIPS16				
+174				CopyFile	"CEMON files,cemon_exe_armv4400"					%172\WCE400\TARGET\ARMV4				
+175				CopyFile	"CEMON files,cemon_exe_sh3400"					%172\WCE400\TARGET\SH3				
+176				CopyFile	"CEMON files,cemon_exe_sh4400"					%172\WCE400\TARGET\SH4				
+177				CopyFile	"CEMON files,cemon_exe_armv4i400"					%172\WCE400\TARGET\ARMV4I				
+178				CopyFile	"CEMON files,cemon_exe_armv4t400"					%172\WCE400\TARGET\ARMV4T				
+179				CopyFile	"CEMON files,cemon_exe_mipsii400"					%172\WCE400\TARGET\MIPSII				
+180				CopyFile	"CEMON files,cemon_exe_mipsiifp400"					%172\WCE400\TARGET\MIPSII_FP				
+181				CopyFile	"CEMON files,cemon_exe_mips4400"					%172\WCE400\TARGET\MIPSIV				
+182				CopyFile	"CEMON files,cemon_exe_mips4fp400"					%172\WCE400\TARGET\MIPSIV_FP				
+183				CopyFile	"CEMON files,cemon_exe_wcex86400"					%172\WCE400\TARGET\X86				
+184				Group	186  189  185  187  188  191  193  194  190  192  195					%d
+185				CopyFile	"JITDEBUGGER files,jitdebugger_exe_mips16400"					%184\WCE400\TARGET\MIPS16				
+186				CopyFile	"JITDEBUGGER files,jitdebugger_exe_armv4400"					%184\WCE400\TARGET\ARMV4				
+187				CopyFile	"JITDEBUGGER files,jitdebugger_exe_armv4i400"					%184\WCE400\TARGET\ARMV4I				
+188				CopyFile	"JITDEBUGGER files,jitdebugger_exe_armv4t400"					%184\WCE400\TARGET\ARMV4T				
+189				CopyFile	"JITDEBUGGER files,jitdebugger_exe_sh3400"					%184\WCE400\TARGET\SH3				
+190				CopyFile	"JITDEBUGGER files,jitdebugger_exe_sh4400"					%184\WCE400\TARGET\SH4				
+191				CopyFile	"JITDEBUGGER files,jitdebugger_exe_mipsii400"					%184\WCE400\TARGET\MIPSII				
+192				CopyFile	"JITDEBUGGER files,jitdebugger_exe_mipsiifp400"					%184\WCE400\TARGET\MIPSII_FP				
+193				CopyFile	"JITDEBUGGER files,jitdebugger_exe_mips4400"					%184\WCE400\TARGET\MIPSIV				
+194				CopyFile	"JITDEBUGGER files,jitdebugger_exe_mips4fp400"					%184\WCE400\TARGET\MIPSIV_FP				
+195				CopyFile	"JITDEBUGGER files,jitdebugger_exe_wcex86400"					%184\WCE400\TARGET\X86				
+													
+196				Group	197  198  201  199  200  203  205  206  202  204  207					%d
+197				CopyFile	"REGSVRCE files,regsvrce_exe_mips16400"					%196\WCE400\TARGET\MIPS16				
+198				CopyFile	"REGSVRCE files,regsvrce_exe_armv4400"					%196\WCE400\TARGET\ARMV4				
+199				CopyFile	"REGSVRCE files,regsvrce_exe_armv4i400"					%196\WCE400\TARGET\ARMV4I				
+200				CopyFile	"REGSVRCE files,regsvrce_exe_armv4t400"					%196\WCE400\TARGET\ARMV4T				
+201				CopyFile	"REGSVRCE files,regsvrce_exe_sh3400"					%196\WCE400\TARGET\SH3				
+202				CopyFile	"REGSVRCE files,regsvrce_exe_sh4400"					%196\WCE400\TARGET\SH4				
+203				CopyFile	"REGSVRCE files,regsvrce_exe_mipsii400"					%196\WCE400\TARGET\MIPSII				
+204				CopyFile	"REGSVRCE files,regsvrce_exe_mipsiifp400"					%196\WCE400\TARGET\MIPSII_FP				
+205				CopyFile	"REGSVRCE files,regsvrce_exe_mips4400"					%196\WCE400\TARGET\MIPSIV				
+206				CopyFile	"REGSVRCE files,regsvrce_exe_mips4fp400"					%196\WCE400\TARGET\MIPSIV_FP				
+207				CopyFile	"REGSVRCE files,regsvrce_exe_wcex86400"					%196\WCE400\TARGET\X86				
+													
+ 														
+														
+ 														
+ 														
+==== WCE Build Tools files (bldtools.etf) ======														
+ 														
+211				Group	212 222 224					%d\EVC				
+													
+212				Group	213 214 215 216 217 218 219 220 221 					%d\WCE400\BIN				
+213				CopyFile	"WCE Build Tools files,lib400_exe"					%212				
+214				CopyFile	"WCE Build Tools files,link400_exe"					%212				
+215				CopyFile	"WCE Build Tools files,midl400_exe"					%212				
+216				CopyFile	"WCE Build Tools files,midlc400_exe"					%212				
+217				CopyFile	"WCE Build Tools files,dumpbin400_exe"					%212				
+218				CopyFile	"WCE Build Tools files,editbin400_exe"					%212				
+219				CopyFile	"WCE Build Tools files,cvtres400_exe"					%212				
+220				CopyFile	"WCE Build Tools files,mspdb60400_dll"					%212				
+221				CopyFile	"WCE Build Tools files,cvpack400_exe"					%212				
+													
+222				Group	223									
+223				InstallSysFile	"MSVCP50 DLL SYS,msvcp50_dll"					%M				
+													
+224				Group	225 226									
+225				InstallSysFile	"MSVCP60 DLL SYS,msvcp60_dll"					%M				
+226				CopyFile	"MSVCP60 DLL SYS,msvcp60_dll"					%73\Common\EVC\Bin				
+													
+ 														
+														
+	=== VC IDE Templates Component (TEMPLATES.ETF) ===													
+													
+231				CopyFile	"evc IDE Templates, addpage_rct"					%D\EVC\Template				
+													
+	=== VC ATL Wizard Template Component ===													
+241				Group	242					%d\EVC													
+242				CopySection	"VC - ATLCE WizTemplates"					%d\Template\ATLCE		
+													
+	=== VC CE Debugger Components (vcdebug.etf)===													
+251				Group	252 253 254 255 256 257 258 259 260 261 262 263					%d\EVC\Bin
+252				CopySection	"VC - CE Debugger"					%D 				
+253		psapi.dll		InstallSysFile	"VC - CE Debugger System,psapi_dll"					%m				
+254				CopySection	"VC - CE Debugger ARM"					%D 				
+255				CopySection	"VC - CE Debugger MIPS"					%D 				
+256				CopySection	"VC - CE Debugger MIPS16"					%D 				
+257				CopySection	"VC - CE Debugger MIPSFP"					%D 				
+258				CopySection	"VC - CE Debugger MIPSIVFP"					%D 				
+259				CopySection	"VC - CE Debugger NEWCPUS"					%D 				
+260				CopySection	"VC - CE Debugger SH3"					%D 				
+261				CopySection	"VC - CE Debugger SH4"					%D 				
+262				CopySection	"VC - CE Debugger X86"					%D 				
+263				CopySection	"VC - CE Debugger X86EM"					%D 				
+													
+ 
+ 
+==== CE Host side Pegasus headers and libs (cesdk.etf) ======
+ 
+271				Group	272 273					%d				
+272				CopySection	"Desktop Header Files"					%D\EVC\Include\Win32
+273				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\include"", ""RCInclude"", ""%s\EVC\Include\Win32;%s\Common\EVC\Template\ATLCE"""					%D				
+ 
+==== Base IDE bin ide files (ceide.etf) ======
+ 
+281				Group	282 290 307 322					%D\EVC\Bin\IDE				
+282				Group	283 284 285 286 287 288 289 				
+283				CopyFile	"Base IDE bin ide files,wceatl_awx"					%D
+284				CopyFile	"Base IDE bin ide files,wcectl_awx"					%D
+285				CopyFile	"Base IDE bin ide files,ceexewz_awx"					%D
+286				CopyFile	"Base IDE bin ide files,cedllwz_awx"					%D
+287				CopyFile	"Base IDE bin ide files,celibwz_awx"					%D
+288				CopyFile	"Base IDE bin ide files,wcedlwz_awx"					%D
+289				CopyFile	"Base IDE bin ide files,wceapwz_awx"					%D
+290				Group	291 292 293 294 295 296 297 298 299 300 301 302 303 304 305 306 				
+291				CopyFile	"Base IDE bin ide files,devclvw_pkg"					%D
+292				CopyFile	"Base IDE bin ide files,devcpp_pkg"					%D
+293				StampCDInfo	"292,20001, 20000"									
+294				CopyFile	"Base IDE bin ide files,devdbg_pkg"					%D
+295				CopyFile	"Base IDE bin ide files,devgal_pkg"					%D
+296				CopyFile	"Base IDE bin ide files,devncb_pkg"					%D
+297				CopyFile	"Base IDE bin ide files,devres_pkg"					%D
+298				CopyFile	"Base IDE bin ide files,devbld_pkg"					%D
+299				CopyFile	"Base IDE bin ide files,devaut1_pkg"					%D
+300				CopyFile	"Base IDE bin ide files,devodl_pkg"					%D
+301				CopyFile	"Base IDE bin ide files,devdtg_pkg"					%D
+302				CopyFile	"Base IDE bin ide files,devhelp_pkg"					%D
+303				CopyFile	"Base IDE bin ide files,devbied_pkg"					%D
+304				CopyFile	"Base IDE bin ide files,devent_pkg"					%D
+305				StampCDInfo	"304,20001, 20000"									
+306				CopyFile	"Base IDE bin ide files,devhtmx_pkg"					%D
+307				Group	308 309 311 312 313 314 315 316 317 318 319 320 				
+308				CopyFile	"Base IDE bin ide files,atlobjce_dll"					%D
+309				Depend	"308?310"									
+310		atlobjce.dll		CustomAction	"COMMON98.DLL,RegisterFile,""Base IDE bin ide files, atlobjce_dll ,3"""									
+311				CopyFile	"Base IDE bin ide files,appwzenu_dll"					%D
+312				CopyFile	"Base IDE bin ide files,appwzdeu_dll"					%D
+313				CopyFile	"Base IDE bin ide files,appwzesp_dll"					%D
+314				CopyFile	"Base IDE bin ide files,appwzfra_dll"					%D
+315				CopyFile	"Base IDE bin ide files,appwzita_dll"					%D
+316				CopyFile	"Base IDE bin ide files,appwzjpn_dll"					%D
+317				CopyFile	"Base IDE bin ide files,appwzptb_dll"					%D
+318				CopyFile	"Base IDE bin ide files,mfcapwz_dll"					%D
+319				CopyFile	"Base IDE bin ide files,devxpgl_dll"					%D
+320				Depend	"319?321"									
+321		devxpgl.dll		CustomAction	"COMMON98.DLL,RegisterFile,""Base IDE bin ide files, devxpgl_dll ,3"""									
+322				Group	323  
+323				CopyFile	"Base IDE bin ide files,devcpu_pkg"					%D
+ 
+ 
+													
+	=== x86 Family Compiler Components (x86.etf)===													
+													
+331				Group	332 					%D\EVC				
+													
+332				CopySection	"wce400 x86 Compiler"					%D\WCE400\BIN 				
+													
+	=== SHx Family Compiler Components (shx.etf)===													
+													
+341				Group	342  					%D\EVC				
+													
+342				CopySection	"wce400 SHx Compiler"					%D\WCE400\BIN 				
+													
+	=== MIPS Family Compiler Components (mips.etf)===													
+													
+351				Group	352  					%D\EVC				
+													
+352				CopySection	"wce400 MIPS Compiler"					%D\WCE400\BIN 				
+													
+	=== ARM Family Compiler Components (arm.etf)===													
+													
+361				Group	362 					%D\EVC				
+													
+362				CopySection	"wce400 ARM THUMB Compiler"					%D\WCE400\BIN 				
+													
+======= vcregen.etf (vc registration entries)=========
+371				Group	376 377					%73
+ ===== Ask Env set display and generating the vcvars32.bat file =====
+372				Depend	"37? 373:374"									
+373				CustomAction	"COMMON98.DLL,VCVARS95"									
+374				CustomAction	"COMMON98.DLL,VCVARSNT"
+375				CustomAction	"COMMON98.DLL,AskSetEnv"
+ ======= vc reg entries=======
+376	Yes			AddRegData	"LOCAL,Software\Microsoft\CEStudio\4.0\Products\Microsoft Visual C++ CE,ProductDir,%s"									
+													
+377				Depend	"39? 378"									
+378				Depend	"374? 380 381:379"									
+379				Depend	"375 ? 380 381"
+380				CustomAction	"COMMON98.DLL,AddToReg,HKCU;Environment;path;%s\bin"									
+381				CustomAction	"COMMON98.DLL,AddToReg,HKCU;Environment;path;%s"					%d\Common\Tools				
+													
+	=== VC IDE Macro Component (MACROS.ETF) ===													
+													
+391				Group	392					%D\EVC\Macros				
+392				CopyFile	"vc IDE Macros, sample_dsm_enu"					%D				
+													
+	=== VC IDE Component (CORE.ETF)===													
+													
+	=== VC IDE Component (CORE.ETF)===													
+													
+401				Group	402 423 436 442					%D\EVC\Bin				
+													
+402				Group	403 404 405 406 407 408 409 410 411 412 413 414 415 416 417 418 419 420 									
+													
+403				CopyFile	"vc Core IDE, win32_ncb"					%D				
+404				CopyFile	"vc Core IDE, wcemfcatl_ncb"					%D				
+405				CopyFile	"vc Core IDE, mspdb60_dll"					%D				
+406				CopyFile	"vc Core IDE, rsdkmon_exe"					%D				
+407				CopyFile	"vc Core IDE, stripcv_exe"					%D				
+408				CopyFile	"vc Core IDE, platname_dll"					%D				
+409				CopyFile	"vc Core IDE, feacp_dll"					%D				
+410				CopyFile	"vc Core IDE, evc_exe"					%D				
+411				CopyFile	"vc Core IDE, evc_com"					%D				
+412				CopyFile	"vc Core IDE, evc_hlp_enu"					%D				
+413				CopyFile	"vc Core IDE, autolayt_dll"					%D				
+414				CopyFile	"vc Core IDE, devedit_pkg"					%D				
+415				CopyFile	"vc Core IDE, devprj_pkg"					%D				
+416				CopyFile	"vc Core IDE, devshl_dll"					%D				
+417				CopyFile	"vc Core IDE, macrocpp_dat"					%D				
+418				CopyFile	"vc Core IDE, mfcclwz_dll"					%D				
+													
+419				CopyFile	"vc Core IDE, vcspawn_exe"					%D				
+													
+420				Group	421 422					%D				
+421				InstallShortcut	"%410\%F410,eMbedded Visual C++ 4.0,,,,,"					%36\Microsoft eMbedded Visual C++ 4.0				
+422				CustomAction	"COMMON98.DLL,SetLinkDesc,""Microsoft eMbedded Visual C++ 4.0;eMbedded Visual C++ 4.0;Shortcut to Microsoft eMbedded Visual C++ 4.0"""					%36\Microsoft eMbedded Visual C++ 4.0				
+													
+423				Group	424 426 427 428 429 430 431 432 433 434 435									
+													
+424				CopyFile	"vc Core IDE, rc_exe"					%D				
+425				CopyFile	"vc Core IDE, link_exe"					%D				
+426				CopyFile	"vc Core IDE, cvtres_exe"					%D				
+427				CopyFile	"vc Core IDE, mktyplib_exe"					%D				
+428				CopyFile	"vc Core IDE, clwz_dll"					%D				
+429				CopyFile	"vc Core IDE, clwzwc_dll"					%D				
+430				CopyFile	"vc Core IDE, sysincl_dat"					%D				
+431				CopyFile	"vc Core IDE, autoexp_dat"					%D				
+432				CopyFile	"vc Core IDE, rcxdti_dll"					%D				
+433				CopyFile	"vc Core IDE, cedb_dll"					%D				
+434				CopyFile	"vc Core IDE, msdis110_dll"					%D				
+435				CopyFile	"vc Core IDE,rcdll_dll"					%D				
+													
+436				Group	437 438 439 440 441									
+													
+437				CopyFile	"vc Core IDE, em_dll"					%D				
+438				CopyFile	"vc Core IDE, hh_exe"					%D				
+439				CopyFile	"vc Core IDE, dm_dll"					%D				
+440				CustomAction	"ce98pro.dll,CheckForMDAC"									
+441				CopyFile	"vc Core IDE, bscmake_exe"					%D				
+													
+442				Group	443 444 450 452					%D				
+443				CopyFile	"vc Core IDE, devtldc_dll"					%D				
+													
+444				Depend 	"410 ? 461"									
+													
+445				Depend 	"39? 446 449"									
+446				Depend 	"375 ? 447 448"									
+447				CustomAction	"COMMON98.DLL,AddToReg,HKCU;Environment;evcDir;%s"					%16\EVC				
+448				CustomAction	"COMMON98.DLL,AddToReg,HKCU;Environment;path;%s"					%16\EVC\Bin				
+449				CustomAction	"COMMON98.DLL,DeleteRegValue,HKCU;Environment;evcDir"									
+													
+450				Depend	"410 ? 451"									
+451				StampCDInfo	"410,20001, 20000"									
+													
+452				Depend	"410 ? 453 454 455 456 457 458"									
+453				CustomAction	"COMMON98.DLL,DeleteRegKey,HKCU;software\microsoft\cestudio\4.0\evc"									
+454				CustomAction	"COMMON98.DLL,DeleteRegKey,HKLM;software\microsoft\cestudio\4.0\evc"									
+													
+455				CustomAction	"COMMON98.DLL,DetectAnyKey,HKLM;software\microsoft\cestudio\4.0\evc"									
+456				CustomAction	"COMMON98.DLL,DetectAnyKey,HKCU;software\microsoft\cestudio\4.0\evc" 									
+													
+457				Depend	"455?:459"									
+458				Depend	"456?:460"									
+													
+459				CustomAction	"COMMON98.DLL,DeleteRegKey,HKLM;software\microsoft\cestudio\4.0\evc"									
+460				CustomAction	"COMMON98.DLL,DeleteRegKey,HKCU;software\microsoft\cestudio\4.0\evc"									
+													
+461				AddRegData	"LOCAL,Software\Microsoft\Windows\CurrentVersion\App Paths\eVC4.exe,"""",%s\evc.exe,"""""					%410				
+													
+	=== Common SQL Scripts (common.etf)===													
+471				Group	472 473 474					%d\Common\EVC\Bin
+472				CopyFile	"EVC Database, vccedb_mdb"					%D				
+473				CopySection	"Common SQL Scripts"					%D 
+474				CustomAction	"""ce98pro.dll"", ""AddScriptToDatabase"", ""%D\vccedb.mdb;%D\types.sql"" "					%d				
+													
+ 
+	
+ 
+	 
+	 
+	 
+	 
+	
+	=== X86 SQL Scripts (x86.etf)===													
+481				Group	482 483 484 485 486					%d\Common\EVC\Bin
+482				CustomAction	"""ce98pro.dll"", ""AddScriptToDatabase"", ""%D\vccedb.mdb;%D\x86.sql"" "					%d				
+483				CustomAction	"""ce98pro.dll"", ""RemoveCPUFromDatabase"", ""%D\vccedb.mdb;{CB9DA661-E317-11d3-991B-00105A1E7FA9}"" "					%d				
+484				CustomAction	"""ce98pro.dll"", ""RemoveCPUFromDatabase"", ""%D\vccedb.mdb;{D6518FF3-710F-11D3-99F2-00105A0DF099}"" "					%d				
+485				CustomAction	"""ce98pro.dll"", ""RemoveCPUFromDatabase"", ""%D\vccedb.mdb;{CB9DA662-E317-11d3-991B-00105A1E7FA9}"" "					%d				
+486				CustomAction	"""ce98pro.dll"", ""RemoveCPUFromDatabase"", ""%D\vccedb.mdb;{CB9DA663-E317-11d3-991B-00105A1E7FA9}"" "					%d				
+													
+	=== THUMB SQL Scripts (thumb.etf)===													
+491				Group	492 493 494 495					%d\Common\EVC\Bin
+492				CustomAction	"""ce98pro.dll"", ""AddScriptToDatabase"", ""%D\vccedb.mdb;%D\arm720t.sql"" "					%d				
+493				CustomAction	"""ce98pro.dll"", ""AddScriptToDatabase"", ""%D\vccedb.mdb;%D\arm920t.sql"" "					%d				
+494				CustomAction	"""ce98pro.dll"", ""RemoveCPUFromDatabase"", ""%D\vccedb.mdb;{D6518FFD-710F-11D3-99F2-00105A0DF099}"" "					%d				
+495				CustomAction	"""ce98pro.dll"", ""RemoveCPUFromDatabase"", ""%D\vccedb.mdb;{20BC18FA-4667-4ca7-BF3C-6D8BBF7EB90C}"" "					%d				
+													
+	=== SH4 SQL Scripts (sh4.etf)===													
+501				Group	502 503					%d\Common\EVC\Bin
+502				CustomAction	"""ce98pro.dll"", ""AddScriptToDatabase"", ""%D\vccedb.mdb;%D\sh4.sql"" "					%d				
+503				CustomAction	"""ce98pro.dll"", ""RemoveCPUFromDatabase"", ""%D\vccedb.mdb;{D6519021-710F-11D3-99F2-00105A0DF099}"" "					%d				
+													
+	=== SH3 SQL Scripts (sh3.etf)===													
+511				Group	512 513					%d\Common\EVC\Bin
+512				CustomAction	"""ce98pro.dll"", ""AddScriptToDatabase"", ""%D\vccedb.mdb;%D\sh3.sql"" "					%d				
+513				CustomAction	"""ce98pro.dll"", ""RemoveCPUFromDatabase"", ""%D\vccedb.mdb;{D6519020-710F-11D3-99F2-00105A0DF099}"" "					%d				
+													
+	=== emulator SQL Scripts (emulator.etf)===													
+521				Group	522 523 524 525 526					%d\Common\EVC\Bin
+522				CustomAction	"""ce98pro.dll"", ""AddScriptToDatabase"", ""%D\vccedb.mdb;%D\emulator.sql"" "					%d				
+523				CustomAction	"""ce98pro.dll"", ""RemoveCPUFromDatabase"", ""%D\vccedb.mdb;{DD27DD2D-E969-456a-94D4-125688005783}"" "					%d				
+524				CustomAction	"""ce98pro.dll"", ""RemoveCPUFromDatabase"", ""%D\vccedb.mdb;{D3C65F18-E3D0-43ec-8F0F-79C99EAFB9F9}"" "					%d				
+525				CustomAction	"""ce98pro.dll"", ""RemoveCPUFromDatabase"", ""%D\vccedb.mdb;{D8D232B1-2D23-47b0-B175-2635C0A2D8A0}"" "					%d				
+526				CustomAction	"""ce98pro.dll"", ""RemoveCPUFromDatabase"", ""%D\vccedb.mdb;{32E52003-403E-442D-BE48-DE10F8C6131D}"" "					%d				
+													
+	=== MIPSIVFP SQL Scripts (mipsIVfp.etf)===													
+531				Group	532 533					%d\Common\EVC\Bin
+532				CustomAction	"""ce98pro.dll"", ""AddScriptToDatabase"", ""%D\vccedb.mdb;%D\mips4_fp.sql"" "					%d				
+533				CustomAction	"""ce98pro.dll"", ""RemoveCPUFromDatabase"", ""%D\vccedb.mdb;{046A430D-7770-48ab-89B5-24C2D300B03F}"" "					%d				
+													
+	=== MIPSIV SQL Scripts (mipsIV.etf)===													
+541				Group	542 543					%d\Common\EVC\Bin
+542				CustomAction	"""ce98pro.dll"", ""AddScriptToDatabase"", ""%D\vccedb.mdb;%D\mips4.sql"" "					%d				
+543				CustomAction	"""ce98pro.dll"", ""RemoveCPUFromDatabase"", ""%D\vccedb.mdb;{0B2FE524-26C5-4194-8CEF-B1582DEB5A98}"" "					%d				
+													
+	=== MIPS16 SQL Scripts (mips16.etf)===													
+551				Group	552 553					%d\Common\EVC\Bin
+552				CustomAction	"""ce98pro.dll"", ""AddScriptToDatabase"", ""%D\vccedb.mdb;%D\mips16.sql"" "					%d				
+553				CustomAction	"""ce98pro.dll"", ""RemoveCPUFromDatabase"", ""%D\vccedb.mdb;{D6519013-710F-11D3-99F2-00105A0DF099}"" "					%d				
+													
+	=== MIPSIIFP SQL Scripts (mipsiifp.etf)===													
+561				Group	562 563					%d\Common\EVC\Bin
+562				CustomAction	"""ce98pro.dll"", ""AddScriptToDatabase"", ""%D\vccedb.mdb;%D\mipsii~1.sql"" "					%d				
+563				CustomAction	"""ce98pro.dll"", ""RemoveCPUFromDatabase"", ""%D\vccedb.mdb;{D8AC856C-B213-4895-9E83-9EC51A55201E}"" "					%d				
+													
+	=== MIPSII SQL Scripts (mipsii.etf)===													
+571				Group	572 573					%d\Common\EVC\Bin
+572				CustomAction	"""ce98pro.dll"", ""AddScriptToDatabase"", ""%D\vccedb.mdb;%D\mipsii.sql"" "					%d				
+573				CustomAction	"""ce98pro.dll"", ""RemoveCPUFromDatabase"", ""%D\vccedb.mdb;{689DDC64-9D9D-11d5-96F8-00207802C01C}"" "					%d				
+													
+	=== ARMV4T  SQL Scripts (armv4t.etf)===													
+581				Group	582 583					%d\Common\EVC\Bin
+582				CustomAction	"""ce98pro.dll"", ""AddScriptToDatabase"", ""%D\vccedb.mdb;%D\armv4t.sql"" "					%d				
+583				CustomAction	"""ce98pro.dll"", ""RemoveCPUFromDatabase"", ""%D\vccedb.mdb;{F52316A9-3B7C-4fe7-A67F-68350B41240D}"" "					%d				
+													
+	=== ARMV4I SQL Scripts (armv4i.etf)===													
+591				Group	592 593					%d\Common\EVC\Bin
+592				CustomAction	"""ce98pro.dll"", ""AddScriptToDatabase"", ""%D\vccedb.mdb;%D\armv4i.sql"" "					%d				
+593				CustomAction	"""ce98pro.dll"", ""RemoveCPUFromDatabase"", ""%D\vccedb.mdb;{DC70F430-E78B-494f-A9D5-62ADC56443B8}"" "					%d				
+													
+	=== ARMV44 SQL Scripts (armv4.etf)===													
+601				Group	602 603					%d\Common\EVC\Bin
+602				CustomAction	"""ce98pro.dll"", ""AddScriptToDatabase"", ""%D\vccedb.mdb;%D\armv4.sql"" "					%d				
+603				CustomAction	"""ce98pro.dll"", ""RemoveCPUFromDatabase"", ""%D\vccedb.mdb;{ECBEA43D-CD7B-4852-AD55-D4227B5D624B}"" "					%d				
+													
+	=== ARM SQL Scripts (arm.etf)===													
+611				Group	612 613 614 615					%d\Common\EVC\Bin
+612				CustomAction	"""ce98pro.dll"", ""AddScriptToDatabase"", ""%D\vccedb.mdb;%D\arm720.sql"" "					%d				
+613				CustomAction	"""ce98pro.dll"", ""AddScriptToDatabase"", ""%D\vccedb.mdb;%D\armsa1~1.sql"" "					%d				
+614				CustomAction	"""ce98pro.dll"", ""RemoveCPUFromDatabase"", ""%D\vccedb.mdb;{D6518FFC-710F-11D3-99F2-00105A0DF099}"" "					%d				
+615				CustomAction	"""ce98pro.dll"", ""RemoveCPUFromDatabase"", ""%D\vccedb.mdb;{D6518FFB-710F-11D3-99F2-00105A0DF099}"" "					%d				
+													
+ 														
+	=== Shell MSAddIndr component === <addindsr.etf>													
+ 														
+621				Group	622 626					%d 			 	
+ 														
+622				Group	623 624 625					%d 			 	
+623		msaddndr.dll		InstallShared	"AddIn Designer,msaddndr_dll,msaddndr.dll,,1013"					%20\designer				
+624		msaddndr.dep		InstallShared	"AddIn Designer,msaddndr_dep,msaddndr.dep,,1013"					%20\designer				
+625		msaddndr.tlb		InstallShared	"AddIn Designer,msaddndr_tlb,msaddndr.tlb,,1013"					%20\designer				
+ 														
+626				Group	627					%d 			 	
+627				Depend	"623 ? 628"									
+628		msaddndr.dll		CustomAction	"COMMON98.DLL,SelfReg,""AddIn Designer,msaddndr_dll"""					%623				
+ 														
+														
+ 														
+													
+ //  help.etf - #  Tools (common) Help files
+ 
+ 
+==== Tools Help files (help.etf) ======
+ 
+631				Group	 636 637 638 632 633 639					%18				
+632				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\HTMLHelp"", ""Install Dir"", ""%s\Htmlhelp\emtools"""					%D				
+633				Group	 634 635					%18	
+634				AddRegData	"""LOCAL"", ""SOFTWARE\Microsoft\HTML Help Collections\eVC4 Developer Collections\0x0409"", ""Preferred"", ""0x040000000"""					%D				
+635				AddRegData	"""LOCAL"", ""SOFTWARE\Microsoft\HTML Help Collections\eVC4 Developer Collections\0x0409\0x040000000"", ""FileName"", ""%s\Htmlhelp\emtools\evc4Help.chm"""					%D				
+636				CopySection	"eMbedded Tools Help files"					%d\Htmlhelp\emtools
+637				CopySection	"eMbedded Tools Help Html files"					%d\Htmlhelp\emtools\Html
+638				CopySection	"eMbedded Tools Help Script files"					%d\Htmlhelp\emtools\Scripts
+639				CustomAction	"ce98pro.dll,CopyAndRegItccDll"					%d
++Windows CE Remote Tools (ceremtls.chm/.chi)
+ 
+ 
+ 
+  
+	=== VI/VJ Common Shell Help Component  === <fn=shellhlp.etf>
+641				Group	642 643 645					%d		
+642				InstallShared	"Shell Help, vshelp_dll, vshelp.dll,,1013"					%H\VS98				
+643				Depend	"642 ? 644"									
+644		vshelp.dll		SelfReg	"Shell Help,vshelp_dll,,,,"					%642				
+645				Group	646					%642\resources\1033		
+646		vshelpui.dll		InstallShared	"Loc Shell Help,vshelpui_dll_enu,vshelpui.dll(enu),,1013"					%d				
+ 
+ 
+ 														
+													
+651				Group	652 770					%d				
+652				Group	653 654 655 656					%d				
+653				Group	658 659 660 661 662 663 664 665 666 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685 686 687 688					%d				
+654				Group	689 690 691 692 693 694 695 696 697 698 699 700 701 702 703 704 705 706 707 708 709 710 711 712 713 714 715 716 717 718 719					%d				
+655				Group	720 721 722 723 724 725 726 727 728 729 730 731 732 733 734 735 736 737 738 739					%d				
+656				Group	740 741 742 743 744 745 746 747 748 749 750 751 752 753 754 755 756 757 758 759 760 761 762 763 764 765 766 767 768 769 657					%d				
+657				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc"", ""ProductDir"", ""%s"""					%D				
+658				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"""					%D				
+													
+659				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""AskArgument#8"", ""0"", ""DWORD"""					%D				
+660				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""CloseWindow#8"", ""0"", ""DWORD"""					%D				
+661				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DefaultArguments#8"", """""					%D				
+662				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DialogName#8"", ""Remote &Spy++"""					%D				
+663				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""GUITool#8"", ""1"", ""DWORD"""					%D				
+664				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""InitialDirectory#8"", ""%s"""					%19\Bin			
+665				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""MenuName#8"", ""Remote &Spy++"""					%D				
+666				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""OutputRedirect#8"", ""0"", ""DWORD"""					%D				
+667				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""PathName#8"", ""%s\cespy.exe"""					%19\Bin				
+668				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""UseSearchPath#8"", ""0"""					%19\Bin				
+669				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""NumTools"", ""11"", ""DWORD"""					%D				
+													
+670				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""AskArgument#7"", ""0"", ""DWORD"""					%D				
+671				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""CloseWindow#7"", ""0"", ""DWORD"""					%D				
+672				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DefaultArguments#7"", """""					%D				
+673				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DialogName#7"", ""Remote Re&gistry Editor"""					%D				
+674				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""GUITool#7"", ""1"", ""DWORD"""					%D				
+675				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""InitialDirectory#7"", ""%s"""					%19\Bin				
+676				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""MenuName#7"", ""Remote Re&gistry Editor"""					%D				
+677				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""OutputRedirect#7"", ""0"", ""DWORD"""					%D				
+678				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""PathName#7"", ""%s\ceregedt.exe"""					%19\Bin				
+679				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""UseSearchPath#7"", ""0"""					%19\Bin				
+													
+680				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""AskArgument#3"", ""0"", ""DWORD"""					%D				
+681				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""CloseWindow#3"", ""0"", ""DWORD"""					%D				
+682				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DefaultArguments#3"", """""					%D				
+683				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DialogName#3"", ""Remote &Heap Walker"""					%D				
+684				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""GUITool#3"", ""1"", ""DWORD"""					%D				
+685				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""InitialDirectory#3"", ""%s"""					%19\Bin				
+686				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""MenuName#3"", ""Remote &Heap Walker"""					%D				
+687				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""OutputRedirect#3"", ""0"", ""DWORD"""					%D				
+688				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""PathName#3"", ""%s\ceheapwk.exe"""					%19\Bin				
+689				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""UseSearchPath#3"", ""0"""					%19\Bin				
+													
+690				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""AskArgument#6"", ""0"", ""DWORD"""					%D				
+691				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""CloseWindow#6"", ""0"", ""DWORD"""					%D				
+692				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DefaultArguments#6"", """""					%D				
+693				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DialogName#6"", ""Remote &Process Viewer"""					%D				
+694				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""GUITool#6"", ""1"", ""DWORD"""					%D				
+695				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""InitialDirectory#6"", ""%s"""					%19\Bin				
+696				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""MenuName#6"", ""Remote &Process Viewer"""					%D				
+697				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""OutputRedirect#6"", ""0"", ""DWORD"""					%D				
+698				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""PathName#6"", ""%s\cepview.exe"""					%19\Bin				
+699				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""UseSearchPath#6"", ""0"""					%19\Bin				
+													
+700				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""AskArgument#10"", ""0"", ""DWORD"""					%D				
+701				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""CloseWindow#10"", ""0"", ""DWORD"""					%D				
+702				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DefaultArguments#10"", """""					%D				
+703				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DialogName#10"", ""Remote &Zoomin"""					%D				
+704				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""GUITool#10"", ""1"", ""DWORD"""					%D				
+705				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""InitialDirectory#10"", ""%s"""					%19\Bin				
+706				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""MenuName#10"", ""Remote &Zoomin"""					%D				
+707				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""OutputRedirect#10"", ""0"", ""DWORD"""					%D				
+708				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""PathName#10"", ""%s\cezoom.exe"""					%19\Bin				
+709				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""UseSearchPath#10"", ""0"""					%19\Bin				
+													
+710				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""AskArgument#2"", ""0"", ""DWORD"""					%D				
+711				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""CloseWindow#2"", ""0"", ""DWORD"""					%D				
+712				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DefaultArguments#2"", """""					%D				
+713				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DialogName#2"", ""Remote &File Viewer"""					%D				
+714				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""GUITool#2"", ""1"", ""DWORD"""					%D				
+715				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""InitialDirectory#2"", ""%s"""					%19\Bin				
+716				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""MenuName#2"", ""Remote &File Viewer"""					%D				
+717				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""OutputRedirect#2"", ""0"", ""DWORD"""					%D				
+718				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""PathName#2"", ""%s\cefilevw.exe"""					%19\Bin				
+719				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""UseSearchPath#2"", ""0"""					%19\Bin				
+													
+720				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""AskArgument#9"", ""0"", ""DWORD"""					%D				
+721				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""CloseWindow#9"", ""0"", ""DWORD"""					%D				
+722				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DefaultArguments#9"", """""					%D				
+723				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DialogName#9"", ""Remote System &Information"""					%D				
+724				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""GUITool#9"", ""1"", ""DWORD"""					%D				
+725				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""InitialDirectory#9"", ""%s"""					%19\Bin				
+726				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""MenuName#9"", ""Remote System &Information"""					%D				
+727				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""OutputRedirect#9"", ""0"", ""DWORD"""					%D				
+728				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""PathName#9"", ""%s\cesysinfo.exe"""					%19\Bin				
+729				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""UseSearchPath#9"", ""0"""					%19\Bin				
+													
+730				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""AskArgument#4"", ""0"", ""DWORD"""					%D				
+731				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""CloseWindow#4"", ""0"", ""DWORD"""					%D				
+732				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DefaultArguments#4"", """""					%D				
+733				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DialogName#4"", ""Remote Kernel &Tracker"""					%D				
+734				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""GUITool#4"", ""1"", ""DWORD"""					%D				
+735				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""InitialDirectory#4"", ""%s"""					%19\Bin				
+736				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""MenuName#4"", ""Remote Kernel &Tracker"""					%D				
+737				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""OutputRedirect#4"", ""0"", ""DWORD"""					%D				
+738				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""PathName#4"", ""%s\kerneltracker.exe"""					%19\Bin				
+739				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""UseSearchPath#4"", ""0"""					%19\Bin				
+													
+740				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""AskArgument#5"", ""0"", ""DWORD"""					%D				
+741				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""CloseWindow#5"", ""0"", ""DWORD"""					%D				
+742				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DefaultArguments#5"", """""					%D				
+743				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DialogName#5"", ""Remote Performa&nce Monitor"""					%D				
+744				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""GUITool#5"", ""1"", ""DWORD"""					%D				
+745				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""InitialDirectory#5"", ""%s"""					%19\Bin				
+746				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""MenuName#5"", ""Remote Performa&nce Monitor"""					%D				
+747				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""OutputRedirect#5"", ""0"", ""DWORD"""					%D				
+748				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""PathName#5"", ""%s\ceperfmon.exe"""					%19\Bin				
+749				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""UseSearchPath#5"", ""0"""					%19\Bin				
+													
+750				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""AskArgument#1"", ""0"", ""DWORD"""					%D				
+751				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""CloseWindow#1"", ""0"", ""DWORD"""					%D				
+752				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DefaultArguments#1"", """""					%D				
+753				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DialogName#1"", ""Remote C&all Profiler"""					%D				
+754				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""GUITool#1"", ""1"", ""DWORD"""					%D				
+755				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""InitialDirectory#1"", ""%s"""					%19\Bin				
+756				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""MenuName#1"", ""Remote C&all Profiler"""					%D				
+757				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""OutputRedirect#1"", ""0"", ""DWORD"""					%D				
+758				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""PathName#1"", ""%s\msic.exe"""					%19\Bin				
+759				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""UseSearchPath#1"", ""0"""					%19\Bin				
+													
+760				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""AskArgument#0"", ""0"", ""DWORD"""					%D				
+761				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""CloseWindow#0"", ""0"", ""DWORD"""					%D				
+762				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DefaultArguments#0"", """""					%D				
+763				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DialogName#0"", ""Error Loo&kup"""					%D				
+764				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""GUITool#0"", ""1"", ""DWORD"""					%D				
+765				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""InitialDirectory#0"", ""%s"""					%d\Common\Tools				
+766				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""MenuName#0"", ""Error Loo&kup"""					%D				
+767				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""OutputRedirect#0"", ""0"", ""DWORD"""					%D				
+768				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""PathName#0"", ""%s\errlook.exe"""					%d\Common\Tools				
+769				AddRegData	"""LOCAL"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""UseSearchPath#0"", ""0"""					%d\Common\Tools				
+													
+770				Group	771 772 773 774					%d				
+771				Group	775 776 777 778 779 780 781 782 783 784 785 786 787 788 789 790 791 792 793 794 795 796 797 798 799 800 801 802 803 804 805					%d				
+772				Group	806 807 808 809 810 811 812 813 814 815 816 817 818 819 820 821 822 823 824 825 826 827 828 829 830 831 832 833 834 835 836					%d				
+773				Group	837 838 839 840 841 842 843 844 845 846 847 848 849 850 851 852 853 854 855 856					%d				
+774				Group	857 858 859 860 861 862 863 864 865 866 867 868 869 870 871 872 873 874 875 876 877 878 879 880 881 882 883 884 885 886					%d				
+775				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"""					%D				
+													
+776				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""AskArgument#8"", ""0"", ""DWORD"""					%D				
+777				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""CloseWindow#8"", ""0"", ""DWORD"""					%D				
+778				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DefaultArguments#8"", """""					%D				
+779				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DialogName#8"", ""Remote &Spy++"""					%D				
+780				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""GUITool#8"", ""1"", ""DWORD"""					%D				
+781				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""InitialDirectory#8"", ""%s"""					%19\Bin				
+782				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""MenuName#8"", ""Remote &Spy++"""					%D				
+783				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""OutputRedirect#8"", ""0"", ""DWORD"""					%D				
+784				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""PathName#8"", ""%s\cespy.exe"""					%19\Bin				
+785				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""UseSearchPath#8"", ""0"""					%19\Bin				
+786				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""NumTools"", ""11"", ""DWORD"""					%D				
+													
+787				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""AskArgument#7"", ""0"", ""DWORD"""					%D				
+788				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""CloseWindow#7"", ""0"", ""DWORD"""					%D				
+789				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DefaultArguments#7"", """""					%D				
+790				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DialogName#7"", ""Remote Re&gistry Editor"""					%D				
+791				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""GUITool#7"", ""1"", ""DWORD"""					%D				
+792				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""InitialDirectory#7"", ""%s"""					%19\Bin				
+793				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""MenuName#7"", ""Remote Re&gistry Editor"""					%D				
+794				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""OutputRedirect#7"", ""0"", ""DWORD"""					%D				
+795				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""PathName#7"", ""%s\ceregedt.exe"""					%19\Bin				
+796				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""UseSearchPath#7"", ""0"""					%19\Bin				
+													
+797				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""AskArgument#3"", ""0"", ""DWORD"""					%D				
+798				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""CloseWindow#3"", ""0"", ""DWORD"""					%D				
+799				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DefaultArguments#3"", """""					%D				
+800				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DialogName#3"", ""Remote &Heap Walker"""					%D				
+801				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""GUITool#3"", ""1"", ""DWORD"""					%D				
+802				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""InitialDirectory#3"", ""%s"""					%19\Bin				
+803				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""MenuName#3"", ""Remote &Heap Walker"""					%D				
+804				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""OutputRedirect#3"", ""0"", ""DWORD"""					%D				
+805				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""PathName#3"", ""%s\ceheapwk.exe"""					%19\Bin				
+806				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""UseSearchPath#3"", ""0"""					%19\Bin				
+													
+807				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""AskArgument#6"", ""0"", ""DWORD"""					%D				
+808				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""CloseWindow#6"", ""0"", ""DWORD"""					%D				
+809				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DefaultArguments#6"", """""					%D				
+810				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DialogName#6"", ""Remote &Process Viewer"""					%D				
+811				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""GUITool#6"", ""1"", ""DWORD"""					%D				
+812				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""InitialDirectory#6"", ""%s"""					%19\Bin				
+813				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""MenuName#6"", ""Remote &Process Viewer"""					%D				
+814				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""OutputRedirect#6"", ""0"", ""DWORD"""					%D				
+815				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""PathName#6"", ""%s\cepview.exe"""					%19\Bin				
+816				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""UseSearchPath#6"", ""0"""					%19\Bin				
+													
+817				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""AskArgument#10"", ""0"", ""DWORD"""					%D				
+818				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""CloseWindow#10"", ""0"", ""DWORD"""					%D				
+819				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DefaultArguments#10"", """""					%D				
+820				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DialogName#10"", ""Remote &Zoomin"""					%D				
+821				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""GUITool#10"", ""1"", ""DWORD"""					%D				
+822				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""InitialDirectory#10"", ""%s"""					%19\Bin				
+823				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""MenuName#10"", ""Remote &Zoomin"""					%D				
+824				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""OutputRedirect#10"", ""0"", ""DWORD"""					%D				
+825				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""PathName#10"", ""%s\cezoom.exe"""					%19\Bin				
+826				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""UseSearchPath#10"", ""0"""					%19\Bin				
+													
+827				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""AskArgument#2"", ""0"", ""DWORD"""					%D				
+828				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""CloseWindow#2"", ""0"", ""DWORD"""					%D				
+829				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DefaultArguments#2"", """""					%D				
+830				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DialogName#2"", ""Remote &File Viewer"""					%D				
+831				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""GUITool#2"", ""1"", ""DWORD"""					%D				
+832				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""InitialDirectory#2"", ""%s"""					%19\Bin				
+833				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""MenuName#2"", ""Remote &File Viewer"""					%D				
+834				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""OutputRedirect#2"", ""0"", ""DWORD"""					%D				
+835				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""PathName#2"", ""%s\cefilevw.exe"""					%19\Bin				
+836				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""UseSearchPath#2"", ""0"""					%19\Bin				
+													
+837				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""AskArgument#9"", ""0"", ""DWORD"""					%D				
+838				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""CloseWindow#9"", ""0"", ""DWORD"""					%D				
+839				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DefaultArguments#9"", """""					%D				
+840				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DialogName#9"", ""Remote System &Information"""					%D				
+841				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""GUITool#9"", ""1"", ""DWORD"""					%D				
+842				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""InitialDirectory#9"", ""%s"""					%19\Bin				
+843				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""MenuName#9"", ""Remote System &Information"""					%D				
+844				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""OutputRedirect#9"", ""0"", ""DWORD"""					%D				
+845				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""PathName#9"", ""%s\cesysinfo.exe"""					%19\Bin				
+846				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""UseSearchPath#9"", ""0"""					%19\Bin				
+													
+847				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""AskArgument#4"", ""0"", ""DWORD"""					%D				
+848				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""CloseWindow#4"", ""0"", ""DWORD"""					%D				
+849				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DefaultArguments#4"", """""					%D				
+850				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DialogName#4"", ""Remote Kernel &Tracker"""					%D				
+851				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""GUITool#4"", ""1"", ""DWORD"""					%D				
+852				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""InitialDirectory#4"", ""%s"""					%19\Bin				
+853				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""MenuName#4"", ""Remote Kernel &Tracker"""					%D				
+854				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""OutputRedirect#4"", ""0"", ""DWORD"""					%D				
+855				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""PathName#4"", ""%s\kerneltracker.exe"""					%19\Bin				
+856				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""UseSearchPath#4"", ""0"""					%19\Bin				
+													
+857				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""AskArgument#5"", ""0"", ""DWORD"""					%D				
+858				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""CloseWindow#5"", ""0"", ""DWORD"""					%D				
+859				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DefaultArguments#5"", """""					%D				
+860				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DialogName#5"", ""Remote Performa&nce Monitor"""					%D				
+861				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""GUITool#5"", ""1"", ""DWORD"""					%D				
+862				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""InitialDirectory#5"", ""%s"""					%19\Bin				
+863				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""MenuName#5"", ""Remote Performa&nce Monitor"""					%D				
+864				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""OutputRedirect#5"", ""0"", ""DWORD"""					%D				
+865				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""PathName#5"", ""%s\ceperfmon.exe"""					%19\Bin				
+866				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""UseSearchPath#5"", ""0"""					%19\Bin				
+													
+867				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""AskArgument#1"", ""0"", ""DWORD"""					%D				
+868				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""CloseWindow#1"", ""0"", ""DWORD"""					%D				
+869				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DefaultArguments#1"", """""					%D				
+870				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DialogName#1"", ""Remote C&all Profiler"""					%D				
+871				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""GUITool#1"", ""1"", ""DWORD"""					%D				
+872				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""InitialDirectory#1"", ""%s"""					%19\Bin				
+873				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""MenuName#1"", ""Remote C&all Profiler"""					%D				
+874				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""OutputRedirect#1"", ""0"", ""DWORD"""					%D				
+875				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""PathName#1"", ""%s\msic.exe"""					%19\Bin				
+876				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""UseSearchPath#1"", ""0"""					%19\Bin				
+													
+877				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""AskArgument#0"", ""0"", ""DWORD"""					%D				
+878				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""CloseWindow#0"", ""0"", ""DWORD"""					%D				
+879				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DefaultArguments#0"", """""					%D				
+880				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""DialogName#0"", ""Error Loo&kup"""					%D				
+881				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""GUITool#0"", ""1"", ""DWORD"""					%D				
+882				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""InitialDirectory#0"", ""%s"""					%d\Common\Tools				
+883				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""MenuName#0"", ""Error Loo&kup"""					%D				
+884				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""OutputRedirect#0"", ""0"", ""DWORD"""					%D				
+885				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""PathName#0"", ""%s\errlook.exe"""					%d\Common\Tools				
+886				AddRegData	"""CURRENT"", ""Software\Microsoft\CEStudio\4.0\evc\Tools"", ""UseSearchPath#0"", ""0"""					%d\Common\Tools				
+													
+	=== Platform Manager (ntsp.etf)===													
+													
+891				Group	892					%17 			 	
+													
+892				Group	893					%d 			 	
+893				CopyFile	"NTSP,w2kspx_exe"					%892\WIN2KSP2
+          														
+													
+	=== Tahoma Font Component (tahoma.etf) ===													
+													
+901				Group	903 									
+													
+902				DetectOlderFile	"""tahoma.ttf"""					%w\fonts		
+903				Depend	"902 ? 904 : 908"
+904				Depend	"41 ? : 905"
+905				Depend	"39 ? 906 907 : 908"
+906				InstallSysFile	"Font Files,tahoma_ttf"					%W		
+907				CustomAction	"COMMON98.DLL,ReplaceFont,tahoma.ttf"					%w\fonts				
+908				InstallTTFFile	"Font Files, tahoma_ttf, Tahoma (True Type)"					%M				
+													
+	=== VBScript files (vbscript.etf)===													
+911				Group	912					%d\Common\EVC\Bin
+912				CopyFile	"VBScript files,reg_vbs"					%D 				
+									
+	=== Platform Manager (platman.etf)===													
+													
+921				Group	922						 			 	
+922				Group	923					 			 	
+923				CustomAction	"ce98pro.dll,RunVBScriptOnInstall,""%912\reg.vbs;%172"""								
+          														
+													
+	=== Platform Manager (regtoolkit.etf)===													
+													
+931				Group	932 933					  			 	
+932				CustomAction	"ce98pro.dll,RegToolkitWithPlatMan"					 				
+          														
+933				CustomAction	"ce98pro.dll,DelToolKitFromPlatMan"					 				
+													
+ 
+													
+	=== vc MFC Os Ansi Retail component (OSRETAIL.ETF) ===													
+ 														
+941				Group	942 									
+ 														
+942				CopyFile	"vc MFC Os Retail, mfc42_dll"					%M				
+943		mfc42.dll		CustomAction	"COMMON98.DLL,RegisterFile,""vc MFC Os Retail, mfc42_dll,1"""					%942				
+													
+	=== RegSvr32 Component ( RegSvr32.etf ) ===													
+													
+951				Group	952 									
+952		regsvr32.exe		InstallSysFile	"Sys Files - Regsrv32, regsvr32_exe_3"					%m				
+													
+	=== Sys Always (system.etf) ===													
+													
+961				Group	971 1011 					%d				
+													
+	=== vc MSVCRT40.DLL Sys ===														
+971				CustomAction	"COMMON98.DLL,NeverRemoveGroup,""972"""					%M
+			
+972				CopyFile	"vc MSVCRT40 DLL,msvcrt40_dll"					%971				
+														
+	=== BILLBOARDS === <fn: bboard.etf>													
+													
+981				Group	982 983 984 985									
+982		bb_vspro1		CustomAction	"bboard.dll,AddBillboard,7100"									
+983		bb_vspro2		CustomAction	"bboard.dll,AddBillboard,2800"									
+984		msdn1		CustomAction	"bboard.dll,AddBillboard,6000"									
+985				CustomAction	"bboard.dll,RemoveFontFiles"					%W				
+													
+	=== ATL Component (atl.etf) ===
+991				Group	992					%d				
+	...copying files (atl.etf)
+992				Group	993					%d				
+993				Depend	"37 ? 994 995 : 997 998"							
+994		atl.dll		InstallSysFile	"ATL,atl_dll_ansi"					%m				
+995				Depend	"994?996"							
+996		atl.dll		SelfReg	"ATL,atl_dll_ansi,,, "					%994		
+997		atl.dll		InstallSysFile	"ATL,atl_dll_unicode"					%m				
+998				Depend	"997?999"							
+999		atl.dll		SelfReg	"ATL,atl_dll_unicode,,, "					%997		
+													
+	=== VC MSVC[I]RT.DLL Sys (crtdll.etf) ===													
+1001				Group	1002 									
+													
+1002		msvcrt.dll		InstallSysFile	"Sys Files - CRT Dlls,msvcrt_dll"					%m				
+													
+	=== Setup files (setup.etf) ===													
+1011				Group	1041 1031 1012 1017 1013 1014 1015 1016 					%d				
+												
+1012				CopySection	"Common Setup"					%d\Common\Setup\1033				
+1013		ce98pro_dll		CopyFile	"SetupProdCah,ce98pro_dll"					%1012				
+1014				WriteTableFile	"setup.stf"					%1012				
+													
+	=== Uninstall Strings (setup.etf) ===													
+1015				AddRegData	"LOCAL,Software\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft eMbedded Visual C++ 4.0 ,DisplayName,Microsoft eMbedded Visual C++ 4.0 ,REG_SZ"									
+1016				AddRegData	"LOCAL,Software\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft eMbedded Visual C++ 4.0 ,UninstallString,""""""%s\Setup.exe"""""",REG_SZ"					%1012				
+													
+1017				Group	1018					%1012				
+1018				Depend	1012 ? 1019 1020 1021									
+1019		acmsetup.fts		CustomAction	"COMMON98.DLL, RemoveAuxFile, Remove ACME Help Files;acmsetup_fts"									
+1020		acmsetup.ftg		CustomAction	"COMMON98.DLL, RemoveAuxFile, Remove ACME Help Files;acmsetup_ftg"									
+1021		acmsetup.gid		CustomAction	"COMMON98.DLL, RemoveAuxFile, Remove ACME Help Files;acmsetup_gid"									
+ 														
+													
+	=== Product Specific Setup files (pssetup.etf) ===													
+1031				Group	1032									
+1032				CopySection	"Setup"					%d\Common\Setup\1033				
+ 														
+	=== ReadMe files (readme.etf) ===													
+1041				Group	1042 					%d  				
+ 														
+1042				CopySection	"ReadMe"					%d				 
+ 														
+														
+ 														
+	=== File Binding Component (binding.etf) ===													
+1051				Group	1052									
+												
+	=== Binding VC files ========													
+1052				Group	1053									
+													
+1053				Group	1054 1056 1058 1060 									
+													
+1054				Depend	"410 ? 1055"									
+1055				CopyBindExe	"vc Core IDE, evc_exe,401" 					%410				
+1056				Depend	"414 ? 1057"									
+1057				CopyBindExe	"vc Core IDE, devedit_pkg,401" 					%414				
+1058				Depend	"415 ? 1059"									
+1059				CopyBindExe	"vc Core IDE, devprj_pkg,401" 					%415				
+1060				Depend	"416 ? 1061"									
+1061				CopyBindExe	"vc Core IDE, devshl_dll,401" 					%416				
+													
+ 														
+  														

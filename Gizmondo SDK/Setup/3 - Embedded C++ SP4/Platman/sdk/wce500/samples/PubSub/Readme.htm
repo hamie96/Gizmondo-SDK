@@ -1,0 +1,79 @@
+<html>
+<body>
+
+<!---------------------------------------------------------->
+<!--TITLE-->
+<!---------------------------------------------------------->
+<center><h1>Publisher/Subscriber Sample</h1></center>
+<hr>
+
+<!---------------------------------------------------------->
+<!--INTRODUCTION-->
+<!---------------------------------------------------------->
+<p><h2>Introduction</h2>
+This sample demonstrates the basic infrastructure required to Publish data on the device and Subscribe to that data stream from the desktop. The Publisher folder has the code to publish data when this module is loaded on the device. The Subscriber folder has the code to subscribe to this data. The Test folder contains code for a test application which starts the publisher on the device, loads up the subscriber on the dekstop, and displays the status. The actual results (data received from the device) are stored in a file PubSubTest.dat in this folder. 
+
+<p>
+In this sample the publisher component sends the data as strings "Hello%d" where "%d" is replaced with an index ranging from 0 to 24. This data should be displayed in the PubSubTest.dat file.
+
+<!---------------------------------------------------------->
+<!--USAGE-->
+<!---------------------------------------------------------->
+<p>
+To use this sample follow these steps:
+
+<ul>
+
+<p>
+<li>
+<b>Build the desktop DLL:</b>
+Open the file subscriber\hellosubscriber.dsp either in VC6.0 or Visual Studio.Net. Build the project to create the DLL: HelloSubscriber.dll. This dll will be copied to ..\bin folder after the build process.
+</li>
+
+<p>
+<li>
+<b>Build the device component:</b>
+The eMbedded Visual C++ 4.0 project file for device component is in Publisher folder. From that folder open HelloPublisher.vcp in eVC 4.0. Select the appropriate platform: Build | Select Active Platform. Select the appropriate processor type: Build | Set Active Configuration. Perform Rebuild All to create the executable. Repeat these steps for each platform & processor.
+<i>
+NOTE: The .vcp file supports ARM, Mips, SH3, SH4, and x86 processors. If you add other configurations, update the Additional include directories setting.
+</i>
+<p>eVC4.0 application will download the HelloPublisher.dll to \windows folder on the device once the build is successfully completed. If for some reason, this is not done, copy the file manually to the \windows folder on the device. To copy this file manually, locate the file HelloPublisher.dll from ..\bin\target\<cpu>\ folder and copy using Remote File Viewer or Active Sync.
+</li>
+
+<p>
+<li>
+<b>Register the Subscriber DLL:</b>
+Open a command window and change to the ..\bin directory. Use regsvr32 to register the DLL as follows:
+<i>
+        regsvr32 HelloSubscriber.dll
+</i>
+</li>
+
+<p>
+<li>
+<b>Build the test application:</b>
+Open the file test\PubSubTest.vcproj Visual Studio.Net. Build the project to create the application: PubSubTest.exe. This application will be copied to ..\bin folder after the build process.
+</li>
+
+<p>
+<li>
+<b>Copy rts.dll from c:\program files\common files\microsoft shared\windows ce tools\platman\bin\wce420 subfolder:</b>
+Since PubSubTest.exe links with rts.lib, rts.dll needs to be present in the same folder as PubSubTest.exe or in the search path to start the test application. Copy the rts.dll from the above folder to ..\bin folder.
+</li>
+
+<p>
+<li>
+<b>Start PubSubTest.exe from ..\bin folder:</b>
+In the application, you have choice of:
+<ol>
+<li>Configure the connection: You can configure the device to which you want to connect to. You can choose from different transport and startup server options.</li>
+<li>Establish the connection: You can establish a conneciton by clicking on Connect and selecting appropriate device to connect to.</li> 
+<li>Stop Collection: Once you are connected, the application will automatically start collecting data from the Publisher and will write the data to the file PubSubTest.dat. At any point you can stop this process by clicking on Stop Collection.</li> 
+<li>Shutodwn the application: Use this button to exit the application.</li>
+</li>
+
+</ul>
+<hr>
+
+</body>
+</html>

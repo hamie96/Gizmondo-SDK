@@ -1,0 +1,233 @@
+import "oaidl.idl";
+import "ocidl.idl";
+import "cemgr.idl";
+
+
+cpp_quote("static const unsigned long SERVER_FLAG_SERVER_COPY  = 0x00000001;")
+cpp_quote("static const unsigned long SERVER_FLAG_EXTRA_COPY   = 0x00000002;")
+
+interface IServerConnection;
+
+	[
+	
+		uuid(E1EBB0FC-00A2-11D2-BBA0-00A0C9C9CCEE),
+	
+		helpstring("IServer Interface"),
+		pointer_default(unique)
+	]
+	interface IServer : IUnknown
+	{
+		HRESULT GetType
+		(
+			[out] DEVICE_TYPE *pdt
+		);
+		HRESULT GetName
+		(
+			[out] LPOLESTR *ppszName
+		);
+		HRESULT Configure
+		(
+			[in] HWND hWnd, 
+			[in] IRemoteDevice *piDevice
+		);
+		HRESULT Connect
+		(
+			[in] IRemoteDevice *piDevice, 
+			[out] IServerConnection **ppiServerConnect
+		);
+	};
+	
+	[
+		object,
+		uuid(E1EBB0FE-00A2-11D2-BBA0-00A0C9C9CCEE),
+		helpstring("IServerConnect Interface"),
+		pointer_default(unique)
+	]
+	interface IServerConnection : IUnknown
+	{
+		HRESULT CheckFile
+		( 
+			[in] DWORD dwTimeDateStamp,	 // PE TimeStamp
+			[in] LPCOLESTR pszDestFileName
+		);
+		HRESULT GetSystemInfo
+		(
+			[out] LPWORD pwArchitecture,
+			[out] LPDWORD pdwCPUType, 
+			[out] LPWORD pwMinorVersion,
+			[out] LPWORD pwMajorVersion
+		);
+		HRESULT Copy
+		(
+			[in] LPCOLESTR pszSrcFullPath, 
+			[in] LPCOLESTR pszDestFileName
+		);
+		HRESULT Launch
+		(
+			[in] LPCOLESTR pszExeName,
+			[in] LPCOLESTR pszCmdLine
+		);
+	};
+
+
+
+cpp_quote("#define FILL_TIMESTAMP			0x00000001")
+cpp_quote("#define FILL_MACHINETYPE			0x00000002")
+cpp_quote("#define FILL_CHARACTERISTICS		0x00000004")
+cpp_quote("#define FILL_ENTRYPOINT			0x00000100")
+cpp_quote("#define FILL_OSVERSION			0x00000200")
+cpp_quote("#define FILL_SUBSYSTEM			0x00000400")
+cpp_quote("#define FILL_SUBSYSTEMVERSION	0x00000800")
+cpp_quote("#define FILL_CHECKSUM			0x00001000")
+
+cpp_quote("#define LOAD_IFH					0x000000FF")
+cpp_quote("#define LOAD_OPTIONAL			0x0000FF00")
+
+
+
+	typedef struct 
+	{
+		DWORD	PleaseFill;
+		DWORD	DidFill;
+		
+		DWORD	Timestamp;
+		WORD	Machine;
+		WORD	Characteristics;
+		DWORD	EntryPoint;
+		DWORD	OsVersion;	// HiWord = Major, LoWord = Minor
+		WORD	Subsystem;
+		DWORD	SubsystemVersion;	// HiWord = Major, LoWord = Minor
+		DWORD	Checksum;
+
+	} EXEINFO;
+
+
+	[
+		object,
+		uuid(66C1CB98-E7EE-11d2-BBEC-00A0C9C9CCEE),
+		helpstring("IServerConnect Interface"),
+		pointer_default(unique)
+	]
+	interface IServerConnectionEx : IUnknown
+	{
+		HRESULT GetServerFlags
+		(
+			[out] LPDWORD pdwFlags
+		);
+		HRESULT FileCopy
+		(
+			[in] LPCOLESTR pszSource,
+			[in] LPCOLESTR pszDest,
+			[in] ICallBack *piCallBack
+		);
+		HRESULT FileGetInfo
+		(
+			[in] LPCOLESTR pszRemotePath,
+			[out] LPDWORD pdwFileAttributes,
+			[out] LPDWORD pdwFileSize,
+			[out] LPFILETIME pCreationTime,
+			[out] LPDWORD pdwTimeDateStamp // PE Time
+		);
+		HRESULT GetFreeStoreSpace
+		(
+			[out] LPDWORD pdwFree
+		);
+		HRESULT	GetRemoteExeInfo
+		(
+			[in]		LPCOLESTR	pszRemotePath,
+			[in , out]	EXEINFO*	pExeInfo
+		);
+	};
+
+	
+//This interface will support the new pluggable connection interface used by Starlight. Roy 9-19-00
+
+	[
+		object,
+		uuid(F764C0AC-BD25-4529-B3CD-4D96EBF561F4),
+		helpstring("IServerConnection2 Interface"),
+		pointer_default(unique)
+	]
+	interface IServerConnectionEx2 : IUnknown
+	{	
+		//We are creating a new GUID to support the new OSTypeId parameter in GetSystemInfo. Roy 9-19-00
+		HRESULT GetSystemInfoEx
+		(
+			[out] LPWORD pwArchitecture,
+			[out] LPDWORD pdwCPUType, 
+			[out] LPWORD pwMinorVersion,
+			[out] LPWORD pwMajorVersion,
+			[out] GUID *OSTypeId
+		);
+		HRESULT GetFile
+		(
+			[in] LPCOLESTR pszRemotePath,
+			[in] LPCOLESTR pszDest,
+			[in] ICallBack *piCallBack
+		);
+		HRESULT CreateStream
+		(
+			[in] GUID HostId,
+			[in] DWORD dwPortId,
+			[out] IConnectionStream **ppiConnectionStream,
+			[in] ICallBack *piCallBack
+		);
+		HRESULT FileDelete
+		(
+			[in] LPCOLESTR pszFullPath
+		);
+		HRESULT GetServerFlags
+		(
+			[out] LPDWORD pdwFlags
+		);
+		HRESULT FileCopy
+		(
+			[in] LPCOLESTR pszSource,
+			[in] LPCOLESTR pszDest,
+			[in] ICallBack *piCallBack
+		);
+		HRESULT FileGetInfo
+		(
+			[in] LPCOLESTR pszRemotePath,
+			[out] LPDWORD pdwFileAttributes,
+			[out] LPDWORD pdwFileSize,
+			[out] LPFILETIME pCreationTime,
+			[out] LPDWORD pdwTimeDateStamp // PE Time
+		);
+		HRESULT GetFreeStoreSpace
+		(
+			[out] LPDWORD pdwFree
+		);
+		HRESULT	GetRemoteExeInfo
+		(
+			[in]		LPCOLESTR	pszRemotePath,
+			[in , out]	EXEINFO*	pExeInfo
+		);
+		HRESULT Launch
+		(
+			[in] LPCOLESTR pszExeName,
+			[in,ptr] LPCOLESTR pszCmdLine
+		);
+		HRESULT RegisterFile
+		(
+			[in] LPCOLESTR pszName
+		);
+
+	};
+
+	[
+		object,
+		uuid(67E498EF-22A7-4506-8176-A4A2E23E46D8),
+		helpstring("IServerConnectEx3 Interface"),
+		pointer_default(unique)
+	]
+	interface IServerConnectionEx3 : IUnknown
+	{
+		HRESULT IsDeviceConnected
+		(
+			[out] BOOL* bConnected
+		);
+		HRESULT Shutdown
+		(
+		);
+	};

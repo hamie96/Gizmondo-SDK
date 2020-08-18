@@ -1,0 +1,12 @@
+LIBRARY CETICKPERF
+
+
+
+EXPORTS
+    OpenCETickStats	           @1
+    CollectCETickStats	       @2
+    CloseCETickStats		       @3
+    SetITLConnectionCETickStats		       @4
+    DllRegisterServer       PRIVATE
+    DllUnregisterServer     PRIVATE
+

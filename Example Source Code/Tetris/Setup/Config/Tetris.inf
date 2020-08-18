@@ -1,0 +1,59 @@
+ [Version]
+ Signature		= "$Windows NT$"
+ Provider		= "Ramon de Klein"
+ CESignature	= "$Windows CE$"
+
+ [CEStrings]
+ AppName		= "Tetris"
+ InstallDir		= %CE8%\%AppName%			;\Program Files\Games\Tetris
+
+ [CEDevice]
+ UnsupportedPlatforms    = "HPC"
+
+ [CEDevice.PPC30_ARM]
+ ProcessorType			= 2577	; ARM CPU
+ VersionMin 			= 3.0
+ VersionMax 			= 4.0
+
+ [SourceDisksNames]
+ 1 = ,"Common Files",,.
+
+ [SourceDisksNames.PPC30_ARM]
+ 2 = ,"PPC30 ARM Files",,..\..\_Output\ARM\Release
+
+ [SourceDisksFiles]
+
+ [SourceDisksFiles.PPC30_ARM]
+ "Tetris.exe" = 2
+
+ [DefaultInstall]
+;CopyFiles   = Files.Common
+;CEShortcuts = Links.Common
+ AddReg      = Reg.Common
+
+ [DefaultInstall.PPC30_ARM]
+ CopyFiles   = Files.PPC30_ARM
+ CEShortcuts = Links.PPC30_ARM
+;AddReg      = Reg.PPC30_ARM
+
+ [DestinationDirs]
+;Files.Common		= 0,%InstallDir%	; "\Program Files\Games\Tetris"
+;Links.Common		= 0,%CE14%			; "\Windows\Programs\Start Menu\Games"
+ Files.PPC30_ARM	= 0,%InstallDir%	; "\Program Files\Games\Tetris"
+ Links.PPC30_ARM	= 0,%CE14%			; "\Windows\Programs\Start Menu\Games"
+
+;[Files.Common]
+
+ [Files.PPC30_ARM]
+ Tetris.exe,,,0
+
+;[Links.Common]
+
+ [Links.PPC30_ARM]
+ "Tetris",0,"Tetris.exe"
+
+ [Reg.Common]
+ HKLM,Software\Ramon de Klein\%AppName%,MajorVersion,0x00010001,1
+ HKLM,Software\Ramon de Klein\%AppName%,MinorVersion,0x00010001,0
+
+;[Reg.PPC30_ARM]

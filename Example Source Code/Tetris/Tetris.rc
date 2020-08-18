@@ -1,0 +1,352 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "Resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "Res\NewRes.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_TETRIS              ICON    DISCARDABLE     "Res\\Tetris.ico"
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "Resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""Res\\NewRes.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Data
+//
+
+IDM_MENU SHMENUBAR MOVEABLE PURE 
+BEGIN
+    IDM_MENU, 1,
+    I_IMAGENONE, IDM_MAIN_COMMAND1, TBSTATE_ENABLED, 
+    TBSTYLE_DROPDOWN | TBSTYLE_AUTOSIZE, IDS_FILE, 0, 0,
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menubar
+//
+
+IDM_MENU MENU DISCARDABLE 
+BEGIN
+    POPUP "File"
+    BEGIN
+        MENUITEM "&New game",                   IDC_NEWGAME
+        MENUITEM SEPARATOR
+        MENUITEM "&Options...",                 IDC_OPTIONS
+        MENUITEM "&Highscores...",              IDC_HIGHSCORES
+        MENUITEM SEPARATOR
+        MENUITEM "&About...",                   IDC_ABOUT
+        MENUITEM "E&xit",                       IDC_EXIT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_TETRIS              BITMAP  DISCARDABLE     "res\\Tetris.bmp"
+IDB_TOOLBAR             BITMAP  DISCARDABLE     "res\\Toolbar.bmp"
+IDB_ABOUT               BITMAP  DISCARDABLE     "Res\\About.bmp"
+IDB_BACKGROUND          BITMAP  DISCARDABLE     "Res\\Background.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDB_TOOLBAR TOOLBAR DISCARDABLE  16, 16
+BEGIN
+    BUTTON      IDC_NEWGAME
+    BUTTON      ID_BUTTON1042
+    SEPARATOR
+    BUTTON      IDC_OPTIONS
+    BUTTON      IDC_HIGHSCORES
+    SEPARATOR
+    BUTTON      IDC_ABOUT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_OPTIONS_KEYMAP DIALOG DISCARDABLE  0, 0, 130, 145
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Keys"
+FONT 8, "System"
+BEGIN
+    LTEXT           "Key mapping",IDC_GRP_KEYMAPPING,7,6,116,10
+    LTEXT           "Move left",IDC_STATIC,7,18,55,8
+    COMBOBOX        IDC_MOVE_LEFT,63,16,60,50,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Move right",IDC_STATIC,7,30,55,8
+    COMBOBOX        IDC_MOVE_RIGHT,63,28,60,50,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Rotate left",IDC_STATIC,7,42,55,8
+    COMBOBOX        IDC_ROTATE_LEFT,63,40,60,50,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Rotate right",IDC_STATIC,7,54,55,8
+    COMBOBOX        IDC_ROTATE_RIGHT,63,52,60,50,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Soft drop",IDC_STATIC,7,66,55,8
+    COMBOBOX        IDC_SOFT_DROP,63,64,60,50,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Hard drop",IDC_STATIC,7,78,55,8
+    COMBOBOX        IDC_HARD_DROP,63,76,60,50,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Pause / Resume",IDC_STATIC,7,90,55,8
+    COMBOBOX        IDC_PAUSE_RESUME,63,88,60,50,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Key repeat rate",IDC_GRP_KEYREPEAT,7,108,116,10
+    CONTROL         "Slider1",IDC_REPEAT_RATE,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,18,120,94,13
+    RTEXT           "0",IDC_STATIC,7,122,10,8,SS_NOPREFIX
+    LTEXT           "20",IDC_STATIC,113,122,10,8
+END
+
+IDD_HIGHSCORES DIALOG DISCARDABLE  0, 0, 136, 150
+STYLE WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Highscores"
+FONT 8, "System"
+BEGIN
+    CTEXT           "Hall of Fame",IDC_GRP_HALLOFFAME,7,4,122,12,SS_NOPREFIX
+    CONTROL         "List1",IDC_SCORELIST,"SysListView32",LVS_REPORT | 
+                    LVS_EDITLABELS | LVS_NOSCROLL | LVS_NOCOLUMNHEADER | 
+                    WS_BORDER | WS_GROUP | WS_TABSTOP,7,16,122,70
+    CONTROL         "Tab2",IDC_SCORE_TAB,"SysTabControl32",TCS_BOTTOM | 
+                    TCS_FLATBUTTONS | WS_CLIPSIBLINGS | WS_GROUP | 
+                    WS_TABSTOP,7,84,122,13
+    CTEXT           "Last Score: ...",IDC_SCORE,7,111,122,8,SS_NOPREFIX
+    PUSHBUTTON      "Clear",IDC_CLEAR_SCORES,7,132,35,14
+    PUSHBUTTON      "Send",IDC_SEND,51,132,35,14,WS_DISABLED
+    PUSHBUTTON      "Receive",IDC_RECEIVE,94,132,35,14,WS_DISABLED
+END
+
+IDD_ABOUT DIALOG DISCARDABLE  0, 0, 160, 181
+STYLE WS_POPUP | WS_BORDER
+BEGIN
+    CONTROL         2020,IDC_STATIC,"Static",SS_BITMAP,0,0,160,181
+END
+
+IDD_OPTIONS_GAME DIALOG DISCARDABLE  0, 0, 130, 125
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Game"
+FONT 8, "System"
+BEGIN
+    CONTROL         "Level",IDC_GRP_LEVEL,"Static",SS_LEFTNOWORDWRAP | 
+                    SS_NOPREFIX | WS_GROUP,7,6,116,10
+    CONTROL         "Easy (slow speed)",IDC_LEVEL_EASY,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,7,18,116,10
+    CONTROL         "Moderate (normal speed)",IDC_LEVEL_MODERATE,"Button",
+                    BS_AUTORADIOBUTTON,7,28,116,10
+    CONTROL         "Hard (fast)",IDC_LEVEL_HARD,"Button",BS_AUTORADIOBUTTON,
+                    7,38,116,10
+    LTEXT           "Game options",IDC_GRP_OPTIONS,7,56,116,10
+    CONTROL         "Sound enabled",IDC_SOUND,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,68,116,10
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,6
+ PRODUCTVERSION 1,0,0,6
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x23L
+#else
+ FILEFLAGS 0x22L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "Latest version available on http://home.ict.nl/~ramklein/Projects/Tetris.html\0"
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "Tetris for Pocket PC 2002 executable (v1.0)\0"
+            VALUE "FileVersion", "1, 0, 1, 0\0"
+            VALUE "InternalName", "Tetris\0"
+            VALUE "LegalCopyright", "Copyright © 2000-2004 Ramon de Klein\0"
+            VALUE "LegalTrademarks", "Distrubuted under terms of the GNU Public License\0"
+            VALUE "OriginalFilename", "Tetris.exe\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "Tetris for Pocket PC 2002\0"
+            VALUE "ProductVersion", "1, 0, 1, 0\0"
+            VALUE "SpecialBuild", "v1.0\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// WAVE
+//
+
+IDR_WAVE_HITBOTTOM      WAVE    DISCARDABLE     "res\\HitBottom.wav"
+IDR_WAVE_ROTATE         WAVE    DISCARDABLE     "res\\Rotate.wav"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TETRIS_TITLE        "Tetris"
+    IDS_FILE                "File"
+    IDS_SCORE               "Last score"
+    IDS_CLEAR_SCORES_BODY   "Are you sure you want to clear the highscore list?"
+    IDS_CLEAR_SCORES_HDR    "Clear highscores"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ERROR_IRDA_NO_SOCKET "Unable to open IrDA socket."
+    IDS_ERROR_IRDA_CANNOT_ENUMDEVS "Cannot detect other IrDA devices."
+    IDS_ERROR_IRDA_CANNOT_BIND "Unable to bind to IrDA socket."
+    IDS_ERROR_IRDA_CANNOT_LISTEN "Unable to listen on IrDA socket."
+    IDS_ERROR_IRDA_CANNOT_ACCEPT 
+                            "Unable to accept a connection using IrDA (timeout?)"
+    IDS_ERROR_IRDA_CANNOT_CONNECT "Unable to connect to IrDA device."
+    IDS_ERROR_IRDA_CANNOT_SEND "Unable to send data using IrDA (timeout?)"
+    IDS_ERROR_IRDA_CANNOT_RECEIVE 
+                            "Unable to receive data using IrDA (timeout?)"
+    IDS_ERROR_NO_DEVICES_FOUND "No compatible IrDA device found."
+    IDS_ERROR_INCOMPATIBLE_VERSIONS "Tetris versions not compatible."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ERROR_INCOMPATIBLE_LEVELS 
+                            "Unable to synchronize highscores from different levels."
+    IDS_ERROR_HIGHSCORE_RECEIVE "IrDA receive error"
+    IDS_ERROR_HIGHSCORE_SEND "IrDA send error"
+    IDS_HIGHSCORE_SEND      "Sending highscores"
+    IDS_HIGHSCORE_RECEIVE   "Receiving highscores"
+    IDS_HIGHSCORE_SENDTOHOST "Send highscores to ""%s""?"
+    IDS_HIGHSCORE_SCORESMERGED "%d scores merged."
+    IDS_HIGHSCORE_RECEIVEFROMHOST "Merge highscores from ""%s""?"
+    IDS_KEY_NONE            "<None>"
+    IDS_KEY_LEFT            "Left"
+    IDS_KEY_RIGHT           "Right"
+    IDS_KEY_UP              "Up"
+    IDS_KEY_DOWN            "Down"
+    IDS_KEY_ACTION          "Action"
+    IDS_KEY_EXIT            "Exit"
+    IDS_KEY_PROG1           "Program 1"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_KEY_PROG2           "Program 2"
+    IDS_KEY_PROG3           "Program 3"
+    IDS_KEY_PROG4           "Program 4"
+    IDS_KEY_PROG5           "Program 5"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.K.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_ACCELERATOR2 ACCELERATORS DISCARDABLE 
+BEGIN
+    VK_F1,          IDS_KEY_EXIT,           VIRTKEY, NOINVERT
+    VK_F1,          IDC_EXIT,               VIRTKEY, NOINVERT
+END
+
+#endif    // English (U.K.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

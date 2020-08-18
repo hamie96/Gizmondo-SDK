@@ -1,0 +1,25 @@
+HKCR
+{
+	HelloSubscriber.HelloSub.1 = s 'HelloSub Class'
+	{
+		CLSID = s '{570B61E3-CDCC-4D49-BC11-B1F14366E184}'
+	}
+	HelloSubscriber.HelloSub = s 'HelloSub Class'
+	{
+		CLSID = s '{570B61E3-CDCC-4D49-BC11-B1F14366E184}'
+		CurVer = s 'HelloSubscriber.HelloSub.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {570B61E3-CDCC-4D49-BC11-B1F14366E184} = s 'HelloSub Class'
+		{
+			ProgID = s 'HelloSubscriber.HelloSub.1'
+			VersionIndependentProgID = s 'HelloSubscriber.HelloSub'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{C86E2A5F-16B2-4F1C-9C66-95B32A5555B7}'
+		}
+	}
+}

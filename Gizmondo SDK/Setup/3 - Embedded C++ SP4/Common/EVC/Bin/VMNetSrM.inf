@@ -1,0 +1,66 @@
+; ----------------------------------------------------------------------
+; File:			VMNetSrM.INF
+;
+; Contains:		Virtual PC Network Services INF file
+;
+; Copyright:	(c) 2001-2003, Microsoft Corporation. All rights reserved.
+; ----------------------------------------------------------------------
+
+[Version]
+Signature  = "$Windows NT$"
+Class      = Net
+ClassGUID  = {4d36e972-e325-11ce-bfc1-08002be10318}
+Provider   = %Microsoft%
+CatalogFile= VMNetSrv.cat
+DriverVer  = 09/19/2003,2.4.0.24
+
+[SourceDisksNames]
+1=%DiskDescription%,"",,
+
+[SourceDisksFiles]
+; No files are installed by this INF - rather the files are installed by
+; VMNetSrv.inf
+
+[ControlFlags]
+ExcludeFromSelect = Cntx_VPCNetS2_MP
+
+[Manufacturer]
+%Microsoft% = MSFT
+
+[MSFT]
+%VMNetSrvMP_Desc% = VMNetSrvMP.ndi, Cntx_VPCNetS2_MP
+
+; ----------------------------------------------------------------------
+; Windows 2000/XP Miniport Installation
+; ----------------------------------------------------------------------
+
+[VMNetSrvMP.ndi]
+Characteristics	 = 0x29 ;NCF_NOT_USER_REMOVABLE | NCF_VIRTUAL | NCF_HIDDEN
+AddReg			 = VMNetSrvMP.ndi.AddReg
+
+[VMNetSrvMP.ndi.AddReg]
+HKR, Ndi, Service, 0, "VPCNetS2"
+
+[VMNetSrvMP.ndi.Services]
+AddService	 = VPCNetS2,0x2, VMNetSrvMP.AddService
+
+[VMNetSrvMP.AddService]
+DisplayName		 = %VMNetSrvMP_Desc%
+ServiceType		 = 1 ;SERVICE_KERNEL_DRIVER
+StartType		 = 3 ;SERVICE_DEMAND_START
+ErrorControl	 = 1 ;SERVICE_ERROR_NORMAL
+ServiceBinary	 = %12%\VMNetSrv.sys
+LoadOrderGroup	 = PNP_TDI
+AddReg			 = VMNetSrvMP.AddService.AddReg
+
+[VMNetSrvMP.AddService.AddReg]
+;None
+
+; ----------------------------------------------------------------------
+; Strings
+; ----------------------------------------------------------------------
+
+[Strings]
+Microsoft		 = "Microsoft"
+DiskDescription	 = "Virtual Machine Network Services Disk"
+VMNetSrvMP_Desc	 = "Virtual Machine Network Services Driver"

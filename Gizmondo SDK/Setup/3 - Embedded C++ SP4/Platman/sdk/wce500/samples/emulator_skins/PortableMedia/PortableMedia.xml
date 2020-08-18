@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<skin>
+	<view
+		titleBar ="Windows CE.NET Portable Media Device"
+		
+		displayPosX="192"
+		displayPosY="25"
+		
+		displayWidth="160"
+		displayHeight="160"
+
+		displayDepth="16"
+
+		mappingImage="PortableMedia_map.bmp"
+		normalImage="PortableMedia_up.bmp"
+		downImage= "PortableMedia_down.bmp"
+
+	>
+
+		<button
+			
+			toolTip="Next Track"
+			onClick="Key_PageDown"
+			mappingColor="0xFFFF80"
+		/>	
+		<button
+			
+			toolTip="Prev Track"
+			onClick="Key_PageUp"
+			mappingColor="0x40FF40"
+		/>	
+
+
+		<button
+			
+			toolTip="Scan Forward"
+			onClick="Key_Right"
+			mappingColor="0x093DFF"
+		/>	
+		<button
+			
+			toolTip="Scan Back"
+			onClick="Key_Left"
+			mappingColor="0x000080"
+		/>	
+	
+		<button
+			
+			toolTip="Launch Media Player"
+			onClick="Key_Home"
+			mappingColor="0xFF40FF"
+		/>	
+	
+		<button
+			
+			toolTip="Stop"
+			onClick="DOWN: Key_LeftCtrl Key_S UP: Key_LeftCtrl"
+			mappingColor="0xFF4040"
+		/>	
+				
+		<button
+			
+			toolTip="Play"
+			onClick="Key_Enter"
+			mappingColor="0x00FFFF"
+		/>
+
+		<button
+			
+			toolTip="Power Off"
+			onClick="SHUTDOWN"
+			mappingColor="0xFFFF40"
+		/>
+				
+	</view>
+</skin>

@@ -1,0 +1,66 @@
+; ----------------------------------------------------------------------
+; File:			VPCNetS2.INF
+;
+; Contains:		Virtual PC Network Services INF file
+;
+; Copyright:	(c) 2001-2002, Connectix Corporation
+; ----------------------------------------------------------------------
+
+[Version]
+signature  = "$Windows NT$"
+Class      = Net
+ClassGUID  = {4d36e972-e325-11ce-bfc1-08002be10318}
+Provider   = %Connectix%
+CatalogFile= VPCNetS2.cat
+DriverVer  = 06/27/2002,2.2.1.340
+
+[SourceDisksNames]
+1=%DiskDescription%,"",,
+
+[SourceDisksFiles]
+; No files are installed by this INF - rather the files are installed by
+; VPCNetS2.inf
+
+[ControlFlags]
+ExcludeFromSelect = Cntx_VPCNetS2_MP
+
+[Manufacturer]
+%Connectix% = CNTX
+
+[CNTX]
+%VPCNetS2MP_Desc% = VPCNetS2MP.ndi, Cntx_VPCNetS2_MP
+
+; ----------------------------------------------------------------------
+; Windows 2000/XP Miniport Installation
+; ----------------------------------------------------------------------
+
+[VPCNetS2MP.ndi]
+Characteristics	 = 0x29 ;NCF_NOT_USER_REMOVABLE | NCF_VIRTUAL | NCF_HIDDEN
+AddReg			 = VPCNetS2MP.ndi.AddReg
+
+[VPCNetS2MP.ndi.AddReg]
+HKR, Ndi, Service, 0, "VPCNetS2"
+
+[VPCNetS2MP.ndi.Services]
+AddService	 = VPCNetS2,0x2, VPCNetS2MP.AddService
+
+[VPCNetS2MP.AddService]
+DisplayName		 = %VPCNetS2MP_Desc%
+ServiceType		 = 1 ;SERVICE_KERNEL_DRIVER
+StartType		 = 3 ;SERVICE_DEMAND_START
+ErrorControl	 = 1 ;SERVICE_ERROR_NORMAL
+ServiceBinary	 = %12%\VPCNetS2.sys
+LoadOrderGroup	 = PNP_TDI
+AddReg			 = VPCNetS2MP.AddService.AddReg
+
+[VPCNetS2MP.AddService.AddReg]
+;None
+
+; ----------------------------------------------------------------------
+; Strings
+; ----------------------------------------------------------------------
+
+[Strings]
+Connectix		 = "Connectix Corporation"
+DiskDescription	 = "Virtual PC Emulated Ethernet Switch Disk"
+VPCNetS2MP_Desc	 = "Virtual PC Emulated Ethernet Switch Driver"

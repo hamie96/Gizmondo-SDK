@@ -1,0 +1,121 @@
+import "oaidl.idl";
+import "ocidl.idl";
+import "cemgr.idl";
+
+// error codes for copy commands 
+cpp_quote("static const int E_BAD_BUFFER			= MAKE_HRESULT(11, FACILITY_ITF, 0x01);")
+cpp_quote("static const int E_INSUFFICIENT_BUFFER	= MAKE_HRESULT(1, FACILITY_ITF, 0x02);")
+cpp_quote("static const int E_SEND_FAILED			= MAKE_HRESULT(11, FACILITY_ITF, 0x03);")
+cpp_quote("static const int E_READ_FAILED			= MAKE_HRESULT(11, FACILITY_ITF, 0x04);")
+
+enum {
+	TL_KEEPALIVE = 0x1,
+	TL_DIRECT_CONNECT = 0x2,
+	TL_AUTO_REGISTER = 0x4,
+	TL_AUTO_STARTUP = 0x8,
+	TL_NO_CONNECT = 0x10,
+	TL_STRING_DATA = 0x20,
+	TL_PPP_PEER = 0x40
+};
+typedef ULONG TL_FLAGS;
+
+
+typedef struct tlpubinfo 
+{
+	DWORD cbSize; // sizeof(TLPUBINFO)
+	DWORD dwVersion;
+	DWORD dwFlags;
+	DWORD dwConnectTimeOut;
+	DWORD dwKeepAliveTimeOut;
+	DWORD cbDataSize;
+	BYTE  pData[1];
+} TLPUBINFO, *PTLPUBINFO;
+
+interface ITransportConnection;
+
+	[
+	
+		uuid(5C6F612B-0158-11D2-BBA0-00A0C9C9CCEE),
+	
+		helpstring("ITransport Interface"),
+		pointer_default(unique)
+	]
+	interface ITransport : IUnknown
+	{
+		HRESULT GetType
+		(
+			[out] DEVICE_TYPE *pdt
+		);
+		HRESULT GetName
+		(
+			[out] LPOLESTR *ppszName
+		);
+		HRESULT GetClientName
+		(
+			[out] LPOLESTR *ppszName
+		);
+		HRESULT Configure
+		(
+			[in] HWND hWnd, 
+			[in] IRemoteDevice *piDevice
+		);
+		HRESULT InitConnection
+		(
+			[in] IRemoteDevice *piDevice
+		);
+		HRESULT GetConnectionInfo
+		(
+			[in] DWORD dwMaxSize,
+			[out, size_is(dwMaxSize), length_is(*pdwActualSize)] BYTE *pData,
+			[out] LPDWORD pdwActualSize
+		);
+		HRESULT Accept
+		(
+			[out] ITransportConnection **ppiTransportConnect
+		);
+	};
+	
+	[
+
+		uuid(5C6F612D-0158-11D2-BBA0-00A0C9C9CCEE),
+
+		helpstring("ITransportConnection Interface"),
+		pointer_default(unique)
+	]
+	interface ITransportConnection : IUnknown
+	{
+		HRESULT ReadBytes
+		(
+			[in] DWORD dwSize,
+			[out, size_is(dwSize), length_is(*pdwBytesRead)] BYTE *pData,
+			[out] LPDWORD pdwBytesAvailable,
+			[out] LPDWORD pdwBytesRead
+		);
+		HRESULT WriteBytes
+		(
+			[in] DWORD dwSize,
+			[in, size_is(dwSize)] BYTE *pData,
+			[out] LPDWORD pdwBytesWritten
+		);
+		HRESULT Close
+		(
+		);
+	};
+
+	[
+		uuid(9AAEF5B7-8C4B-4369-B103-4D5FFB0AC2AD),
+		helpstring("ITransportConnection2 Interface which supports timeout on readbytes"),
+		pointer_default(unique)
+	]
+	interface ITransportConnection2 : IUnknown
+	{
+		HRESULT ReadBytes
+		(
+			[in] DWORD dwSize,
+			[in] DWORD dwTimeout,
+			[out, size_is(dwSize), length_is(*pdwBytesRead)] BYTE *pData,
+			[out] LPDWORD pdwBytesAvailable,
+			[out] LPDWORD pdwBytesRead
+		);
+	};
+

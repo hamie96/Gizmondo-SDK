@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<skin>
+	<view
+		titleBar ="Windows CE PDA"
+		
+		displayPosX="56"
+		displayPosY="61"
+		
+		displayWidth="240"
+		displayHeight="320"
+
+		displayDepth="16"
+		mappingImage="pda_map.bmp"
+		normalImage="pda_up.bmp"
+		downImage= "pda_down.bmp">
+
+		<button
+			toolTip="rocker-up"
+			onClick="0x48"
+			mappingColor="0x00FFFF"
+		/>	
+		
+		<button
+			toolTip="rocker-down"
+			onClick="0x50"
+			mappingColor="0x00FFD7"
+		/>
+		
+		<button
+			toolTip="softkey 1"
+			onClick="0x3B"
+			mappingColor="0xFF00FF"
+		/>	
+		
+		<button
+			toolTip="softkey 2"
+			onClick="0x3C"
+			mappingColor="0xFF00D7"
+		/>
+
+		<button
+			toolTip="softkey 3"
+			onClick="0x3D"
+			mappingColor="0xFF0000"
+		/>	
+		
+		<button
+			
+			toolTip="softkey 4"
+			onClick="0x3E"
+			mappingColor="0xD70000"
+		/>
+		
+		<button
+			
+			toolTip="dpad-up"
+			onClick="0x48"
+			mappingColor="0xFFFF00"
+		/>
+		<button
+			
+			toolTip="dpad-down"
+			onClick="0x50"
+			mappingColor="0xFFAF00"
+		/>
+		<button
+			
+			toolTip="dpad-left"
+			onClick="0x4B"
+			mappingColor="0xFFD700"
+		/>
+		<button
+			
+			toolTip="dpad-right"
+			onClick="0x4D"
+			mappingColor="0xFF8700"
+		/>
+		<button
+			
+			toolTip="dpad-action"
+			onClick="0x1C"
+			mappingColor="0xFF5F00"
+		/>			
+	</view>
+</skin>

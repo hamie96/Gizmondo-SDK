@@ -1,0 +1,106 @@
+; ----------------------------------------------------------------------
+; File:			VPCNetS2.INF
+;
+; Contains:		Virtual PC Network Services INF file
+;
+; Copyright:	(c) 2001-2002, Connectix Corporation
+; ----------------------------------------------------------------------
+
+[Version]
+Signature  = "$Windows NT$"
+Class      = NetService
+ClassGUID  = {4D36E974-E325-11CE-BFC1-08002BE10318}
+Provider   = %Connectix%
+CatalogFile= VPCNetS2.cat
+DriverVer  = 06/27/2002,2.2.1.340
+
+[SourceDisksNames]
+1=%DiskDescription%,"",,
+
+[SourceDisksFiles]
+VPCNetS2.dll=1
+VPCNetS2.sys=1
+
+[Manufacturer]
+%Connectix% = CNTX
+
+[ControlFlags]
+
+[CNTX]
+%VPCNetS2_Desc% = VPCNetS2.ndi, Cntx_VPCNetS2
+
+[DestinationDirs]
+DefaultDestDir			 = 12
+VPCNetS2.CopyFiles.Init	 = 11	; %windir%\System32
+VPCNetS2.CopyFiles.Sys	 = 12   ; %windir%\System32\drivers
+
+; ----------------------------------------------------------------------
+; Windows 2000/XP Installation
+; ----------------------------------------------------------------------
+
+[VPCNetS2.ndi]
+AddReg			 = VPCNetS2.ndi.AddReg, VPCNetS2.AddReg
+Characteristics	 = 0x4410 ; NCF_NDIS_PROTOCOL | NCF_FILTER | NCF_NO_SERVICE
+;CopyFiles		 = VPCNetS2.CopyFiles.Init, VPCNetS2.CopyFiles.Sys
+
+[VPCNetS2.CopyFiles.Init]
+VPCNetS2.dll,,,2
+
+[VPCNetS2.CopyFiles.Sys]
+VPCNetS2.sys,,,2
+
+[InfSourcePathInfo]
+OriginalInfSourcePath = %1%
+
+[VPCNetS2.ndi.AddReg]
+HKR, Ndi,				HelpText,			, %VPCNetS2_HELP%
+HKR, Ndi,				ClsID,				, {7D15D60D-2FC6-4337-8FE0-A4107AD271A2}
+HKR, Ndi,				ComponentDll,		, VPCNetS2.dll
+HKR, Ndi,				FilterClass,		, failover
+HKR, Ndi,				FilterDeviceInfId,	, Cntx_VPCNetS2_MP
+HKR, Ndi,				Service,			, VPCNetS2
+HKR, Ndi\Interfaces,	UpperRange,			, noupper
+HKR, Ndi\Interfaces,	LowerRange,			, nolower
+HKR, Ndi\Interfaces,	FilterMediaTypes,	, "ethernet, nolower"
+
+[VPCNetS2.AddReg]
+;None
+
+[VPCNetS2.ndi.Services]
+AddService	 = VPCNetS2, 0, VPCNetS2.AddService
+
+[VPCNetS2.AddService]
+DisplayName		 = %VPCNetS2_Desc%
+ServiceType		 = 1 ;SERVICE_KERNEL_DRIVER
+StartType		 = 3 ;SERVICE_DEMAND_START
+ErrorControl	 = 1 ;SERVICE_ERROR_NORMAL
+ServiceBinary	 = %12%\VPCNetS2.sys
+LoadOrderGroup	 = PNP_TDI
+AddReg			 = VPCNetS2.AddService.AddReg
+
+[VPCNetS2.AddService.AddReg]
+;None
+
+; ----------------------------------------------------------------------
+; Windows 2000/XP Removal
+; ----------------------------------------------------------------------
+
+[VPCNetS2.ndi.Remove]
+DelFiles = VPCNetS2.CopyFiles.Init, VPCNetS2.CopyFiles.Sys
+
+[VPCNetS2.ndi.Remove.Services]
+DelService = VPCNetS2
+
+; ----------------------------------------------------------------------
+; Strings
+; ----------------------------------------------------------------------
+
+[Strings]
+Connectix		 = "Connectix Corporation"
+DiskDescription	 = "Virtual PC Emulated Ethernet Switch Disk"
+
+VPCNetS2_Desc	 = "Virtual PC Emulated Ethernet Switch"
+VPCNetS2_HELP	 = "Provides support for Virtual PC's Virtual Switch feature."
+
+
+

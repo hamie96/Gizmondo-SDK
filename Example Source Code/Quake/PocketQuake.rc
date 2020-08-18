@@ -1,0 +1,130 @@
+//Microsoft eMbedded Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "newres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""newres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+//IDD_DIALOG1 DIALOG DISCARDABLE  0, 0, 62, 15
+//STYLE DS_MODALFRAME | WS_POPUP
+//EXSTYLE WS_EX_TOOLWINDOW | WS_EX_CLIENTEDGE
+//FONT 16, "Times New Roman Special G1"
+//BEGIN
+    //CTEXT           "Starting Quake...",IDC_STATIC,0,3,62,10
+//END
+
+//IDD_DIALOG2 DIALOG DISCARDABLE  0, 0, 135, 85
+//STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+//CAPTION "Pocket Quake"
+//FONT 8, "System"
+//BEGIN
+    //ICON            IDI_POCKETQUAKE,IDC_STATIC,6,3,20,20
+    //LTEXT           "Pocket Quake BETA v0.06\nDan East: Pocket PC Port\nJacco Bikker: 3D Optimizations\n999: Skins, Alpha Testing\nGizmondo Port: XChip",
+                    //IDC_CREDITS,30,3,103,48
+    //LTEXT           "PocketQuake@pocketmatrix.com\nwww.pocketmatrix.com/pocketquake\n\nCreated by ID Software",
+                    //IDC_STATIC,6,50,122,34
+//END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_DIALOG1, DIALOG
+    BEGIN
+        TOPMARGIN, 1
+        BOTTOMMARGIN, 14
+    END
+
+    IDD_DIALOG2, DIALOG
+    BEGIN
+        LEFTMARGIN, 1
+        RIGHTMARGIN, 134
+        BOTTOMMARGIN, 84
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_POCKETQUAKE         ICON    DISCARDABLE     "quake.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+//IDB_CONTROLS            BITMAP  DISCARDABLE     "images\\controls.bmp"
+//IDB_TITLEBAR            BITMAP  DISCARDABLE     "images\\titlebar.bmp"
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

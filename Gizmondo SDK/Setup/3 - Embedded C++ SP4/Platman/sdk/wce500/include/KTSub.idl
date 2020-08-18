@@ -1,0 +1,48 @@
+// KTSub.idl : IDL source for KTSub.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (KTSub.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "CePubSub.idl";
+
+	[
+		object,
+		uuid(349EDC0E-6FB3-4B83-A232-AF93E34FF9F8),
+	
+		helpstring("IKTSubscriber Interface"),
+		pointer_default(unique)
+	]
+	interface IKTSubscriber : ISubscriber
+	{
+		[helpstring("method Initialize")] HRESULT Initialize(GUID guidPlatform, GUID guidDevice);
+		[helpstring("method ShutDown")] HRESULT ShutDown();
+		[helpstring("method SetZones")] HRESULT SetZones([in]DWORD dwZoneUser, [in]DWORD dwZoneCE, [in]DWORD dwZoneProcess);
+		[helpstring("method ReadEvent")] HRESULT ReadEvent([in, out, size_is(sizeof(BYTE)), length_is(*pdwLength)] BYTE * pbCEEvent, [in, out] DWORD * pdwLength);
+		[helpstring("method ReadMultipleEvents")] HRESULT ReadMultipleEvents([in, out, size_is(sizeof(BYTE)), length_is(*pdwLength)] BYTE * pbCEEvents, [in, out] DWORD * pdwLength);
+		[helpstring("method AbortRead")] HRESULT AbortRead();
+		[helpstring("method ResetAbortEvent")] HRESULT ResetAbortEvent();
+
+	};
+[
+	uuid(0D089BC3-3461-477B-A110-E3B5711F7FBD),
+	version(1.0),
+	helpstring("KTSub 1.0 Type Library")
+]
+
+library KTSUBLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(3C2A061A-7F04-4401-A75C-68FEB041392E),
+		helpstring("KTSubscriber Class")
+	]
+	coclass KTSubscriber
+	{
+		[default] interface IKTSubscriber;
+	};
+};

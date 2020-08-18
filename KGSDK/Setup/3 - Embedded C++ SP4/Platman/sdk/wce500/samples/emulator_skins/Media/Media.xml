@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<skin>
+	<view
+		titleBar ="Windows CE.NET Media Appliance"
+		
+		displayPosX="137"
+		displayPosY="95"
+		
+		displayWidth="528"
+		displayHeight="492"
+
+		displayDepth="16"
+
+		mappingImage="Media_map.bmp"
+		normalImage="Media_up.bmp"
+		downImage= "Media_down.bmp"
+
+	>
+
+		<button
+			
+			toolTip="Button 1"
+			onClick="Key_1"
+			mappingColor="0xF0F8FF"
+		/>	
+
+		<button
+			
+			toolTip="Button 2"
+			onClick="Key_2"
+			mappingColor="0x00FFFF"
+		/>	
+		<button
+			
+			toolTip="Button 3"
+			onClick="Key_3"
+			mappingColor="0x0000FF"
+		/>	
+		<button
+			
+			toolTip="Button 4"
+			onClick="Key_4"
+			mappingColor="0xFF7F50"
+		/>	
+	
+				
+		<button
+			
+			toolTip="Power Off"
+			onClick="SHUTDOWN"
+			mappingColor="0x7FFF00"
+		/>
+		
+				
+	</view>
+</skin>

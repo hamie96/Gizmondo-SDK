@@ -1,0 +1,14 @@
+diff -acr lpng123/pngconf.h lpngce/pngconf.h
+*** lpng123/pngconf.h	Wed May 22 08:05:56 2002
+--- lpngce/pngconf.h	Fri Jul 05 18:01:24 2002
+***************
+*** 166,171 ****
+--- 166,173 ----
+  #  include <windows.h>
+     /* Console I/O functions are not supported on WindowsCE */
+  #  define PNG_NO_CONSOLE_IO
++    /* abort() function is not supported on WindowsCE */
++ #  define PNG_ABORT() exit(-1)
+  #  ifdef PNG_DEBUG
+  #    undef PNG_DEBUG
+  #  endif

@@ -1,0 +1,272 @@
+// kitlcom.idl : IDL source for kitlcom.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (kitlcom.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+	// GUID for the stored device name, must be the same for download and transport
+	// {A1371A36-1DBD-4177-A80D-4E6906748EEE}
+	cpp_quote("#ifndef  _PROPINFONAME_DEVICENAME_DEFINED")
+	cpp_quote("#define  _PROPINFONAME_DEVICENAME_DEFINED")
+	cpp_quote("DEFINE_GUID(PROPID_DEVICENAME, 0xa1371a36, 0x1dbd, 0x4177, 0xa8, 0xd, 0x4e, 0x69, 0x6, 0x74, 0x8e, 0xee);")
+	cpp_quote("static const wchar_t PROPINFONAME_DEVICENAME[] = L\"DeviceName\";")
+	cpp_quote("#endif   //_PROPINFONAME_DEVICENAME_DEFINED")
+	
+	///////////////////////////////////////////////
+	// IKITLStream
+	[
+	   object,
+	   uuid(9B827231-5AC4-4C16-A3D9-23CFC985B716),
+	   helpstring("IKITLStream Interface"),
+	   pointer_default(unique)
+	]
+	interface IKITLStream : IUnknown
+	{
+	   HRESULT Send
+	   (
+		  [in, size_is(cbData)]  const BYTE * pData,
+		  [in]  DWORD cbData,
+		  [in]  DWORD dwTimeout
+	   );
+    
+		// dwTimeout is specified in milli seconds; for infinite timeout, specify -1 value
+	   HRESULT Recv
+	   (
+		  [out, size_is (*pcbBuffer), length_is(*pcbBuffer)] BYTE * pBuffer,
+		  [in, out] DWORD * pcbBuffer,
+		  [in]     DWORD dwTimeout
+	   );
+    
+	   HRESULT GetServiceName
+	   (
+		  [out] LPOLESTR * pszSvcName
+	   );
+
+	   HRESULT IsConnected
+	   (
+		  [in] DWORD dwTimeout
+	   );
+
+
+	}
+
+	///////////////////////////////////////////////
+	// IKITLStreamEx
+	[
+	   object,
+	   uuid(6E8A5211-6A5B-4142-83D8-F15E47C4F503),
+	   helpstring("IKITLStreamEx Interface"),
+	   pointer_default(unique)
+	]
+	interface IKITLStreamEx : IUnknown
+	{
+	   HRESULT GetStreamID
+	   (
+		  [out] DWORD* pdwStreamId
+	   );
+
+	   HRESULT Disconnect
+	   (
+	   );
+	}
+
+
+///////////////////////////////////////////////
+// _IPPSHCommandCB
+	[
+		object,
+		uuid(4F4B6BE3-1BAE-11d5-A662-40804FC10000),
+		helpstring("_IPPSHCommandCB Interface"),
+		pointer_default(unique)
+	]
+	interface _IPPSHCommandCB : IUnknown
+	{
+		[helpstring("method GetCommand")] HRESULT GetCommand( [out] BSTR* pbstrCommand, [in] int nMaxCmdSize, [out] BOOL* pfFinished, [out] BOOL* pfResubmit);
+		[helpstring("method SendData")] HRESULT CmdOut( [in] BSTR bstrData);
+		[helpstring("method FindFile")] HRESULT FindFile( [in] BSTR bstrFileName, [in] BOOL fUseExisting, [out] BSTR* pbstrFullPath);
+	};
+
+
+///////////////////////////////////////////////
+// _IPPSHDataSink
+	// Outgoing interface.
+	// Clients call Advise() with this interface.
+	[
+		object,
+		uuid(CF76FB4F-149C-45b5-9FD7-969359A305D2),
+		helpstring("_IPPSHDataSink Interface"),
+		pointer_default(unique)
+	]
+	interface _IPPSHDataSink : IUnknown
+	{
+		[helpstring("method SendData")] HRESULT CmdOut( [in] BSTR bstrData);
+	};
+
+
+
+
+///////////////////////////////////////////////
+// IPPSHStream
+	[
+		object,
+		uuid(CF061356-7968-44D0-B606-D1746E873BE4),
+	
+		helpstring("IPPSHStream Interface"),
+		pointer_default(unique)
+	]
+	interface IPPSHStream : IUnknown
+	{
+		[helpstring("method SendCommand")] HRESULT SendCommand( [in] _IPPSHCommandCB* piCommand,   [out] DWORD * pdwCancelCookie);
+		[helpstring("method CancelCommand")] HRESULT CancelCommand( [in] DWORD dwCancelCookie);
+
+	};
+
+
+///////////////////////////////////////////////
+// _IDBGMSGDataSink
+	// Outgoing interface.
+	// Clients call Advise() with this interface.
+	[
+		object,
+		uuid(4130D2CA-8310-41a2-BC55-24F264CA79BF),
+		helpstring("_IDBGMSGDataSink Interface"),
+		pointer_default(unique)
+	]
+	interface _IDBGMSGDataSink : IUnknown
+	{
+		[helpstring("method SendData")] HRESULT MsgOut( [in] BSTR bstrData, [in] unsigned long dwThrdId, [in] unsigned long dwProcId, [in] unsigned long dwTimeStamp);
+	};
+
+
+///////////////////////////////////////////////
+// IDBGMSGStream
+	[
+		object,
+		uuid(3556165F-CDF4-4869-91CB-4EAA80DB6897),
+	
+		helpstring("IDBGMSGStream Interface"),
+		pointer_default(unique)
+	]
+	interface IDBGMSGStream : IUnknown
+	{
+
+	};
+
+
+///////////////////////////////////////////////
+// IKITL
+	[
+	   object,
+	   uuid(BC3DAD2D-F4F3-4C32-A527-C39442E20100),
+	   helpstring("IKITL Interface"),
+	   pointer_default(unique)
+	]
+	interface IKITL : IUnknown
+	{
+		// dwTimeout is specified in milli seconds; for infinite timeout, specify -1 value
+	   HRESULT OpenStream
+	   (
+		  [in]  LPCOLESTR pszServiceName,
+		  [in]  DWORD dwTimeout,
+		  [out] IKITLStream ** ppIKITLStream
+	   );
+
+	   [propget, helpstring("Maximum transmition unit")] HRESULT MTU
+	   (
+		  [out, retval] long *pMTU
+	   );
+
+	   [propget, helpstring("Bytes per second")] HRESULT Bandwidth
+	   (
+		  [out, retval] long *pRate
+	   );
+
+	   	HRESULT OpenPPSHStream
+		(
+			[out]  IPPSHStream ** ppIPPSHStream
+		);
+
+		HRESULT OpenDBGMSGStream
+		(
+			[out]  IDBGMSGStream ** ppIDBGMSGStream
+		);
+
+		HRESULT Reset
+		(
+			[in] BOOL fCleanBoot
+		);
+
+		/*
+			These are the valid boot flags :
+
+			#define KITL_FL_DBGMSG    0x01  // Debug messages
+			#define KITL_FL_PPSH      0x02  // Text shell
+			#define KITL_FL_KDBG      0x04  // Kernel debugger
+			#define KITL_FL_CLEANBOOT 0x08  // Force a clean boot
+			#define KITL_FL_DEFAULT (KITL_FL_DBGMSG|KITL_FL_PPSH|KITL_FL_KDBG|KITL_FL_CLEANBOOT)
+		*/
+
+		HRESULT GetBootFlags
+		(
+			[out] DWORD *pdwBootFlags
+		);
+
+		HRESULT SetBootFlags
+		(
+			[in] DWORD dwBootFlags
+		);
+
+		HRESULT DebugBreak
+		(
+		);
+
+		HRESULT GetTranId
+		(
+			[out] DWORD *pdwTranId
+		);
+	}
+
+	[
+		object,
+		uuid(4766C31D-8C78-4636-9289-AEB0C1134825),
+	
+		helpstring("IKitlInit Interface"),
+		pointer_default(unique)
+	]
+	interface IKitlInit : IUnknown
+	{
+		[helpstring("method Initialize")] HRESULT Initialize([in] UINT KitlLibId, [in] BSTR bstrPropertyGUID, [out] IKITL **ppiKitl);
+	};
+		
+
+[
+	uuid(53E652A7-A86A-46A6-9981-C3085A5E0A7C),
+	version(1.0),
+	helpstring("kitlcom 1.0 Type Library")
+]
+library KITLCOMLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(CC6578D9-F20D-495D-8BED-9C567CBCCCDA),
+		helpstring("KitlInit Class")
+	]
+	coclass KitlInit
+	{
+		[default] interface IKitlInit;
+	};
+	
+	[
+		uuid(702FFE21-037A-4C15-BD18-6B39DD74611A),
+		helpstring("KITLService Class")
+	]
+	coclass KITLService
+	{
+		[default] interface IKITL;
+	};
+};

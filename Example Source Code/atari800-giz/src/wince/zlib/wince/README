@@ -1,0 +1,51 @@
+zlib for WindowsCE Rel 1.2.3
+============================
+ (C) 1995-2005 Jean-loup Gailly and Mark Adler
+ (C) 2000-2002 Tenik Co.,Ltd.
+ (C) 2007 OpenNETCF Consulting, LLC
+ 
+
+Introduction
+============
+This software is zlib 1.2.3 ported to Microsoft Windows CE.
+zlib 1.2.3 is a general purpose data compression library.
+For more information, see README, a document in the original zlib 1.2.3.
+
+We have kep all original source and samples that we feel are useful for 
+Windows CE developers.  All items deemed extraneous were excluded.  If you 
+want them, then get them from the original source at www.zlib.net.
+
+Copyright notice
+================
+This software is provided 'as-is', without any express or implied
+warranty.  In no event will the authors be held liable for any damages
+arising from the use of this software.
+
+See README, a document of original zlib 1.2.3, for conditions of use and
+distribution.
+
+Files
+=====
+
+ ..\README          - this file
+ ..\zlibce.def      - module definition file to make DLLs
+ ..\Studio05
+    zlibce.sln      - Microsoft Visual Studio 2005 Solution file
+    zlibce.vcproj   - Microsoft Visual Studio 2005 Project file
+ ..\bin
+    \CE 4.2
+      \ARMV4
+        zlibce.dll  - DLL for CE 4.2 ARMv4 (PPC 2003, Smartphone 2003, etc)
+        zlibce.lib  - LIB for CE 4.2 ARMv4
+    \CE 5.0
+      \ARMV4I
+        zlibce.dll  - DLL for CE 5.0 ARMv4I (Windows Mobile 5.0, CE 5.0)
+        zlibce.lib  - LIB for CE 5.0 ARMv4I 
+
+
+Provider
+========
+This distribution provided by:
+OpenNETCF Consulting, LLC
+www.opennetcf.com
+February 2007

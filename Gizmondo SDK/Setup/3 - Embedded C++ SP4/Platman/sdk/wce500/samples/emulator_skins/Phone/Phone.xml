@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<skin>
+	<view
+		titleBar ="Windows CE.NET Cell Phone"
+		
+		displayPosX="36"
+		displayPosY="67"
+		
+		displayWidth="232"
+		displayHeight="279"
+
+		displayDepth="16"
+
+		mappingImage="Phone_map.bmp"
+		normalImage="Phone_up.bmp"
+		downImage= "Phone_down.bmp"
+
+	>
+
+
+		<button
+				
+			toolTip="Pad Up"
+			onClick="Key_Up"
+			mappingColor="0xFFB6C1"
+		/>	
+
+		<button
+				
+			toolTip="Pad Down"
+			onClick="Key_Down"
+			mappingColor="0xFFD700"
+		/>	
+
+		<button
+				
+			toolTip="Pad Left"
+			onClick="Key_Left"
+			mappingColor="0xFFEBCD"
+		/>	
+
+		<button
+				
+			toolTip="Pad Right"
+			onClick="Key_Right"
+			mappingColor="0x00FF00"
+		/>	
+
+
+
+
+		<button
+				
+			toolTip="Power"
+			onClick="SHUTDOWN"
+			mappingColor="0x00FFFF"
+		/>	
+
+
+
+
+		<button
+			
+			toolTip="Talk"
+			onClick="Key_Home"
+			mappingColor="0xFAEBD7"
+		/>	
+		<button
+			
+			toolTip="End"
+			onClick="Key_End"
+			mappingColor="0x8A2BE2"
+		/>	
+
+		<button
+			
+			toolTip="Directory"
+			onClick="Key_Enter"
+			mappingColor="0x7FFF00"
+		/>	
+
+		<button
+			
+			toolTip="Menu"
+			onClick="DOWN: Key_LeftCtrl Key_Escape UP: Key_LeftCtrl"
+			mappingColor="0xDC143C"
+		/>	
+
+
+
+
+
+		<button
+			
+			toolTip="1"
+			onClick="Key_1"
+			mappingColor="0x008B8B"
+		/>	
+
+		<button
+			
+			toolTip="2"
+			onClick="Key_2"
+			mappingColor="0xF0E68C"
+		/>	
+		<button
+			
+			toolTip="3"
+			onClick="Key_3"
+			mappingColor="0x008000"
+		/>	
+		<button
+			
+			toolTip="4"
+			onClick="Key_4"
+			mappingColor="0xFF8C00"
+		/>	
+		<button
+			
+			toolTip="5"
+			onClick="Key_5"
+			mappingColor="0xE6E6FA"
+		/>	
+		<button
+			
+			toolTip="6"
+			onClick="Key_6"
+			mappingColor="0xFF69B4"
+		/>	
+		<button
+			
+			toolTip="7"
+			onClick="Key_7"
+			mappingColor="0xFF1493"
+		/>	
+		<button
+			
+			toolTip="8"
+			onClick="Key_8"
+			mappingColor="0x32CD32"
+		/>	
+		<button
+			
+			toolTip="9"
+			onClick="Key_9"
+			mappingColor="0xE9967A"
+		/>	
+
+		<button
+			
+			toolTip="*"
+			onClick="DOWN: Key_LeftShift Key_8 UP: Key_LeftShift"
+			mappingColor="0xFF00FF"
+		/>	
+		<button
+			
+			toolTip="#"
+			onClick="DOWN: Key_LeftShift Key_3 UP: Key_LeftShift"
+			mappingColor="0xB22222"
+		/>	
+
+		<button
+			
+			toolTip="0"
+			onClick="Key_0"
+			mappingColor="0x0000CD"
+		/>	
+
+				
+	</view>
+</skin>

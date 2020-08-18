@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<skin>
+	<view
+		titleBar ="Windows CE.NET VoIP Desktop Phone"
+		
+		displayPosX="418"
+		displayPosY="76"
+		
+		displayWidth="240"
+		displayHeight="320"
+
+		displayDepth="16"
+
+		mappingImage="voip_phone1_map.bmp"
+		normalImage="voip_phone1_normal.bmp"
+		downImage= "voip_phone1_down.bmp"
+
+	>
+
+
+		<button
+			
+			toolTip="Pick Up"
+			onClick="DOWN: Key_F5"
+			mappingColor="0x4800FF"
+		/>	
+
+		<button
+			
+			toolTip="Hang Up"
+			onClick="UP: Key_F5"
+			mappingColor="0xFF0000"
+		/>	
+
+		<button
+			
+			toolTip="Mute"
+			onClick="Key_F7"
+			mappingColor="0xFF00FF"
+		/>	
+
+		<button
+			
+			toolTip="Volume Up"
+			onClick="Key_PageUp"
+			mappingColor="0x00FF00"
+		/>	
+
+		<button
+			
+			toolTip="Volume Down"
+			onClick="Key_PageDown"
+			mappingColor="0x0000FF"
+		/>	
+
+		<button
+			
+			toolTip="Speaker"
+			onClick="Key_F6"
+			mappingColor="0x849ACD"
+		/>	
+
+		<button
+			
+			toolTip="Up Arrow"
+			onClick="Key_Up"
+			mappingColor="0xE400FF"
+		/>	
+		<button
+			
+			toolTip="Down Arrow"
+			onClick="Key_Down"
+			mappingColor="0xFFC600"
+		/>	
+		<button
+			
+			toolTip="Button 1"
+			onClick="Key_F1"
+			mappingColor="0x36FF00"
+		/>	
+		<button
+			
+			toolTip="Button 2"
+			onClick="Key_F2"
+			mappingColor="0xFF8040"
+		/>	
+		<button
+			
+			toolTip="Button 3"
+			onClick="Key_F3"
+			mappingColor="0xFFFC00"
+		/>	
+		<button
+			
+			toolTip="Button 4"
+			onClick="Key_F4"
+			mappingColor="0x00F0FF"
+		/>	
+	
+		<button
+			
+			toolTip="1"
+			onClick="Key_1"
+			mappingColor="0x00FFA8"
+		/>	
+		<button
+			
+			toolTip="2"
+			onClick="Key_2"
+			mappingColor="0x00FF42"
+		/>
+		<button
+			
+			toolTip="3"
+			onClick="Key_3"
+			mappingColor="0x3EA113"
+		/>
+		<button
+			
+			toolTip="4"
+			onClick="Key_4"
+			mappingColor="0xBCDB29"
+		/>
+		<button
+			
+			toolTip="5"
+			onClick="Key_5"
+			mappingColor="0x659A84"
+		/>
+		<button
+			
+			toolTip="6"
+			onClick="Key_6"
+			mappingColor="0xBC6D07"
+		/>
+		<button
+			
+			toolTip="7"
+			onClick="Key_7"
+			mappingColor="0xE5B77C"
+		/>
+		<button
+			
+			toolTip="8"
+			onClick="Key_8"
+			mappingColor="0x961F89"
+		/>
+		<button
+			
+			toolTip="9"
+			onClick="Key_9"
+			mappingColor="0xCE3BBE"
+		/>
+		<button
+			
+			toolTip="0"
+			onClick="Key_0"
+			mappingColor="0xDCB6F4"
+		/>
+		<button
+			
+			toolTip="*"
+			onClick="Key_Insert"
+			mappingColor="0x9933D9"
+		/>
+		<button
+			
+			toolTip="#"
+			onClick="Key_Delete"
+			mappingColor="0xA7A164"
+		/>
+		<button
+			
+			toolTip="Conference"
+			onClick="Key_F11"
+			mappingColor="0x800080"
+		/>	
+		<button
+			
+			toolTip="Transfer"
+			onClick="Key_F9"
+			mappingColor="0x008080"
+		/>	
+		<button
+			
+			toolTip="Redial"
+			onClick="Key_F10"
+			mappingColor="0x008000"
+		/>	
+		<button
+			
+			toolTip="Hold"
+			onClick="Key_F8"
+			mappingColor="0x808000"
+		/>	
+		<button
+			
+			toolTip="Home"
+			onClick="Key_Home"
+			mappingColor="0x40FFFF"
+		/>
+		<button
+			
+			toolTip="Speed Dial"
+			onClick="Key_Tab"
+			mappingColor="0x4040FF"
+		/>	
+		<button
+			
+			toolTip="Directory"
+			onClick="Key_Enter"
+			mappingColor="0xFF40FF"
+		/>	
+		<button
+			
+			toolTip="Voicemail"
+			onClick="Key_Escape"
+			mappingColor="0xFF4040"
+		/>	
+		<button
+			
+			toolTip="Menu"
+			onClick="Key_End"
+			mappingColor="0xFFFF40"
+		/>	
+			
+	</view>
+</skin>

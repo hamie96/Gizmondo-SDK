@@ -1,0 +1,12 @@
+
+#if !defined(AFX_GPS_H__4A1C264D_375B_4814_8BB5_F34746141EAF__INCLUDED_)
+#define AFX_GPS_H__4A1C264D_375B_4814_8BB5_F34746141EAF__INCLUDED_
+
+#if _MSC_VER > 1000
+#pragma once
+#endif // _MSC_VER > 1000
+
+#include "resource.h"
+
+
+#endif // !defined(AFX_GPS_H__4A1C264D_375B_4814_8BB5_F34746141EAF__INCLUDED_)

@@ -1,0 +1,105 @@
+NAME   = uae4all.exe
+O      = o
+RM     = rm -f
+CC     = arm-wince-pe-gcc
+CXX    = arm-wince-pe-g++
+STRIP  = arm-wince-pe-strip
+SDL_BASE = C:/code/Gizmondo/GizSDL
+
+PROG   = $(NAME)
+
+all: $(PROG)
+
+FAME_CORE=1
+FAME_CORE_C=1
+
+#DEFAULT_CFLAGS = `$(SDL_BASE)sdl-config --cflags`
+#LDFLAGS        = `$(SDL_BASE)sdl-config --libs` -lSDL_mixer -lSDL -lmikmod -lz -static 
+LDFLAGS 	= -L$(SDL_BASE) -lSDL_mixer -lSDL -lzlib -static
+
+MORE_CFLAGS = -O3 -mthumb-interwork -mcpu=arm9 -I$(SDL_BASE)/include -I$(SDL_BASE)/include/zlib -I$(SDL_BASE)/include/SDL -I$(SDL_BASE)/include/SDL_mixer -I$(SDL_BASE)/include/zfile -Isrc/ -Isrc/include/ -Isrc/gizmondo -Isrc/menu -Isrc/vkbd -fomit-frame-pointer  -Wno-unused -Wno-format -DUSE_SDL -DGCCCONSTFUNC="__attribute__((const))" -DUSE_UNDERSCORE -fno-exceptions -DUNALIGNED_PROFITABLE -DREGPARAM="__attribute__((regparm(3)))" -DOPTIMIZED_FLAGS -D__inline__=__inline__ -DSHM_SUPPORT_LINKS=0 -DOS_WITHOUT_MEMORY_MANAGEMENT -DVKBD_ALWAYS -DMENU_MUSIC
+
+MORE_CFLAGS += -DGIZMONDO -DDOUBLEBUFFER
+
+MORE_CFLAGS+= -DROM_PATH_PREFIX=\"./\" -DDATA_PREFIX=\"./data/\" -DSAVE_PREFIX=\"./\"
+
+MORE_CFLAGS += -DUSE_ZFILE -DFAME_INTERRUPTS_PATCH
+
+#MORE_CFLAGS += -DNO_THREADS
+
+CFLAGS  = $(DEFAULT_CFLAGS) $(MORE_CFLAGS)
+
+OBJS =	\
+	src/audio.o \
+	src/autoconf.o \
+	src/blitfunc.o \
+	src/blittable.o \
+	src/blitter.o \
+	src/cia.o \
+	src/savedisk.o \
+	src/compiler.o \
+	src/custom.o \
+	src/disk.o \
+	src/drawing.o \
+	src/ersatz.o \
+	src/gfxutil.o \
+	src/keybuf.o \
+	src/main.o \
+	src/md-support.o \
+	src/memory.o \
+	src/missing.o \
+	src/gui.o \
+	src/od-joy.o \
+	src/sound.o \
+	src/sdlgfx.o \
+	src/writelog.o \
+	src/zfile.o \
+	src/menu/fade.o \
+	src/vkbd/vkbd.o \
+	src/gizmondo/gizmondo.o \
+	src/gizmondo/inputmode.o \
+	src/gizmondo/menu/menu.o \
+	src/gizmondo/menu/menu_fileinfo.o \
+	src/gizmondo/menu/menu_load.o \
+	src/gizmondo/menu/menu_main.o
+
+
+
+ifdef FAME_CORE
+ifdef FAME_CORE_C
+CFLAGS+=-DUSE_FAME_CORE -DUSE_FAME_CORE_C
+src/m68k/fame/famec.o: src/m68k/fame/famec.cpp
+OBJS += src/m68k/fame/famec.o
+else
+CFLAGS+=-DUSE_FAME_CORE
+src/m68k/fame/fame.o: src/m68k/fame/fame.asm
+	nasm -f elf src/m68k/fame/fame.asm
+OBJS += src/m68k/fame/fame.o
+endif
+OBJS += src/m68k/fame/m68k_intrf.o
+else
+OBJS += \
+	src/m68k/uae/newcpu.o \
+	src/m68k/uae/readcpu.o \
+	src/m68k/uae/cpudefs.o \
+	src/m68k/uae/fpp.o \
+	src/m68k/uae/cpustbl.o \
+	src/m68k/uae/cpuemu.o
+
+endif
+
+CPPFLAGS  = $(CFLAGS)
+
+$(PROG): $(OBJS) 
+	$(CC) $(CFLAGS) -o $(PROG) $(OBJS) $(LDFLAGS)
+
+
+#	$(STRIP) $(PROG)
+
+
+run: $(PROG)
+	./$(PROG)
+
+clean:
+	$(RM) $(PROG) $(OBJS)
+

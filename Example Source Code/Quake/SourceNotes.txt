@@ -1,0 +1,46 @@
+2/16/2001
+3/14/2001 - Updated
+
+Ok.  Here are some notes regarding the Pocket Quake source code.
+First of all, it only contains the source code that Pocket Quake uses. So source files specific to other operating systems (Linux, etc) are not included. I'm just trying to keep things straightforward. Also included are the sources for the gzip compression routines.
+This, of course, is to be built with Microsoft's eMbedded Visual C++. For those of you who don't already know, it's free from Microsoft. Yeah, it's hard to believe MS is giving something away.
+
+The Pocket PC GAPI (Game API) is required for building Pocket Quake. See the included ReadMe.txt file for the url. Note that two changes must be made to the gx.h file for it to build with a C source file (Microsoft used C++ convention with gx.h, so it will not build properly under C). Included in the source distribution is the modified gx.h include file.
+
+The two primary files containing the Pocket PC specific code are sys_win.c and vid_ppc.c:
+
+sys_win.c:
+Contains the OS-specifc IO routines. This is the primary area where the gzip additions are.
+Contains the WinMain application entry function.
+Initializes the Game API within WinMain. I decided to dynamically load the gx.dll, in order to provide the user with concise error messages if the dll could not be found (Pocket PC's error messages if a statically linked DLL can't be found really suck, it's like "Your application won't run, we know why, but we won't tell").
+
+vid_ppc.c:
+Contains the Quake video routines (setting the available modes, etc)
+Converts and stores the palettes as set by Quake into the rgb scheme of the device (565 in the case of the iPaq).
+Blits Quake's palette based bitmap to the device's display buffer.
+Handles key mappings.
+Contains the MainWndProc.
+Handles all key and mouse events.
+Draws / handles the Video Menu in Quake
+
+Those of you who desire to port to other Pocket PC devices should only need to modify the VID_Update and VID_SetPalette functions in the vid_ppc.c file.
+
+The file cl_demo contained stdio routines that directly accessed the wad file (I don't know why ID Software did not use the OS-Specific routines in sys_win, as it does elsewhere). These routines had to be modified to support gzip.
+
+The sound routines required very little tweaking for Pocket PC.  Basically I had to remove all of the DirectX sound support, and make some mods to allow for sound mixing further ahead in time. 
+
+Sound is currently mixed 150ms ahead, where in Quake it is normally 100ms ahead.  This causes slightly noticeable (although not bad) lag delay in the sound.
+
+The network routines were also easily modified. Quake was dynamically loading wsock32.dll, which of course differs for CE. So I simply modified the routines from pointer functions to direct calls and built statically linking to the winsock.dll.
+
+ID Software really did a good job writing portable code.  It took me around 50 hours for the initial port of Quake (I downloaded the source from ID on Jan 15th, started porting the next day on Tues, announced my success on Friday, and released it on Sat. the 20th.  You can see why I didn't want to release the source after only have been working on it for 4 days). The addition of the onscreen controls and CF support took around 10 hours, and the sound and network support together took around 4 hours.
+
+ID Software must build with a low warning level.  The compilation of Quake generated thousands of warnings (which I can't stand).  These were primarily fixed to int or int to fixed conversion warnings, double to float, and signed / unsigned mismatch. I corrected these warnings by providing appropriate casting. I did not document these changes as they were so numerous. Pocket Quake will now build for either Arm-PocketPC or x86 Pocket PC Emulator without a single warning.
+
+You will find various functions and files with FPM appended. This is from an aborted attempt at a global fixed point conversion. Replacing all floats with fixed point may not be possible due to range and precision limitations. There are currently several isolated fixed point conversions in place which have boosted fps by at least 4.
+
+I would like to see at least some level of coordination between developers that are interested in contributing to this project. If you are going to create a MIPS port, work on fixed point, etc, please post to the Pocket Quake forum so others won't duplicate your work. Also, I would like the official website to host all the various ports of Quake, just to keep things simple for the consumers.
+
+Dan East
+pocketmatrix@pocketmatrix.com
+www.pocketmatrix.com/pocketquake

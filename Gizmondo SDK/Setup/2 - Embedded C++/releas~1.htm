@@ -1,0 +1,1552 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML DIR="LTR"><HEAD>
+<TITLE>Abridged Release Notes for Microsoft Windows CE .NET</TITLE>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<div id="scrollyes">
+<STYLE>
+div.saveHistory
+	{
+	behavior:url(#default#savehistory);
+	text-decoration: underline
+	}
+
+body /* This body tag requires the use of one of the sets of banner and/or text div ids */
+	{
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	background: #ffffff; 
+	color: #000000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 70%;
+	width: 100%;
+	}
+div#scrollyes /* Allows topic to scroll with correct margins. Cannot be used with running head banner */
+	{     /* Must immediately follow <body>. */
+	padding: 2px 15px 2px 22px;
+	width: 100%;
+	}
+div#nsbanner /* Creates Nonscrolling banner region */
+	{
+	position: relative;
+	left: 0px;
+	padding: 0px 0px 0px 0px;
+	border-bottom: 1px solid #999999;
+	}
+div#nstext /* Creates the scrolling text area for Nonscrolling region topic */
+	{
+	padding: 5px 10px 0px 22px; 
+	}
+div#scrbanner /* Creates the running head bar in a full-scroll topic */
+	{     /* Allows topic to scroll. */
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	border-bottom: 1px solid #999999;
+	}
+div#scrtext /* Creates the text area in a full-scroll topic */
+	{   /* Allows topic to scroll. */
+/*	width: 100%; /* Forces tables to have correct right margin */*/
+	padding: 0px 10px 0px 22px; 
+	}
+div#bannerrow1 /* provides full-width color to top row in running head (requires script) */
+	{
+	background-color: #99ccff;
+	}
+div#titlerow /* provides non-scroll topic title area (requires script) */
+	{
+	width: 100%; /* Forces tables to have correct right margin */
+	padding: 0px 10px 0px 22px; 
+	background-color: #99ccff;        
+	}
+
+/* --------------------------------------------------
+                    HEADING STYLES
+-------------------------------------------------- */
+
+h1, h2, h3, h4
+	{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	margin-bottom: .4em; 
+	margin-top: 1em;
+	font-weight: bold;
+	}
+h1
+	{
+	font-size: 120%;
+	margin-top: 0em;
+	}
+div#scrollyes h1 /* Changes font size for full-scrolling topic */
+	{
+	font-size: 150%;
+	}
+h2
+	{
+	font-size: 130%;
+	}
+h3
+	{
+	font-size: 115%;
+	}
+h4
+	{
+	font-size: 100%;
+	}
+.dtH1, .dtH2, .dtH3, .dtH4
+	{
+	margin-left: -18px;
+	}
+div#titlerow h1
+	{
+	margin-bottom: .2em
+	}
+
+/* --------------------------------------------------
+                     TEXT STYLES
+-------------------------------------------------- */
+
+p
+	{
+	margin: .5em 0em .5em 0em;
+	}
+blockquote.dtBlock
+	{
+	margin: .5em 1.5em .5em 1.5em;
+	}
+div#dtHoverText
+	{
+	color: #000066;
+	}
+.normal
+	{
+	margin: .5em 0em .5em 0em;
+	}
+.fineprint
+	{
+	font-size: 90%; /* i.e., 90% of 70% */
+	}
+.indent
+	{
+	margin: .5em 1.5em .5em 1.5em;
+	}
+.topicstatus /* Topic Status Boilerplate class */
+	{
+	display: block;
+	color: red;
+	}
+
+/* --------------------------------------------------
+                     LABEL STYLES
+-------------------------------------------------- */
+
+p.label
+	{
+	margin-top: 1em;
+	}
+p.labelproc
+	{
+	margin-top: 1em;
+	color: #000066;
+	}
+
+/* --------------------------------------------------
+                    GRAPHIC STYLES
+-------------------------------------------------- */
+
+img
+	{
+	border: none; 
+	}
+
+/* --------------------------------------------------
+                     LIST STYLES
+-------------------------------------------------- */
+
+ol, ul
+	{
+	margin: .5em 0em 0em 2em; 
+	}
+li
+	{
+	margin-bottom: .5em;
+	}
+ul p, ol p, dl p
+	{
+	margin-left: 0em;
+	}
+ul p.label, ol p.label
+	{
+	margin-top: .5em;
+	}
+
+/* --------------------------------------------------
+               DEFINITION LIST STYLES
+-------------------------------------------------- */
+
+dl
+	{
+	margin-top: 0em; 
+	padding-left: 1px; /* Prevents italic-letter descenders from being cut off */
+	}
+dd
+	{
+	margin-bottom: 0em;  
+	margin-left: 1.5em; 
+	}
+dt
+	{
+	margin-top: .5em; 
+	}
+
+/* --------------------------------------------------
+           CODE, SYNTAX, and REFTIP STYLES
+-------------------------------------------------- */
+
+pre
+	{
+	margin-top: .5em;
+	margin-bottom: .5em; 
+	}
+pre, code, .code
+	{
+	font: 100% Monospace, Courier New, Courier; /* This is 100% of 70% */
+	color: #000066;
+	}
+pre b, code b
+	{
+	letter-spacing: .1em; /* opens kerning on bold in Syntax/Code */
+	}
+pre.syntax
+	{
+	background: #cccccc;
+	padding: 4px 8px;
+	cursor: text;
+	margin-top: 1em;
+	margin-bottom: 1em; 
+	color: #000000;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #999999;
+	}
+
+/* --------------------------------------------------
+                      LINK STYLES
+-------------------------------------------------- */
+
+a:link
+	{
+	color: #0000ff;
+	}
+a:visited
+	{
+	color: #0000ff;
+	}
+a:hover
+	{
+	color: #3366ff;
+	}
+
+/* --------------------------------------------------
+                    TABLE STYLES
+-------------------------------------------------- */
+
+div.tablediv
+	{
+	width: 100%; /* Works around IE5.x bug: Forces tables to have correct right margins and top spacing */
+	margin-top: -.4em;
+	}
+ol div.tablediv, ul div.tablediv, ol div.HxLinkTable, ul div.HxLinkTable
+	{
+	margin-top: 0em; /* Forces tables to have correct right margins and top spacing */
+	}
+table.dtTABLE
+	{
+	width: 100%; /* Forces tables to have correct right margin */
+	margin-top: .6em;
+	margin-bottom: .3em;
+	border-width: 1px 1px 0px 0px;
+	border-style: solid;
+	border-color: #999999;
+	background-color: #999999; 
+	font-size: 100%; /* Text in Table is same size as text outside table */
+	}
+table.dtTABLE th, table.dtTABLE td
+	{ 
+	border-style: solid; /* Creates the cell border and color */
+	border-width: 0px 0px 1px 1px;
+	border-style: solid;
+	border-color: #999999;
+	padding: 4px 6px;
+	text-align: left;
+	}
+table.dtTABLE th	
+	{ 
+	background: #cccccc; /* Creates the shaded table header row */
+	vertical-align: bottom;
+	}
+table.dtTABLE td	
+	{
+	background: #ffffff;
+	vertical-align: top;
+	}
+table.SampMgr
+	{
+	margin: 0px 0px 0px -22px;
+	}
+table.SampMgr td
+	{
+	padding-left: 22px;
+	}
+
+</STYLE></HEAD>
+<body topmargin=0 id="bodyID" class = "dtBODY">
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_release_notes_for_microsoft®_windows®_ce__net"></A>Abridged Release Notes for Microsoft Windows CE .NET</H1>
+
+<P>This document contains important information about Microsoft Windows CE .NET with Microsoft Platform Builder version 4.0. This is an abridged version of the release notes for Microsoft Windows CE .NET with Microsoft Platform Builder that contains only information which may be of use to developers working with Microsoft eMbedded Visual C++ 4.0.</P>
+
+<P class="label"><B>Contents</B></P>
+
+<P><A HREF="#_wcepb_relnotes_system_requirements">System Requirements</A></P>
+
+<P><A HREF="#_wcepb_relnotes_migration_issues">Migration Issues</A></P>
+
+
+<P><A HREF="#_wcepb_relnotes_known_issues">Known Issues</A></P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_system_requirements"></A>System Requirements</H1>
+
+<P>Windows CE .NET has the following system requirements:</P>
+
+<P>CD Version:</P>
+
+<P>Windows CE .NET System</P>
+
+<P><B>Requirements</B></P>
+
+<P>To use Microsoft Windows CE .NET, you need:
+
+<UL type="disc">
+	<LI>266-MHz Pentium II processor or higher; 500-MHz processor recommended.</li>
+
+	<LI>Microsoft Windows 2000 Professional with Service Pack 2 or Windows XP Professional.</li>
+
+	<LI>128 MB of RAM; 192 MB of RAM required to run the Emulator.</li>
+
+	<LI>1.7 GB of available hard-disk space for a typical single microprocessor installation; 14 GB for installation of the entire product, including the Platform Builder toolset.</li>
+
+	<LI>CD-ROM or DVD-ROM drive.</li>
+
+	<LI>VGA or higher resolution monitor; Super VGA recommended.</li>
+
+	<LI>Microsoft Mouse or compatible pointing device.</li>
+
+	<LI>Bidirectional parallel port to download an OS image when not using an Ethernet connection.</li>
+
+	<LI>Serial port or Ethernet network card for debugging support; a local area network (LAN) hub is recommended.</li>
+</UL>
+
+<P>DVD Version:</P>
+
+<P>Windows CE .NET System</P>
+
+<P><B>Requirements</B></P>
+
+<P>To use Microsoft Windows CE .NET, you need:
+
+<UL type="disc">
+	<LI>266-MHz Pentium II processor or higher; 500-MHz processor recommended.</li>
+
+	<LI>Microsoft Windows 2000 Professional with Service Pack 2 or Windows XP Professional.</li>
+
+	<LI>128 MB of RAM; 192 MB of RAM required to run the Emulator.</li>
+
+	<LI>1.7 GB of available hard-disk space for a typical single microprocessor installation; 14 GB for installation of the entire product, including the Platform Builder toolset.</li>
+
+	<LI>DVD-ROM drive.</li>
+
+	<LI>VGA or higher resolution monitor; Super VGA recommended.</li>
+
+	<LI>Microsoft Mouse or compatible pointing device.</li>
+
+	<LI>Bidirectional parallel port to download an OS image when not using an Ethernet connection.</li>
+
+	<LI>Serial port or Ethernet network card for debugging support; a local area network (LAN) hub is recommended.</li>
+</UL>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_windows_ce__net_installation"></A>Windows CE .NET Installation</H1>
+
+<P>Windows CE .NET is distributed on multiple CDs or a single DVD. The setup application, Setup.exe, copies the files from the CDs or DVD to the development workstation.</P>
+
+<P>It is recommended that you format your hard drive and reinstall the operating system prior to installing Windows CE .NET.</P>
+
+<P class="labelproc"><B>To install Windows CE .NET</B>
+
+<OL type="1">
+	<LI>Log on to the development workstation with Windows administrator privileges.</li>
+
+	<LI>Run Setup.exe from the root directory on the Windows CE .NET CD number 1 or on the DVD.</li>
+
+	<LI>When the <B>Welcome</B> dialog box appears, choose <B>Install</B>,<B> </B>and then follow the on-screen instructions.
+<BLOCKQUOTE class="dtBlock">
+<b class="le">Note</b>&nbsp;&nbsp;&nbsp;To reduce the installation size of Platform Builder, you can select only the microprocessors you need in the <B>Custom Setup</B> dialog box.</BLOCKQUOTE>
+</li>
+</OL>
+
+<P>Installing Windows CE .NET on a computer containing Platform Builder 3.0, Talisker Beta 1, or Talisker Beta 2 may result in invalid registry keys, file version conflicts, or other problems. To avoid these problems, uninstall Platform Builder 3.0, Talisker Beta 1, or Talisker Beta 2 before installing Windows CE .NET.</P>
+
+<P>Do not upgrade from Talisker Beta 2 to Windows CE .NET. It is recommended that you first uninstall Talisker Beta 2, and then install Windows CE .NET.</P>
+
+<P>During the installation from a CD or DVD, the progress bar is not always accurate, especially for larger installations with more than one CPU.</P>
+
+<P>Installation times can vary from the following:
+
+<UL type="disc">
+	<LI>20-30 minutes for a Tools Only install</li>
+
+	<LI>30-40 minutes for a default installation (Tools, Test Kit, CEPC, and Emulator)</li>
+
+	<LI>2 hours for a full install
+<BLOCKQUOTE class="dtBlock">
+<B>Note&nbsp;&nbsp;&nbsp;</B>You must have administrative privileges to install and run Windows CE .NET.</BLOCKQUOTE>
+</li>
+</UL>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_migration_issues"></A>Migration Issues</H1>
+
+
+
+<P><A HREF="#_wcepb_relnotes_new_processor_names">New processor names</A></P>
+
+
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_new_processor_names"></A>New processor names</H1>
+
+<P>Microprocessor types represent microprocessor architectures and many environment variables are different. The following table shows the previous microprocessor names and the new names for Wince.bat.</P>
+<div class="tablediv"><table cellspacing="0" class="dtTABLE">
+
+<TR VALIGN="top">
+<TH width=63%>Previous microprocessor type and name</TH>
+<TH width=37%>New microprocessor name</TH>
+</TR>
+
+<TR VALIGN="top">
+<TD width=63%>MIPS/R4100</TD>
+<TD width=37%>MIPSII</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=63%>MIPS/IDT32364</TD>
+<TD width=37%>MIPSII</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=63%>MIPS/R4300</TD>
+<TD width=37%>MIPSII_FP</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=63%>MIPS/MIPSIV</TD>
+<TD width=37%>MIPSIV</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=63%>MIPS/MIPSIV_FP</TD>
+<TD width=37%>MIPSIV_FP</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=63%>MIPS/R4111</TD>
+<TD width=37%>MIPS16</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=63%>ARM/SA1100</TD>
+<TD width=37%>ARMV4</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=63%>ARM/ARM720, ARM/ARM920, and other ARM variants</TD>
+<TD width=37%>ARMV4I</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=63%>THUMB/ARM720, THUMB/ARM920 and other THUMB variants</TD>
+<TD width=37%>ARMV4T</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=63%>SHx/SH3</TD>
+<TD width=37%>SH3</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=63%>SHx/SH4</TD>
+<TD width=37%>SH4</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=63%>x86/i486</TD>
+<TD width=37%>x86</TD>
+</TR>
+</table></div>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_known_issues"></A>Known Issues</H1>
+
+
+<P><A HREF="#_wcepb_relnotes_application_issues">Application Issues</A></P>
+
+<P><A HREF="#_wcepb_relnotes_c_language_issues">C Language Issues</A></P>
+<P><A HREF="#_wcepb_relnotes_communications_and_networking_issues">Communications and Networking Issues</A></P>
+
+<P><A HREF="#_wcepb_relnotes_debugger_issues">Debugger Issues</A></P>
+
+<P><A HREF="#_wcepb_relnotes_documentation_issues">Documentation Issues</A></P>
+<P><A HREF="#_wcepb_relnotes_platform_manager_and_remote_tools_issues">Platform Manager and Remote Tools Issues</A></P>
+<P><A HREF="#_wcepb_relnotes_emulator_for_windows_ce">Emulator for Windows CE</A></P>
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_application_issues"></A>Application Issues</H1>
+
+<P><A HREF="#_wcepb_relnotes_activesync_is_blocked_when_irda_and_obex_are_present_simultaneously">ActiveSync is blocked when IrDA and OBEX are present simultaneously</A></P>
+
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_activesync_is_blocked_when_irda_and_obex_are_present_simultaneously"></A>ActiveSync is blocked when IrDA and OBEX are present simultaneously</H1>
+
+<P>ActiveSync on the device (Repllog.exe) needs the serial port (COM1) to work with the default connectoid. This default connectoid called Desktop @ 19200 uses COM1 to connect to the desktop. The IrDA DLL (Irdastk.dll) uses COM1 by default unless setup otherwise and the OBEX server by default will open a socket to listen on this IrDA port. Thus, COM1 is denied to ActiveSync causing it to generate a Port Not Available error. This will happen on the PDA configuration and in any configuration where IrDA and OBEX are present together and are using the default configuration.</P>
+
+<P>Workarounds are to set up OBEX to use other transport mechanisms or reconfigure IrDA. The other option is to reconfigure ActiveSync to avoid using the default connection. Options are to configure ActiveSync to use other COM ports if available. This can be done by using the making new connectoids: Use the <B>Make new Connection</B> application found under the <B>Network and Dial up Connection</B> Control Panel application. Use the <B>Direct Connection</B> option to choose other COM ports. The other option is to use ActiveSync over USB instead of over default serial port. This is accomplished in a similar manner but in the <B>Direct Connection</B> option choose the USB serial port. Note that this needs the availability of a USB function port and a USB serial function driver on the device. </P>
+
+<BLOCKQUOTE class="dtBlock">
+<B>Note&nbsp;&nbsp;&nbsp;</B>ActiveSync over an Ethernet connection will not work for the initial connection. An Ethernet connection can be used after synchronizing with USB once to set up the initial partnership on the desktop side.</BLOCKQUOTE>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_c_language_issues"></A>C Language Issues</H1>
+
+<P><A HREF="#_wcepb_relnotes_fwscanf_returns_eof_instead_of_weof">fwscanf returns EOF instead of WEOF</A></P>
+
+<P><A HREF="#_wcepb_relnotes_null_pointer_is_not_allowed_to_the_wcscpy_function">NULL pointer is not allowed to the wcscpy function</A></P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_fwscanf_returns_eof_instead_of_weof"></A>fwscanf returns EOF instead of WEOF</H1>
+
+<P>If an error occurs or if the end of the file stream is reached before the first conversion, Windows CE .NET returns EOF for both fscanf and fwscanf.</P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_null_pointer_is_not_allowed_to_the_wcscpy_function"></A>NULL pointer is not allowed to the wcscpy function</H1>
+
+<P>The system behavior is unpredictable if a NULL pointer is used for either source or destination string pointer of the <B>wcscpy</B> function.</P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_communications_and_networking_issues"></A>Communications and Networking Issues</H1>
+
+<P><A HREF="#_wcepb_relnotes_cepc_boots_after_parallel_download_but_does_not_connect_over_the_ethernet_kernel_transport">CEPC boots after parallel download but does not connect over the Ethernet kernel transport</A></P>
+
+<P><A HREF="#_wcepb_relnotes_adding_rndis_to_your_platform">Adding RNDIS to your platform</A></P>
+
+<P><A HREF="#_wcepb_relnotes_rasgetentryproperties_returns_the_default_country!region_code_of_0_instead_of_1">RasGetEntryProperties returns the default country/region code of 0 instead of 1</A></P>
+
+<P><A HREF="#_wcepb_relnotes_device_may_not_suspend_if_a_network_card_is_inserted">Device may not suspend if a network card is inserted</A></P>
+
+<P><A HREF="#_wcepb_relnotes_web_server_is_on_by_default__but_directory_browsing_is_off_and_there_is_a_default_web_page">Web Server is on by default, but directory browsing is off and there is a default Web page</A></P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_cepc_boots_after_parallel_download_but_does_not_connect_over_the_ethernet_kernel_transport"></A>CEPC boots after parallel download but does not connect over the Ethernet kernel transport</H1>
+
+<P>If you use the parallel download service to download an OS image and you use the Ethernet kernel transport, you must specify the correct I/O base address for the Ethernet adapter as an argument for the Loadcepc.exe executable on the target device. The Ethernet kernel transport does not autodetect the I/O base address. To obtain the correct I/O base address, download an OS image once to the target device using the Ethernet download service and not the I/O base address. Use the parallel download service for subsequent downloads.</P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_adding_rndis_to_your_platform"></A>Adding RNDIS to your platform</H1>
+
+<P>The following steps show how to enable the RNDIS host and function drivers:
+
+<OL type="1">
+	<LI>For the RNDIS function and RNDIS host driver, clear the BSP_NORNDIS and BSP_NOUSB environment variables.</li>
+
+	<LI>For the RNDIS function driver, set the BSP_RNDISMINI_NET2890 and SYSGEN_ETHERNET environment variables.</li>
+
+	<LI>For the RNDIS host driver, set the SYSGEN_ETH_USB_HOST and SYSGEN_USB environment variables.</li>
+</OL>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_rasgetentryproperties_returns_the_default_country!region_code_of_0_instead_of_1"></A>RasGetEntryProperties returns the default country/region code of 0 instead of 1</H1>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_device_may_not_suspend_if_a_network_card_is_inserted"></A>Device may not suspend if a network card is inserted</H1>
+
+<P>With the default configuration of the networking components, the system may not suspend when a network card is present. The default action can be changed using a registry as follows:</P>
+
+<PRE class="code">HKLM\Comm\Tcpip\Parms\NoldlelfAdapter</PRE>
+
+<P><B>DWORD</B> value treated as BOOLEAN; default is TRUE.</P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_web_server_is_on_by_default__but_directory_browsing_is_off_and_there_is_a_default_web_page"></A>Web Server is on by default, but directory browsing is off and there is a default Web page</H1>
+
+<P>The Web Server feature for Windows CE .NET is enabled by default if you choose to add it to your platform. The ability to browse directories, however, is disabled by default. A default Web page is included with the Web Server that serves as a placeholder that displays the following text: The Windows CE Web Server is enabled on this device. This Web page is intended to be temporary and should be replaced. For more information, see the Web Server documentation.</P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_debugger_issues"></A>Debugger issues</H1>
+
+<P><A HREF="#_wcepb_relnotes_debugger_sometimes_has_problems_stepping_large_case_statements">Debugger sometimes has problems stepping large case statements</A></P>
+
+<P><A HREF="#_wcepb_relnotes_debugger_stops_responding_when_unloading_symbols_while_running">Debugger stops responding when unloading symbols while running</A></P>
+
+<P><A HREF="#_wcepb_relnotes_resetting_the_target_just_after_connecting_the_debugger_generates_a_connection_error">Resetting the target just after connecting the debugger generates a connection error</A></P>
+
+<P><A HREF="#_wcepb_relnotes_limitation_of_instantiating_bp_on_new_module_loads">Limitation of instantiating BP on new module loads</A></P>
+
+<P><A HREF="#_wcepb_relnotes_stepping_out_of_c___catch_blocks_and___finally_blocks_on_x86">Stepping out of C++ catch blocks and __finally blocks on x86</A></P>
+
+<P><A HREF="#_wcepb_relnotes_stepping_in_exdi_with_auto_refresh_on_module_window_will_request_a_full_reload_module_every_time">Stepping in eXDI with Auto-Refresh on module window will request a full reload module every time</A></P>
+
+<P><A HREF="#_wcepb_relnotes_ppfs_holds_files_open_after_the_debug_and_stop_debugging_commands">PPFS holds files open after the Debug and Stop Debugging commands</A></P>
+
+<P><A HREF="#_wcepb_relnotes_deferred_bp_in_a_file_that_does_not_exist_anymore_will_generate_infinite_request_to_resolve_ambiguity">Deferred BP in a file that does not exist anymore will generate infinite request to resolve ambiguity</A></P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_debugger_sometimes_has_problems_stepping_large_case_statements"></A>Debugger sometimes has problems stepping large case statements</H1>
+
+<P>If the data in a jump table generated by the compiler for switch statements just happens to disassemble into a branch, the debugger might have problems stepping properly. Larger switch statements have more opportunities for generating this data and therefore provide more opportunity for the debugger to do the wrong thing.</P>
+
+<P>As a workaround, use breakpoints in lieu of stepping large switch statements.</P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_debugger_stops_responding_when_unloading_symbols_while_running"></A>Debugger stops responding when unloading symbols while running</H1>
+
+<P>If you have variables in the Watch window and you attempt to unload symbol files in the <B>Modules and Symbols</B> window while the debugger is running, the Platform Builder debugger will stop responding. </P>
+
+<BLOCKQUOTE class="dtBlock">
+<B>Note&nbsp;&nbsp;&nbsp;</B>This problem is not consistent across platforms.</BLOCKQUOTE>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_resetting_the_target_just_after_connecting_the_debugger_generates_a_connection_error"></A>Resetting the target just after connecting the debugger generates a connection error</H1>
+
+<P>If you attempt to reset your target device immediately after connecting the debugger, you will likely interrupt the target while it is performing a load notification. Then, the debugger shows a communication error dialog box after about 15 seconds. From the dialog box, you have to choose <B>Abort</B>, close the debugger, restart Platform Builder, and then manually reset the target device. To avoid this, connect to the debugger after the target device is reset or wait for all modules to load before resetting the target.</P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_limitation_of_instantiating_bp_on_new_module_loads"></A>Limitation of instantiating BP on new module loads</H1>
+
+<P>The following lists the current limitations of instantiating BP on new module loads:
+
+<UL type="disc">
+	<LI>You can only instantiate a source BP on a new instance of an existing module if the currently existing BP was instantiated on one module at a time only. If the BP was already instantiated on multiple BPs simultaneously, at once, or after a secondary module load, the BP will not be splittable anymore.</li>
+
+	<LI>When a line contains BPs of multiple instances of the same module, and not all BPs are at the same instantiation state (deferred, instantiated, and disable), they will be shown in only one state, which is not defined.</li>
+</UL>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_stepping_out_of_c___catch_blocks_and___finally_blocks_on_x86"></A>Stepping out of C++ catch blocks and __finally blocks on x86</H1>
+
+<P>On x86 platforms, when you are presented with the opportunity to single step or range step out of a catch block, the step will take you out of your current application and into a C++ exception handler routine in Nk.exe. The expected behavior is to step out of the catch block and to resume debugging your application at the next instruction after the <code class="ce">try{...} catch(){...}</code> structure. However, attempting to step through the handler code will not return you to the excepted location in the application being debugged because the handler routine mangles the stack. This behavior also manifests when stepping out of a <B>__finally</B> block while unwinding exceptions for the same reason.</P>
+
+<P>You can work around these limitations by stepping into the block, setting breakpoints at an appropriate location in the program that will execute later, and then using a go to run to the breakpoint.</P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_stepping_in_exdi_with_auto_refresh_on_module_window_will_request_a_full_reload_module_every_time"></A>Stepping in eXDI with Auto-Refresh on module window will request a full reload module every time</H1>
+
+<P>Using a Step command while in eXDI Hardware-Assisted Debugging causes the debugger to request a full module reload if the Auto-Refresh on Step mode in the <B>Modules</B> window is enabled. To avoid this, you must disable the Auto-Refresh on Step mode in the <B>Modules</B> window.</P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_ppfs_holds_files_open_after_the_debug_and_stop_debugging_commands"></A>PPFS holds files open after the Debug and Stop Debugging commands</H1>
+
+<P>PPFS, which is responsible for making files from the development workstation's flat release directory available on the Windows CE device, holds executable files open as long as they are running. When an executable file is opened in this fashion, it cannot be overwritten or deleted simply by compiling a new version on the development workstation. The file is held open until the executable has run its course and is terminated or the device is reset. In particular, the <B>Debug</B> and <B>Stop Debugging</B> commands are not sufficient to close handles to the file in the flat release directory because the handles will remain open until the file completes its execution. This results in an error stating that the executable cannot be opened if the project has been recompiled after a <B>Debug</B> or <B>Stop Debugging</B> command has been entered.</P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_deferred_bp_in_a_file_that_does_not_exist_anymore_will_generate_infinite_request_to_resolve_ambiguity"></A>Deferred BP in a file that does not exist anymore will generate infinite request to resolve ambiguity</H1>
+
+<P>If a mapping is generated for a source file that later is deleted or moved from the mapped location and a new mapping for this source is performed, an ambiguous source dialog box is generated and cause some confusion.</P>
+
+<P>The key is to recognize that the listed file is no longer available at that path and the proper response is to dismiss the dialog box.</P>
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_documentation_issues"></A>Documentation Issues</H1>
+<P><A HREF="#_wcepb_relnotes_daylight_savings_time_registry_settings_error">Daylight Savings Time registry settings error</A></P>
+
+<P><A HREF="#_wcepb_relnotes_undocumented_kernel_function">Undocumented kernel function</A></P>
+
+<P><A HREF="#_wcepb_relnotes_documentation_error_in_creating_a_boot_floppy_disk_for_the_cepc">Documentation error in creating a boot floppy disk for the CEPC</A></P>
+
+<P><A HREF="#_wcepb_relnotes_documentation_incorrectly_covers_iimcallback2__sendalternatives2">Documentation incorrectly covers IIMCallback2::SendAlternatives2</A></P>
+
+<P><A HREF="#_wcepb_relnotes_windows_ce__net_does_not_support_rdw_nointernalpaint">Windows CE .NET does not support RDW_NOINTERNALPAINT</A></P>
+
+<P><A HREF="#_wcepb_relnotes_working_with_shared_source_in_windows_ce__net">Working with Shared Source in Windows CE .NET</A></P>
+
+<P><A HREF="#_wcepb_relnotes_locate_button_in_help_displays_inconsistent_click_and_double_click_behavior">Locate button in Help displays inconsistent click and double-click behavior</A></P>
+
+<P><A HREF="#_wcepb_relnotes_undocumented_module_types">Undocumented MODULE types</A></P>
+
+<P><A HREF="#_wcepb_relnotes_srmp_registry_settings">SRMP registry settings</A></P>
+
+<P><A HREF="#_wcepb_relnotes_automation_function_correction">Automation function correction</A></P>
+
+<P><A HREF="#_wcepb_relnotes_help_for_networking_and_dial_up_connections_is_inaccurate">Help for Networking and Dial-up Connections is inaccurate</A></P>
+
+<P><A HREF="#_wcepb_relnotes_missing_remote_ndis_definition">Missing remote NDIS definition</A></P>
+
+<P><A HREF="#_wcepb_relnotes_redrawwindow_documentation_is_incorrect">RedrawWindow documentation is incorrect</A></P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_daylight_savings_time_registry_settings_error"></A>Daylight Savings Time registry settings error</H1>
+
+<P>The documentation incorrectly states the following.</P>
+
+<PRE class="code">[HKEY_LOCAL_MACHINE\Software\Microsoft\Clock\Prefs]
+    "HomeDST": REG_DWORD</PRE>
+
+<P>The path should be as follows.</P>
+
+<PRE class="code">[HKEY_LOCAL_MACHINE\Software\Microsoft\Clock]</PRE>
+
+<P>The default when this key is not there is not DST as in previous releases.</P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_undocumented_kernel_function"></A>Undocumented kernel function</H1>
+
+<P><B>NKSetDataAbortHandler</B></P>
+
+<P>This function is supplied to allow an OEM to replace the default abort handler on an ARM built OS.</P>
+
+<PRE class="syntax"><B>PFNVOID NKSetDataAbortHandler(</B>
+<B>PFNVOID</B> <I>pfnDataAbortHandler</I>
+<B>);</B></PRE>
+
+<P><B>Parameters</B>
+
+<DL>
+<DT><I>pfnDataAbortHandler</I></DT>
+
+<DD>[out] Pointer to the OEM-supplied data abort handler.</dd>
+</DL>
+
+<P><B>Return Values</B></P>
+
+<P>The pointer to the currently active data abort handler.</P>
+
+<P><B>Remarks</B></P>
+
+<P>This function allows the ARMV4 kernel to run on a ARMV4I or ARMV4T processor once the data abort handler is move to the OAL.</P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_documentation_error_in_creating_a_boot_floppy_disk_for_the_cepc"></A>Documentation error in creating a boot floppy disk for the CEPC</H1>
+
+<P>The documentation should say that if you have an ISA card to set NET_IRQ to your NIC IRQ and NET_IOBASE equal to your NIC I/O Base. This is not a permanent setting and changes for each card.</P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_documentation_incorrectly_covers_iimcallback2__sendalternatives2"></A>Documentation incorrectly covers IIMCallback2::SendAlternatives2</H1>
+
+<P>According to the documentation, the <B>IIMCallback2::SendAlternatives2</B> function resends the character to the application if the return value of WM_SYSCOPYDATA message is 0 (FALSE). In reality, the function resends the character to the application if the return value of WM_SYSCOPYDATA message is 1 (TRUE). </P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_windows_ce__net_does_not_support_rdw_nointernalpaint"></A>Windows CE .NET does not support RDW_NOINTERNALPAINT</H1>
+
+<P>The documentation incorrectly states that Windows CE .NET supports the RDW_NOINTERNAL PAINT flag.</P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_working_with_shared_source_in_windows_ce__net"></A>Working with Shared Source in Windows CE .NET</H1>
+
+<P>For documentation on working with sources in the \Private directory, see this <A HREF="http://go.microsoft.com/fwlink/?LinkId=4362">Microsoft Web site</A>.</P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_locate_button_in_help_displays_inconsistent_click_and_double_click_behavior"></A>Locate button in Help displays inconsistent click and double-click behavior</H1>
+
+<P>For Help topics that have TOC entries, sometimes single-clicking on the <B>Locate</B> button synchronizes the TOC with the displayed topic. Other times, you have to double-click the <B>Locate</B> button. </P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_undocumented_module_types"></A>Undocumented MODULE types</H1>
+
+<UL type="disc">
+	<LI>X to signal that ROMIMAGE has to sign the module and include the signature file in the ROM. Applies to the MODULES section only.</li>
+
+	<LI>M to signal to the kernel to page in the whole module and not demand-page when needed. Applies to the MODULES section only.</li>
+
+	<LI>L to signal to ROMIMAGE to not split a ROM DLL between the process virtual memory area and the process slot 1. Applies to the MODULES section only.</li>
+</UL>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_srmp_registry_settings"></A>SRMP registry settings</H1>
+
+<H4 class="dtH4">MSMQ installation</H4>
+
+<P>Make sure that your Windows CE device has a unique name on the network before installing MSMQ.</P>
+
+<H4 class="dtH4">MSMQ message routing</H4>
+
+<P>Message Queuing provides a set of routing registries that enable messages to be routed in a variety of ways in response to network conditions. </P>
+
+<BLOCKQUOTE class="dtBlock">
+<B>Note</B>&nbsp;&nbsp;&nbsp;The router registries must be set before the MSMQ service starts.</BLOCKQUOTE>
+
+<P>You can use the <B>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSMQ\SimpleClient</B> registry key to set the message route. The following subkeys specify the message routes:
+
+<UL type="disc">
+	<LI><B>RouteTo</B></li>
+
+	<LI><B>RouteFrom</B></li>
+
+	<LI><B>RouteLocal</B></li>
+</UL>
+
+<P>Use the <B>RouteTo</B> and <B>RouteFrom</B> pair when the source and destination MSMQ hosts are not exposed directly to each other in the network. You can specify a router that connects to both source and destination hosts to send messages across.</P>
+
+<P>For example, to allow abc123.com to send messages to xyz.com and they are not exposed directly to each other in the network, you can set the <B>RouteTo</B> subkey of abc123.com to use def456.com as the router. The following registry setting allows the application to deliver all messages whose original destination is xyz.com to the new destination def456.com.</P>
+
+<PRE class="code">[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSMQ\SimpleClient\RouteTo]
+    "DIRECT=OS:xyz.com\*"="DIRECT=OS:def456.com\routingqueue"</PRE>
+
+<P>The new host, def456.com, creates routingqueue as needed, so you do not have to create this queue. The original host value, as in DIRECT=OS:xyz.com\*, allows you to specify the host name (xyz.com) but not the queue name. Only the host name part, xyz.com, is used for the routing. Therefore, all queues going to the xyz.com will be routed to def456.com.</P>
+
+<P>The delivery of messages to xyz.com totally depends on the routing ability of the MSMQ message router (def345.com) once those messages are sent to the router. MSMQ in Windows CE .NET has a routing capability, so messages can be routed to their original destination if def456.com is exposed to abc123.com. Windows CE 3.0 and earlier and the desktop version of MSMQ do not support this message routing. If the router does not have a routing capability, the messages will simply be discarded.</P>
+
+<BLOCKQUOTE class="dtBlock">
+<B>Note</B>&nbsp;&nbsp;&nbsp;Messages being routed by <B>RouteTo</B> and <B>RouteFrom</B> still maintain their original destination queue name.</BLOCKQUOTE>
+
+<P>This registry setting is useful when the MSMQ sender cannot directly reach the destination host device, such as a device behind a firewall or when connected to another network protocol. In this case, you can set the firewall or the edge device as the router.</P>
+
+<P>The <B>RouteFrom</B> subkey is used to handle special cases. Sometimes you may want to forward messages only from a known MSMQ host for security purposes. You set the <B>RouteFrom</B> subkey in your edge device. This way you can specify the source devices that you allow the edge device to route messages for.</P>
+
+<P>For example, to allow ghi.com to route messages from abc123.com to the final destination xyz.com, you set the <B>RouteFrom</B> subkey of ghi.com to following registry setting.</P>
+
+<PRE class="code">[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSMQ\SimpleClient\RouteFrom]
+    "f10436ce-8e8c-a581-1a84-e10f0ce265bf"="DIRECT=OS:xyz.com\routingqueue"</PRE>
+
+<P>Note that the GUID of the sender (abc123.com) is f10436ce-8e8c-a581-1a84-e10f0ce265bf.</P>
+
+<P>SRMP routing uses the <B>RouteLocal</B> subkey for message routing. This is not related either the <B>RouteTo</B> or <B>RouteFrom</B> subkeys.</P>
+
+<P>For example, if abc123.com sends a message to the DIRECT=HTTP://def456.com/msmq/private$/Q1, and you want forward the message to another destination without notifying the sender, you can set the abc123.com registry to the following value</P>
+
+<PRE class="code">[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSMQ\SimpleClient\RouteLocal]
+    "URI1"="DIRECT=HTTP://def456.com/msmq/private$/Q1"</PRE>
+
+<P>Then you can set the def456.com registry to the following value.</P>
+
+<PRE class="code">[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSMQ\SimpleClient\RouteLocal]
+    "URI1"="DIRECT=HTTP://xyz.com/msmq/private$/account"</PRE>
+
+<P>Whenever abc123.com sends an SRMP message to "HTTP://def456.com/msmq/private$/Q1", this is sent to the def456.com with a tag "URI1". When def456.com receives this SRMP message, def456.com checks its local registry for matching "URI1". If the def456.com finds a registry setting, "DIRECT=HTTP://xyz.com/msmq/private$/account" in this case, it forwards that message to the specified queue. The <B>RouteLocal</B> subkey applies only when sending messages through SRMP. The routing destination in the destination-side registry can be any valid queue name.</P>
+
+<BLOCKQUOTE class="dtBlock">
+<B>Note</B>&nbsp;&nbsp;&nbsp;Using <B>RouteLocal</B> actually changes the final destination queue name in the message.</BLOCKQUOTE>
+
+<P>The following sample code shows how to set the <B>RouteTo</B> subkey.</P>
+
+<PRE class="code">WCHAR* pSource = L"DIRECT=OS:cemsmq-wxp\\*";
+WCHAR* pDestination = L"DIRECT=OS:CEPCKS32976X\\routingqueue";
+WCHAR* pRegKey = L"SOFTWARE\\Microsoft\\MSMQ\\SimpleClient\\RouteTo"
+HKEY hKey = NULL;
+DWORD dwDisp = 0;
+if(ERROR_SUCCESS == RegCreateKeyEx(
+                         HKEY_LOCAL_MACHINE,
+                         pRegKey,
+                         0,
+                         NULL,
+                         REG_OPTION_NON_VOLATILE,
+                         KEY_WRITE,
+                         NULL,
+                         &amp;hKey,
+                         &amp;dwDisp))
+{
+   if(dwDisp == REG_OPENED_EXISTING_KEY)
+      printf("MSMQ: registry key exist (overwriting)");
+
+   ULONG hr = RegSetValueEx(
+                 hKey,
+                 pSource,
+                 0,
+                 REG_SZ,
+                 (BYTE *)pDestination,
+                 sizeof(WCHAR)*(wcslen(pDestination)+1));
+   RegCloseKey(hKey);
+   if(hr!=ERROR_SUCCESS)
+      printf("error 0x%0X", hr);
+}</PRE>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_automation_function_correction"></A>Automation function correction</H1>
+
+<P>The Automation function <B>VarBstrFromDate</B> does not support the following flags.</P>
+
+<PRE class="code">VAR_CALENDAR_THAI
+VAR_CALENDAR_GREGORIAN
+VAR_CALENDAR_FOURDIGITYEARS
+VAR_TIMEVALUEONLY
+VAR_DATEVALUEONLY</PRE>
+
+<P>The documentation will be updated to include this information.</P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_help_for_networking_and_dial_up_connections_is_inaccurate"></A>Help for Networking and Dial-up Connections is inaccurate</H1>
+
+<P>The Help topic references remote networking application with misleading instructions to start.</P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_missing_remote_ndis_definition"></A>Missing remote NDIS definition</H1>
+
+<P>Remote NDIS (rNDIS) is a specification for network devices on dynamic Plug and Play I/O buses such as universal serial bus. The rNDIS specification is located on this <A HREF="http://go.microsoft.com/fwlink/?linkid=5831">Microsoft Web site</A> and is called the Remote NDIS USB Driver Kit.</P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_redrawwindow_documentation_is_incorrect"></A>RedrawWindow documentation is incorrect</H1>
+
+<P>RedrawWindow documentation includes the unsupported flag RDW_NOINTERNALPAINT.</P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_platform_manager_and_remote_tools_issues"></A>Platform Manager and Remote Tools Issues</H1>
+
+<P><A HREF="#_wcepb_relnotes_platform_manager_kitl_application_wizard_is_dependent_on_system_variables">Platform Manager KITL Application Wizard is dependent on system variables</A></P>
+
+<P><A HREF="#_wcepb_relnotes_desktop_firewall_interferes_with_remote_tools_over_tcp!ip">Desktop firewall interferes with Remote Tools over TCP/IP</A></P>
+
+<P><A HREF="#_wcepb_relnotes_remote_tools_do_not_work_with_polled_mode_kitl">Remote Tools do not work with polled mode KITL</A></P>
+
+<P><A HREF="#_wcepb_relnotes_platform_manager_samples_are_not_compatible_with_visual_basic__net">Platform Manager samples are not compatible with Visual Basic .NET</A></P>
+
+<P><A HREF="#_wcepb_relnotes_connecting_remote_tools_over_the_serial_transport">Connecting Remote Tools over the serial transport</A></P>
+
+<P><A HREF="#_wcepb_relnotes_remote_tools_fail_to_connect_if_there_is_not_enough_free_memory_on_the_device">Remote tools fail to connect if there is not enough free memory on the device</A></P>
+
+<P><A HREF="#_wcepb_relnotes_new_platform_wizard_warning_messages">New Platform Wizard warning messages</A></P>
+
+<P><A HREF="#_wcepb_relnotes_cannot_use_remote_call_profiler_on_applications_with_fibers">Cannot Use Remote Call Profiler on applications with fibers</A></P>
+
+<P><A HREF="#_wcepb_relnotes_cemgrc_exe_issues_three_exception_warning_lines_to_debugger_output">Cemgrc.exe issues three exception warning lines to debugger output</A></P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_platform_manager_kitl_application_wizard_is_dependent_on_system_variables"></A>Platform Manager KITL Application Wizard is dependent on system variables</H1>
+
+<P>You must set the PLATMANROOT and OSROOT environment variables before building a COM wrapper for a kernel transport with the Custom KITL Application Wizard or before building a COM wrapper for a custom download service with the Custom Download Application Wizard. Set the PLATMANROOT variable equal to the path of the root-level Platman directory for Platform Manager. Set the OSROOT variable equal to the path of the root-level Wince400 directory for the Windows CE OS. </P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_desktop_firewall_interferes_with_remote_tools_over_tcp!ip"></A>Desktop firewall interferes with Remote Tools over TCP/IP</H1>
+
+<P>If the development workstation has a firewall, a remote tool is unable to connect to a target device using the TCP/IP transport. The firewall blocks the information required to establish the connection.</P>
+
+<P>To allow the remote tool to connect to a target device using the TCP/IP transport, disable the firewall. Alternatively, in configuring the TCP/IP transport, designate a fixed port through which to communicate from the target device to the development workstation. After you select a fixed port, configure the firewall to allow information to be received on that port.</P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_remote_tools_do_not_work_with_polled_mode_kitl"></A>Remote Tools do not work with polled mode KITL</H1>
+
+<P>On a platform that uses polled mode KITL, such as a platform that uses the Assabet board support package (BSP), you cannot establish a connection from a remote tool to a target device using the KITL transport for Windows CE .NET. You must instead use the TCP/IP transport and connect to the product Ethernet card on the target device to establish a connection.</P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_platform_manager_samples_are_not_compatible_with_visual_basic__net"></A>Platform Manager samples are not compatible with Visual Basic .NET</H1>
+
+<P>The Visual Basic sample code provided for use with the Platform Manager was written using Visual Studio 6.0. It will not work in Visual Studio .NET.</P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_connecting_remote_tools_over_the_serial_transport"></A>Connecting Remote Tools over the serial transport</H1>
+
+<P>If you use the serial kernel transport to connect to a target device, take the following steps to connect any remote tool except the Remote System Information tool to the target device.
+
+<OL type="1">
+	<LI>After establishing a connection to the target device, open a remote tool.</li>
+
+	<LI>From the <B>Connection</B> menu in the window for the remote tool, choose <B>Configure Windows CE Platform Manager</B>.</li>
+
+	<LI>Select your device, and then choose <B>Properties</B>.</li>
+
+	<LI>In the <B>Transport</B> box, choose <B>KITL Transport for Windows CE</B>, and then choose <B>Configure</B>.</li>
+
+	<LI>Clear the <B>Check connection status</B> check box, and then choose <B>OK</B>.</li>
+
+	<LI>Choose <B>OK</B>, and then choose <B>OK </B>again.</li>
+</OL>
+
+<P>After completing these steps, you can connect any number of remote tools to the target device. You do not need to repeat these steps for each remote tool that you connect to the target device.</P>
+
+<P>Do not use the Remote System Information tool with the serial kernel transport. The Remote System Information tool attempts to use the serial driver built into the OS image and disrupts serial communications between the development workstation and the target device.</P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_remote_tools_fail_to_connect_if_there_is_not_enough_free_memory_on_the_device"></A>Remote tools fail to connect if there is not enough free memory on the device</H1>
+
+<P>You get the same collection aborted message you get for any failure to connect. The following table shows application memory usage in KB for various platforms.</P>
+<div class="tablediv"><table cellspacing="0" class="dtTABLE">
+
+<TR VALIGN="top">
+<TH width=19%>Application</TH>
+<TH width=8%>ArmV4</TH>
+<TH width=8%>ArmV4i</TH>
+<TH width=9%>ArmV4t</TH>
+<TH width=9%>Mips16</TH>
+<TH width=10%>MipsII</TH>
+<TH width=12%>MipsIV</TH>
+<TH width=8%>SH3</TH>
+<TH width=8%>SH4</TH>
+<TH width=9%>x86</TH>
+</TR>
+
+<TR VALIGN="top">
+<TD width=19%>File Viewer</TD>
+<TD width=8%>320</TD>
+<TD width=8%>332</TD>
+<TD width=9%>332</TD>
+<TD width=9%>300</TD>
+<TD width=10%>~330</TD>
+<TD width=12%>276</TD>
+<TD width=8%>See SH4</TD>
+<TD width=8%>~300</TD>
+<TD width=9%>~400</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=19%>Heap Walker</TD>
+<TD width=8%>320</TD>
+<TD width=8%>332</TD>
+<TD width=9%>332</TD>
+<TD width=9%>328</TD>
+<TD width=10%>~330</TD>
+<TD width=12%>348</TD>
+<TD width=8%>&nbsp;</TD>
+<TD width=8%>~300</TD>
+<TD width=9%>~400</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=19%>Process Viewer</TD>
+<TD width=8%>320</TD>
+<TD width=8%>332</TD>
+<TD width=9%>332</TD>
+<TD width=9%>328</TD>
+<TD width=10%>~330</TD>
+<TD width=12%>348</TD>
+<TD width=8%>&nbsp;</TD>
+<TD width=8%>~300</TD>
+<TD width=9%>~400</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=19%>Registry Editor</TD>
+<TD width=8%>320</TD>
+<TD width=8%>332</TD>
+<TD width=9%>332</TD>
+<TD width=9%>320</TD>
+<TD width=10%>~330</TD>
+<TD width=12%>348</TD>
+<TD width=8%>&nbsp;</TD>
+<TD width=8%>~300</TD>
+<TD width=9%>~400</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=19%>Spy</TD>
+<TD width=8%>320</TD>
+<TD width=8%>332</TD>
+<TD width=9%>332</TD>
+<TD width=9%>328</TD>
+<TD width=10%>332</TD>
+<TD width=12%>348</TD>
+<TD width=8%>&nbsp;</TD>
+<TD width=8%>312</TD>
+<TD width=9%>~400</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=19%>System Information</TD>
+<TD width=8%>500</TD>
+<TD width=8%>496</TD>
+<TD width=9%>476</TD>
+<TD width=9%>480</TD>
+<TD width=10%>500</TD>
+<TD width=12%>520</TD>
+<TD width=8%>&nbsp;</TD>
+<TD width=8%>472</TD>
+<TD width=9%>452</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=19%>Zoomin*</TD>
+<TD width=8%>416</TD>
+<TD width=8%>880</TD>
+<TD width=9%>880</TD>
+<TD width=9%>880</TD>
+<TD width=10%>880</TD>
+<TD width=12%>1476</TD>
+<TD width=8%>&nbsp;</TD>
+<TD width=8%>880</TD>
+<TD width=9%>1188</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=19%>Kernel Tracker</TD>
+<TD width=8%>844</TD>
+<TD width=8%>880</TD>
+<TD width=9%>828</TD>
+<TD width=9%>872</TD>
+<TD width=10%>872</TD>
+<TD width=12%>884</TD>
+<TD width=8%>&nbsp;</TD>
+<TD width=8%>812</TD>
+<TD width=9%>**850</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=19%>Performance Monitor</TD>
+<TD width=8%>712</TD>
+<TD width=8%>~740</TD>
+<TD width=9%>~740</TD>
+<TD width=9%>740</TD>
+<TD width=10%>784</TD>
+<TD width=12%>752</TD>
+<TD width=8%>&nbsp;</TD>
+<TD width=8%>688</TD>
+<TD width=9%>712</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=19%>Call Profiler</TD>
+<TD width=8%>2648</TD>
+<TD width=8%>3440</TD>
+<TD width=9%>3444</TD>
+<TD width=9%>2664</TD>
+<TD width=10%>2672</TD>
+<TD width=12%>3444</TD>
+<TD width=8%>&nbsp;</TD>
+<TD width=8%>2604</TD>
+<TD width=9%>3436</TD>
+</TR>
+</table></div>
+
+<P class="fineprint">*Depends on resolution and bit depth of screen</p>
+<P class="fineprint">**About 200k higher for Emulator</p>
+<BLOCKQUOTE class="dtBlock">
+<B>Note&nbsp;&nbsp;&nbsp;</B>These numbers were the amount of memory that these programs used. It is the difference between the amount of free memory before the program was run and the memory high-water mark, the most memory allocated at any one time.</BLOCKQUOTE>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_new_platform_wizard_warning_messages"></A>New Platform Wizard warning messages</H1>
+
+<P>When creating a custom configuration with the <B>New Platform Wizard</B> and selecting check boxes that indicate Choose 1, a warning message will result.</P>
+
+<P>The following warning messages can be ignored.</P>
+<div class="tablediv"><table cellspacing="0" class="dtTABLE">
+
+<TR VALIGN="top">
+<TH width=100%>Custom device without display</TH>
+</TR>
+
+<TR VALIGN="top">
+<TD width=100%>Warning PB1007: Feature not in catalog: Component Object Model (Choose 1)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=100%>Warning PB1007: Feature not in catalog: MSXML 3.0 (Choose 1)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=100%>Warning PB1007: Feature not in catalog: Bluetooth (Choose 1)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=100%>Warning PB1007: Feature not in catalog: File &amp; Database Replication (Choose 1)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=100%>Warning PB1007: Feature not in catalog: File System - Internal (Choose 1)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=100%>Warning PB1007: Feature not in catalog: Registry Storage (Choose 1)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=100%>Warning PB1007: Feature not in catalog: SimSun &amp; NSimSun (Choose 1)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=100%>Warning PB1007: Feature not in catalog: MSPY2 for Windows CE (Choose 1 Database)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=100%>Warning PB1007: Feature not in catalog: MingLiU &amp; PMingLiU (Choose 1)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=100%>Warning PB1007: Feature not in catalog: MSGothic (Choose 1)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=100%>Warning PB1007: Feature not in catalog: Input Method Editor (Choose 1)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=100%>Warning PB1007: Feature not in catalog: Gulim &amp; GulimChe (Choose 1)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=100%>Warning PB1007: Feature not in catalog: Browser Application (choose 1)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=100%>Warning PB1007: Feature not in catalog: Graphical Shell (Choose 1)</TD>
+</TR>
+</table></div>
+<div class="tablediv"><table cellspacing="0" class="dtTABLE">
+
+<TR VALIGN="top">
+<TH width=100%>Custom device with shell and graphical user interface (GUI)</TH>
+</TR>
+
+<TR VALIGN="top">
+<TD width=100%>Warning PB1007: Feature not in catalog: Component Object Model (Choose 1)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=100%>Warning PB1007: Feature not in catalog: Bluetooth (Choose 1)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=100%>Warning PB1007: Feature not in catalog: File &amp; Database Replication (Choose 1)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=100%>Warning PB1007: Feature not in catalog: File System - Internal (Choose 1)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=100%>Warning PB1007: Feature not in catalog: Registry Storage (Choose 1)</TD>
+</TR>
+</table></div>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_cannot_use_remote_call_profiler_on_applications_with_fibers"></A>Cannot Use Remote Call Profiler on applications with fibers</H1>
+
+<P>If you use Remote Call Profiler to profile an application that uses fibers, you must disable profiling while switching from one fiber to the another. In the application, you may temporarily disable profiling by calling the <B>SuspendProfile</B> function and resume profiling by calling the <B>ResumeProfile</B> function.</P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_cemgrc_exe_issues_three_exception_warning_lines_to_debugger_output"></A>Cemgrc.exe issues three exception warning lines to debugger output</H1>
+
+<P>The Cemgrc.exe file issues and handles an exception during its initialization on a CEPC. This exception, when running under the Platform Builder debugger, emits the following lines to the output window:</P>
+
+<P>92684 PID:815260cc TID:81f9de4c Exception 006 Thread=81f9de4c Proc=a1e0bb52 'CEMGRC.exe'</P>
+
+<P>92685 PID:815260cc TID:81f9de4c AKY=00000081 PC=000129ec ESP=1012f77c EA=00000000</P>
+
+<P>92686 PID:815260cc TID:81f9de4c TLSKERN_NOFAULT set... bypassing kernel debugger.</P>
+
+<P>These error messages can be ignored because they are a result of expected behavior.</P>
+
+
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_emulator_for_windows_ce"></A>Emulator for Windows CE .NET</H1>
+
+<P>When you are using the Emulator your entire platform is running in software. This means that in almost all cases performance on the Emulator will be slower than on actual hardware. For many operating system tasks a degradation of performance will not affect the ultimate success of those tasks, even though they may appear halted at times. However, operating system tasks with a time-critical aspect to them may not be successful when running on the Emulator. For instance, real-time applications and development are not supported in the Emulator, and timing-sensitive applications, like multimedia, may show degraded or erratic performance.</P>
+
+<P>Strictly speaking, the Emulator only supports x86 platforms. In actual practice most OS APIs will run identically on other processors. Also, developing on the Emulator gives no real advantage to deploying to x86 hardware in comparison with other processors.</P>
+
+<P><A HREF="#_wcepb_relnotes_emulator_system_requirements">Emulator system requirements</A></P>
+
+<P><A HREF="#_wcepb_relnotes_applications_and_services_development">Applications and services development</A></P>
+
+<P><A HREF="#_wcepb_relnotes_communications_and_networking">Communications and networking</A></P>
+
+<P><A HREF="#_wcepb_relnotes_hardware_support">Hardware Support</A></P>
+
+<P><A HREF="#_wcepb_relnotes_multimedia_technologies">Multimedia Technologies</A></P>
+
+<P><A HREF="#_wcepb_relnotes_shell_and_user_interface">Shell and User Interface</A></P>
+
+<P><A HREF="#_wcepb_relnotes_platform_builder">Platform Builder</A></P>
+
+<P><A HREF="#_wcepb_relnotes_platform_builder_upgrades_cause_the_emulator_download_dialog_box_to_display_invalid_data_for_existing_devices">Platform Builder upgrades cause the Emulator Download dialog box to display invalid data for existing devices</A></P>
+
+<P><A HREF="#_wcepb_relnotes_emulator_cannot_load_a__cem_file_that_resides_in_the_platform_release_directory">Emulator cannot load a .cem file that resides in the platform release directory</A></P>
+
+<P><A HREF="#_wcepb_relnotes_running_the_emulator_on_a_dual_processor_machine_is_slow">Running the Emulator on a dual-processor machine is slow</A></P>
+
+<P><A HREF="#_wcepb_relnotes_host_system_must_have_a_nic_installed_to_use_remote_tools_against_the_emulator">Host system must have a NIC installed to use Remote Tools against the Emulator</A></P>
+
+<P><A HREF="#_wcepb_relnotes_uninstalling_platform_builder_after_the_emulator_stops_responding_causes_windows_2000_to_stop_responding">Uninstalling Platform Builder after the Emulator stops responding causes Windows 2000 to stop responding</A></P>
+
+<P><A HREF="#_wcepb_relnotes_emulator_fails_to_resolve_host_names_for_multihomed_hosts">Emulator fails to resolve host names for multihomed hosts</A></P>
+
+<P><A HREF="#_wcepb_relnotes_must_customize_the_emulator_for_it_to_work_in_an_sdk">Must customize the Emulator for it to work in an SDK</A></P>
+
+<P><A HREF="#_wcepb_relnotes_large_os_images_can_be_too_big_to_build_or_download_and_can_fail">Large OS images can be too big to build or download and can fail</A></P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_emulator_system_requirements"></A>Emulator system requirements</H1>
+
+<P>The minimum system requirements for running one instance of the Emulator configured to use 64 MB of memory are as follows:
+
+<UL type="disc">
+	<LI>450-MHz CPU</li>
+
+	<LI>192 MB of system memory; 256 MB is recommended for large images</li>
+
+	<LI>50 MB of free space on hard drive</li>
+</UL>
+
+<P>The recommended system requirements for running one instance of the Emulator configured to use 64 MB of memory are as follows:
+
+<UL type="disc">
+	<LI>1-GHz CPU</li>
+
+	<LI>384 MB of system memory</li>
+
+	<LI>500 MB of free space on hard drive</li>
+</UL>
+
+<P>Each additional instance of the Emulator requires an additional 32 MB of system memory plus an amount of system memory equal to the amount of memory that you configure the Emulator to use.</P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_applications_and_services_development"></A>Applications and services development</H1>
+
+<UL type="disc">
+	<LI>No support for the Simple Network Management Protocol (SNMP).</li>
+
+	<LI>The Emulator can be used with ActiveSync 3.5, but earlier versions of ActiveSync will not work with the Emulator. You can use two serial ports connected together with a null modem cable to provide the communications path between Platform Builder and the Emulator. The following steps describe how to set this up.</li>
+</UL>
+
+<H4 class="dtH4">Configuring the Emulator for ActiveSync </H4>
+
+<OL type="1">
+	<LI>Choose <B>Emulator</B> from the <B>Download</B> list on the <B>Services</B> tab of the <B>Configure Remote Connection</B> dialog box.</li>
+
+	<LI>From the <B>Download</B> list, choose <B>Configure</B>.</li>
+
+	<LI>In the <B>Configure Emulator Download Service</B> dialog box, set the serial port that the Emulator will use. Choose <B>COM1</B> or <B>COM2</B>, whichever you prefer, from the <B>Serial Port 2 </B>list if KITL is built into your OS image.
+<P>- or -
+
+<P>If KITL is not built into your OS image, choose <B>COM1</B> or <B>COM2</B>, whichever you prefer, from the <B>Serial Port 1</B> list.
+</li>
+
+	<LI>Choose <B>None</B> from the serial port list that you did not assign a COM port to in the previous step.</li>
+
+	<LI>Choose <B>OK</B> to close the <B>Configure Emulator Download Service</B> dialog box.</li>
+
+	<LI>Choose <B>OK</B> to close the <B>Configure Remote Connection</B> dialog box.</li>
+
+	<LI>On the desktop, configure ActiveSync 3.5 connection settings to connect to whichever serial port, COM1 or COM2, was not assigned to the Emulator.</li>
+
+	<LI>On your desktop computer, connect the serial ports COM1 and COM2 together with the null modem cable. </li>
+
+	<LI>Once your platform is downloaded to the Emulator, run Repllog.exe on the target device in the Emulator. It should connect. Occasionally the connection will fail. If this happens, wait for Repllog.exe to time out and then retry it.</li>
+</OL>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_communications_and_networking"></A>Communications and networking</H1>
+
+<P>The following features work with limitations in the Emulator:
+
+<UL type="disc">
+	<LI>The Emulator does not allow incoming connections. Other applications will not be able to connect to the CE device running inside the Emulator. The following components only work for outbound connections:
+<UL type="disc">
+	<LI>DCOM</li>
+
+	<LI>MSMQ </li>
+
+	<LI>SOAP</li>
+
+	<LI>OBEX</li>
+</UL>
+</li>
+
+	<LI>The Emulator cannot act as a network sever. It has its own private IP address and is therefore unreachable from outside applications. The servers will work locally within the Emulator. For example, calls to http://localhost will be successful.
+<UL type="disc">
+	<LI>Web Server</li>
+
+	<LI>RAS Server</li>
+
+	<LI>Telnet Server</li>
+
+	<LI>FTP Server</li>
+</UL>
+</li>
+
+	<LI>Internet 5.5 exhibits poor performance for the following scenarios:
+<UL type="disc">
+	<LI>Loading graphics or content-rich Web pages </li>
+
+	<LI>Scrolling a Web page</li>
+</UL>
+</li>
+
+	<LI>Dial-Up Networking only works with an external modem. Dial-Up Networking does not work in the Emulator using a software modem, IrDA, or Bluetooth.</li>
+
+	<LI>You can set up a PPTP connection over a PPP connection, such as Dial-Up Networking, using a modem or with a direct connection using a null modem cable.</li>
+
+	<LI>In the Emulator, it is not possible to set up a virtual private network (VPN) connection using PPTP over a local area network. This includes both Ethernet and 802.11. Attempting to create a VPN connection will fail with a message saying that the server dropped the connection.</li>
+
+	<LI>The Emulator does not provide network access when the host computer is connected to the network through a VPN connection.</li>
+</UL>
+
+<P>The following features do not work in the Emulator:
+
+<UL type="disc">
+	<LI>IrDa</li>
+
+	<LI>Bluetooth</li>
+
+	<LI>802.11</li>
+
+	<LI>Modems</li>
+
+	<LI>No voice over IP (VoIP) in Windows Messenger because the Emulator only supports half-duplex audio.</li>
+
+	<LI>Real-Time Communication (RTC) does not support connection over the Universal Datagram Protocol (UDP).</li>
+</UL>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_hardware_support"></A>Hardware support</H1>
+
+<P>The following devices are supported in the Emulator:
+
+<UL type="disc">
+	<LI>Serial ports. You can connect modems through serial ports COM1 and COM2.</li>
+
+	<LI>Parallel ports. You can connect a printer to the parallel port and print from WordPad.</li>
+
+	<LI>The Emulator provides network support by emulating the DEC 2114x driver in software. No other Ethernet drivers are supported.</li>
+
+	<LI>The Emulator provides display support by emulating the VGAFLAT driver. No other display drivers are supported.</li>
+
+	<LI>The Emulator provides audio support by emulating the Soundblaster 16 wavedev driver. This driver only supports half-duplex audio. No other audio drivers are supported.</li>
+</UL>
+
+<P>The following devices are not supported in the Emulator:
+
+<UL type="disc">
+	<LI>USB devices</li>
+
+	<LI>PC Card devices</li>
+
+	<LI>Storage devices, including CF cards and hard disks</li>
+
+	<LI>File system drivers, including FAT, CD, and DVD</li>
+
+	<LI>IEEE 1394 devices</li>
+</UL>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_multimedia_technologies"></A>Multimedia technologies</H1>
+
+<P>The Emulator must compete with the host machine for the CPU and other hardware resources. This can have a severe affect on multimedia tasks, which are generally performance-sensitive and can at times be CPU intensive. Moreover, multimedia performance as well as selected features can depend on having appropriate hardware acceleration available on the platform.</P>
+
+<P>The Emulator does not support hardware acceleration for multimedia. Although some multimedia features have their own software emulation capabilities built into them, even these features will experience performance or driver limitations on the Emulator. Some important multimedia features are specifically hardware-related and are never supported in software even in real Windows CE devices.</P>
+
+<P>The following features work with limitations in the Emulator:
+
+<UL type="disc">
+	<LI>Windows Media playback performance is highly dependant on the processing power of the host system.</li>
+
+	<LI>DirectShow works within the limitations imposed by the audio and display drivers as well as the processing power of the host system.</li>
+
+	<LI>DirectSound works within the limitations imposed by the audio driver. The Emulator does not support DirectSound capture.</li>
+
+	<LI>The audio driver in the Emulator is limited to 22.05-kHz native output and only runs in half-duplex mode. Despite this limitation, with the unified audio model (UAM), it is possible to play back audio data that has been recorded at other sample rates, such as 44.1 kHz. Down-sampling does have an affect on audio quality, making it slightly muddier or duller.</li>
+
+	<LI>Waveform Audio capture quality is poor.</li>
+
+	<LI>You can encounter some minor audio playback issues when the Emulator must interact and compete with Windows XP for access to audio hardware on the host machine. </li>
+
+	<LI>A number of use scenarios related to moving or changing display elements on the screen can cause minor ticks or disruptions during audio playback. Intense graphics changes, such as with Direct3D, may result in poor audio quality or even block audio output entirely.</li>
+
+	<LI>The Emulator only has a DirectDraw-enabled FLAT driver. There is no emulation support for hardware features such as hardware blits, flips, overlays, or video ports.</li>
+
+	<LI>Direct3D inherits the display driver limitations imposed on DirectDraw. Additionally, because there is no support for hardware acceleration in the Emulator, all rendering must be done through the reference rasterizer so you can expect slow performance. </li>
+</UL>
+
+<P>The following features do not work in the Emulator:
+
+<UL type="disc">
+	<LI>The DVD-Video API will not work in the Emulator. Although it is possible to implement a software-based decoding solution, the DVD-Video API is delivered with the assumption that all DVD-Video decoding will be done in dedicated decoding and rendering hardware. The Emulator does not have any support for DVD-Video decoding hardware.</li>
+
+	<LI>Digital Rights Management (DRM) is not supported in the Emulator due to the inherent complexities associated with security and the necessary OEM-specific DRM libraries. Trying to play a DRM clip in the Emulator will open a dialog box indicating that DRM is not included in your platform and will cause playback to gracefully fail.</li>
+</UL>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_shell_and_user_interface"></A>Shell and user interface</H1>
+
+<P>The following feature works with limitations in the Emulator:
+
+<UL type="disc">
+	<LI>Scrolling and display is slow, affecting all applications.</li>
+</UL>
+
+<P>The following features do not work in the Emulator:
+
+<UL type="disc">
+	<LI>Screen rotation.</li>
+
+	<LI>The Emulator cannot emulate multiple screen support for a Windows CE device.</li>
+</UL>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_platform_builder"></A>Platform Builder</H1>
+
+<P>Some features of Platform Builder can have an affect on how an otherwise supported platform runs in the Emulator.</P>
+
+<P>The Emulator can run OS images from two places: from Platform Builder or in a development environment as part of a rolled SDK. The Emulator will work with Microsoft eMbedded Visual C++ 4.0. It will also work with Microsoft eMbedded Visual Tools 3.0, but only if the PocketPC 2002 SDK has also been installed.</P>
+
+<P>If you are using the Emulator in Platform Builder, you can include KITL in your image. If you are creating an image as part of an SDK, KITL should not be included in your image. If KITL is included, the Emulator will block the development tools as it launches and then waits for a KITL connection that can never be made.</P>
+
+<P>If you are running in the Emulator and try to connect using a Remote Desktop client to the same desktop system the Emulator is running on, you will freeze the desktop screen after you have supplied your credentials.</P>
+
+<P>The following board support package (BSP) issues affect the Emulator:
+
+<UL type="disc">
+	<LI>When you add the Emulator BSP to a project, the network driver changes from DEC 2114x to Realtek RTK8139. However, once the project is built the DEC driver will appear in Control Panel of the device running on the Emulator. </li>
+
+	<LI>When you use the <B>New Platform Wizard</B> to create a Web Pad platform, the USB Human Interface Device (HID) driver is added by default even though USB hardware is not supported.</li>
+</UL>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_platform_builder_upgrades_cause_the_emulator_download_dialog_box_to_display_invalid_data_for_existing_devices"></A>Platform Builder upgrades cause the Emulator Download dialog box to display invalid data for existing devices</H1>
+
+<P>If you upgrade to Platform Builder 4.0 from a beta version of Platform Builder and a named connection in the beta version uses the Emulator download service, the information for the Emulator download service for that named connection becomes invalid after the upgrade. After upgrading, delete the named connection and add a new named connection. Alternatively, configure the Emulator download service for the existing named connection by manually updating each piece of invalid data for the download service.</P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_emulator_cannot_load_a__cem_file_that_resides_in_the_platform_release_directory"></A>Emulator cannot load a .cem file that resides in the platform release directory</H1>
+
+<P>To load a .cem file, first copy the .cem file to a different directory and then load the .cem file.</P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_running_the_emulator_on_a_dual_processor_machine_is_slow"></A>Running the Emulator on a dual-processor machine is slow</H1>
+
+<P>If you encounter performance issues while running the Emulator on a development workstation with multiple CPUs, try one of the following approaches to improve performance:
+
+<UL type="disc">
+	<LI>In Task Manager, force the Emulator to run on only one CPU by right-clicking the emulator.exe process, choosing <B>Set Affinity</B>, and selecting one CPU.</li>
+
+	<LI>Force Platform Builder, Platform Manager, and the Emulator to run on the same CPU. In Task Manager, right-click the cepb.exe process, choose <B>Set Affinity</B>, and then select a CPU. Repeat for the cemgr.exe and emulator.exe processes, selecting the same CPU.</li>
+</UL>
+
+<P>If these approaches do not increase the performance of the Emulator, try disabling one of your CPUs in BIOS.</P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_host_system_must_have_a_nic_installed_to_use_remote_tools_against_the_emulator"></A>Host system must have a NIC installed to use Remote Tools against the Emulator</H1>
+
+<P>With the Emulator, to use a remote tool over the TCP/IP transport, a network interface card (NIC) must be installed on the development workstation. If you do not have a NIC, you can install the Microsoft Loopback Adapter instead.</P>
+
+<P class="labelproc"><B>To install the Microsoft Loopback Adapter in Windows XP</B>
+
+<OL type="1">
+	<LI>Open <B>Control Panel</B>.</li>
+
+	<LI>Choose <B>Add Hardware</B>.</li>
+
+	<LI>Choose <B>Next</B>.</li>
+
+	<LI>Choose <B>Yes, I have already connected the hardware</B>, and then choose <B>Next</B>.</li>
+
+	<LI>From the <B>Installed hardware</B> list, select <B>Add a new hardware device</B>, and then choose <B>Next</B>.</li>
+
+	<LI>Choose <B>Install the hardware that I manually select from a list (Advanced)</B>, and then choose <B>Next</B>.</li>
+
+	<LI>From the <B>Common hardware types</B> list, select <B>Network adapters</B>, and then choose <B>Next</B>.</li>
+
+	<LI>From the <B>Manufacturer</B> list, select <B>Microsoft</B>.</li>
+
+	<LI>From the <B>Network Adapter</B> list, select <B>Microsoft Loopback Adapter</B>, and then choose <B>Next</B>.</li>
+
+	<LI>Choose <B>Next</B>.</li>
+
+	<LI>Choose <B>Finish</B>.</li>
+</OL>
+
+<P class="labelproc"><B>To install the Microsoft Loopback Adapter in Windows 2000</B>
+
+<OL type="1">
+	<LI>Open <B>Control Panel</B>.</li>
+
+	<LI>Choose <B>Add/Remove Hardware</B>.</li>
+
+	<LI>Choose <B>Next</B>.</li>
+
+	<LI>Choose <B>Add/Troubleshoot a device</B>, and then choose <B>Next</B>.</li>
+
+	<LI>From the <B>Devices</B> list, select <B>Add a new device</B>, and then choose <B>Next</B>.</li>
+
+	<LI>Choose <B>No, I want to select the hardware from a list</B>, and then choose <B>Next</B>.</li>
+
+	<LI>From the <B>Hardware types</B> list, select <B>Network adapters</B>, and then choose <B>Next</B>.</li>
+
+	<LI>From the <B>Manufacturers</B> list, select <B>Microsoft</B>.</li>
+
+	<LI>From the <B>Network Adapter</B> list, select <B>Microsoft Loopback Adapter</B>, and then choose <B>Next</B>.</li>
+
+	<LI>Choose <B>Next</B>.</li>
+
+	<LI>Choose <B>Finish</B>.</li>
+</OL>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_uninstalling_platform_builder_after_the_emulator_stops_responding_causes_windows_2000_to_stop_responding"></A>Uninstalling Platform Builder after the Emulator stops responding causes Windows 2000 to stop responding</H1>
+
+<P>For a development workstation running Microsoft Windows 2000 Professional, if you want to uninstall Platform Builder, reboot the development workstation before uninstalling the product if you ran the Emulator and the Emulator stopped responding. If you do not reboot the development workstation, you may encounter an error and a system reboot when you attempt to uninstall Platform Builder.</P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_emulator_fails_to_resolve_host_names_for_multihomed_hosts"></A>Emulator fails to resolve host names for multihomed hosts</H1>
+
+<P>When using the Emulator on a multihomed host machine, networking applications may fail because they send packets out on the wrong network. This problem can be avoided if you disable all the network cards except the one the user wants the Emulator to use, and then reruns the Emulator.</P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_must_customize_the_emulator_for_it_to_work_in_an_sdk"></A>Must customize the Emulator for it to work in an SDK</H1>
+
+<P>As a platform developer, you may need to customize an SDK for the Emulator to work. Properties associated with the Universal SDK such as Universal and Parent do not exist in TUSDK_EMULATION. A dialog box displaying a warning may appear when downloading the OS image.</P>
+
+<H1 class="dtH1"><A NAME="_wcepb_relnotes_large_os_images_can_be_too_big_to_build_or_download_and_can_fail"></A>Large OS images can be too big to build or download and can fail</H1>
+
+<P>The Japanese OS Image for a Web Pad Enterprise release is too large to build on the Emulator.</P>
+
+<P>As a workaround, do the following: 
+
+<OL type="1">
+	<LI>After creating a new platform, choose <B>Settings</B> from the <B>Platform</B> menu.</li>
+
+	<LI>Choose the <B>Environment</B> tab.</li>
+
+	<LI>Create new environment variable IMGRAM64=1.</li>
+
+	<LI>Build the image.</li>
+
+	<LI>After the image is built, choose <B>Configure Remote Connection</B> from the <B>Target</B> menu.</li>
+
+	<LI>In the <B>Download</B> box, choose <B>Emulator</B>, and then choose <B>Configure</B>.</li>
+
+	<LI>Under <B>System</B> group, set Memory=64 MB.</li>
+</OL>
+<br>
+<p align=center>&copy; 1992-2002 Microsoft Corporation.<br>
+All rights reserved.</p>
+
+</BODY>
+</HTML>

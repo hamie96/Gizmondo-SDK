@@ -1,0 +1,41 @@
+// HelloSubscriber.idl : IDL source for HelloSubscriber.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (HelloSubscriber.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "CePubSub.idl";
+	[
+		object,
+		uuid(F75B87AA-16E9-4F07-8D17-6E1BAFB43089),
+	
+		helpstring("IHelloSub Interface"),
+		pointer_default(unique)
+	]
+	interface IHelloSub : ISubscriber
+	{
+		[helpstring("method Close")] HRESULT Close();
+		[helpstring("method Open")] HRESULT Open([in] LPCOLESTR filename);
+	};
+
+[
+	uuid(C86E2A5F-16B2-4F1C-9C66-95B32A5555B7),
+	version(1.0),
+	helpstring("HelloSubscriber 1.0 Type Library")
+]
+library HELLOSUBSCRIBERLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(570B61E3-CDCC-4D49-BC11-B1F14366E184),
+		helpstring("HelloSub Class")
+	]
+	coclass HelloSub
+	{
+		[default] interface IHelloSub;
+	};
+};

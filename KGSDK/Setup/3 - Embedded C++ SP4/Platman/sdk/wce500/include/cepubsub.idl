@@ -1,0 +1,92 @@
+// CePubSub.idl : IDL source for CePubSub.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (PubSub.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		//uuid(33C009D0-7420-4ab6-8CD7-4C5A6CD0B881),
+		uuid(93424894-24C1-4CEE-B78F-B633E0689F46),
+
+		helpstring("ISubscriber Interface"),
+		pointer_default(unique)
+	]
+	interface ISubscriber : IUnknown
+	{
+	    cpp_quote("//")
+	    cpp_quote("// Subscriber notification codes.")
+	    cpp_quote("// Range 0-1023 reserved.")
+	    cpp_quote("//")
+
+		cpp_quote("#define SNC_PUBLISHER_EXCEPTION   0")
+		cpp_quote("#define SNC_LAST_RESERVED         1023")
+		cpp_quote("#define SNC_USER                  1024")
+
+		[helpstring("method Write")] HRESULT Write([in] DWORD dwBufSize, [in,  size_is(dwBufSize)] BYTE *pbData);
+		[helpstring("method Notify")] HRESULT Notify(DWORD dwEventCode, DWORD dwFlags);
+	};
+
+	[
+		object,
+		//uuid(7FC4FF77-1D30-4d0e-9F46-DF3235A2FCA0),
+		uuid(ECB85F81-A21F-4A21-B240-74D63CC10C76),
+
+		helpstring("IPublisher Interface"),
+		pointer_default(unique)
+	]
+	interface IPublisher : IUnknown
+	{
+		[helpstring("method Control")] HRESULT Control(DWORD dwControl, DWORD dwBufSize, [in, size_is(dwBufSize)] BYTE *pbData);
+	};
+
+	[
+		object,
+		//uuid(300DE4DA-EA97-4b56-979D-E145CCABBF4B),
+		uuid(6C6F881B-2CDA-4769-9C21-720953A053EB),
+
+		helpstring("IPublisherManagement Interface"),
+		pointer_default(unique)
+	]
+	interface IPublisherManagement : IUnknown
+	{
+		[helpstring("method Initialize")] HRESULT Initialize(ISubscriber *pSubscriber, BOOL *bUseBuffering, DWORD *pdwBufSize);
+		[helpstring("method StopPublishing")] HRESULT StopPublishing(void);
+		[helpstring("method StartPublishing")] HRESULT StartPublishing(void);
+	};
+
+	[
+		object,
+		//uuid(191622E0-8EF2-424B-BC8C-76E0D5959C1D),
+		uuid(A84A7F8C-37ED-4132-89A9-CD6160B6F7B4),
+
+		helpstring("IPublishSubscribeMgr Interface"),
+		pointer_default(unique)
+	]
+	interface IPublishSubscribeMgr : IUnknown
+	{
+		[helpstring("method Subscribe")] HRESULT Subscribe(GUID PlatformID, GUID DeviceID, GUID PublisherID, ISubscriber *pSubscriber, [out] IPublisher **ppPublisher, [out] GUID *pCookieID);
+		[helpstring("method Unsubscribe")] HRESULT Unsubscribe(GUID cookieID);
+	};
+
+[
+	uuid(A0CB5266-384E-4730-BAA1-25F40278887E),
+	version(1.0),
+	helpstring("PubSub 1.0 Type Library")
+]
+library PUBSUBLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(CB7EE2BC-D04A-4408-834E-D5FA9D5183DC),
+		helpstring("PublishSubscribeMgr Class")
+	]
+	coclass PublishSubscribeMgr
+	{
+		[default] interface IPublishSubscribeMgr;
+	};
+};
